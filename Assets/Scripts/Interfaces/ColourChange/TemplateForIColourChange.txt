@@ -1,0 +1,14 @@
+public class "ScriptName" : MonoBehaviour, IColourChange
+{
+ 
+    private bool isColoured;
+    public void ColourChange()
+    {
+        if (!isColoured)
+        {
+            //Insert Code
+        }
+    }
+ 
+}
+

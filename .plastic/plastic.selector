@@ -1,0 +1,4 @@
+repository "PAALYTEAM_TINYALIEN@PaalyTeam@cloud"
+  path "/"
+    br "/main"
+    co "/main"

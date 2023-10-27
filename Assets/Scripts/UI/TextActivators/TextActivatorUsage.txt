@@ -1,0 +1,6 @@
+Give gameobject prefab: DialogueSummoner
+
+Unpack prefab and Apply desired dialouge in DialogueSummoner
+
+in desired condition write to activate dialouge:
+transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
