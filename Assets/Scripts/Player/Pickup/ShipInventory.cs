@@ -63,7 +63,7 @@ namespace Pickup
                     //Make so the space between changes depending on max. number of crayons with the help of Mathf
                     float x = Mathf.Cos(radianToRotate * p) * -1;
                     float y = Mathf.Sin(-radianToRotate * p) * -1;
-                    crayonMade.transform.localPosition = new Vector3(x, 2.7f, y);
+                    crayonMade.transform.localPosition = new Vector3(x, 2.5f, y);
                     p++;
                 }
                 

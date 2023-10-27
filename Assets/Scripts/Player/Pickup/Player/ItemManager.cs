@@ -1,8 +1,10 @@
 using System;
+using System.Linq;
 using Pickup.Crayon;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 namespace Pickup.Player
 {
@@ -254,8 +256,9 @@ namespace Pickup.Player
             
                 for (int i = 0; i < nameOfTags.Length; i++)
                 {
-                    GameObject[] objectsWithTheTag = GameObject.FindGameObjectsWithTag(nameOfTags[i]);
-                    objectsToChangeColour[i] = objectsWithTheTag;
+                    //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
+                    GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
+                    objectsToChangeColour[i] = objectsWithEnum;
                     if (numbStored[i] > 0 || numbCarried[i] > 0)
                     {
                         if (isSceneVisited[currentScene])
@@ -263,6 +266,8 @@ namespace Pickup.Player
                             ChangeColourOfEnvironment(i + 1);
                         }
                     }
+                    
+
                 }
 
             
