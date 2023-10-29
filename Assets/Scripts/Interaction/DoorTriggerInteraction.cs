@@ -1,5 +1,6 @@
 using Pickup.Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorTriggerInteraction : TriggerInteractionBase
 {
@@ -22,45 +23,16 @@ public class DoorTriggerInteraction : TriggerInteractionBase
     [Space(10f)]
     [Header("THIS DOOR")]
     public DoorToSpawnAt currentDoorPosition;
-    
+
     public override void Interact()
     {
-        // Load new scene
         GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>().hintText.SetActive(true);
-        SceneSwapManager.SwapSceneFromDoorUse(sceneToLoad, doorToSpawnTo);
-    }
-}
-
-/*
-using UnityEngine;
-
-public class DoorTriggerInteraction : TriggerInteractionBase
-{
-    // Which door is this?
-    public enum DoorToSpawnAt
-    {
-        None,
-        One,
-        Two,
-        Three,
-        Four,
-        Five,
-        // Add more if needed
-    }
-
-    [Header("Spawn To")]
-    // Which door in new scene are we going to go into?
-    [SerializeField] private DoorToSpawnAt doorToSpawnTo; 
-    [SerializeField] private SceneField sceneToLoad;
-
-    [Space(10f)]
-    [Header("THIS DOOR")]
-    public DoorToSpawnAt currentDoorPosition;
-
-    public override void Interact()
-    {
+        if (sceneToLoad == null || doorToSpawnTo == DoorToSpawnAt.None)
+        {
+            Debug.Log("Scene to load is not set. Interaction with door is disabled.");
+            return;
+        }
         // Load new scene
         SceneSwapManager.SwapSceneFromDoorUse(sceneToLoad, doorToSpawnTo);
     }
 }
-*/
