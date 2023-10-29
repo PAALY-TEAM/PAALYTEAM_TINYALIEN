@@ -520,6 +520,7 @@ GameObject:
   - component: {fileID: 227802624}
   - component: {fileID: 227802623}
   - component: {fileID: 227802622}
+  - component: {fileID: 227802631}
   m_Layer: 6
   m_Name: Player_Alien
   m_TagString: Player
@@ -872,6 +873,18 @@ Transform:
   - {fileID: 682275772}
   m_Father: {fileID: 1710179380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &227802631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227802620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9843787686713e7489d0fb7d70da1a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &299041177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -880,6 +893,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4663861151613182657, guid: 5b001fcef374f6142ae80c8939f85399, type: 3}
+      propertyPath: currentDoorPosition
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6666663115546792242, guid: 5b001fcef374f6142ae80c8939f85399, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.467256
@@ -2107,6 +2124,14 @@ PrefabInstance:
       propertyPath: currentDoorPosition
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4798912898027050522, guid: 084e5f70507638843b1257b36798be58, type: 3}
+      propertyPath: sceneToLoad.sceneName
+      value: '!SceneSwapping_Target1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798912898027050522, guid: 084e5f70507638843b1257b36798be58, type: 3}
+      propertyPath: sceneToLoad.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 5374fa7caf0e93f4f8081295b55c209e, type: 3}
     - target: {fileID: 6819797918733116905, guid: 084e5f70507638843b1257b36798be58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.633555
