@@ -1,16 +1,19 @@
-using UnityEngine;
-using DG.Tweening;
 using Cinemachine;
+using DG.Tweening;
+using UnityEngine;
 
-public class MainMenuCameraDOTweenAnim : MonoBehaviour
+namespace UI
 {
-    [SerializeField]
-    private float duration;
-
-    public CinemachineVirtualCamera virtualCamera;
-
-    public void LookAt(Transform target)
+    public class MainMenuCameraDoTweenAnim : MonoBehaviour
     {
-        virtualCamera.transform.DOLookAt(target.position, duration);
+        [SerializeField]
+        private float duration;
+
+        public CinemachineVirtualCamera virtualCamera;
+
+        public void LookAt(Transform target)
+        {
+            virtualCamera.transform.DOLookAt(target.position, duration);
+        }
     }
 }

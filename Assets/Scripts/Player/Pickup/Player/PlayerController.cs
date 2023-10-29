@@ -4,28 +4,28 @@ namespace Pickup.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        private CharacterController controller;
-        private Vector3 playerVelocity;
-        private bool groundedPlayer;
-        private float playerSpeed = 2.0f;
-        private float jumpHeight = 1.0f;
-        private float gravityValue = -9.81f;
+        private CharacterController _controller;
+        private Vector3 _playerVelocity;
+        private bool _groundedPlayer;
+        private float _playerSpeed = 2.0f;
+        private float _jumpHeight = 1.0f;
+        private float _gravityValue = -9.81f;
 
         private void Start()
         {
-            controller = gameObject.AddComponent<CharacterController>();
+            _controller = gameObject.AddComponent<CharacterController>();
         }
 
         void Update()
         {
-            groundedPlayer = controller.isGrounded;
-            if (groundedPlayer && playerVelocity.y < 0)
+            _groundedPlayer = _controller.isGrounded;
+            if (_groundedPlayer && _playerVelocity.y < 0)
             {
-                playerVelocity.y = 0f;
+                _playerVelocity.y = 0f;
             }
 
             Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            controller.Move(move * Time.deltaTime * playerSpeed);
+            _controller.Move(move * Time.deltaTime * _playerSpeed);
 
             if (move != Vector3.zero)
             {
@@ -33,13 +33,13 @@ namespace Pickup.Player
             }
 
             // Changes the height position of the playerColor..
-            if (Input.GetButtonDown("Jump") && groundedPlayer)
+            if (Input.GetButtonDown("Jump") && _groundedPlayer)
             {
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                _playerVelocity.y += Mathf.Sqrt(_jumpHeight * -3.0f * _gravityValue);
             }
 
-            playerVelocity.y += gravityValue * Time.deltaTime;
-            controller.Move(playerVelocity * Time.deltaTime);
+            _playerVelocity.y += _gravityValue * Time.deltaTime;
+            _controller.Move(_playerVelocity * Time.deltaTime);
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {

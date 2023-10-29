@@ -1,26 +1,27 @@
-using Interaction;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
-[CustomEditor(typeof(DoorTriggerInteraction))]
-class LabelHandle : Editor
+namespace Editor
 {
-    private static GUIStyle labelStyle;
-
-    private void OnEnable()
+    [CustomEditor(typeof(DoorTriggerInteraction))]
+    class LabelHandle : UnityEditor.Editor
     {
-        labelStyle = new GUIStyle();
-        labelStyle.normal.textColor = Color.white;
-        labelStyle.alignment = TextAnchor.MiddleCenter;
-    }
+        private static GUIStyle labelStyle;
 
-    private void OnSceneGUI()
-    {
-        DoorTriggerInteraction door = (DoorTriggerInteraction)target;
+        private void OnEnable()
+        {
+            labelStyle = new GUIStyle();
+            labelStyle.normal.textColor = Color.white;
+            labelStyle.alignment = TextAnchor.MiddleCenter;
+        }
+
+        private void OnSceneGUI()
+        {
+            DoorTriggerInteraction door = (DoorTriggerInteraction)target;
         
-        Handles.BeginGUI();
-        Handles.Label(door.transform.position + new Vector3(0f,4f,0f), door.CurrentDoorPosition.ToString(), labelStyle);
-        Handles.EndGUI();
+            Handles.BeginGUI();
+            Handles.EndGUI();
+        }
     }
 }
 

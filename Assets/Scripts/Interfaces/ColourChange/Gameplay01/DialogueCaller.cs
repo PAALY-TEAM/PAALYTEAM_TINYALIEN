@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using UI;
 using UnityEngine;
 
-public class DialogueCaller : MonoBehaviour, IColourChange
+namespace Interfaces.ColourChange.Gameplay01
 {
-    private bool isColoured = false;
-    public void ColourChange()
+    public class DialogueCaller : MonoBehaviour, IColourChange
     {
-        if (!isColoured)
-            transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+        private bool _isColoured = false;
+        public void ColourChange()
+        {
+            if (!_isColoured)
+                transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
 
-        isColoured = true;
+            _isColoured = true;
+        }
     }
 }

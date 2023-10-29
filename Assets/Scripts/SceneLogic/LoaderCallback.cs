@@ -1,19 +1,16 @@
 using UnityEngine;
 
-namespace SceneLogic
-{
-    public class LoaderCallback : MonoBehaviour {
+public class LoaderCallback : MonoBehaviour {
 
 
-        private bool isFirstUpdate = true;
+    private bool _isFirstUpdate = true;
 
-        private void Update() {
-            if (isFirstUpdate) {
-                isFirstUpdate = false;
+    private void Update() {
+        if (_isFirstUpdate) {
+            _isFirstUpdate = false;
 
-                Loader.LoaderCallback();
-            }
+            Loader.LoaderCallback();
         }
-
     }
+
 }

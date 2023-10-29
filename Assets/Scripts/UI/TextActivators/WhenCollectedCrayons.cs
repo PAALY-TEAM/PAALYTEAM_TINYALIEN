@@ -1,23 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Pickup;
 using UnityEngine;
 
-public class WhenCollectedCrayons : MonoBehaviour
+namespace UI.TextActivators
 {
-    [Header("Number of crayons to activate dialogue")]
-    [SerializeField] private int numbCrayonsToActivate;
-
-    private bool isUsed = false;
-
-    public void CheckIfEnough()
+    public class WhenCollectedCrayons : MonoBehaviour
     {
-        if (numbCrayonsToActivate <= GetComponent<ShipInventory>().p && !isUsed)
+        [Header("Number of crayons to activate dialogue")]
+        [SerializeField] private int numbCrayonsToActivate;
+
+        private bool _isUsed = false;
+
+        public void CheckIfEnough()
         {
-            transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
-            isUsed = true;
+            if (numbCrayonsToActivate <= GetComponent<ShipInventory>().p && !_isUsed)
+            {
+                transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+                _isUsed = true;
             
+            }
         }
     }
 }

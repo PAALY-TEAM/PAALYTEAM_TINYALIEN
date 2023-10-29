@@ -1,25 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TextOnStart : MonoBehaviour
+namespace UI.TextActivators
 {
-    private static bool isReloaded = true;
-
-    private void Awake()
+    public class TextOnStart : MonoBehaviour
     {
-        if (isReloaded)
+        private static bool _isReloaded = true;
+
+        private void Awake()
         {
-            isReloaded = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (_isReloaded)
+            {
+                _isReloaded = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             
+            }
         }
-    }
 
-    void Start()
-    {
-        transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+        void Start()
+        {
+            transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+        }
     }
 }

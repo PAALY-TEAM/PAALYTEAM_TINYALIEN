@@ -1,23 +1,19 @@
 using UnityEngine;
-
-namespace SceneLogic
+public class Persistence : MonoBehaviour
 {
-    public class Persistence : MonoBehaviour
+    //Singleton pattern
+    public static Persistence Instance;
+    
+    private void Awake()
     {
-        public static Persistence Instance;
-
-
-        private void Awake()
+        if (Instance == null)
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }

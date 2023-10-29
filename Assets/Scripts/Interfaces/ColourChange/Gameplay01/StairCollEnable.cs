@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class StairCollEnable : MonoBehaviour, IColourChange
+namespace Interfaces.ColourChange.Gameplay01
 {
-    private MeshCollider _collider;
-    private MeshCollider _childCollider;
-
-    private void Awake()
+    public class StairCollEnable : MonoBehaviour, IColourChange
     {
-        _collider = GetComponent<MeshCollider>();
-        _childCollider = transform.GetChild(0).GetComponent<MeshCollider>();
-        _collider.enabled = false;
-        _childCollider.enabled = false;
-    }
+        private MeshCollider _collider;
+        private MeshCollider _childCollider;
 
-    public void ColourChange()
-    {
-        //Enable Collider
-        _collider.enabled = true;
-        _childCollider.enabled = true;
+        private void Awake()
+        {
+            _collider = GetComponent<MeshCollider>();
+            _childCollider = transform.GetChild(0).GetComponent<MeshCollider>();
+            _collider.enabled = false;
+            _childCollider.enabled = false;
+        }
+
+        public void ColourChange()
+        {
+            //Enable Collider
+            _collider.enabled = true;
+            _childCollider.enabled = true;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Movement
 { //Refactored script form https://catlikecoding.com/unity/tutorials/movement/
@@ -9,8 +10,9 @@ namespace Movement
         [Header("Feedbacks")]
         [SerializeField] private MMFeedbacks jumpFeedback;
         [SerializeField] private MMFeedbacks landingFeedback;
-        
-        [SerializeField] Transform playerInputSpace = default, ball = default;
+
+        [SerializeField] Transform playerInputSpace = default;
+        [FormerlySerializedAs("ball")] [SerializeField] Transform mainAlienBody = default;
         [SerializeField] private InputActionAsset playerControls;
         //
         private PlayerInput _playerInput;
@@ -114,7 +116,7 @@ namespace Movement
         void Awake () {
             _body = GetComponent<Rigidbody>();
             _body.useGravity = false;
-            _meshRenderer = ball.GetComponent<MeshRenderer>();
+            _meshRenderer = mainAlienBody.GetComponent<MeshRenderer>();
             _playerInput = GetComponent<PlayerInput>();
             OnValidate();
             // Get the Input Actions from the Input Action Asset
@@ -192,13 +194,13 @@ namespace Movement
 
             float distance = movement.magnitude;
 
-            Quaternion rotation = ball.localRotation;
+            Quaternion rotation = mainAlienBody.localRotation;
             if (_connectedBody && _connectedBody == _previousConnectedBody) {
                 rotation = Quaternion.Euler(
                     _connectedBody.angularVelocity * (Mathf.Rad2Deg * Time.deltaTime)
                 ) * rotation;
                 if (distance < 0.001f) {
-                    ball.localRotation = rotation;
+                    mainAlienBody.localRotation = rotation;
                     return;
                 }
             }
@@ -213,13 +215,13 @@ namespace Movement
             if (ballAlignSpeed > 0f) {
                 rotation = AlignBallRotation(rotationAxis, rotation, distance);
             }
-            ball.localRotation = rotation;
+            mainAlienBody.localRotation = rotation;
         }
 
         private Quaternion AlignBallRotation (
             Vector3 rotationAxis, Quaternion rotation, float traveledDistance
         ) {
-            Vector3 ballAxis = ball.up;
+            Vector3 ballAxis = mainAlienBody.up;
             float dot = Mathf.Clamp(Vector3.Dot(ballAxis, rotationAxis), -1f, 1f);
             float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
             float maxAngle = ballAlignSpeed * traveledDistance;

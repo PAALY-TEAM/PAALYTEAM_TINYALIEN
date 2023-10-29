@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Camera
+namespace ScriptsToDelete
 {
 	[RequireComponent(typeof(UnityEngine.Camera))]
 	public class NewOrbitCamera : MonoBehaviour {
@@ -32,21 +32,21 @@ namespace Camera
 		[SerializeField]
 		LayerMask obstructionMask = -1;
 
-		UnityEngine.Camera regularCamera;
+		UnityEngine.Camera _regularCamera;
 
-		Vector3 focusPoint, previousFocusPoint;
+		Vector3 _focusPoint, _previousFocusPoint;
 
-		Vector2 orbitAngles = new Vector2(45f, 0f);
+		Vector2 _orbitAngles = new Vector2(45f, 0f);
 
-		float lastManualRotationTime;
+		float _lastManualRotationTime;
 
 		Vector3 CameraHalfExtends {
 			get {
 				Vector3 halfExtends;
 				halfExtends.y =
-					regularCamera.nearClipPlane *
-					Mathf.Tan(0.5f * Mathf.Deg2Rad * regularCamera.fieldOfView);
-				halfExtends.x = halfExtends.y * regularCamera.aspect;
+					_regularCamera.nearClipPlane *
+					Mathf.Tan(0.5f * Mathf.Deg2Rad * _regularCamera.fieldOfView);
+				halfExtends.x = halfExtends.y * _regularCamera.aspect;
 				halfExtends.z = 0f;
 				return halfExtends;
 			}
@@ -59,9 +59,9 @@ namespace Camera
 		}
 
 		void Awake () {
-			regularCamera = GetComponent<UnityEngine.Camera>();
-			focusPoint = focus.position;
-			transform.localRotation = Quaternion.Euler(orbitAngles);
+			_regularCamera = GetComponent<UnityEngine.Camera>();
+			_focusPoint = focus.position;
+			transform.localRotation = Quaternion.Euler(_orbitAngles);
 		}
 
 		void LateUpdate () {
@@ -69,16 +69,16 @@ namespace Camera
 			Quaternion lookRotation;
 			if (ManualRotation() || AutomaticRotation()) {
 				ConstrainAngles();
-				lookRotation = Quaternion.Euler(orbitAngles);
+				lookRotation = Quaternion.Euler(_orbitAngles);
 			}
 			else {
 				lookRotation = transform.localRotation;
 			}
 
 			Vector3 lookDirection = lookRotation * Vector3.forward;
-			Vector3 lookPosition = focusPoint - lookDirection * distance;
+			Vector3 lookPosition = _focusPoint - lookDirection * distance;
 
-			Vector3 rectOffset = lookDirection * regularCamera.nearClipPlane;
+			Vector3 rectOffset = lookDirection * _regularCamera.nearClipPlane;
 			Vector3 rectPosition = lookPosition + rectOffset;
 			Vector3 castFrom = focus.position;
 			Vector3 castLine = rectPosition - castFrom;
@@ -97,10 +97,10 @@ namespace Camera
 		}
 
 		void UpdateFocusPoint () {
-			previousFocusPoint = focusPoint;
+			_previousFocusPoint = _focusPoint;
 			Vector3 targetPoint = focus.position;
 			if (focusRadius > 0f) {
-				float distance = Vector3.Distance(targetPoint, focusPoint);
+				float distance = Vector3.Distance(targetPoint, _focusPoint);
 				float t = 1f;
 				if (distance > 0.01f && focusCentering > 0f) {
 					t = Mathf.Pow(1f - focusCentering, Time.unscaledDeltaTime);
@@ -108,10 +108,10 @@ namespace Camera
 				if (distance > focusRadius) {
 					t = Mathf.Min(t, focusRadius / distance);
 				}
-				focusPoint = Vector3.Lerp(targetPoint, focusPoint, t);
+				_focusPoint = Vector3.Lerp(targetPoint, _focusPoint, t);
 			}
 			else {
-				focusPoint = targetPoint;
+				_focusPoint = targetPoint;
 			}
 		}
 
@@ -122,21 +122,21 @@ namespace Camera
 			);
 			const float e = 0.001f;
 			if (input.x < -e || input.x > e || input.y < -e || input.y > e) {
-				orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
-				lastManualRotationTime = Time.unscaledTime;
+				_orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
+				_lastManualRotationTime = Time.unscaledTime;
 				return true;
 			}
 			return false;
 		}
 
 		bool AutomaticRotation () {
-			if (Time.unscaledTime - lastManualRotationTime < alignDelay) {
+			if (Time.unscaledTime - _lastManualRotationTime < alignDelay) {
 				return false;
 			}
 
 			Vector2 movement = new Vector2(
-				focusPoint.x - previousFocusPoint.x,
-				focusPoint.z - previousFocusPoint.z
+				_focusPoint.x - _previousFocusPoint.x,
+				_focusPoint.z - _previousFocusPoint.z
 			);
 			float movementDeltaSqr = movement.sqrMagnitude;
 			if (movementDeltaSqr < 0.0001f) {
@@ -144,7 +144,7 @@ namespace Camera
 			}
 
 			float headingAngle = GetAngle(movement / Mathf.Sqrt(movementDeltaSqr));
-			float deltaAbs = Mathf.Abs(Mathf.DeltaAngle(orbitAngles.y, headingAngle));
+			float deltaAbs = Mathf.Abs(Mathf.DeltaAngle(_orbitAngles.y, headingAngle));
 			float rotationChange =
 				rotationSpeed * Mathf.Min(Time.unscaledDeltaTime, movementDeltaSqr);
 			if (deltaAbs < alignSmoothRange) {
@@ -153,20 +153,20 @@ namespace Camera
 			else if (180f - deltaAbs < alignSmoothRange) {
 				rotationChange *= (180f - deltaAbs) / alignSmoothRange;
 			}
-			orbitAngles.y =
-				Mathf.MoveTowardsAngle(orbitAngles.y, headingAngle, rotationChange);
+			_orbitAngles.y =
+				Mathf.MoveTowardsAngle(_orbitAngles.y, headingAngle, rotationChange);
 			return true;
 		}
 
 		void ConstrainAngles () {
-			orbitAngles.x =
-				Mathf.Clamp(orbitAngles.x, minVerticalAngle, maxVerticalAngle);
+			_orbitAngles.x =
+				Mathf.Clamp(_orbitAngles.x, minVerticalAngle, maxVerticalAngle);
 
-			if (orbitAngles.y < 0f) {
-				orbitAngles.y += 360f;
+			if (_orbitAngles.y < 0f) {
+				_orbitAngles.y += 360f;
 			}
-			else if (orbitAngles.y >= 360f) {
-				orbitAngles.y -= 360f;
+			else if (_orbitAngles.y >= 360f) {
+				_orbitAngles.y -= 360f;
 			}
 		}
 

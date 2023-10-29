@@ -1,96 +1,96 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Interaction;
+using Minigame.HideAndSeek;
 using TMPro;
 using UnityEngine;
 
-public class MinigameDisplay : MonoBehaviour, IColourChange
+namespace Interfaces.ColourChange.Gameplay01
 {
-    private GameObject player;
-    private Renderer playerRend;
-    private Renderer rend;
-    private GameObject panelMade;
-    
-    
-    //Panel variables
-    [SerializeField] private GameObject panelPreFab;
-    [SerializeField] private float distanceVisible;
-    
-    [Header("Values to show playerColor info about minigame")]
-    [SerializeField] private string title;
-    [SerializeField] private Sprite reward;
-    [SerializeField] private int numbOfReward;
-    //HintText variables
-    private GameObject hintText;
-    private bool isActive;
-
-    
-
-    void Start()
+    public class MinigameDisplay : MonoBehaviour, IColourChange
     {
-        
-        player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 spawnPlace = new Vector3(transform.position.x,5f, transform.position.z);
-        panelMade = Instantiate(panelPreFab, spawnPlace, Quaternion.identity);
-        panelMade.transform.SetParent(this.gameObject.transform.parent);
-        
-        panelMade.transform.Find("Title").GetComponent<TextMeshPro>().text = title;
-        panelMade.transform.Find("PrizeSprite").GetComponent<SpriteRenderer>().sprite = reward;
-        panelMade.transform.Find("PrizeNumb").GetComponent<TextMeshPro>().text = numbOfReward.ToString();
-        hintText = panelMade.transform.Find("HintText").gameObject;
-        hintText.SetActive(false);
-        panelMade.SetActive(false);
-    }
+        private GameObject _player;
+        private Renderer _playerRend;
+        private Renderer _rend;
+        private GameObject _panelMade;
+    
+    
+        //Panel variables
+        [SerializeField] private GameObject panelPreFab;
+        [SerializeField] private float distanceVisible;
+    
+        [Header("Values to show playerColor info about minigame")]
+        [SerializeField] private string title;
+        [SerializeField] private Sprite reward;
+        [SerializeField] private int numbOfReward;
+        //HintText variables
+        private GameObject _hintText;
+        private bool _isActive;
 
-    private bool isColoured;
-    public void ColourChange()
-    {
-        //Activates the script
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerRend = player.transform.Find("AlienBody_Floating").GetComponent<Renderer>();
-        rend = GetComponent<Renderer>();
-        isActive = false;
-        isColoured = true;
+    
+
+        void Start()
+        {
+        
+            _player = GameObject.FindGameObjectWithTag("Player");
+            Vector3 spawnPlace = new Vector3(transform.position.x,5f, transform.position.z);
+            _panelMade = Instantiate(panelPreFab, spawnPlace, Quaternion.identity);
+            _panelMade.transform.SetParent(this.gameObject.transform.parent);
+        
+            _panelMade.transform.Find("Title").GetComponent<TextMeshPro>().text = title;
+            _panelMade.transform.Find("PrizeSprite").GetComponent<SpriteRenderer>().sprite = reward;
+            _panelMade.transform.Find("PrizeNumb").GetComponent<TextMeshPro>().text = numbOfReward.ToString();
+            _hintText = _panelMade.transform.Find("HintText").gameObject;
+            _hintText.SetActive(false);
+            _panelMade.SetActive(false);
+        }
+
+        private bool _isColoured;
+        public void ColourChange()
+        {
+            //Activates the script
+            _player = GameObject.FindGameObjectWithTag("Player");
+            _playerRend = _player.transform.Find("AlienBody_Floating").GetComponent<Renderer>();
+            _rend = GetComponent<Renderer>();
+            _isActive = false;
+            _isColoured = true;
        
-    }
+        }
 
     
-    private void Update()
-    {
-        if (isColoured)
+        private void Update()
         {
-            if (Vector3.Distance(player.transform.position, transform.position ) < distanceVisible)
+            if (_isColoured)
             {
-                panelMade.SetActive(true);
-                hintText.SetActive(true);
-                isActive = true;
+                if (Vector3.Distance(_player.transform.position, transform.position ) < distanceVisible)
+                {
+                    _panelMade.SetActive(true);
+                    _hintText.SetActive(true);
+                    _isActive = true;
+                }
+                else if (Vector3.Distance(_player.transform.position, transform.position)  > distanceVisible && _isActive)
+                {
+                    _panelMade.SetActive(false);
+                    _hintText.SetActive(false);
+                    _isActive = false;
+                }
             }
-            else if (Vector3.Distance(player.transform.position, transform.position)  > distanceVisible && isActive)
+            //Later remove this unique so this script can be used for multiple minigames
+            if (_isActive && Input.GetButtonDown("Interact"))
             {
-                panelMade.SetActive(false);
-                hintText.SetActive(false);
-                isActive = false;
+                GameObject.Find("Timer").GetComponent<Timer>().StartHideAndSeek();
             }
         }
-        //Later remove this unique so this script can be used for multiple minigames
-        if (isActive && Input.GetButtonDown("Interact"))
+        private void OnCollisionStay(Collision other)
         {
-            GameObject.Find("Timer").GetComponent<Timer>().StartHideAndSeek();
+            if (_isActive && _rend.sharedMaterial == _playerRend.sharedMaterial && other.gameObject.CompareTag("Player"))
+            {
+                _hintText.SetActive(true);
+            } 
         }
-    }
-    private void OnCollisionStay(Collision other)
-    {
-        if (isActive && rend.sharedMaterial == playerRend.sharedMaterial && other.gameObject.CompareTag("Player"))
+        private void OnCollisionExit(Collision other)
         {
-            hintText.SetActive(true);
-        } 
-    }
-    private void OnCollisionExit(Collision other)
-    {
-        if (isActive && other.gameObject.CompareTag("Player"))
-        {
-            hintText.SetActive(false);
+            if (_isActive && other.gameObject.CompareTag("Player"))
+            {
+                _hintText.SetActive(false);
+            }
         }
     }
 }

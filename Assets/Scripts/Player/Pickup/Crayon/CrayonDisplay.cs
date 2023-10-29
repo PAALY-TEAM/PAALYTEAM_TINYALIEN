@@ -8,13 +8,13 @@ namespace Pickup.Crayon
         public CrayonNumber crayon;
         public bool isSpinning;
 
-        private Renderer rend;
+        private Renderer _rend;
 
-        private bool isPickedUp;
+        private bool _isPickedUp;
 
         private void Awake()
         {
-            if (isPickedUp)
+            if (_isPickedUp)
             {
                 Destroy(gameObject);
             }
@@ -23,11 +23,11 @@ namespace Pickup.Crayon
         private void Start()
         {
             
-            rend = GetComponent<Renderer>();
-            rend.enabled = true;
+            _rend = GetComponent<Renderer>();
+            _rend.enabled = true;
 
             if (isSpinning)
-                rend.sharedMaterial = crayon.colour[0];
+                _rend.sharedMaterial = crayon.colour[0];
         }
         void Update()
         {
@@ -37,7 +37,7 @@ namespace Pickup.Crayon
 
         public void PickedUp()
         {
-            isPickedUp = true;
+            _isPickedUp = true;
         }
     }
 }

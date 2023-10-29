@@ -1,10 +1,10 @@
 using UnityEngine;
 
-namespace Camera
+namespace ScriptsToDelete
 {
     public class SimplifiedOrbitCamera : MonoBehaviour
     {
-        public Vector2 CurrentOrbitAngles => orbitAngles;
+        public Vector2 CurrentOrbitAngles => _orbitAngles;
 
         [SerializeField, Range(1f, 360f)]
         float rotationSpeed = 90f;
@@ -12,7 +12,7 @@ namespace Camera
         [SerializeField, Range(-89f, 89f)]
         float minVerticalAngle = -45f, maxVerticalAngle = 45f;
 
-        Vector2 orbitAngles = new Vector2(45f, 0f);
+        Vector2 _orbitAngles = new Vector2(45f, 0f);
 
         void Update()
         {
@@ -29,7 +29,7 @@ namespace Camera
             const float e = 0.001f;
             if (input.x < -e || input.x > e || input.y < -e || input.y > e)
             {
-                orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
+                _orbitAngles += rotationSpeed * Time.unscaledDeltaTime * input;
                 return true;
             }
             return false;
@@ -37,15 +37,15 @@ namespace Camera
 
         void ConstrainAngles()
         {
-            orbitAngles.x = Mathf.Clamp(orbitAngles.x, minVerticalAngle, maxVerticalAngle);
+            _orbitAngles.x = Mathf.Clamp(_orbitAngles.x, minVerticalAngle, maxVerticalAngle);
 
-            if (orbitAngles.y < 0f)
+            if (_orbitAngles.y < 0f)
             {
-                orbitAngles.y += 360f;
+                _orbitAngles.y += 360f;
             }
-            else if (orbitAngles.y >= 360f)
+            else if (_orbitAngles.y >= 360f)
             {
-                orbitAngles.y -= 360f;
+                _orbitAngles.y -= 360f;
             }
         }
     }

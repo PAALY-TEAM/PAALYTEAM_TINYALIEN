@@ -1,78 +1,71 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SceneLogic
+public class SceneFadeManager : MonoBehaviour
 {
-    public class SceneFadeManager : MonoBehaviour
-    {
-        public static SceneFadeManager instance;
+    public static SceneFadeManager Instance;
 
-        [SerializeField] private Image _fadeOutImage; //what image are we referencing 
-        [Range(0.1f, 10f), SerializeField] private float _fadeOutSpeed = 5f;
-        [Range(0.1f, 10f), SerializeField] private float _fadeInSpeed = 5f;
+    [SerializeField] private Image fadeOutImage; //what image are we referencing 
+    [Range(0.1f, 10f), SerializeField] private float fadeOutSpeed = 5f;
+    [Range(0.1f, 10f), SerializeField] private float fadeInSpeed = 5f;
 
-        [SerializeField] private Color _fadeOutStartColor;
+    [SerializeField] private Color fadeOutStartColor;
     
-        //public bools to know when we are fadeing in and out
-        public bool isFadingOut { get; private set; }
-        public bool isFadingIn { get; private set; }
+    //public bool to know when we are fading in and out
+    public bool IsFadingOut { get; private set; }
+    public bool IsFadingIn { get; private set; }
 
-        private void Awake()
+    private void Awake()
+    {
+        if (Instance == null)
         {
-            if (instance == null)
-            {
-                instance = this;
-            }
-
-            _fadeOutStartColor.a = 0f;
-        }
-        //Update is where the fade happens
-        private void Update()
-        {
-            if (isFadingOut)
-            {
-                if (_fadeOutImage.color.a < 1f)
-                {
-                    _fadeOutStartColor.a += Time.deltaTime * _fadeOutSpeed;
-                    _fadeOutImage.color = _fadeOutStartColor;
-                }
-                else
-                {
-                    isFadingOut = false;
-                }
-            }
-
-            if (isFadingIn)
-            {
-                if (_fadeOutImage.color.a > 0f)
-                {
-                    _fadeOutStartColor.a -= Time.deltaTime * _fadeInSpeed;
-                    _fadeOutImage.color = _fadeOutStartColor;
-                }
-                else
-                {
-                    isFadingIn = false;
-                }
-            }
+            Instance = this;
         }
 
-        public void StartFadeOut()
+        fadeOutStartColor.a = 0f;
+    }
+    //Update is where the fade happens
+    private void Update()
+    {
+        if (IsFadingOut)
         {
-            _fadeOutImage.color = _fadeOutStartColor;
-            isFadingOut = true;
-        }
-        public void StartFadeIn()
-        {
-            if (_fadeOutImage.color.a >= 1f)
+            if (fadeOutImage.color.a < 1f)
             {
-                _fadeOutStartColor.a -= Time.deltaTime * _fadeOutSpeed;
-                _fadeOutImage.color = _fadeOutStartColor;
+                fadeOutStartColor.a += Time.deltaTime * fadeOutSpeed;
+                fadeOutImage.color = fadeOutStartColor;
             }
             else
             {
-                isFadingOut = false;
+                IsFadingOut = false;
             }
         }
-    
+
+        if (IsFadingIn)
+        {
+            if (fadeOutImage.color.a > 0f)
+            {
+                fadeOutStartColor.a -= Time.deltaTime * fadeInSpeed;
+                fadeOutImage.color = fadeOutStartColor;
+            }
+            else
+            {
+                IsFadingIn = false;
+            }
+        }
     }
+
+    public void StartFadeOut()
+    {
+        fadeOutImage.color = fadeOutStartColor;
+        IsFadingOut = true;
+    }
+    public void StartFadeIn()
+    {
+        if (fadeOutImage.color.a >= 1f)
+        {
+            fadeOutImage.color = fadeOutStartColor;
+            IsFadingIn = true;
+        }
+    }
+    
 }

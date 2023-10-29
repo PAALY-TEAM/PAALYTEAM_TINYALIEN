@@ -1,25 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class RedStairs : MonoBehaviour, IColourChange
+namespace Interfaces.ColourChange.Gameplay01
 {
-    [SerializeField] GameObject StairCollider;
-    private MeshCollider _collider;
-
-    private void Awake()
+    public class RedStairs : MonoBehaviour, IColourChange
     {
-        _collider = StairCollider.GetComponent<MeshCollider>();
-        _collider.enabled = false;
-    }
+        [FormerlySerializedAs("StairCollider")] [SerializeField] GameObject stairCollider;
+        private MeshCollider _collider;
 
-    public void ColourChange()
-    {
-        //Enable Collider
+        private void Awake()
+        {
+            _collider = stairCollider.GetComponent<MeshCollider>();
+            _collider.enabled = false;
+        }
+
+        public void ColourChange()
+        {
+            //Enable Collider
         
-        _collider.enabled = true;
-    }
+            _collider.enabled = true;
+        }
  
+    }
 }
 

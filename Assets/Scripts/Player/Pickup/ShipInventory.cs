@@ -1,5 +1,6 @@
 using Pickup.Crayon;
 using Pickup.Player;
+using UI.TextActivators;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -15,7 +16,7 @@ namespace Pickup
         [Header("How many crayons can go on the ship?")]
         public float maxCrayonOnShip;
 
-        private int[] visibleCrayon;
+        private int[] _visibleCrayon;
 
         [HideInInspector] public int p = 0;
     
@@ -23,8 +24,8 @@ namespace Pickup
     {
         
         //Makes crayon and set all values to 0, Array work in the same way as any other
-        visibleCrayon = new int[ItemManager.numbStored.Length];
-        System.Array.Clear(visibleCrayon, 0, visibleCrayon.Length);
+        _visibleCrayon = new int[ItemManager.NumbStored.Length];
+        System.Array.Clear(_visibleCrayon, 0, _visibleCrayon.Length);
         
         Display();
     }
@@ -44,7 +45,7 @@ namespace Pickup
         //Repeats for each colour
             for (int i = 0; i < crayonColour.Length; i++)
             {
-                int diff = ItemManager.numbStored[i] - visibleCrayon[i];
+                int diff = ItemManager.NumbStored[i] - _visibleCrayon[i];
                 //Repeats for each in one colour
                 for (int j = 0; j < diff; j++)
                 {
@@ -67,7 +68,7 @@ namespace Pickup
                     p++;
                 }
                 
-                visibleCrayon[i] = ItemManager.numbStored[i];
+                _visibleCrayon[i] = ItemManager.NumbStored[i];
             }
 
             print("After: " + p);
@@ -80,9 +81,9 @@ namespace Pickup
         private void Win()
         {
             Cursor.visible = true;
-            for (int i = 0; i < ItemManager.numbStored.Length; i++)
+            for (int i = 0; i < ItemManager.NumbStored.Length; i++)
             {
-                ItemManager.numbStored[i] = 0;
+                ItemManager.NumbStored[i] = 0;
             }
 
             Cursor.visible = true;
