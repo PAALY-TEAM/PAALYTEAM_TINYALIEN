@@ -1,6 +1,5 @@
 using Pickup.Player;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DoorTriggerInteraction : TriggerInteractionBase
 {
