@@ -43,6 +43,7 @@ public class SceneFieldPropertyDrawer : PropertyDrawer
             sceneAsset.objectReferenceValue = EditorGUI.ObjectField(position, sceneAsset.objectReferenceValue, typeof(SceneAsset), false);
             if (sceneAsset.objectReferenceValue != null)
             {
+                // ReSharper disable once PossibleNullReferenceException
                 sceneName.stringValue = (sceneAsset.objectReferenceValue as SceneAsset).name;
             }
         }
