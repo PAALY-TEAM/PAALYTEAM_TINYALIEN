@@ -8,14 +8,14 @@ using UnityEditor;
 public class SceneField
 {
     [SerializeField] 
-    private Object _sceneAsset;
+    private Object sceneAsset;
 
     [SerializeField] 
-    private string _sceneName = "";
+    private string sceneName = "";
 
     public string SceneName
     {
-        get { return _sceneName; }
+        get { return sceneName; }
     }
     
     //makes it work with the existing Unity methods (LoadLevel/LoadScene)
@@ -33,17 +33,17 @@ public class SceneFieldPropertyDrawer : PropertyDrawer
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         EditorGUI.BeginProperty(position, GUIContent.none, property);
-        SerializedProperty sceneAsset = property.FindPropertyRelative("_sceneAsset");
-        SerializedProperty sceneName = property.FindPropertyRelative("_sceneName");
+        SerializedProperty sceneAsset = property.FindPropertyRelative("sceneAsset");
+        SerializedProperty sceneName = property.FindPropertyRelative("sceneName");
 
         position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
 
         if (sceneAsset != null)
         {
-            sceneAsset.objectReferenceValue =
-                EditorGUI.ObjectField(position, sceneAsset.objectReferenceValue, typeof(SceneAsset), false);
+            sceneAsset.objectReferenceValue = EditorGUI.ObjectField(position, sceneAsset.objectReferenceValue, typeof(SceneAsset), false);
             if (sceneAsset.objectReferenceValue != null)
             {
+                // ReSharper disable once PossibleNullReferenceException
                 sceneName.stringValue = (sceneAsset.objectReferenceValue as SceneAsset).name;
             }
         }

@@ -1,113 +1,111 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Pickup.Player;
-using TMPro;
-using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TempDisableMovement  tempDisableMovement;
-
-    public SensitivitySettings sensitivitySettings;
-    private GameObject thisCanvas;
-    private Button resume, settings, reset, exit;
-    [SerializeField] private GameObject pausePanel;
-    private GameObject thisPanel;
-    private int[] savedPlayerStorage;
-
-    private bool isMenuOpen;
-    private void Start()
+    public class PauseMenu : MonoBehaviour
     {
-        isMenuOpen = false;
-        savedPlayerStorage= new int[ItemManager.numbCarried.Length];
-        for (int i = 0; i < ItemManager.numbCarried.Length; i++)
+        [SerializeField] private TempDisableMovement  tempDisableMovement;
+
+        public SensitivitySettings sensitivitySettings;
+        private GameObject _thisCanvas;
+        private Button _resume, _settings, _reset, _exit;
+        [SerializeField] private GameObject pausePanel;
+        private GameObject _thisPanel;
+        private int[] _savedPlayerStorage;
+
+        private bool _isMenuOpen;
+        private void Start()
         {
-            savedPlayerStorage[i] = ItemManager.numbCarried[i];
-        }
+            _isMenuOpen = false;
+            _savedPlayerStorage= new int[ItemManager.NumbCarried.Length];
+            for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
+            {
+                _savedPlayerStorage[i] = ItemManager.NumbCarried[i];
+            }
         
-    }
-    private void Update()
-    {
-        if (isMenuOpen && Input.GetKeyDown(KeyCode.Escape))
+        }
+        private void Update()
         {
-            Resume();
+            if (_isMenuOpen && Input.GetKeyDown(KeyCode.Escape))
+            {
+                Resume();
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Pause();
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        // ReSharper disable Unity.PerformanceAnalysis
+        private void Pause()
         {
-            Pause();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            _isMenuOpen = true;
+            //Disable PlayerMovement
+            tempDisableMovement.OnPauseGame(true);
+        
+            _thisCanvas = GameObject.Find("CanvasCrayon");
+            _thisCanvas.GetComponent<Canvas>().sortingOrder = 5;
+
+            _thisPanel = Instantiate(pausePanel, _thisCanvas.transform.position, Quaternion.identity, _thisCanvas.transform);
+
+            // Assign 
+            _resume = _thisPanel.transform.Find("Resume").GetComponent<Button>();
+            _reset = _thisPanel.transform.Find("Restart").GetComponent<Button>();
+            _settings = _thisPanel.transform.Find("Settings").GetComponent<Button>();
+            _exit = _thisPanel.transform.Find("Exit").GetComponent<Button>();
+        
+            _resume.onClick.AddListener(Resume);
+            _reset.onClick.AddListener(ReloadScene);
+        
+            _exit.onClick.AddListener(Exit);
         }
-    }
-    // ReSharper disable Unity.PerformanceAnalysis
-    private void Pause()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        isMenuOpen = true;
-        //Disable PlayerMovement
-        tempDisableMovement.OnPauseGame(true);
-        
-        thisCanvas = GameObject.Find("CanvasCrayon");
-        thisCanvas.GetComponent<Canvas>().sortingOrder = 5;
 
-        thisPanel = Instantiate(pausePanel, thisCanvas.transform.position, Quaternion.identity, thisCanvas.transform);
-
-        // Assign 
-        resume = thisPanel.transform.Find("Resume").GetComponent<Button>();
-        reset = thisPanel.transform.Find("Restart").GetComponent<Button>();
-        settings = thisPanel.transform.Find("Settings").GetComponent<Button>();
-        exit = thisPanel.transform.Find("Exit").GetComponent<Button>();
-        
-        resume.onClick.AddListener(Resume);
-        reset.onClick.AddListener(ReloadScene);
-        
-        exit.onClick.AddListener(Exit);
-    }
-
-    private void Resume()
-    {
-        RemoveListener();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        isMenuOpen = false;
-        //enable PlayerMovement
-        tempDisableMovement.OnResumeGame();
-        Destroy(thisPanel);
-        
-    }
-
-    private void Settings()
-    {
-        RemoveListener();
-    }
-    private void ReloadScene()
-    {
-        RemoveListener();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        for (int i = 0; i < ItemManager.numbStored.Length; i++)
+        private void Resume()
         {
-            ItemManager.numbStored[i] = 0;
-            ItemManager.numbCarried[i] = savedPlayerStorage[i];
-        }
+            RemoveListener();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            _isMenuOpen = false;
+            //enable PlayerMovement
+            tempDisableMovement.OnResumeGame();
+            Destroy(_thisPanel);
         
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+        }
 
-    void RemoveListener()
-    {
-        resume.onClick.RemoveAllListeners();
-        reset.onClick.RemoveAllListeners();
-        settings.onClick.RemoveAllListeners(); 
-        exit.onClick.RemoveAllListeners();
-    }
+        private void Settings()
+        {
+            RemoveListener();
+        }
+        private void ReloadScene()
+        {
+            RemoveListener();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            for (int i = 0; i < ItemManager.NumbStored.Length; i++)
+            {
+                ItemManager.NumbStored[i] = 0;
+                ItemManager.NumbCarried[i] = _savedPlayerStorage[i];
+            }
+        
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
-    private void Exit()
-    {
-        print("Quit Game");
-        Application.Quit();
+        void RemoveListener()
+        {
+            _resume.onClick.RemoveAllListeners();
+            _reset.onClick.RemoveAllListeners();
+            _settings.onClick.RemoveAllListeners(); 
+            _exit.onClick.RemoveAllListeners();
+        }
+
+        private void Exit()
+        {
+            print("Quit Game");
+            Application.Quit();
+        }
     }
 }

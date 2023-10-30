@@ -1,29 +1,31 @@
-﻿using MoreMountains.Feedbacks;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Feel.FeelDemos._Common.Scripts;
+using MoreMountains.Feedbacks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace MoreMountains.Feel
+namespace Feel.FeelDemos.Blob.Scripts
 {
 	/// <summary>
 	/// A simple class used to pilot Feel's Blob demo character, who simply moves on a loop when its target key is pressed
 	/// </summary>
 	public class Blob : MonoBehaviour
 	{
+		[FormerlySerializedAs("CooldownDuration")]
 		[Header("Cooldown")]
 		/// a duration, in seconds, between two moves, during which moves are prevented
 		[Tooltip("a duration, in seconds, between two moves, during which moves are prevented")]
-		public float CooldownDuration = 1f;
+		public float cooldownDuration = 1f;
 
+		[FormerlySerializedAs("MoveFeedback")]
 		[Header("Feedbacks")]
 		/// a feedback to call when moving
 		[Tooltip("a feedback to call when moving")]
-		public MMFeedbacks MoveFeedback;
+		public MMFeedbacks moveFeedback;
 		/// a feedback to call when trying to move while in cooldown
-		[Tooltip("a feedback to call when trying to move while in cooldown")]
-		public MMFeedbacks DeniedFeedback;
+		[FormerlySerializedAs("DeniedFeedback")] [Tooltip("a feedback to call when trying to move while in cooldown")]
+		public MMFeedbacks deniedFeedback;
 
-		protected float _lastMoveStartedAt = -100f;
+		protected float LastMoveStartedAt = -100f;
 
 		/// <summary>
 		/// On Update we look for input
@@ -49,14 +51,14 @@ namespace MoreMountains.Feel
 		/// </summary>
 		protected virtual void Move()
 		{
-			if (Time.time - _lastMoveStartedAt < CooldownDuration)
+			if (Time.time - LastMoveStartedAt < cooldownDuration)
 			{
-				DeniedFeedback?.PlayFeedbacks();
+				deniedFeedback?.PlayFeedbacks();
 			}
 			else
 			{
-				MoveFeedback?.PlayFeedbacks();
-				_lastMoveStartedAt = Time.time;
+				moveFeedback?.PlayFeedbacks();
+				LastMoveStartedAt = Time.time;
 			}
 		}
 	}

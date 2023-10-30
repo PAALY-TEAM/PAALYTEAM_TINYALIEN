@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatingBody_Spin : MonoBehaviour
+public class FloatingBodySpin : MonoBehaviour
 {
     [SerializeField]private float speed = 40f;
     void Update()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Camera
+namespace ScriptsToDelete
 {
     public class VirtualCameraVertiaclRotation : MonoBehaviour
     {

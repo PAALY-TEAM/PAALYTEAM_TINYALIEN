@@ -1,61 +1,62 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Teleporter : MonoBehaviour
+namespace Interfaces.ColourChange.Gameplay01
 {
-    public GameObject playerColor;
-    [SerializeField] private Material targetMaterial;
-    [SerializeField] private GameObject hintText;
-    [Header("Destination to teleport")]
-    [SerializeField] private GameObject currentScene;
-    [SerializeField] private GameObject nextScene;
-    private bool isClose;
-
-    private Renderer rend;
-    private Renderer playerRenderer;
-
-    private void Start()
+    public class Teleporter : MonoBehaviour
     {
-        rend = GetComponent<Renderer>();
-        playerColor = GameObject.FindGameObjectWithTag("PlayerColor");
-        playerRenderer = playerColor.GetComponent<Renderer>();
-    }
+        public GameObject playerColor;
+        [SerializeField] private Material targetMaterial;
+        [SerializeField] private GameObject hintText;
+        [Header("Destination to teleport")]
+        [SerializeField] private GameObject currentScene;
+        [SerializeField] private GameObject nextScene;
+        private bool _isClose;
 
-    private void OnCollisionStay(Collision other)
-    {
-        if (other.gameObject.CompareTag("PlayerColor"))
+        private Renderer _rend;
+        private Renderer _playerRenderer;
+
+        private void Start()
         {
-            if (playerRenderer.sharedMaterial == targetMaterial)
+            _rend = GetComponent<Renderer>();
+            playerColor = GameObject.FindGameObjectWithTag("PlayerColor");
+            _playerRenderer = playerColor.GetComponent<Renderer>();
+        }
+
+        private void OnCollisionStay(Collision other)
+        {
+            if (other.gameObject.CompareTag("PlayerColor"))
             {
-                hintText.SetActive(true);
-                isClose = true;
+                if (_playerRenderer.sharedMaterial == targetMaterial)
+                {
+                    hintText.SetActive(true);
+                    _isClose = true;
+                }
+                else
+                {
+                    hintText.SetActive(false);
+                    _isClose = false;
+                }
             }
-            else
+        }
+
+        private void OnCollisionExit(Collision other)
+        {
+            if (other.gameObject.CompareTag("PlayerColor"))
             {
                 hintText.SetActive(false);
-                isClose = false;
+                _isClose = false;
             }
         }
-    }
 
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.CompareTag("PlayerColor"))
+        private void Update()
         {
-            hintText.SetActive(false);
-            isClose = false;
-        }
-    }
-
-    private void Update()
-    {
-        if (isClose && Input.GetButtonDown("Interact"))
-        {
-            nextScene.SetActive(true);
-            currentScene.SetActive(false);
-            hintText.SetActive(false);
-            isClose = false;
+            if (_isClose && Input.GetButtonDown("Interact"))
+            {
+                nextScene.SetActive(true);
+                currentScene.SetActive(false);
+                hintText.SetActive(false);
+                _isClose = false;
+            }
         }
     }
 }

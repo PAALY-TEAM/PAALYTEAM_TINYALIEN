@@ -1,8 +1,9 @@
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
-public class CameraInput : MonoBehaviour
+
+namespace Camera
+{
+    public class CameraInput : MonoBehaviour
     {
         [Header("Character Input Value")]
         public Vector2 look;
@@ -41,3 +42,4 @@ public class CameraInput : MonoBehaviour
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
         }
     }
+}

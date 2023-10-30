@@ -26,5 +26,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildScenes/GameCompletion.unity
     guid: 2d301f42a9e60514bb0d36ae097b9705
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/!SceneSwapping_Main.unity
+    guid: ffd8be8a273cc7b4d89fe5b40c660091
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/!SceneSwapping_Target1.unity
+    guid: 5374fa7caf0e93f4f8081295b55c209e
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/!SceneSwapping_Main_AfterFirstSpawn.unity
+    guid: 9ecb0d95eac1e644e9ed693aeae7e4b4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: fff6b1f38b88d34449ae3cdc378efa0a, type: 2}

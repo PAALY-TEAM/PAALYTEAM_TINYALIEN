@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IColourChange
+namespace Interfaces.ColourChange
 {
+    public interface IColourChange
+    {
 
-    void ColourChange();
+        void ColourChange();
+    }
 }

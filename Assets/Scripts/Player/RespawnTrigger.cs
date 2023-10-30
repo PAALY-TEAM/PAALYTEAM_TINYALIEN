@@ -5,16 +5,16 @@ public class RespawnTrigger : MonoBehaviour
 {
     [SerializeField] private Transform respawnPoint;
 
-    private GameObject player; // Changed to private as it will be assigned in Start method.
+    private GameObject _player; // Changed to private as it will be assigned in Start method.
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player"); // This line finds and assigns the player GameObject.
+        _player = GameObject.FindGameObjectWithTag("Player"); // This line finds and assigns the player GameObject.
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == _player)
         {
             StartCoroutine(RespawnPlayer());
         }
@@ -22,11 +22,11 @@ public class RespawnTrigger : MonoBehaviour
 
     private IEnumerator RespawnPlayer()
     {
-        player.SetActive(false);
+        _player.SetActive(false);
         yield return new WaitForSeconds(0.1f);
 
-        player.transform.position = respawnPoint.position;
+        _player.transform.position = respawnPoint.position;
 
-        player.SetActive(true);
+        _player.SetActive(true);
     }
 }

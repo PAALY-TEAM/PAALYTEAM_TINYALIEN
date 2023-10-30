@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Sun : MonoBehaviour, IColourChange
+namespace Interfaces.ColourChange.Gameplay01
 {
-    private GameObject dirLight;
-    private Light myLight;
-
-    void Awake()
+    public class Sun : MonoBehaviour, IColourChange
     {
-        dirLight = GameObject.Find("Directional Light");
-        myLight = dirLight.GetComponent<Light>();
-    }
+        private GameObject _dirLight;
+        private Light _myLight;
 
-    public void ColourChange()
-    {
-        myLight.intensity = 1;
+        void Awake()
+        {
+            _dirLight = GameObject.Find("Directional Light");
+            _myLight = _dirLight.GetComponent<Light>();
+        }
+
+        public void ColourChange()
+        {
+            _myLight.intensity = 1;
+        }
     }
 }

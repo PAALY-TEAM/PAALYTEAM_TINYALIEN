@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ManuButtons : MonoBehaviour
+namespace UI
 {
-    public void RestartGame()
+    public class ManuButtons : MonoBehaviour
     {
-        SceneManager.LoadScene(0);
-    }
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(0);
+        }
 
-    public void ExitGame()
-    {
-        Application.Quit();
+        public void ExitGame()
+        {
+            Application.Quit();
+        }
     }
 }

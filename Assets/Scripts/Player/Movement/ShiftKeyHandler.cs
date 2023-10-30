@@ -1,108 +1,111 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using DG.Tweening;
 using MoreMountains.Feedbacks;
-using UnityEditor;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public class ShiftKeyHandler : MonoBehaviour
+namespace Movement
 {
-    [Header("Feedbacks")]
-    [SerializeField] private MMFeedbacks sprintFeedback;
-    [SerializeField] private GameObject target;
-    [SerializeField] private GameObject secondTarget;
-    [SerializeField] private Vector3 initialScale = Vector3.one;
-    [SerializeField] private Vector3 targetScale;
-    [SerializeField] private float pressDuration = 0.26f;
-    [SerializeField] private float releaseDuration = 1.51f;
-
-    public UnityEvent OnMaxScaleReached;
-    public UnityEvent OnNotAtMaxScale;
-
-    private InputAction sprintAction;
-
-    void Awake()
+    public class ShiftKeyHandler : MonoBehaviour
     {
-        sprintAction = new InputAction("Sprint", InputActionType.Button, "<Keyboard>/shift");
-        sprintAction.performed += OnPress;
-        sprintAction.canceled += OnRelease;
-    }
+        [Header("Feedbacks")]
+        [SerializeField] private MMFeedbacks sprintFeedback;
+        [SerializeField] private GameObject target;
+        [SerializeField] private GameObject secondTarget;
+        [SerializeField] private Vector3 initialScale = Vector3.one;
+        [SerializeField] private Vector3 targetScale;
+        [SerializeField] private float pressDuration = 0.26f;
+        [SerializeField] private float releaseDuration = 1.51f;
 
-    void Start()
-    {
-        transform.localScale = initialScale;
-    }
-    void Update()
-    {
-        CheckScaleStatus();
-    }
+        [FormerlySerializedAs("OnMaxScaleReached")] public UnityEvent onMaxScaleReached;
+        [FormerlySerializedAs("OnNotAtMaxScale")] public UnityEvent onNotAtMaxScale;
 
-    private void CheckScaleStatus()
-    {
-        if (transform.localScale == targetScale)
+        private InputAction _sprintAction;
+
+        void Awake()
         {
-            OnMaxScaleReached.Invoke();
-            sprintFeedback?.PlayFeedbacks();
-
+            _sprintAction = new InputAction("Sprint", InputActionType.Button, "<Keyboard>/shift");
+            _sprintAction.performed += OnPress;
+            _sprintAction.canceled += OnRelease;
         }
-        else
+
+        void Start()
         {
-            OnNotAtMaxScale.Invoke();
-            sprintFeedback?.StopFeedbacks();
+            transform.localScale = initialScale;
         }
-    }
-    private void OnPress(InputAction.CallbackContext context)
-    {
-        OnScale();
-        ScaleDownSecondObject();
-        //sprintFeedback?.PlayFeedbacks();
-    }
+        void Update()
+        {
+            CheckScaleStatus();
+        }
 
-    private void OnRelease(InputAction.CallbackContext context)
-    {
-        EaseBackDown();
-        ScaleUpSecondObject();
-    }
+        private void CheckScaleStatus()
+        {
+            if (transform.localScale == targetScale)
+            {
+                onMaxScaleReached.Invoke();
+                sprintFeedback?.PlayFeedbacks();
 
-    private void OnScale()
-    {
-        transform.DOKill(); // Stop any ongoing tween
-        transform.DOScale(targetScale, pressDuration)
-            .SetEase(Ease.InOutSine)
-            .OnComplete(() => OnMaxScaleReached.Invoke());
+            }
+            else
+            {
+                onNotAtMaxScale.Invoke();
+                sprintFeedback?.StopFeedbacks();
+            }
+        }
+        private void OnPress(InputAction.CallbackContext context)
+        {
+            OnScale();
+            ScaleDownSecondObject();
+            //sprintFeedback?.PlayFeedbacks();
+        }
+
+        private void OnRelease(InputAction.CallbackContext context)
+        {
+            EaseBackDown();
+            ScaleUpSecondObject();
+        }
+
+        private void OnScale()
+        {
+            transform.DOKill(); // Stop any ongoing tween
+            transform.DOScale(targetScale, pressDuration)
+                .SetEase(Ease.InOutSine)
+                .OnComplete(() => onMaxScaleReached.Invoke());
             
-    }
+        }
 
-    private void ScaleDownSecondObject()
-    {
-        secondTarget.transform.DOKill(); // Stop any ongoing tween
-        secondTarget.transform.DOScale(Vector3.zero, pressDuration)
-            .SetEase(Ease.InOutSine);
-    }
+        private void ScaleDownSecondObject()
+        {
+            secondTarget.transform.DOKill(); // Stop any ongoing tween
+            secondTarget.transform.DOScale(Vector3.zero, pressDuration)
+                .SetEase(Ease.InOutSine);
+        }
 
-    private void ScaleUpSecondObject()
-    {
-        secondTarget.transform.DOKill(); // Stop any ongoing tween
-        secondTarget.transform.DOScale(Vector3.one, releaseDuration)
-            .SetEase(Ease.OutBounce);
-    }
+        private void ScaleUpSecondObject()
+        {
+            secondTarget.transform.DOKill(); // Stop any ongoing tween
+            secondTarget.transform.DOScale(Vector3.one, releaseDuration)
+                .SetEase(Ease.OutBounce);
+        }
 
-    private void EaseBackDown()
-    {
-        transform.DOKill(); // Stop any ongoing tween
-        transform.DOScale(initialScale, releaseDuration)
-            .SetEase(Ease.OutBounce)
-            .OnComplete(() => OnNotAtMaxScale.Invoke());
-    }
+        private void EaseBackDown()
+        {
+            transform.DOKill(); // Stop any ongoing tween
+            transform.DOScale(initialScale, releaseDuration)
+                .SetEase(Ease.OutBounce)
+                .OnComplete(() => onNotAtMaxScale.Invoke());
+        }
 
-    private void OnEnable()
-    {
-        sprintAction.Enable();
-    }
+        private void OnEnable()
+        {
+            _sprintAction.Enable();
+        }
 
-    private void OnDisable()
-    {
-        sprintAction.Disable();
-    }
+        private void OnDisable()
+        {
+            _sprintAction.Disable();
+        }
     
+    }
 }

@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
-public class Narate : MonoBehaviour, IColourChange
+namespace Interfaces.ColourChange.Gameplay01
 {
-    public void ColourChange()
+    public class Narate : MonoBehaviour, IColourChange
     {
-        transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+        public void ColourChange()
+        {
+            transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+        }
     }
 }

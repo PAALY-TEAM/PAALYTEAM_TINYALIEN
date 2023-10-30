@@ -1,194 +1,191 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
-using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
-public class NpcTextBox : MonoBehaviour
+namespace UI
 {
-    private GameObject thisCanvas;
+    public class NpcTextBox : MonoBehaviour
+    {
+        private GameObject _thisCanvas;
         [Header("Panel 0: Only Text")] 
         [Header("Panel 1: Text and Image")]
         [SerializeField] private GameObject[] panelPrefab;
-            [SerializeField] private Sprite npcImg;
-                [SerializeField] private string[] npcName;
-                [SerializeField] private GameObject[] cameraFocus;
-            [SerializeField] private string[] textOnPanel;
-            private int currentText;
-            [SerializeField] private Sprite[] imgOnPanel;
-            private int currentImg;
-            private Button prev,next;
+        [SerializeField] private Sprite npcImg;
+        [SerializeField] private string[] npcName;
+        [SerializeField] private GameObject[] cameraFocus;
+        [SerializeField] private string[] textOnPanel;
+        private int _currentText;
+        [SerializeField] private Sprite[] imgOnPanel;
+        private int _currentImg;
+        private Button _prev,_next;
 
-    private CinemachineVirtualCamera cam;
+        private CinemachineVirtualCamera _cam;
             
-    [Header("Order the type of panels appear in, write only numbers (0 or 1)")] 
-    [SerializeField] private string panelsToSpawn;
-    private int[] order;
-    [Header("Disables movement of playerColor and camera")]
-    [SerializeField] private TempDisableMovement  tempDisableMovement;
+        [Header("Order the type of panels appear in, write only numbers (0 or 1)")] 
+        [SerializeField] private string panelsToSpawn;
+        private int[] _order;
+        [Header("Disables movement of playerColor and camera")]
+        [SerializeField] private TempDisableMovement  tempDisableMovement;
     
-    private int sumPages;
-    private int currentPage;
-    private int currentName;
-    private GameObject thisPage;
-    private GameObject menu;
+        private int _sumPages;
+        private int _currentPage;
+        private int _currentName;
+        private GameObject _thisPage;
+        private GameObject _menu;
 
-    private bool activeDialogue;
+        private bool _activeDialogue;
     
 
-    public void DialogueStart()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        menu = GameObject.Find("PauseSummoner");
-        menu.SetActive(false);
-        
-        
-        activeDialogue = true;
-        //Finds Camera In Scene so that it can swap focus during scenes  
-        cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
-        
-        thisCanvas = GameObject.Find("CanvasCrayon");
-        currentText = 0;
-        currentImg = 0;
-        currentPage = 0;
-        sumPages = textOnPanel.Length;
-        order = new int[panelsToSpawn.Length];
-        for (int  i = 0;  i < panelsToSpawn.Length;  i++)
+        public void DialogueStart()
         {
-            order[i] = int.Parse(panelsToSpawn[i].ToString());
-        }
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            _menu = GameObject.Find("PauseSummoner");
+            _menu.SetActive(false);
         
-        tempDisableMovement.OnPauseGame(order[0]!=2);
-        DialogueContinue();
-    }
-
-    private void DialogueContinue()
-    {
-        if (panelPrefab.Length > 0)
-        {
-            thisPage = Instantiate(panelPrefab[order[currentPage]], thisCanvas.transform.position, 
-                Quaternion.identity, thisCanvas.transform);
-            //Panel with only text
-            if (order[currentPage] == 0)
+        
+            _activeDialogue = true;
+            //Finds Camera In Scene so that it can swap focus during scenes  
+            _cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+        
+            _thisCanvas = GameObject.Find("CanvasCrayon");
+            _currentText = 0;
+            _currentImg = 0;
+            _currentPage = 0;
+            _sumPages = textOnPanel.Length;
+            _order = new int[panelsToSpawn.Length];
+            for (int  i = 0;  i < panelsToSpawn.Length;  i++)
             {
-                thisPage.transform.Find("Profile").GetComponent<Image>().sprite = npcImg;
-                thisPage.transform.Find("Profile/Name").GetComponent<TextMeshProUGUI>().text = npcName[0];
-                thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[currentText];
-            } 
-            //Panel with text and Image
-            else if (order[currentPage] == 1)
-            {
-                thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[currentText];
-                thisPage.transform.Find("MainImage").GetComponent<Image>().sprite = imgOnPanel[currentImg];
+                _order[i] = int.Parse(panelsToSpawn[i].ToString());
             }
-            //Smaller panel for quick and shorter dialogue
-            else if (order[currentPage] == 2)
+        
+            tempDisableMovement.OnPauseGame(_order[0]!=2);
+            DialogueContinue();
+        }
+
+        private void DialogueContinue()
+        {
+            if (panelPrefab.Length > 0)
             {
-                thisPage.GetComponent<RectTransform>().offsetMax = new Vector2(0,0);
-                thisPage.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
-                thisPage.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = npcName[currentText];
-                thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[currentText];
-                cam.LookAt = cameraFocus[currentText].transform;
-                cam.Follow = cameraFocus[currentText].transform;
+                _thisPage = Instantiate(panelPrefab[_order[_currentPage]], _thisCanvas.transform.position, 
+                    Quaternion.identity, _thisCanvas.transform);
+                //Panel with only text
+                if (_order[_currentPage] == 0)
+                {
+                    _thisPage.transform.Find("Profile").GetComponent<Image>().sprite = npcImg;
+                    _thisPage.transform.Find("Profile/Name").GetComponent<TextMeshProUGUI>().text = npcName[0];
+                    _thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[_currentText];
+                } 
+                //Panel with text and Image
+                else if (_order[_currentPage] == 1)
+                {
+                    _thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[_currentText];
+                    _thisPage.transform.Find("MainImage").GetComponent<Image>().sprite = imgOnPanel[_currentImg];
+                }
+                //Smaller panel for quick and shorter dialogue
+                else if (_order[_currentPage] == 2)
+                {
+                    _thisPage.GetComponent<RectTransform>().offsetMax = new Vector2(0,0);
+                    _thisPage.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+                    _thisPage.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = npcName[_currentText];
+                    _thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[_currentText];
+                    _cam.LookAt = cameraFocus[_currentText].transform;
+                    _cam.Follow = cameraFocus[_currentText].transform;
                 
                 
-                return;
+                    return;
+                }
+            }
+            //Find New Buttons
+            _prev = _thisPage.transform.Find("Prev").GetComponent<Button>();
+            _next = _thisPage.transform.Find("Next").GetComponent<Button>();
+            // Add new listeners
+            _prev.onClick.AddListener(PrevPanel);
+            _next.onClick.AddListener(NextPanel);
+        
+            if (_currentPage == 0)
+            {
+                _prev.interactable = false; 
+            }
+            if (_currentPage + 1 == _sumPages)
+            {
+                _next.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Exit";
             }
         }
-        //Find New Buttons
-        prev = thisPage.transform.Find("Prev").GetComponent<Button>();
-        next = thisPage.transform.Find("Next").GetComponent<Button>();
-        // Add new listeners
-        prev.onClick.AddListener(PrevPanel);
-        next.onClick.AddListener(NextPanel);
-        
-        if (currentPage == 0)
-        {
-            prev.interactable = false; 
-        }
-        if (currentPage + 1 == sumPages)
-        {
-            next.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Exit";
-        }
-    }
 
-    private void Update()
-    {
-        if (activeDialogue)
+        private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (_activeDialogue)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    DialogueEnd();
+                }
+
+                if (Input.GetButtonDown("Interact") && _order[_currentPage] == 2)
+                {
+                    NextPanel();
+                }
+            }
+        }
+
+        private void DialogueEnd()
+        {
+            print("Ended Dialogue");
+            Destroy(_thisPage);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            _activeDialogue = false;
+            _menu.SetActive(true);
+            tempDisableMovement.OnResumeGame();
+        
+            //Set so player is the focus of camera
+            var camFocus = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
+            print(camFocus);
+            _cam.LookAt = camFocus;
+            _cam.Follow = camFocus;
+        }
+        private void PrevPanel()
+        { 
+            SwapPanel(-1);
+        }
+        private void NextPanel()
+        {
+            SwapPanel(1);
+        }
+
+        private void SwapPanel(int dir)
+        {
+            //Only if image was used
+            if (_currentPage != 0)
+            {
+                if ((_order[_currentPage] == 1 && dir == 1)||(_order[_currentPage-1] == 1 && dir == -1))
+                {
+                    _currentImg += dir;
+                }
+            }
+        
+            // Because dialogue panel has no button it will ignore this part 
+            if (_order[_currentPage] != 2)
+            {
+                // Remove previous listeners
+                _prev.onClick.RemoveAllListeners();
+                _next.onClick.RemoveAllListeners();
+            }
+            _currentText += dir;
+            _currentPage += dir;
+        
+        
+        
+            if (_currentPage == _sumPages)
             {
                 DialogueEnd();
+                print("DialogueEndCaled");
+            } else {
+                Destroy(_thisPage);
+                DialogueContinue();
             }
-
-            if (Input.GetButtonDown("Interact") && order[currentPage] == 2)
-            {
-                NextPanel();
-            }
-        }
-    }
-
-    private void DialogueEnd()
-    {
-        print("Ended Dialogue");
-        Destroy(thisPage);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        activeDialogue = false;
-        menu.SetActive(true);
-        tempDisableMovement.OnResumeGame();
-        
-        //Set so player is the focus of camera
-        var camFocus = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
-        print(camFocus);
-        cam.LookAt = camFocus;
-        cam.Follow = camFocus;
-    }
-    private void PrevPanel()
-    { 
-        SwapPanel(-1);
-    }
-    private void NextPanel()
-    {
-        SwapPanel(1);
-    }
-
-    private void SwapPanel(int dir)
-    {
-        //Only if image was used
-        if (currentPage != 0)
-        {
-            if ((order[currentPage] == 1 && dir == 1)||(order[currentPage-1] == 1 && dir == -1))
-            {
-                currentImg += dir;
-            }
-        }
-        
-        // Because dialogue panel has no button it will ignore this part 
-        if (order[currentPage] != 2)
-        {
-            // Remove previous listeners
-            prev.onClick.RemoveAllListeners();
-            next.onClick.RemoveAllListeners();
-        }
-        currentText += dir;
-        currentPage += dir;
-        
-        
-        
-        if (currentPage == sumPages)
-        {
-            DialogueEnd();
-            print("DialogueEndCaled");
-        } else {
-            Destroy(thisPage);
-            DialogueContinue();
         }
     }
 }

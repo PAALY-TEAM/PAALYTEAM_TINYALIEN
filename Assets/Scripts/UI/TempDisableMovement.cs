@@ -7,17 +7,17 @@ namespace UI
 {
     public class TempDisableMovement : MonoBehaviour
     {
-        private MonoBehaviour playerMovementScript;
+        private MonoBehaviour _playerMovementScript;
 
-        private GameObject player;
+        private GameObject _player;
 
-        private bool freeze;
+        private bool _freeze;
         //private MonoBehaviour orbitCameraScript;
 
         private void Awake()
         {
-            player = GameObject.FindWithTag("Player");
-            playerMovementScript = player.GetComponent<PlayerMovementV03>();
+            _player = GameObject.FindWithTag("Player");
+            _playerMovementScript = _player.GetComponent<PlayerMovementV03>();
             //orbitCameraScript = GameObject.Find("Virtual Camera").GetComponent<NewOrbitCamera>();
         }
 
@@ -31,18 +31,18 @@ namespace UI
             }
             else
             {
-                player.GetComponent<Rigidbody>().constraints =
+                _player.GetComponent<Rigidbody>().constraints =
                     RigidbodyConstraints.FreezePosition;
             }
-            playerMovementScript.enabled = false;
+            _playerMovementScript.enabled = false;
             //orbitCameraScript.enabled = false;
         }
 
         public void OnResumeGame()
         {
             Time.timeScale = 1;
-            playerMovementScript.enabled = true;
-            player.GetComponent<Rigidbody>().constraints =
+            _playerMovementScript.enabled = true;
+            _player.GetComponent<Rigidbody>().constraints =
                 RigidbodyConstraints.None;
             //orbitCameraScript.enabled = true;
         }

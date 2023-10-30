@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Interfaces;
-using ScriptsToDelete;
+using Movement;
 using UnityEngine;
 //https://www.youtube.com/watch?v=CQEqJ4TJzUk Scene transition tutorial
 public class TriggerInteractionBase : MonoBehaviour, IInteractable
@@ -19,7 +16,7 @@ public class TriggerInteractionBase : MonoBehaviour, IInteractable
     {
         if (CanInteract)
         {
-            if (PlayerMovementV02.WasInteractPressed)
+            if (PlayerMovementV03.WasInteractPressed)
             {
                 Interact();
             }
@@ -36,7 +33,10 @@ public class TriggerInteractionBase : MonoBehaviour, IInteractable
 
     private void OnTriggerExit(Collider collision)
     {
-        CanInteract = false;
+        if (collision.gameObject == Player)
+        {
+            CanInteract = false;
+        }
     }
 
     public virtual void Interact() {}

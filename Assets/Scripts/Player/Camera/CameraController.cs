@@ -1,30 +1,33 @@
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
-public class CameraController : MonoBehaviour
+using UnityEngine.Serialization;
+
+namespace Camera
+{
+    public class CameraController : MonoBehaviour
     {
+        [FormerlySerializedAs("CinemachineCameraTarget")]
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
-        public GameObject CinemachineCameraTarget;
+        public GameObject cinemachineCameraTarget;
 
-        [Tooltip("How far in degrees can you move the camera up")]
-        public float TopClamp = 70.0f;
+        [FormerlySerializedAs("TopClamp")] [Tooltip("How far in degrees can you move the camera up")]
+        public float topClamp = 70.0f;
 
-        [Tooltip("How far in degrees can you move the camera down")]
-        public float BottomClamp = -30.0f;
+        [FormerlySerializedAs("BottomClamp")] [Tooltip("How far in degrees can you move the camera down")]
+        public float bottomClamp = -30.0f;
 
-        [Tooltip("Additional degrees to override the camera. Useful for fine-tuning camera position when locked")]
-        public float CameraAngleOverride = 0.0f;
+        [FormerlySerializedAs("CameraAngleOverride")] [Tooltip("Additional degrees to override the camera. Useful for fine-tuning camera position when locked")]
+        public float cameraAngleOverride = 0.0f;
 
-        [Tooltip("For locking the camera position on all axis")]
-        public bool LockCameraPosition = false;
+        [FormerlySerializedAs("LockCameraPosition")] [Tooltip("For locking the camera position on all axis")]
+        public bool lockCameraPosition = false;
 
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
         private CameraInput _input;
         private GameObject _mainCamera;
-        private const float _threshold = 0.01f;
+        private const float Threshold = 0.01f;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -52,7 +55,7 @@ public class CameraController : MonoBehaviour
 
         private void Start()
         {
-            _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
+            _cinemachineTargetYaw = cinemachineCameraTarget.transform.rotation.eulerAngles.y;
             _input = GetComponent<CameraInput>();
 #if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
@@ -66,7 +69,7 @@ public class CameraController : MonoBehaviour
 
         private void CameraRotation()
         {
-            if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
+            if (_input.look.sqrMagnitude >= Threshold && !lockCameraPosition)
             {
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
@@ -75,9 +78,9 @@ public class CameraController : MonoBehaviour
             }
 
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-            _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+            _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, bottomClamp, topClamp);
 
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
+            cinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + cameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
         }
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -87,4 +90,5 @@ public class CameraController : MonoBehaviour
             return Mathf.Clamp(lfAngle, lfMin, lfMax);
             
         }
+    }
 }         

@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CollEnabler : MonoBehaviour, IColourChange
+namespace Interfaces.ColourChange.Gameplay01
 {
-    private Collider _collider;
-
-    private void Awake()
+    public class CollEnabler : MonoBehaviour, IColourChange
     {
-        _collider = GetComponent<Collider>();
-        _collider.enabled = false;
-    }
+        private Collider _collider;
 
-    public void ColourChange()
-    {
-        //Enable Collider
+        private void Awake()
+        {
+            _collider = GetComponent<Collider>();
+            _collider.enabled = false;
+        }
+
+        public void ColourChange()
+        {
+            //Enable Collider
         
-        _collider.enabled = true;
-    }
+            _collider.enabled = true;
+        }
 
+    }
 }

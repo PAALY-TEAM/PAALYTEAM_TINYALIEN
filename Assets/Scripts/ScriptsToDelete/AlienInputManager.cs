@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
-
-public class AlienInputManager : MonoBehaviour
+namespace ScriptsToDelete
+{
+    public class AlienInputManager : MonoBehaviour
     {
         /*
         public PlayerMovementV03 playerMovement;
@@ -108,3 +106,4 @@ public class AlienInputManager : MonoBehaviour
             Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
         } */
     }
+}

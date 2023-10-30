@@ -1,27 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowColour : MonoBehaviour
+namespace Pickup.Shade
 {
-    [SerializeField] private Sprite[] colours;
-
-    private Image thisImage;
-    private void Awake()
+    public class ShowColour : MonoBehaviour
     {
-        thisImage = GetComponent<Image>();
-        thisImage.sprite = null;
-    }
+        [SerializeField] private Sprite[] colours;
 
-    public void ChangeIcon(int colourIndex)
-    {
-        if (colourIndex == 0)
+        private Image _thisImage;
+        private void Awake()
         {
-            thisImage.sprite = null;
-            return;
+            _thisImage = GetComponent<Image>();
+            _thisImage.sprite = null;
         }
-        thisImage.sprite = colours[colourIndex-1];
+
+        public void ChangeIcon(int colourIndex)
+        {
+            if (colourIndex == 0)
+            {
+                _thisImage.sprite = null;
+                return;
+            }
+            _thisImage.sprite = colours[colourIndex-1];
+        }
     }
 }
