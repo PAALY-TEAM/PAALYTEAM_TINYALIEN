@@ -4,48 +4,8 @@ namespace Pickup.Shade
 {
     public class ColourHolder : MonoBehaviour
     {
-<<<<<<< HEAD
-        Red,
-        Yellow,
-        Blue,
-        Green,
-        Orange,
-        Purple,
-        Brown
-    }
-
-    public enum Shade
-    {
-        Normal,
-        Light,
-        Dark,
-        Bland,
-        Unique
-    }
-    
-    [Header("Shades should be in this order: Normal, Light, Dark, Bland")] 
-    [SerializeField] private Material[] redShades;
-    [SerializeField] private Material[] yellowShades;
-    [SerializeField] private Material[] blueShades;
-    [SerializeField] private Material[] greenShades;
-    [SerializeField] private Material[] orangeShades;
-    [SerializeField] private Material[] purpleShades;
-    [SerializeField] private Material[] brownShades;
-
-    //Grey for starting colour
-    [HideInInspector] public Material[] greyShades;
-    
-    [HideInInspector] public Material[][] EveryColourWithShades;
-
-    
-    
-    private void Awake()
-    {
-        //Set length equal to number of colours
-        EveryColourWithShades = new Material[][]
-=======
         public enum Colour
->>>>>>> 6fda68824c1579a99dbb80970c19fa3731b86fca
+
         {
             Red,
             Yellow,
@@ -61,11 +21,13 @@ namespace Pickup.Shade
             Normal,
             Light,
             Dark,
-            Bland
+            Bland,
+            Unique
         }
-    
-        [Header("Shades should be in this order: Normal, Light, Dark, Bland")] 
-        [SerializeField] private Material[] redShades;
+
+        [Header("Shades should be in this order: Normal, Light, Dark, Bland")] [SerializeField]
+        private Material[] redShades;
+
         [SerializeField] private Material[] yellowShades;
         [SerializeField] private Material[] blueShades;
         [SerializeField] private Material[] greenShades;
@@ -75,11 +37,11 @@ namespace Pickup.Shade
 
         //Grey for starting colour
         [HideInInspector] public Material[] greyShades;
-    
+
         [HideInInspector] public Material[][] EveryColourWithShades;
 
-    
-    
+
+
         private void Awake()
         {
             //Set length equal to number of colours
