@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/Forrest level.unity
     guid: f1ea767091836f248957864121a9a3c4
   - enabled: 1
+    path: Assets/Scenes/BuildScenes/Floor is lava.unity
+    guid: 0bc052766721d5249b6cebfa114f3e74
+  - enabled: 1
     path: Assets/Scenes/BuildScenes/GameCompletion.unity
     guid: 2d301f42a9e60514bb0d36ae097b9705
   m_configObjects:

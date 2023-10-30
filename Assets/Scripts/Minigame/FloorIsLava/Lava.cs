@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lava : MonoBehaviour
+public class Lava : MonoBehaviour, IColourChange
 {
     float LowestPoint = 3.5f;
     float LavaHeight;
     bool RaiseLowerToggle = true;
     [SerializeField] float LavaSpeed = 0.2f;
     [SerializeField] GameObject LavaHeighObject;
+    private bool isColoured = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,11 @@ public class Lava : MonoBehaviour
         
     }
 
+    public void ColourChange()
+    {
+        isColoured = true;
+        transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,22 +35,23 @@ public class Lava : MonoBehaviour
             RaiseLowerToggle = false;
             
         }
-
         //If lava is at bot raise
         if (transform.localScale.y <= LowestPoint)
         {
             RaiseLowerToggle = true;
         }
 
-   
-
-        raiseLower();
+        if (isColoured)
+        {
+            raiseLower();
+        }
+        
 
     }
     // Die on hit with lava
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && isColoured)
         {
             Debug.Log("Dead");
         }

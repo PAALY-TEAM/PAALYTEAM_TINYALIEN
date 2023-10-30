@@ -22,7 +22,8 @@ public class ColourHolder : MonoBehaviour
         Normal,
         Light,
         Dark,
-        Bland
+        Bland,
+        Unique
     }
     
     [Header("Shades should be in this order: Normal, Light, Dark, Bland")] 
