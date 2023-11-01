@@ -5,6 +5,7 @@ namespace Pickup.Shade
     public class ColourHolder : MonoBehaviour
     {
         public enum Colour
+
         {
             Red,
             Yellow,
@@ -20,11 +21,13 @@ namespace Pickup.Shade
             Normal,
             Light,
             Dark,
-            Bland
+            Bland,
+            Unique
         }
-    
-        [Header("Shades should be in this order: Normal, Light, Dark, Bland")] 
-        [SerializeField] private Material[] redShades;
+
+        [Header("Shades should be in this order: Normal, Light, Dark, Bland")] [SerializeField]
+        private Material[] redShades;
+
         [SerializeField] private Material[] yellowShades;
         [SerializeField] private Material[] blueShades;
         [SerializeField] private Material[] greenShades;
@@ -34,11 +37,11 @@ namespace Pickup.Shade
 
         //Grey for starting colour
         [HideInInspector] public Material[] greyShades;
-    
+
         [HideInInspector] public Material[][] EveryColourWithShades;
 
-    
-    
+
+
         private void Awake()
         {
             //Set length equal to number of colours

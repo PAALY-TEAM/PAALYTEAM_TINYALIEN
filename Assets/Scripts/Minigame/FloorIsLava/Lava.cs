@@ -1,76 +1,76 @@
+using Interfaces.ColourChange;
+using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Minigame.FloorIsLava
+public class Lava : MonoBehaviour, IColourChange
 {
-    public class Lava : MonoBehaviour
+    float _lowestPoint = 3.5f;
+    float _lavaHeight;
+    bool _raiseLowerToggle = true;
+    [FormerlySerializedAs("LavaSpeed")] [SerializeField] float lavaSpeed = 0.2f;
+    [FormerlySerializedAs("LavaHeighObject")] [SerializeField] GameObject lavaHeighObject;
+    private bool isColoured = false;
+    
+        
+    
+    public void ColourChange()
     {
-        private float _lowestPoint = 3.5f;
-        private float _lavaHeight;
-        private bool _raiseLowerToggle = true;
-        [FormerlySerializedAs("LavaSpeed")] [SerializeField]
-        private float lavaSpeed = 0.2f;
-        [FormerlySerializedAs("LavaHeighObject")] [SerializeField]
-        private GameObject lavaHeighObject;
+        //Lave has been Coloured and is active
+        isColoured = true;
+        //Starts dialogue telling player that the lava is rising and dangerous
+        transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+    }
+    void Start()
+    {
+        //Finds Y difference between Lava and lavaHeightObject to find nummber to scale lava to
+        _lavaHeight = (lavaHeighObject.transform.position.y - transform.position.y)*2;
+        Debug.Log(_lavaHeight);
+    
+    }
 
-        // Start is called before the first frame update
-        private void Start()
+    // Update is called once per frame
+    void Update()
+    {
+        // If lava is at top point lower
+        if (transform.localScale.y >= _lavaHeight)
         {
-            //Finds Y difference between Lava and lavaHeightObject to find nummber to scale lava to
-            _lavaHeight = (lavaHeighObject.transform.position.y - transform.position.y)*2;
-            Debug.Log(_lavaHeight);
-        
+            _raiseLowerToggle = false;
         }
-
-        // Update is called once per frame
-        private void Update()
+        //If lava is at bot raise
+        if (transform.localScale.y <= _lowestPoint)
         {
-        
-            // If lava is at top point lower
-            if(transform.localScale.y >= _lavaHeight)
-            {
-                _raiseLowerToggle = false;
-            
-            }
-
-            //If lava is at bot raise
-            if (transform.localScale.y <= _lowestPoint)
-            {
-                _raiseLowerToggle = true;
-            }
-
-   
-
+            _raiseLowerToggle = true;
+        }
+        if (isColoured)
+        {
             RaiseLower();
-
         }
-        // Die on hit with lava
-        private void OnTriggerEnter(Collider other)
+    }
+   
+    
+    // Die on hit with lava
+    private void OnTriggerEnter(Collider other)
+
+    {
+        if (other.CompareTag("Player") && isColoured)
         {
-            if (other.CompareTag("Player"))
-            {
-                Debug.Log("Dead");
-            }
-
+            Debug.Log("Dead");
         }
 
-        private void RaiseLower()
+    }
+
+    void RaiseLower()
+    {
+        //Raises the lava
+        if (transform.localScale.y < _lavaHeight && _raiseLowerToggle)
         {
-            //Raises the lava
-            if (transform.localScale.y < _lavaHeight && _raiseLowerToggle)
-            {
-                transform.localScale += new Vector3(0, lavaSpeed * Time.deltaTime, 0);
-            }
-            //Lowers the lava
-            if (!_raiseLowerToggle)
-            {
-                transform.localScale -= new Vector3(0, lavaSpeed * Time.deltaTime, 0);
-            }
-
+            transform.localScale += new Vector3(0, lavaSpeed * Time.deltaTime, 0);
         }
-
-
-
-
+        //Lowers the lava
+        if (!_raiseLowerToggle)
+        {
+            transform.localScale -= new Vector3(0, lavaSpeed * Time.deltaTime, 0);
+        }
     }
 }

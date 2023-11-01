@@ -6353,6 +6353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colourToBe: 0
   shadeType: 0
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &1719932905
 GameObject:
   m_ObjectHideFlags: 0
@@ -6899,6 +6900,7 @@ GameObject:
   - component: {fileID: 2045669585}
   - component: {fileID: 2045669584}
   - component: {fileID: 2045669583}
+  - component: {fileID: 2045669589}
   m_Layer: 3
   m_Name: LevelDoor(Clone) (1)
   m_TagString: Blue
@@ -7027,6 +7029,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2045669589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045669582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 2
+  shadeType: 0
+  uniqueMaterial: {fileID: 0}
 --- !u!64 &2072451120
 MeshCollider:
   m_ObjectHideFlags: 0
