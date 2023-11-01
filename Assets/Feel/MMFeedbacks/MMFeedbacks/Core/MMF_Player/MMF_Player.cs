@@ -180,8 +180,13 @@ namespace MoreMountains.Feedbacks
 		/// </summary>
 		/// <param name="owner"></param>
 		/// <param name="feedbacksOwner"></param>
-		public override void Initialization()
+		public override void Initialization(bool forceInitIfPlaying = false)
 		{
+			if (IsPlaying && !forceInitIfPlaying)
+			{
+				return;
+			}
+			
 			SkippingToTheEnd = false;
 			IsPlaying = false;
 			_lastStartAt = -float.MaxValue;
@@ -526,6 +531,7 @@ namespace MoreMountains.Feedbacks
 				ApplyAutoRevert();
 				this.enabled = false;
 				_shouldStop = false;
+				PlayerCompleteFeedbacks();
 				Events.TriggerOnComplete(this);
 			}
 			if (IsPlaying)
@@ -708,6 +714,7 @@ namespace MoreMountains.Feedbacks
 				yield return null;
 			}
 			IsPlaying = false;
+			PlayerCompleteFeedbacks();
 			Events.TriggerOnComplete(this);
 			ApplyAutoRevert();
 		}
@@ -825,6 +832,22 @@ namespace MoreMountains.Feedbacks
 		{
 			Direction = Directions.BottomToTop;
 		}
+		
+		/// <summary>
+		/// When the player is done playing, we call PlayerComplete on all its feedbacks to let them know
+		/// the player is done
+		/// </summary>
+		public virtual void PlayerCompleteFeedbacks()
+		{
+			int count = FeedbacksList.Count;
+			for (int i = 0; i < count; i++)
+			{
+				if ((FeedbacksList[i] != null) && (FeedbacksList[i].Active))
+				{
+					FeedbacksList[i].PlayerComplete();    
+				}
+			}
+		}
 
 		/// <summary>
 		/// Pauses execution of a sequence, which can then be resumed by calling ResumeFeedbacks()
@@ -856,6 +879,22 @@ namespace MoreMountains.Feedbacks
 			}
 
 			Events.TriggerOnRestoreInitialValues(this);
+		}
+
+		/// <summary>
+		/// Forces initial vales on all feedbacks that support it.
+		/// For example, a position feedback that'd move a Transform from A to B would move that transform to A
+		/// </summary>
+		public virtual void ForceInitialValues()
+		{
+			int count = FeedbacksList.Count;
+			for (int i = count - 1; i >= 0; i--)
+			{
+				if ((FeedbacksList[i] != null) && (FeedbacksList[i].Active))
+				{
+					FeedbacksList[i].ForceInitialValue(this.transform.position, FeedbacksIntensity);    
+				}
+			}
 		}
 
 		/// <summary>

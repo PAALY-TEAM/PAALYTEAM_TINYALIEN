@@ -60,7 +60,7 @@ namespace MoreMountains.Tools
 		public virtual IEnumerator AutoDisableAudioSource(float duration, AudioSource source, AudioClip clip, bool doNotAutoRecycleIfNotDonePlaying, float playbackTime, float playbackDuration)
 		{
 			float initialWait = (playbackDuration > 0) ? playbackDuration : duration;
-			yield return MMCoroutine.WaitFor(initialWait);
+			yield return MMCoroutine.WaitForUnscaled(initialWait);
 			if (source.clip != clip)
 			{
 				yield break;

@@ -5,14 +5,16 @@ namespace Minigame.FloorIsLava
 {
     public class Lava : MonoBehaviour
     {
-        float _lowestPoint = 3.5f;
-        float _lavaHeight;
-        bool _raiseLowerToggle = true;
-        [FormerlySerializedAs("LavaSpeed")] [SerializeField] float lavaSpeed = 0.2f;
-        [FormerlySerializedAs("LavaHeighObject")] [SerializeField] GameObject lavaHeighObject;
+        private float _lowestPoint = 3.5f;
+        private float _lavaHeight;
+        private bool _raiseLowerToggle = true;
+        [FormerlySerializedAs("LavaSpeed")] [SerializeField]
+        private float lavaSpeed = 0.2f;
+        [FormerlySerializedAs("LavaHeighObject")] [SerializeField]
+        private GameObject lavaHeighObject;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             //Finds Y difference between Lava and lavaHeightObject to find nummber to scale lava to
             _lavaHeight = (lavaHeighObject.transform.position.y - transform.position.y)*2;
@@ -21,7 +23,7 @@ namespace Minigame.FloorIsLava
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
         
             // If lava is at top point lower
@@ -52,7 +54,7 @@ namespace Minigame.FloorIsLava
 
         }
 
-        void RaiseLower()
+        private void RaiseLower()
         {
             //Raises the lava
             if (transform.localScale.y < _lavaHeight && _raiseLowerToggle)

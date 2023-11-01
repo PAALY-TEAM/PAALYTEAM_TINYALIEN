@@ -3,15 +3,15 @@
 	using UnityEngine.InputSystem;
 #endif
 
-namespace Feel.FeelDemos._Common.Scripts
+namespace MoreMountains.Feel
 {
 	/// <summary>
 	/// This class contains a number of helper methods that will check for input in both the old and the new input system.
 	/// </summary>
 	public static class FeelDemosInputHelper 
 	{
-		private const string HorizontalAxis = "Horizontal";
-		private const string VerticalAxis = "Vertical";
+		private const string _horizontalAxis = "Horizontal";
+		private const string _verticalAxis = "Vertical";
 		
 		public static bool CheckMainActionInputPressedThisFrame()
 		{
@@ -117,8 +117,8 @@ namespace Feel.FeelDemos._Common.Scripts
 					direction.y = 1f;
 				}
 			#else
-			direction.x = Input.GetAxis(HorizontalAxis);
-			direction.y = Input.GetAxis(VerticalAxis);
+			direction.x = Input.GetAxis(_horizontalAxis);
+			direction.y = Input.GetAxis(_verticalAxis);
 			#endif
 
 			return direction;

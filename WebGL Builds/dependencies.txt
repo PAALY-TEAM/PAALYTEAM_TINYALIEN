@@ -1,8 +1,9 @@
+com.unity.2d.sprite@1.0.0
+com.unity.build-report-inspector@0.3.0-preview
 com.unity.cinemachine@2.9.7
-com.unity.collab-proxy@2.0.5
 com.unity.connect.share@4.2.3
 com.unity.feature.development@1.0.1
-com.unity.ide.rider@3.0.25
+com.unity.ide.rider@3.0.26
 com.unity.inputsystem@1.6.3
 com.unity.postprocessing@3.2.2
 com.unity.probuilder@5.1.1

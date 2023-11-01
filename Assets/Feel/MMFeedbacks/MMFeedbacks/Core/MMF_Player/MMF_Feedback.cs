@@ -143,6 +143,12 @@ namespace MoreMountains.Feedbacks
 
 		/// if this is true, the Randomness group will be displayed, otherwise it'll be hidden        
 		public virtual bool HasRandomness => false;
+		
+		/// if this is true, this feedback implements ForceInitialState, otherwise calling that method will have no effect
+		public virtual bool CanForceInitialValue => false;
+
+		/// if this is true, force initial value will happen over two frames
+		public virtual bool ForceInitialValueDelayed => false;
 
 		/// whether or not this feedback can automatically grab the target on this game object, or a parent, a child, or on a reference holder
 		public virtual bool HasAutomatedTargetAcquisition => false;
@@ -800,6 +806,42 @@ namespace MoreMountains.Feedbacks
 		}
 
 		/// <summary>
+		/// Forces the feedback to set its initial value (behavior will change from feedback to feedback,
+		/// but for example, a Position feedback that moves a Transform from point A to B would
+		/// automatically move the Transform to point A when ForceInitialState is called
+		/// </summary>
+		public virtual void ForceInitialValue(Vector3 position, float feedbacksIntensity = 1.0f)
+		{
+			if (!CanForceInitialValue)
+			{
+				return;
+			}
+			if (ForceInitialValueDelayed)
+			{
+				Owner.StartCoroutine(ForceInitialValueDelayedCo(position, feedbacksIntensity));
+			}
+			else
+			{
+				Play(position, feedbacksIntensity);
+				Stop(position, feedbacksIntensity);	
+			}
+		}
+
+		/// <summary>
+		/// A coroutine used to delay the Stop when forcing initial values (used mostly with shaker based feedbacks)
+		/// </summary>
+		/// <param name="position"></param>
+		/// <param name="feedbacksIntensity"></param>
+		/// <returns></returns>
+		protected virtual IEnumerator ForceInitialValueDelayedCo(Vector3 position, float feedbacksIntensity = 1.0f)
+		{
+			Play(position, feedbacksIntensity);
+			yield return new WaitForEndOfFrame();
+			Stop(position, feedbacksIntensity);
+			
+		}
+
+		/// <summary>
 		/// Called when restoring the initial state of a player, calls custom Restore on all feedbacks
 		/// </summary>
 		/// <param name="position"></param>
@@ -816,6 +858,14 @@ namespace MoreMountains.Feedbacks
 		{
 			_playsLeft = Timing.NumberOfRepeats + 1;
 			CustomReset();
+		}
+
+		/// <summary>
+		/// This gets called by the MMF Player when all feedbacks have completed playing 
+		/// </summary>
+		public virtual void PlayerComplete()
+		{
+			CustomPlayerComplete();
 		}
 
 		#endregion
@@ -1026,6 +1076,10 @@ namespace MoreMountains.Feedbacks
 		/// This method describes what happens when the feedback gets restored
 		/// </summary>
 		protected virtual void CustomRestoreInitialValues() { }
+		/// <summary>
+		/// This method describes what happens when the player this feedback belongs to completes playing
+		/// </summary>
+		protected virtual void CustomPlayerComplete() { }
 
 		/// <summary>
 		/// This method describes what happens when the feedback gets reset

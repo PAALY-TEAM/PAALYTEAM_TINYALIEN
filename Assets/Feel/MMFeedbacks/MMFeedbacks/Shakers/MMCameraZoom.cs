@@ -148,7 +148,6 @@ namespace MoreMountains.FeedbacksForThirdParty
 			_transitionDuration = transitionDuration;
 			_direction = 1;
 			_destinationReached = false;
-			_initialFieldOfView = _camera.fieldOfView;
 			_zoomStartedAt = GetTime();
 
 			if (tweenType != null)

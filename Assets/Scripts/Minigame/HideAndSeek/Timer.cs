@@ -16,8 +16,8 @@ namespace Minigame.HideAndSeek
         [SerializeField] private GameObject seekers;
     
     
-        [HideInInspector] public bool gameOver = false;
-        private bool _gameStart = false;
+        [HideInInspector] public bool gameOver;
+        private bool _gameStart;
 
         [FormerlySerializedAs("EndPos")] [SerializeField] private Vector3 endPos;
 
@@ -44,7 +44,7 @@ namespace Minigame.HideAndSeek
 
             if (_gameStart)
             {
-                bool activeSeeker = false;
+                var activeSeeker = false;
                 if (_timeToHide > 0)
                 {
                     //Decreases timer and displays whole number
@@ -126,7 +126,7 @@ namespace Minigame.HideAndSeek
 
         private void GangComponents(bool b)
         {
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
                 var currentChild = seekers.transform.GetChild(i);
                 currentChild.GetComponent<Light>().enabled = b;

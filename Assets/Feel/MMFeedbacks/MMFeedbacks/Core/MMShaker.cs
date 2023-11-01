@@ -156,6 +156,19 @@ namespace MoreMountains.Feedbacks
 				Shaking = false;
 				ShakeComplete();
 			}
+
+			if (PermanentShake)
+			{
+				if (_journey < 0)
+				{
+					_journey = ShakeDuration;
+				}
+
+				if (_journey > ShakeDuration)
+				{
+					_journey = 0;
+				}
+			}
 		}
 
 		/// <summary>
@@ -211,6 +224,9 @@ namespace MoreMountains.Feedbacks
 		/// </summary>
 		protected virtual void ShakeComplete()
 		{
+			_journey = ForwardDirection ? ShakeDuration : 0f;
+			Shake();
+			
 			if (_resetTargetValuesAfterShake || AlwaysResetTargetValuesAfterShake)
 			{
 				ResetTargetValues();

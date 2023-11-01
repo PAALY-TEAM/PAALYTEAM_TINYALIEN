@@ -153,6 +153,7 @@ namespace MoreMountains.Feedbacks
 				_objectPooler = objectPoolGo.AddComponent<MMMiniObjectPooler>();
 				_objectPooler.GameObjectToPool = ParticlesPrefab.gameObject;
 				_objectPooler.PoolSize = ObjectPoolSize;
+				_objectPooler.NestWaitingPool = NestParticles;
 				if (ParentTransform != null)
 				{
 					_objectPooler.transform.SetParent(ParentTransform);

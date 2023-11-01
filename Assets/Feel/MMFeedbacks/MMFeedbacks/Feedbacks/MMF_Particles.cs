@@ -28,12 +28,16 @@ namespace MoreMountains.Feedbacks
 		public override bool HasAutomatedTargetAcquisition => true;
 		protected override void AutomateTargetAcquisition() => BoundParticleSystem = FindAutomatedTarget<ParticleSystem>();
         
-		public enum Modes { Play, Stop, Pause }
+		public enum Modes { Play, Stop, Pause, Emit }
 
 		[MMFInspectorGroup("Bound Particles", true, 41, true)]
 		/// whether to Play, Stop or Pause the target particle system when that feedback is played
 		[Tooltip("whether to Play, Stop or Pause the target particle system when that feedback is played")]
 		public Modes Mode = Modes.Play;
+		/// in Emit mode, the amount of particles per emit
+		[Tooltip("in Emit mode, the amount of particles per emit")]
+		[MMFEnumCondition("Mode", (int)Modes.Emit)]
+		public int EmitCount = 100;
 		/// the particle system to play with this feedback
 		[Tooltip("the particle system to play with this feedback")]
 		public ParticleSystem BoundParticleSystem;
@@ -61,6 +65,8 @@ namespace MoreMountains.Feedbacks
 		[Tooltip("The min and max values at which to randomize the simulation speed, if ForceSimulationSpeed is true. A new value will be randomized every time this feedback plays")]
 		[MMFCondition("ForceSimulationSpeed", true)]
 		public Vector2 ForcedSimulationSpeed = new Vector2(0.1f,1f);
+
+		protected ParticleSystem.EmitParams _emitParams;
 
 		/// <summary>
 		/// On init we stop our particle system
@@ -126,10 +132,17 @@ namespace MoreMountains.Feedbacks
 		{
 			if (MoveToPosition)
 			{
-				BoundParticleSystem.transform.position = position;
-				foreach (ParticleSystem system in RandomParticleSystems)
+				if (Mode != Modes.Emit)
 				{
-					system.transform.position = position;
+					BoundParticleSystem.transform.position = position;
+					foreach (ParticleSystem system in RandomParticleSystems)
+					{
+						system.transform.position = position;
+					}	
+				}
+				else
+				{
+					_emitParams.position = position;
 				}
 			}
 
@@ -169,6 +182,10 @@ namespace MoreMountains.Feedbacks
 			{
 				case Modes.Play:
 					targetParticleSystem?.Play();
+					break;
+				case Modes.Emit:
+					_emitParams.applyShapeToPosition = true;
+					targetParticleSystem.Emit(_emitParams, EmitCount);
 					break;
 				case Modes.Stop:
 					targetParticleSystem?.Stop();

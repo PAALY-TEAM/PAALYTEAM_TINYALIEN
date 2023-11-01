@@ -16,27 +16,27 @@ namespace Minigame.HideAndSeek
 		[Header("Set to obstacle")]
 		public LayerMask viewMask;
 
-		float _viewAngle;
-		float _playerVisibleTimer;
+		private float _viewAngle;
+		private float _playerVisibleTimer;
 	
 
 		public Transform pathHolder;
 		private GameObject _player;
 		private Transform _playerTransform;
-		Color _originalSpotlightColour;
+		private Color _originalSpotlightColour;
 
 		private Vector3[] _waypoints;
-		private int _targetWaypointIndex = 0;
-		[SerializeField] private bool isFlying = false;
+		private int _targetWaypointIndex;
+		[SerializeField] private bool isFlying;
 
 
 		public Vector3 idlePos;
 	
 	
 
-		public static bool PlayerSpotted = false;
+		public static bool PlayerSpotted;
 
-		void Start()
+		private void Start()
 		{
 			_player = GameObject.FindGameObjectWithTag("Player");
 			_playerTransform = _player.transform;
@@ -46,17 +46,17 @@ namespace Minigame.HideAndSeek
 			turnSpeed *= 90;
 
 			_waypoints = new Vector3[pathHolder.childCount];
-			for (int i = 0; i < _waypoints.Length; i++)
+			for (var i = 0; i < _waypoints.Length; i++)
 			{
 				_waypoints[i] = pathHolder.GetChild(i).position;
 				_waypoints[i] = new Vector3(_waypoints[i].x, transform.position.y, _waypoints[i].z);
 			}
 		}
 
-		void Update() {
+		private void Update() {
 			if (PlayerSpotted)
 			{
-				Vector3 chaseVector = new Vector3(_playerTransform.position.x, transform.position.y, _playerTransform.position.z);
+				var chaseVector = new Vector3(_playerTransform.position.x, transform.position.y, _playerTransform.position.z);
 				if (isFlying)
 					chaseVector =  _playerTransform.position;
 				transform.position = Vector3.MoveTowards(transform.position, chaseVector, speed * Time.deltaTime);
@@ -69,7 +69,7 @@ namespace Minigame.HideAndSeek
 	
 		private void OnCollisionEnter(Collision other)
 		{
-			if (other.gameObject.tag == "Player")
+			if (other.gameObject.CompareTag("Player"))
 			{
 				GameObject.Find("Timer").GetComponent<Timer>().gameOver = true;
 				PlayerSpotted = false;
@@ -97,10 +97,11 @@ namespace Minigame.HideAndSeek
 			_playerVisibleTimer = Mathf.Clamp (_playerVisibleTimer, 0, timeToSpotPlayer);
 			spotlight.color = Color.Lerp (_originalSpotlightColour, Color.red, _playerVisibleTimer / timeToSpotPlayer);
 		}
-		bool CanSeePlayer() {
+
+		private bool CanSeePlayer() {
 			if (Vector3.Distance(transform.position,_playerTransform.position) < viewDistance) {
-				Vector3 dirToPlayer = (_playerTransform.position - transform.position).normalized;
-				float angleBetweenGuardAndPlayer = Vector3.Angle (transform.forward, dirToPlayer);
+				var dirToPlayer = (_playerTransform.position - transform.position).normalized;
+				var angleBetweenGuardAndPlayer = Vector3.Angle (transform.forward, dirToPlayer);
 				if (angleBetweenGuardAndPlayer < _viewAngle / 2f) {
 					if (!Physics.Linecast (transform.position, _playerTransform.position, viewMask)) {
 						return true;
@@ -110,22 +111,21 @@ namespace Minigame.HideAndSeek
 			return false;
 		}
 
-	
 
-		IEnumerator TurnToFace(Vector3 lookTarget) {
-			Vector3 dirToLookTarget = (lookTarget - transform.position).normalized;
-			float targetAngle = 90 - Mathf.Atan2 (dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
+		private IEnumerator TurnToFace(Vector3 lookTarget) {
+			var dirToLookTarget = (lookTarget - transform.position).normalized;
+			var targetAngle = 90 - Mathf.Atan2 (dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
 
 			while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f) {
-				float angle = Mathf.MoveTowardsAngle (transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
+				var angle = Mathf.MoveTowardsAngle (transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
 				transform.eulerAngles = Vector3.up * angle;
 				yield return null;
 			}
 		}
 
-		void OnDrawGizmos() {
-			Vector3 startPosition = pathHolder.GetChild (0).position;
-			Vector3 previousPosition = startPosition;
+		private void OnDrawGizmos() {
+			var startPosition = pathHolder.GetChild (0).position;
+			var previousPosition = startPosition;
 
 			foreach (Transform waypoint in pathHolder) {
 				Gizmos.DrawSphere (waypoint.position, .3f);

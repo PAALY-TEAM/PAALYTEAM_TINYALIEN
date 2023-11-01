@@ -22,7 +22,10 @@ namespace Editor
     public class ExportWebGL : MonoBehaviour
     {
         private static string[] levelsToPack = new string[] {
-            "Assets/Scenes/SampleScene.unity",
+            
+            "Assets/Scenes/TestScenes/!SceneSwapping_Main.unity",
+            "Assets/Scenes/TestScenes/!SceneSwapping_Main_AfterFirstSpawn.unity",
+            "Assets/Scenes/TestScenes/!SceneSwapping_Target1.unity"
         };
 
         private static string buildLogFile = null;

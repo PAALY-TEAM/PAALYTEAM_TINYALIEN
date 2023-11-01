@@ -47,6 +47,7 @@ namespace Camera
 
         private void Awake()
         {
+            Application.targetFrameRate = -1;
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");

@@ -1,5 +1,5 @@
-﻿using Feel.FeelDemos._Common.Scripts;
-using MoreMountains.Feedbacks;
+﻿using MoreMountains.Feedbacks;
+using MoreMountains.Feel;
 using UnityEngine;
 using UnityEngine.Serialization;
 

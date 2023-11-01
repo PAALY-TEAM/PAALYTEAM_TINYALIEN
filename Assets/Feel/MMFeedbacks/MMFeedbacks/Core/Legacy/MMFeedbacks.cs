@@ -247,7 +247,7 @@ namespace MoreMountains.Feedbacks
 		/// <summary>
 		/// Initializes the MMFeedbacks, setting this MMFeedbacks as the owner
 		/// </summary>
-		public virtual void Initialization()
+		public virtual void Initialization(bool forceInitIfPlaying = false)
 		{
 			Initialization(this.gameObject);
 		}
@@ -298,6 +298,18 @@ namespace MoreMountains.Feedbacks
 		public virtual async System.Threading.Tasks.Task PlayFeedbacksTask(Vector3 position, float feedbacksIntensity = 1.0f, bool forceRevert = false)
 		{
 			PlayFeedbacks(position, feedbacksIntensity, forceRevert);
+			while (IsPlaying)
+			{
+				await System.Threading.Tasks.Task.Yield();
+			}
+		}
+        
+		/// <summary>
+		/// Plays all feedbacks and awaits until completion
+		/// </summary>
+		public virtual async System.Threading.Tasks.Task PlayFeedbacksTask()
+		{
+			PlayFeedbacks();
 			while (IsPlaying)
 			{
 				await System.Threading.Tasks.Task.Yield();
