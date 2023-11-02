@@ -100,19 +100,17 @@ namespace Pickup.Player
         public void MySceneLoader()
         {
             _currentScene = SceneManager.GetActiveScene().buildIndex;
-
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
             _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
             for(int i = 0; i < tempTerrainHolder.Length; i++) 
                 _terrainToChangeColour[_currentScene][i] = tempTerrainHolder[i].gameObject;
-            
+            //Goes through all the colours that can be picked up to checked
             for (int i = 0; i < nameOfTags.Length; i++)
             {
                 //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
                 GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
                 _objectsToChangeColour[i] = objectsWithEnum;
-                
                 
                 //Checks bool if colour been picked up in scene previously
                 if (_isSceneVisited[_currentScene][i])

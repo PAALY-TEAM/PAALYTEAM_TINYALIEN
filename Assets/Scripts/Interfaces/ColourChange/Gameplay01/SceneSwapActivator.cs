@@ -26,7 +26,7 @@ namespace Interfaces.ColourChange.Gameplay01
         {
         
             _player = GameObject.FindGameObjectWithTag("Player");
-            Vector3 spawnPlace = new Vector3(transform.position.x,5f, transform.position.z);
+            Vector3 spawnPlace = new Vector3(0,2f, 0) + transform.position;
             _panelMade = Instantiate(panelPreFab, spawnPlace, Quaternion.identity);
             _panelMade.transform.SetParent(this.gameObject.transform.parent);
         
