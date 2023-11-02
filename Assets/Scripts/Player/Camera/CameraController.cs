@@ -27,7 +27,7 @@ namespace Camera
         private float _cinemachineTargetPitch;
         private CameraInput _input;
         private GameObject _mainCamera;
-        private const float Threshold = 0.01f;
+        private const float _threshold = 0.01f;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -70,7 +70,7 @@ namespace Camera
 
         private void CameraRotation()
         {
-            if (_input.look.sqrMagnitude >= Threshold && !lockCameraPosition)
+            if (_input.look.sqrMagnitude >= _threshold && !lockCameraPosition)
             {
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 

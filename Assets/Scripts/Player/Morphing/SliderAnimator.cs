@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Morphing
 {
     public class SliderAnimator : MonoBehaviour
     {
-        [SerializeField] private float _speed = 1f;
-        [SerializeField] private float _maxX = 1f;
-        [SerializeField] private float _minX = 0f;
-        [SerializeField] private Morpher _morpher;
+        [FormerlySerializedAs("_speed")] [SerializeField] private float speed = 1f;
+        [FormerlySerializedAs("_maxX")] [SerializeField] private float maxX = 1f;
+        [FormerlySerializedAs("_minX")] [SerializeField] private float minX = 0f;
+        [SerializeField] private NoMorpherOnlyDepForColorChange _morpher;
         [SerializeField] private InputActionReference movementAction;
 
         private bool _movementInput;
@@ -40,8 +41,8 @@ namespace Morphing
 
         private void Update()
         {
-            float targetSliderValue = _movementInput ? _maxX : _minX;
-            _currentSliderValue = Mathf.Lerp(_currentSliderValue, targetSliderValue, Time.deltaTime * _speed);
+            float targetSliderValue = _movementInput ? maxX : minX;
+            _currentSliderValue = Mathf.Lerp(_currentSliderValue, targetSliderValue, Time.deltaTime * speed);
             _morpher.SetSlider(_currentSliderValue);
         }
     }

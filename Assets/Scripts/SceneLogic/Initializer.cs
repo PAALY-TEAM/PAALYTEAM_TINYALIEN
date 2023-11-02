@@ -1,5 +1,5 @@
 using UnityEngine;
-public interface Initializer
+public interface INitializer
 {
     /*
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
