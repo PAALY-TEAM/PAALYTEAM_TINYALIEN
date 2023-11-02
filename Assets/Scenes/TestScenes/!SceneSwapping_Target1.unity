@@ -145,12 +145,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663861151613182657, guid: 5b001fcef374f6142ae80c8939f85399, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: '!SceneSwapping_Main'
+      value: '!SceneSwapping_Main_AfterFirstSpawn'
       objectReference: {fileID: 0}
     - target: {fileID: 4663861151613182657, guid: 5b001fcef374f6142ae80c8939f85399, type: 3}
       propertyPath: sceneToLoad.sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: ffd8be8a273cc7b4d89fe5b40c660091, type: 3}
+      objectReference: {fileID: 102900000, guid: 9ecb0d95eac1e644e9ed693aeae7e4b4, type: 3}
     - target: {fileID: 6666663115546792242, guid: 5b001fcef374f6142ae80c8939f85399, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.467256
