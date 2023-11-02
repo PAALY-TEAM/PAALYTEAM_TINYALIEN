@@ -91,7 +91,6 @@ namespace Pickup.Player
                 _isSceneVisited[i] = new bool[NumbStored.Length];
                 for (int j = 0; j < NumbStored.Length; j++)
                 {
-                    
                     _isSceneVisited[i][j] = false;
                 }
             }
@@ -115,10 +114,8 @@ namespace Pickup.Player
             // Makes so that crayons from first scene is saved to copy
             if (!_copySceneLoaded)
             {
-                print("gfs values :D");
                 if (_currentScene == copyScene)
                 {
-                    print("Copied values :D");
                     _isSceneVisited[copyScene] = _isSceneVisited[gameScene];
                     _copySceneLoaded = true;
                 }
@@ -135,6 +132,7 @@ namespace Pickup.Player
                 //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
                 GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
                 _objectsToChangeColour[i] = objectsWithEnum;
+                print("Number of iteration: "+i);   
                 
                 //Checks bool if colour been picked up in scene previously
                 if (_isSceneVisited[_currentScene][i])
@@ -214,6 +212,8 @@ namespace Pickup.Player
         // ReSharper disable Unity.PerformanceAnalysis
         void HandleInteractions()
         {
+            UpdateValues();
+            if (_otherObject == null) return;
             if (_otherObject.CompareTag("SpaceShip"))
             {
                 //For future coding if we want visible display of crayons to have a origin position to the crayons
@@ -234,7 +234,7 @@ namespace Pickup.Player
                 currentColour = 0;
             }
             //transform.GetChild(0).gameObject.SetActive(false);
-            UpdateValues();
+            
         }
         // Swaps Player Colour
         private void ColourSwapper()
@@ -291,22 +291,24 @@ namespace Pickup.Player
             //Check if colour is already applied
             //if (objectsToChangeColour[numb - 1][0].transform.GetComponent<Renderer>().sharedMaterial != colours[numb])
             {
-                //Find length of the row of 2D array
+                
+                    //Find length of the row of 2D array
                 foreach (var obj in _objectsToChangeColour[numb - 1])
                 {
                     //Change colour of each element in 2D array
                     if (obj.transform.GetComponent(nameof(EnviromentShade)) is EnviromentShade)
                     {
+                        print("obj has EnviromentShade");
                         obj.transform.GetComponent<EnviromentShade>().SwapToShade(numb-1);
                     }
                     else
                         obj.transform.GetComponent<Renderer>().sharedMaterial = colours[numb];
 
                     if (obj.GetComponent(nameof(IColourChange)) is IColourChange)
-                    {
                         obj.GetComponent<IColourChange>().ColourChange();
-                    }
+                    
                 }
+                
                 
                 // Checks if terrain is used in scene and sends the colour index to check if it has the colour
                 foreach (var obj in _terrainToChangeColour[_currentScene])

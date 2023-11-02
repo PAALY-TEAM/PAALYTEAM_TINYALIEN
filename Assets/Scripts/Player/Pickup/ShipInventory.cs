@@ -33,8 +33,6 @@ namespace Pickup
 
         public void Display()
         {
-            //Number of crayons placed (p) 
-            print("Number of Crayons in ship before" + p );
         
             //Get radius of rotation so that it is easier when placing crayons in ship aka. automatic rather than manual
             //Using the Max number of crayon in level to calculate space
@@ -70,8 +68,7 @@ namespace Pickup
                 
                 _visibleCrayon[i] = ItemManager.NumbStored[i];
             }
-
-            print("After: " + p);
+            
             GetComponent<WhenCollectedCrayons>().CheckIfEnough();
             //Checks if playerColor has stored the right amount of crayon in the ship
             if (p >= maxCrayonOnShip)

@@ -34,7 +34,7 @@ public class TerrainShade : MonoBehaviour
     private TerrainChange[] _texturesThatChanges;
     
     
-    private void Start()
+    private void Awake()
     {
         thisTarrain = GetComponent<Terrain>();
         _texturesThatChanges = new TerrainChange[affectingColour.Length];
