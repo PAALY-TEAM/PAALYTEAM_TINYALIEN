@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 177211740}
   - component: {fileID: 177211739}
   - component: {fileID: 177211738}
+  - component: {fileID: 177211741}
   m_Layer: 3
   m_Name: FieldLevel01_MA
   m_TagString: Untagged
@@ -385,6 +386,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 364712802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &177211741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177211737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94c564968cee994a849bcec592fc1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affectingColour: 0600000003000000
+  startIndex: 0000000002000000
+  endIndex: 0300000004000000
 --- !u!1 &197901558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,8 +1623,9 @@ GameObject:
   - component: {fileID: 279483123}
   - component: {fileID: 279483122}
   - component: {fileID: 279483121}
+  - component: {fileID: 279483125}
   m_Layer: 0
-  m_Name: Cube (32)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1655,7 +1672,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1694,12 +1711,27 @@ Transform:
   m_GameObject: {fileID: 279483120}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.601798, y: -16.712189, z: -1.7804464}
-  m_LocalScale: {x: 3.9081347, y: 16.84248, z: 3.8201907}
+  m_LocalPosition: {x: 1.601798, y: -16.712189, z: -1.7804463}
+  m_LocalScale: {x: 3.9081347, y: 16.84248, z: 3.8201904}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279483125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279483120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!64 &301735291
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1734,8 +1766,9 @@ GameObject:
   - component: {fileID: 339796860}
   - component: {fileID: 339796859}
   - component: {fileID: 339796858}
+  - component: {fileID: 339796862}
   m_Layer: 0
-  m_Name: Cube (40)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1782,7 +1815,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1825,8 +1858,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1314277263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &339796862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339796857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &359543266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,8 +1994,9 @@ GameObject:
   - component: {fileID: 431448352}
   - component: {fileID: 431448351}
   - component: {fileID: 431448350}
+  - component: {fileID: 431448354}
   m_Layer: 0
-  m_Name: Cube (43)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1994,7 +2043,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2033,12 +2082,27 @@ Transform:
   m_GameObject: {fileID: 431448349}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.056418132, y: -6.9799995, z: 0.79680693}
+  m_LocalPosition: {x: 0.056418132, y: -6.980011, z: 0.79680693}
   m_LocalScale: {x: 0.6026733, y: 6.3823175, z: 0.39451632}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &431448354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431448349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &435601806
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,8 +2220,9 @@ GameObject:
   - component: {fileID: 516404621}
   - component: {fileID: 516404620}
   - component: {fileID: 516404619}
+  - component: {fileID: 516404623}
   m_Layer: 0
-  m_Name: Cube (34)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2204,7 +2269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2243,12 +2308,27 @@ Transform:
   m_GameObject: {fileID: 516404618}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.9255886, y: -3.56, z: -4.244536}
+  m_LocalPosition: {x: 3.9255886, y: -3.5599976, z: -4.2445354}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1314277263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &516404623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516404618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &575517336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,7 +2468,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Forrest level
   playerTag: Player
-  interactKey: 101
 --- !u!65 &629638049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2741,21 +2820,8 @@ Transform:
   m_LocalScale: {x: 25.346518, y: 1, z: 26.104155}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 339796861}
-  - {fileID: 736379718}
-  - {fileID: 1711674514}
-  - {fileID: 774161196}
-  - {fileID: 516404622}
-  - {fileID: 279483124}
-  - {fileID: 1171162661}
-  - {fileID: 1487038219}
-  - {fileID: 2012216957}
-  - {fileID: 1688699587}
-  - {fileID: 1202779816}
-  - {fileID: 811731422}
-  - {fileID: 431448353}
-  - {fileID: 1699300730}
-  - {fileID: 1568286684}
+  - {fileID: 1314277263}
+  - {fileID: 1446557945}
   m_Father: {fileID: 364712802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736379714
@@ -2770,8 +2836,9 @@ GameObject:
   - component: {fileID: 736379717}
   - component: {fileID: 736379716}
   - component: {fileID: 736379715}
+  - component: {fileID: 736379719}
   m_Layer: 0
-  m_Name: Cube (38)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2818,7 +2885,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2857,12 +2924,27 @@ Transform:
   m_GameObject: {fileID: 736379714}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.816955, y: -11.62, z: -4.719556}
+  m_LocalPosition: {x: 2.816955, y: -11.619995, z: -4.7195554}
   m_LocalScale: {x: 0.77019006, y: 1, z: 0.7701899}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1314277263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736379719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736379714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1001 &751998933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2958,8 +3040,9 @@ GameObject:
   - component: {fileID: 774161195}
   - component: {fileID: 774161194}
   - component: {fileID: 774161193}
+  - component: {fileID: 774161197}
   m_Layer: 0
-  m_Name: Cube (36)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3006,7 +3089,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3045,12 +3128,27 @@ Transform:
   m_GameObject: {fileID: 774161192}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.0676203, y: -5.98, z: -3.2485259}
+  m_LocalPosition: {x: 4.0676203, y: -5.980011, z: -3.2485256}
   m_LocalScale: {x: 0.66808057, y: 1, z: 0.756843}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1314277263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &774161197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774161192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &811731418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,8 +3161,9 @@ GameObject:
   - component: {fileID: 811731421}
   - component: {fileID: 811731420}
   - component: {fileID: 811731419}
+  - component: {fileID: 811731423}
   m_Layer: 0
-  m_Name: Cube (46)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3111,7 +3210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3150,12 +3249,27 @@ Transform:
   m_GameObject: {fileID: 811731418}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7456647, y: -1.3800001, z: -4.3173213}
+  m_LocalPosition: {x: 0.7456647, y: -1.3800049, z: -4.317321}
   m_LocalScale: {x: 1.3999839, y: 1, z: 0.89392984}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1314277263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &811731423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811731418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!4 &900141855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
@@ -4138,8 +4252,9 @@ GameObject:
   - component: {fileID: 1171162660}
   - component: {fileID: 1171162659}
   - component: {fileID: 1171162658}
+  - component: {fileID: 1171162662}
   m_Layer: 0
-  m_Name: Cube (33)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4186,7 +4301,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4225,12 +4340,27 @@ Transform:
   m_GameObject: {fileID: 1171162657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.9255886, y: -9.28, z: -4.244536}
+  m_LocalPosition: {x: 3.9255886, y: -9.279999, z: -4.2445354}
   m_LocalScale: {x: 1, y: 10.426593, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1171162662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171162657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &1180869966
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,8 +4500,9 @@ GameObject:
   - component: {fileID: 1202779815}
   - component: {fileID: 1202779814}
   - component: {fileID: 1202779813}
+  - component: {fileID: 1202779817}
   m_Layer: 0
-  m_Name: Cube (45)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4418,7 +4549,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4457,12 +4588,27 @@ Transform:
   m_GameObject: {fileID: 1202779812}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7456647, y: -10.28, z: -4.3173213}
+  m_LocalPosition: {x: 0.7456647, y: -10.279999, z: -4.317321}
   m_LocalScale: {x: 1.3999839, y: 16.824059, z: 0.89392984}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1202779817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202779812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &1206318474
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,6 +5005,44 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4068373912626513877, guid: 076c2017a40623e47abfae344c91955c, type: 3}
+--- !u!1 &1314277262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1314277263}
+  m_Layer: 0
+  m_Name: GrassHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1314277263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314277262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 339796861}
+  - {fileID: 736379718}
+  - {fileID: 774161196}
+  - {fileID: 516404622}
+  - {fileID: 2012216957}
+  - {fileID: 811731422}
+  - {fileID: 1699300730}
+  m_Father: {fileID: 709576928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1380236354
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5039,6 +5223,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 364712802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1446557944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1446557945}
+  m_Layer: 0
+  m_Name: DirtHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1446557945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446557944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1711674514}
+  - {fileID: 279483124}
+  - {fileID: 1171162661}
+  - {fileID: 1487038219}
+  - {fileID: 1688699587}
+  - {fileID: 1202779816}
+  - {fileID: 431448353}
+  - {fileID: 1568286684}
+  m_Father: {fileID: 709576928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1468031643
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5073,8 +5296,9 @@ GameObject:
   - component: {fileID: 1487038218}
   - component: {fileID: 1487038217}
   - component: {fileID: 1487038216}
+  - component: {fileID: 1487038220}
   m_Layer: 0
-  m_Name: Cube (41)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5121,7 +5345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5160,12 +5384,27 @@ Transform:
   m_GameObject: {fileID: 1487038215}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8758601, y: -9.28, z: 0.57845104}
+  m_LocalPosition: {x: 0.8758601, y: -9.279999, z: 0.57845104}
   m_LocalScale: {x: 0.50502, y: 11.963003, z: 0.5050199}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487038220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487038215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &1549210849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,8 +5544,9 @@ GameObject:
   - component: {fileID: 1568286683}
   - component: {fileID: 1568286682}
   - component: {fileID: 1568286681}
+  - component: {fileID: 1568286685}
   m_Layer: 0
-  m_Name: Cube (37)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5353,7 +5593,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5392,12 +5632,27 @@ Transform:
   m_GameObject: {fileID: 1568286680}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.816955, y: -16.08, z: -4.719556}
+  m_LocalPosition: {x: 2.816955, y: -16.079987, z: -4.7195554}
   m_LocalScale: {x: 0.77019006, y: 8.0304575, z: 0.7701899}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568286685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568286680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &1573446732
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,8 +6290,9 @@ GameObject:
   - component: {fileID: 1688699586}
   - component: {fileID: 1688699585}
   - component: {fileID: 1688699584}
+  - component: {fileID: 1688699588}
   m_Layer: 0
-  m_Name: Cube (39)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6083,7 +6339,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6122,12 +6378,27 @@ Transform:
   m_GameObject: {fileID: 1688699583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.9799995, z: 0}
+  m_LocalPosition: {x: 0, y: -6.980011, z: 0}
   m_LocalScale: {x: 1, y: 13.285564, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1688699588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688699583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &1699300726
 GameObject:
   m_ObjectHideFlags: 0
@@ -6140,8 +6411,9 @@ GameObject:
   - component: {fileID: 1699300729}
   - component: {fileID: 1699300728}
   - component: {fileID: 1699300727}
+  - component: {fileID: 1699300731}
   m_Layer: 0
-  m_Name: Cube (44)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6188,7 +6460,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6227,12 +6499,27 @@ Transform:
   m_GameObject: {fileID: 1699300726}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.056418132, y: -3.33, z: 0.79680693}
+  m_LocalPosition: {x: 0.056418132, y: -3.3299866, z: 0.79680693}
   m_LocalScale: {x: 0.6026733, y: 1, z: 0.39451632}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1314277263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1699300731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699300726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &1711674510
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,8 +6533,9 @@ GameObject:
   - component: {fileID: 1711674512}
   - component: {fileID: 1711674511}
   - component: {fileID: 1711674515}
+  - component: {fileID: 1711674516}
   m_Layer: 0
-  m_Name: Cube (35)
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6294,7 +6582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6333,13 +6621,28 @@ Transform:
   m_GameObject: {fileID: 1711674510}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.0676203, y: -9.88, z: -3.2485259}
+  m_LocalPosition: {x: 4.0676203, y: -9.880005, z: -3.2485256}
   m_LocalScale: {x: 0.66808057, y: 7.0151243, z: 0.756843}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1446557945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1711674515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711674510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 6
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
+--- !u!114 &1711674516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6664,8 +6967,9 @@ GameObject:
   - component: {fileID: 2012216956}
   - component: {fileID: 2012216955}
   - component: {fileID: 2012216954}
+  - component: {fileID: 2012216958}
   m_Layer: 0
-  m_Name: Cube (42)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6712,7 +7016,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
+  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6751,12 +7055,27 @@ Transform:
   m_GameObject: {fileID: 2012216953}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8758601, y: -2.85, z: 0.57845104}
+  m_LocalPosition: {x: 0.8758601, y: -2.850006, z: 0.57845104}
   m_LocalScale: {x: 0.50502, y: 1, z: 0.5050199}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709576928}
+  m_Father: {fileID: 1314277263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2012216958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012216953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &2024828397
 GameObject:
   m_ObjectHideFlags: 0
@@ -6920,13 +7239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de394a0113a5c404a8073a4e41ce4eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorToSpawnTo: 2
-  _sceneToLoad:
-    _sceneAsset: {fileID: 0}
-    _sceneName: Forrest level
-  CurrentDoorPosition: 1
-  playerTag: Player
-  interactKey: 101
+  doorToSpawnTo: 0
+  sceneToLoad:
+    sceneAsset: {fileID: 0}
+    sceneName: 
+  currentDoorPosition: 0
 --- !u!114 &2045669584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7495,11 +7812,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdc8e493c8a93d468ff1224b9b266af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CinemachineCameraTarget: {fileID: 5146303575713917352}
-  TopClamp: 70
-  BottomClamp: -30
-  CameraAngleOverride: 0
-  LockCameraPosition: 0
+  cinemachineCameraTarget: {fileID: 5146303575713917352}
+  topClamp: 70
+  bottomClamp: -30
+  cameraAngleOverride: 0
+  lockCameraPosition: 0
 --- !u!4 &380061784969019319
 Transform:
   m_ObjectHideFlags: 0
@@ -8081,8 +8398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c27a8b251fecc49b469af81ab84ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentValue: 0
-  ChangeBarValueBtn: 0
+  currentValue: 0
+  changeBarValueBtn: 0
   progressBar: {fileID: 8887502399182544362}
   progressCircle: {fileID: 5875586516557349744}
 --- !u!114 &893389488920360814
@@ -9069,7 +9386,7 @@ Camera:
     height: 1
   near clip plane: 0.2
   far clip plane: 500
-  field of view: 40
+  field of view: 74.3
   orthographic: 0
   orthographic size: 32.84
   m_Depth: -1
@@ -10793,7 +11110,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 3674163047640298709}
   m_Follow: {fileID: 3674163047640298709}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 74.3
     OrthographicSize: 32.84
     NearClipPlane: 0.2
     FarClipPlane: 500
@@ -11118,7 +11435,7 @@ MonoBehaviour:
   jumpFeedback: {fileID: 3126886839012154310}
   landingFeedback: {fileID: 1669272976433207829}
   playerInputSpace: {fileID: 2737516465913606012}
-  ball: {fileID: 2339370520688211029}
+  mainAlienBody: {fileID: 2339370520688211029}
   playerControls: {fileID: -944628639613478452, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
   maxSpeed: 1
   maxClimbSpeed: 4
@@ -11520,7 +11837,7 @@ Transform:
   m_GameObject: {fileID: 7747420569942499038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9799957, y: 2.06, z: -4.26}
+  m_LocalPosition: {x: 5.979992, y: 2.06, z: -4.2599983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12251,7 +12568,7 @@ MonoBehaviour:
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.2
   releaseDuration: 1.39
-  OnMaxScaleReached:
+  onMaxScaleReached:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2015293449289703771}
@@ -12266,7 +12583,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnNotAtMaxScale:
+  onNotAtMaxScale:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2015293449289703771}
@@ -12602,8 +12919,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261326725590106338}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 76.87567, y: -3.4853487, z: 23.03215}
+  m_LocalRotation: {x: -0, y: -0.19793773, z: -0, w: 0.98021466}
+  m_LocalPosition: {x: 70.11977, y: -3.4853485, z: 18.124609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12611,7 +12928,7 @@ Transform:
   - {fileID: 7823930015949882380}
   - {fileID: 2120163827}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -22.833, z: 0}
 --- !u!4 &3674163047640298709
 Transform:
   m_ObjectHideFlags: 0
@@ -13986,7 +14303,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:
@@ -14154,10 +14499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b797a7d21d93aa42ac5f00155d95156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeOutImage: {fileID: 8451302005062739208}
-  _fadeOutSpeed: 5
-  _fadeInSpeed: 5
-  _fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
+  fadeOutImage: {fileID: 0}
+  fadeOutSpeed: 5
+  fadeInSpeed: 5
+  fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &6167483496819870941
 Transform:
   m_ObjectHideFlags: 0
@@ -14248,7 +14593,7 @@ GameObject:
   - component: {fileID: 3163430127453611322}
   - component: {fileID: 6151188201127796705}
   m_Layer: 0
-  m_Name: CanvasFade
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14601,7 +14946,7 @@ Transform:
   m_GameObject: {fileID: 6057257299330037669}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9799957, y: 2.06, z: -4.26}
+  m_LocalPosition: {x: 5.979992, y: 2.06, z: -4.2599983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16385,7 +16730,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:

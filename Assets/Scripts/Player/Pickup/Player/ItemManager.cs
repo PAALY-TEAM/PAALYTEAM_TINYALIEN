@@ -45,11 +45,12 @@ namespace Pickup.Player
         /// The scripts continues in start
         /// </summary>
         private GameObject[][] _objectsToChangeColour;
+        private GameObject[][] _terrainToChangeColour;
         [Header("Add TAG in Unity!!!")]
         [Header("Add all Tags that are used on objects that should change colour!!")]
         [SerializeField] private string[] nameOfTags;
 
-        private bool[] _isSceneVisited;
+        private bool[][] _isSceneVisited;
 
         private static bool _gameStarted = false;
         private IColourChange _colourChange01Implementation;
@@ -70,11 +71,17 @@ namespace Pickup.Player
             //Defining the length of the 2D array
             var sceneCount = SceneManager.sceneCountInBuildSettings;
             _objectsToChangeColour = new GameObject[NumbStored.Length][];
+            _terrainToChangeColour = new GameObject[NumbStored.Length][];
+            _isSceneVisited = new bool[sceneCount][];
             
-            _isSceneVisited = new bool[sceneCount];
             for (int i = 0; i<_isSceneVisited.Length; i++)
             {
-                _isSceneVisited[i] = false;
+                _isSceneVisited[i] = new bool[NumbStored.Length];
+                for (int j = 0; j < NumbStored.Length; j++)
+                {
+                    
+                    _isSceneVisited[i][j] = false;
+                }
             }
 
         }
@@ -88,6 +95,38 @@ namespace Pickup.Player
 
             UpdateValues();
         }
+        //This is to change the objects that the player can colour
+        //to match the scene the player "loads" into
+        public void MySceneLoader()
+        {
+            _currentScene = SceneManager.GetActiveScene().buildIndex;
+
+            //Finds terrain in scenes to colour
+            TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
+            _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
+            for(int i = 0; i < tempTerrainHolder.Length; i++) 
+                _terrainToChangeColour[_currentScene][i] = tempTerrainHolder[i].gameObject;
+            
+            for (int i = 0; i < nameOfTags.Length; i++)
+            {
+                //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
+                GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
+                _objectsToChangeColour[i] = objectsWithEnum;
+                
+                
+                //Checks bool if colour been picked up in scene previously
+                if (_isSceneVisited[_currentScene][i])
+                {
+                    ChangeColourOfEnvironment(i + 1);
+                }
+            }
+            _spaceShip = GameObject.Find("SpaceShip");
+            hintText = GameObject.Find("Hint");
+            hintText.SetActive(false);
+            UpdateValues();
+            GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>().CrayonCheckup();
+        }
+
         private void Update()
         {
             //If player enters an area with triggers "canInteract = true" they can interact with the object and based on
@@ -119,7 +158,7 @@ namespace Pickup.Player
                 CrayonProgress++;
                 UpdateValues();
                 GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>().ChangeThisCrayonStatus(_otherObject);
-                
+                _isSceneVisited[_currentScene][numb-1] = true;
                 Destroy(_otherObject);
                 
             }
@@ -245,41 +284,20 @@ namespace Pickup.Player
                     if (obj.GetComponent(nameof(IColourChange)) is IColourChange)
                     {
                         obj.GetComponent<IColourChange>().ColourChange();
-                    } 
+                    }
+                }
+                
+                // Checks if terrain is used in scene and sends the colour index to check if it has the colour
+                foreach (var obj in _terrainToChangeColour[_currentScene])
+                {
+                    if (obj.transform.GetComponent(nameof(TerrainShade)) is TerrainShade)
+                    {
+                        obj.GetComponent<TerrainShade>().FindCurrentTexture(numb-1);
+                    }
                 }
             }
         }
 
-        //This is to change the objects that the player can colour
-        //to match the scene the player "loads" into
-        public void MySceneLoader()
-        {
-            _currentScene = SceneManager.GetActiveScene().buildIndex;
-            
-                for (int i = 0; i < nameOfTags.Length; i++)
-                {
-                    //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
-                    GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
-                    _objectsToChangeColour[i] = objectsWithEnum;
-                    if (NumbStored[i] > 0 || NumbCarried[i] > 0)
-                    {
-                        if (_isSceneVisited[_currentScene])
-                        {
-                            ChangeColourOfEnvironment(i + 1);
-                        }
-                    }
-                    
-
-                }
-
-            
-            _isSceneVisited[_currentScene] = true;
-            _spaceShip = GameObject.Find("SpaceShip");
-            hintText = GameObject.Find("Hint");
-            hintText.SetActive(false);
-            UpdateValues();
-            GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>().CrayonCheckup();
-        }
         
         
         //Outdated code, maybe need later though
