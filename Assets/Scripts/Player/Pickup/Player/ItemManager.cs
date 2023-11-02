@@ -143,7 +143,6 @@ namespace Pickup.Player
                 }
             }
             _spaceShip = GameObject.Find("SpaceShip");
-            hintText = GameObject.Find("Hint");
             hintText.SetActive(false);
             UpdateValues();
             GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>().CrayonCheckup();
