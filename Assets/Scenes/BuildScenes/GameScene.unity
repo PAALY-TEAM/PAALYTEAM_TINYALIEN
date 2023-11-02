@@ -9683,6 +9683,8 @@ MonoBehaviour:
   - Orange
   - Purple
   - Brown
+  gameScene: 0
+  copyScene: 0
 --- !u!135 &1646733346381909339
 SphereCollider:
   m_ObjectHideFlags: 0

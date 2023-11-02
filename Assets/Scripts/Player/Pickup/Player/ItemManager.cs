@@ -49,16 +49,28 @@ namespace Pickup.Player
         [Header("Add TAG in Unity!!!")]
         [Header("Add all Tags that are used on objects that should change colour!!")]
         [SerializeField] private string[] nameOfTags;
-
+        // Boolean to check if scene is loaded
         private bool[][] _isSceneVisited;
-
+        [Header("Build indexes of first scene the player starts in and copy of that scene")]
+        [SerializeField] private int gameScene;
+        [SerializeField] private int copyScene;
+        private static bool _copySceneLoaded = false;
+        
         private static bool _gameStarted = false;
         private IColourChange _colourChange01Implementation;
         
 
         private int _currentScene;
+
+        private void OnDestroy()
+        {
+            _copySceneLoaded = false;
+            _gameStarted = false;
+        }
+
         private void Awake()
         {
+            
             if (!_gameStarted)
             {
                 //Set all numbers of objects to 0
@@ -100,6 +112,18 @@ namespace Pickup.Player
         public void MySceneLoader()
         {
             _currentScene = SceneManager.GetActiveScene().buildIndex;
+            // Makes so that crayons from first scene is saved to copy
+            if (!_copySceneLoaded)
+            {
+                print("gfs values :D");
+                if (_currentScene == copyScene)
+                {
+                    print("Copied values :D");
+                    _isSceneVisited[copyScene] = _isSceneVisited[gameScene];
+                    _copySceneLoaded = true;
+                }
+            }
+            
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
             _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
