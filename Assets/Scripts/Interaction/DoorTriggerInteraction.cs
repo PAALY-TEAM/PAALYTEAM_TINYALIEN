@@ -25,7 +25,12 @@ public class DoorTriggerInteraction : TriggerInteractionBase
 
     public override void Interact()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>().hintText.SetActive(true);
+        //GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>().hintText.SetActive(true);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player.TryGetComponent<ItemManager>(out ItemManager itemManager))
+        {
+            itemManager.hintText.SetActive(true);
+        }
         if (sceneToLoad == null || doorToSpawnTo == DoorToSpawnAt.None)
         {
             Debug.Log("Scene to load is not set. Interaction with door is disabled.");
