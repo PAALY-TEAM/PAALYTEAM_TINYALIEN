@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -67,6 +67,10 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: 265707b256b2ec14e9951e6f405b23fa
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+      - m_Id: 0e9fad6a16c90c74bb8a7724710a7d37
+        m_Value: C:/Users/lars_/Unity/PAALYTEAM_TINYALIEN/Assets
+      - m_Id: 47f4c647352504b42bd9c65e2943af45
+        m_Value: C:/Users/lars_/Unity/PAALYTEAM_TINYALIEN/Assets
     m_ProfileEntryNames:
     - m_Id: 034305586d6f68d419ae86fa67ade4ec
       m_Name: BuildTarget
@@ -82,6 +86,12 @@ MonoBehaviour:
       m_InlineUsage: 0
     - m_Id: 265707b256b2ec14e9951e6f405b23fa
       m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    - m_Id: 0e9fad6a16c90c74bb8a7724710a7d37
+      m_Name: New Entry.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 47f4c647352504b42bd9c65e2943af45
+      m_Name: New Entry.LoadPath
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
