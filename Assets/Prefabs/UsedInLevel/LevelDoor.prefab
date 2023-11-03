@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5419991795528305617}
   - component: {fileID: 458265519948530269}
   - component: {fileID: 1150944138959051317}
-  - component: {fileID: 1382455745962659046}
+  - component: {fileID: 4724265396257639519}
   m_Layer: 3
   m_Name: LevelDoor
   m_TagString: Blue
@@ -136,31 +136,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de394a0113a5c404a8073a4e41ce4eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorToSpawnTo: 1
-  _sceneToLoad:
-    _sceneAsset: {fileID: 102900000, guid: 334ca41b2a666d04da4580b2073c53bc, type: 3}
-    _sceneName: GameScene
-  CurrentDoorPosition: 2
-  playerTag: Player
-  interactKey: 101
---- !u!65 &1382455745962659046
-BoxCollider:
+  useSharedMaterialCondition: 0
+  doorToSpawnTo: 0
+  sceneToLoad:
+    sceneAsset: {fileID: 0}
+    sceneName: 
+  currentDoorPosition: 0
+--- !u!114 &4724265396257639519
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261283614660510800}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 8.852631, z: 10}
-  m_Center: {x: 0, y: 2.4997792, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 0
+  shadeType: 0
+  uniqueMaterial: {fileID: 0}
