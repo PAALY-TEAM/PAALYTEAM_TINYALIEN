@@ -60,7 +60,7 @@ namespace UI
         
             _resume.onClick.AddListener(Resume);
             _reset.onClick.AddListener(ReloadScene);
-        
+            _settings.onClick.AddListener(Settings);
             _exit.onClick.AddListener(Exit);
         }
 

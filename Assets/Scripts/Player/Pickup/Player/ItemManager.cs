@@ -133,7 +133,7 @@ namespace Pickup.Player
             _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
             for(int i = 0; i < tempTerrainHolder.Length; i++) 
                 _terrainToChangeColour[_currentScene][i] = tempTerrainHolder[i].gameObject;
-            //Goes through all the colours that can be picked up to checked
+            //Goes through all the colours that can be picked up to
             for (int i = 0; i < nameOfTags.Length; i++)
             {
                 //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
@@ -141,7 +141,7 @@ namespace Pickup.Player
                 _objectsToChangeColour[i] = objectsWithEnum;
                 
                 //Checks bool if colour been picked up in scene previously
-                if (_isSceneVisited[_currentScene][i])
+                if (_isSceneVisited[_currentScene][i] || NumbStored[i] > 0)
                 {
                     ChangeColourOfEnvironment(i + 1);
                 }
@@ -185,12 +185,6 @@ namespace Pickup.Player
                 _crayonCounter.AddCrayonToList(_otherObject);
                 _isSceneVisited[_currentScene][numb-1] = true;
                 Destroy(_otherObject);
-                
-            }
-            else
-            {
-                hintText.SetActive(true);
-                _canInteract = true;
             }
             
         }
@@ -215,7 +209,7 @@ namespace Pickup.Player
         // ReSharper disable Unity.PerformanceAnalysis
         void HandleInteractions()
         {
-            UpdateValues();
+            
             if (_otherObject == null) return;
             if (_otherObject.CompareTag("SpaceShip"))
             {
@@ -229,15 +223,20 @@ namespace Pickup.Player
                     {
                         NumbStored[i] += NumbCarried[i];
                         NumbCarried[i] = 0;
+                        if (NumbStored[i] > 0)
+                        {
+                            ChangeColourOfEnvironment(i+1);
+                        }
                     }
                 }
                 shipScript.Display();
                 foreach (Renderer render in rend)
                     render.sharedMaterial = colours[0];
                 currentColour = 0;
+                
             }
             //transform.GetChild(0).gameObject.SetActive(false);
-            
+            UpdateValues();
         }
         // Swaps Player Colour
         private void ColourSwapper()
@@ -290,22 +289,22 @@ namespace Pickup.Player
             }
             return numberReturn;
         }
-        private void ChangeColourOfEnvironment(int numb)
+        private void ChangeColourOfEnvironment(int playerColourIndex)
         {
             //Check if colour is already applied
-            //if (objectsToChangeColour[numb - 1][0].transform.GetComponent<Renderer>().sharedMaterial != colours[numb])
+            //if (objectsToChangeColour[playerColourIndex - 1][0].transform.GetComponent<Renderer>().sharedMaterial != colours[playerColourIndex])
             {
                 
                     //Find length of the row of 2D array
-                foreach (var obj in _objectsToChangeColour[numb - 1])
+                foreach (var obj in _objectsToChangeColour[playerColourIndex - 1])
                 {
                     //Change colour of each element in 2D array
                     if (obj.transform.GetComponent(nameof(EnviromentShade)) is EnviromentShade)
                     {
-                        obj.transform.GetComponent<EnviromentShade>().SwapToShade(numb-1);
+                        obj.transform.GetComponent<EnviromentShade>().SwapToShade(playerColourIndex-1);
                     }
                     else
-                        obj.transform.GetComponent<Renderer>().sharedMaterial = colours[numb];
+                        obj.transform.GetComponent<Renderer>().sharedMaterial = colours[playerColourIndex];
 
                     if (obj.GetComponent(nameof(IColourChange)) is IColourChange)
                         obj.GetComponent<IColourChange>().ColourChange();
@@ -318,7 +317,7 @@ namespace Pickup.Player
                 {
                     if (obj.transform.GetComponent(nameof(TerrainShade)) is TerrainShade)
                     {
-                        obj.GetComponent<TerrainShade>().FindCurrentTexture(numb-1);
+                        obj.GetComponent<TerrainShade>().FindCurrentTexture(playerColourIndex-1);
                     }
                 }
             }
