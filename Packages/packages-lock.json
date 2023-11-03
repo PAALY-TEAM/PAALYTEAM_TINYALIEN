@@ -29,6 +29,16 @@
       },
       "url": "https://package.openupm.com"
     },
+    "com.unity-atoms.unity-atoms-fsm": {
+      "version": "4.4.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.8",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.8"
+      },
+      "url": "https://package.openupm.com"
+    },
     "com.unity-atoms.unity-atoms-input-system": {
       "version": "4.4.8",
       "depth": 0,
@@ -37,6 +47,37 @@
         "com.unity-atoms.unity-atoms-core": "4.4.8",
         "com.unity-atoms.unity-atoms-base-atoms": "4.4.8",
         "com.unity.inputsystem": "1.0.1"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.unity-atoms.unity-atoms-mobile": {
+      "version": "4.4.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.8",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.8"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.unity-atoms.unity-atoms-mono-hooks": {
+      "version": "4.4.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity-atoms.unity-atoms-core": "4.4.8",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.8"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.unity-atoms.unity-atoms-scene-mgmt": {
+      "version": "4.4.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity-atoms.unity-atoms-core": "4.4.8",
+        "com.unity-atoms.unity-atoms-base-atoms": "4.4.8"
       },
       "url": "https://package.openupm.com"
     },
