@@ -8,25 +8,15 @@ public class ExPauseMenu : SimpleMenu<ExPauseMenu>{
 
     [SerializeField]
     private BoolVariable PlayerCanMove;
-  
-    //CoinsCollected
-
+    
     public override void OnBackPressed(){
         Debug.Log("PauseMenu :: OnBackPressed");
         ExGlobalNavbarMenu.Show();
         PlayerCanMove.Value = true;
 
     }
-
     public void OnEnable(){
         Debug.Log("ExPauseMenu was enabled");
         PlayerCanMove.Value = false;
     }
-
-    
-
-    
-
-
-    
 }

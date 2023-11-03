@@ -125,6 +125,9 @@ namespace Movement
             _climbAction = playerControls.FindAction("Climb");
             _interactAction = playerControls.FindAction("Interact");
         }
+
+        #region Input Handling
+
         private void OnEnable() {
             // Enable the Input Actions
             _moveAction.Enable();
@@ -147,6 +150,7 @@ namespace Movement
             _climbAction.Disable();
             _interactAction.Disable();
         }
+        #endregion
         private void Update()
         {
             Vector2 inputVector = _moveAction.ReadValue<Vector2>();
@@ -271,6 +275,8 @@ namespace Movement
             ClearState();
         }
 
+        #region States
+
         private void ClearState () {
             _lastContactNormal = _contactNormal;
             _lastSteepNormal = _steepNormal;
@@ -321,6 +327,8 @@ namespace Movement
                 _connectionWorldPosition
             );
         }
+
+        #endregion
         
         private bool CheckClimbing () {
             if (Climbing) {
@@ -450,6 +458,8 @@ namespace Movement
             _hasJumped = true;
         }
 
+        #region Collision Logic
+
         private void OnCollisionEnter (Collision collision) {
             // Check if the collision is with the ground layer and if the playerColor has jumped
             if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && _hasJumped)
@@ -511,6 +521,8 @@ namespace Movement
                 _minGroundDotProduct : _minStairsDotProduct;
         }
         
+
+        #endregion
         //
         //
         // UNITY EVENT METHODS

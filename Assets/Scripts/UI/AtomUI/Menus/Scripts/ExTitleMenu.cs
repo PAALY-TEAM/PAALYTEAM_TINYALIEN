@@ -13,20 +13,14 @@ public class ExTitleMenu : SimpleMenu<ExTitleMenu>{
 
         Debug.Log("TitleMenu :: OnNewPressed");
         
-        playerCanMove.SetValue(true);
-
         ExGlobalNavbarMenu.Show();
 
     }
-
-
     public override void OnBackPressed(){
 
         #if UNITY_EDITOR
         Debug.Log("Quit Scene");
         UnityEditor.EditorApplication.isPlaying = false;
-        #elif UNITY_WEBPLAYER
-        Application.OpenURL("http://makeplayhappy.com");
         #else
         Application.Quit();
         #endif
