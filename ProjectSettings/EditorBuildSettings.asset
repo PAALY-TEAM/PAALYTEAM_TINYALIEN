@@ -36,4 +36,5 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScenes/!SceneSwapping_Target1.unity
     guid: 5374fa7caf0e93f4f8081295b55c209e
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 98f6ab9ca0309ba46a5b2b2b47c57a3f, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: fff6b1f38b88d34449ae3cdc378efa0a, type: 2}
