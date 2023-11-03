@@ -14,20 +14,26 @@ namespace UI
         private Button _resume, _settings, _reset, _exit;
         [SerializeField] private GameObject pausePanel;
         private GameObject _thisPanel;
+        private int[] _savedShipStorage;
         private int[] _savedPlayerStorage;
 
-        private bool _isMenuOpen;
-        private void Start()
+        private bool _isMenuOpen = false;
+        //Set new value for current scene, run by ItemManager MySceneLoader();
+        public void NewValues()
         {
-            _isMenuOpen = false;
+            _savedShipStorage = new int[ItemManager.NumbStored.Length];
             _savedPlayerStorage= new int[ItemManager.NumbCarried.Length];
             for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
             {
+                print(i+ " : "+_savedPlayerStorage[i]);
                 _savedPlayerStorage[i] = ItemManager.NumbCarried[i];
+                if (i < ItemManager.NumbStored.Length)
+                {
+                    _savedShipStorage[i] = ItemManager.NumbStored[i];
+                }
             }
-        
         }
-        private void Update()
+        private void FixedUpdate()
         {
             if (_isMenuOpen && Input.GetKeyDown(KeyCode.Escape))
             {
@@ -78,19 +84,20 @@ namespace UI
 
         private void Settings()
         {
-            RemoveListener();
+            //RemoveListener();
         }
         private void ReloadScene()
         {
             RemoveListener();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            // Sets the player inventory to what it was when entering scene
             for (int i = 0; i < ItemManager.NumbStored.Length; i++)
             {
-                ItemManager.NumbStored[i] = 0;
+                ItemManager.NumbStored[i] = _savedShipStorage[i];
                 ItemManager.NumbCarried[i] = _savedPlayerStorage[i];
             }
-        
+            Destroy(_thisPanel);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
@@ -104,8 +111,7 @@ namespace UI
 
         private void Exit()
         {
-            print("Quit Game");
-            Application.Quit();
+            RemoveListener();
         }
     }
 }

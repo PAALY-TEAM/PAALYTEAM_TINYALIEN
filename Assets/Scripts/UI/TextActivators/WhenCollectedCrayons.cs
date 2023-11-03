@@ -1,3 +1,4 @@
+using System;
 using Pickup;
 using UnityEngine;
 
@@ -6,17 +7,24 @@ namespace UI.TextActivators
     public class WhenCollectedCrayons : MonoBehaviour
     {
         [Header("Number of crayons to activate dialogue")]
-        [SerializeField] private int numbCrayonsToActivate;
+        [SerializeField] private int[] numbCrayonsToActivate;
+        [SerializeField] private GameObject[] dialogueSummoner;
+        private static bool[] _isUsed;
 
-        private bool _isUsed = false;
+        private void Awake()
+        {
+            _isUsed = new bool[dialogueSummoner.Length];
+        }
 
         public void CheckIfEnough()
         {
-            if (numbCrayonsToActivate <= GetComponent<ShipInventory>().p && !_isUsed)
+            for (int i = 0; i < numbCrayonsToActivate.Length; i++)
             {
-                transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
-                _isUsed = true;
-            
+                if (numbCrayonsToActivate[i] <= GetComponent<ShipInventory>().p && !_isUsed[i])
+                {
+                    dialogueSummoner[i].GetComponent<NpcTextBox>().DialogueStart();
+                    _isUsed[i] = true;
+                }
             }
         }
     }

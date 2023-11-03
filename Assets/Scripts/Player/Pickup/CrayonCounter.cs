@@ -89,7 +89,6 @@ namespace Pickup
             for (int i = 0; i < sceneCount; i++)
             {
                 savedCrayon.Add(new List<string>());
-                print("List: "+ savedCrayon[i]);
             }
         }
         //Checks if crayon has been picked up by comparing the names in list of savedCrayon

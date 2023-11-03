@@ -59,6 +59,7 @@ namespace UI
         }
         public void OnCrayonPickedUp()
         {
+            print("Crayon PickedUp");
             CurrentValue = _itemManager.CrayonProgress;
             // Ensures that the UI gets updated as soon as a crayon gets picked up
             ChangeBarValue(); 

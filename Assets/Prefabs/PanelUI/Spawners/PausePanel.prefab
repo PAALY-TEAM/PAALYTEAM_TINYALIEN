@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 5636267399920089544}
   - component: {fileID: 2008452948747597443}
   - component: {fileID: 4630675320970428626}
+  - component: {fileID: 8474446275384783961}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -445,7 +446,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2008452948747597443}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8474446275384783961}
+        m_TargetAssemblyTypeName: ExTitleMenu, Assembly-CSharp
+        m_MethodName: OnBackPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8474446275384783961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102550342533649306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cd10eae6bab4b78b4b0f23d63c958d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyWhenClosed: 1
+  DisableMenusUnderneath: 1
+  playerCanMove: {fileID: 0}
 --- !u!1 &1153252940729982931
 GameObject:
   m_ObjectHideFlags: 0

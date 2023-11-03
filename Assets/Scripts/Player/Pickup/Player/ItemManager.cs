@@ -4,6 +4,7 @@ using Interfaces.ColourChange;
 using Pickup.Crayon;
 using Pickup.Shade;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -62,7 +63,7 @@ namespace Pickup.Player
         private static bool _gameStarted = false;
         private IColourChange _colourChange01Implementation;
         private CrayonCounter _crayonCounter;
-        
+        private PauseMenu _pauseMenu;
 
         private int _currentScene;
 
@@ -74,6 +75,8 @@ namespace Pickup.Player
 
         private void Awake()
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
             
             if (!_gameStarted)
             {
@@ -101,6 +104,7 @@ namespace Pickup.Player
 
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
+            _pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
         }
         void Start()
         {
@@ -128,6 +132,8 @@ namespace Pickup.Player
                 }
             }
             
+            
+            
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
             _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
@@ -136,7 +142,8 @@ namespace Pickup.Player
             //Goes through all the colours that can be picked up to
             for (int i = 0; i < nameOfTags.Length; i++)
             {
-                //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
+                //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex,
+                //Save those objects as a GameObject Array
                 GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
                 _objectsToChangeColour[i] = objectsWithEnum;
                 
@@ -150,8 +157,9 @@ namespace Pickup.Player
             hintText.SetActive(false);
             UpdateValues();
             _crayonCounter.CrayonCheckup();
+            _pauseMenu.NewValues();
         }
-
+        
         private void Update()
         {
             //If player enters an area with triggers "canInteract = true" they can interact with the object and based on
@@ -186,8 +194,12 @@ namespace Pickup.Player
                 _isSceneVisited[_currentScene][numb-1] = true;
                 Destroy(_otherObject);
             }
-            hintText.SetActive(true);
-            _canInteract = true;
+            else if (_otherObject.CompareTag("SpaceShip"))
+            {
+                hintText.SetActive(true);
+                _canInteract = true; 
+            }
+            
         }
         private void OnTriggerExit(Collider other)
         {
@@ -293,7 +305,8 @@ namespace Pickup.Player
         private void ChangeColourOfEnvironment(int playerColourIndex)
         {
             //Check if colour is already applied
-            //if (objectsToChangeColour[playerColourIndex - 1][0].transform.GetComponent<Renderer>().sharedMaterial != colours[playerColourIndex])
+            //if (objectsToChangeColour[playerColourIndex - 1][0].transform.GetComponent<Renderer>().sharedMaterial
+            //        != colours[playerColourIndex])
             {
                 
                     //Find length of the row of 2D array

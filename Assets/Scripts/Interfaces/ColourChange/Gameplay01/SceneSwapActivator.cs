@@ -20,7 +20,7 @@ namespace Interfaces.ColourChange.Gameplay01
         private GameObject _hintText;
         private bool _isActive;
 
-        private DoorTriggerInteraction _DTI;
+        private DoorTriggerInteraction _dti;
 
     
 
@@ -28,7 +28,7 @@ namespace Interfaces.ColourChange.Gameplay01
         {
         
             _player = GameObject.FindGameObjectWithTag("Player");
-            _DTI = GetComponent<DoorTriggerInteraction>();
+            _dti = GetComponent<DoorTriggerInteraction>();
             Vector3 spawnPlace = new Vector3(0,2f, 0) + transform.position;
             _panelMade = Instantiate(panelPreFab, spawnPlace, Quaternion.identity);
             _panelMade.transform.SetParent(this.gameObject.transform.parent);
@@ -73,7 +73,7 @@ namespace Interfaces.ColourChange.Gameplay01
             // Interact starts the scene swaping
             if (_isActive && Input.GetButtonDown("Interact"))
             {
-                _DTI.Interact();
+                _dti.Interact();
             }
         }
         private void OnCollisionStay(Collision other)
