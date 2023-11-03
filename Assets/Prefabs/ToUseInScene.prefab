@@ -1015,7 +1015,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:
@@ -1515,11 +1543,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdc8e493c8a93d468ff1224b9b266af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CinemachineCameraTarget: {fileID: 6072888116602715165}
-  TopClamp: 70
-  BottomClamp: -30
-  CameraAngleOverride: 0
-  LockCameraPosition: 0
+  cinemachineCameraTarget: {fileID: 6072888116602715165}
+  topClamp: 70
+  bottomClamp: -30
+  cameraAngleOverride: 0
+  lockCameraPosition: 0
 --- !u!114 &638296126828459246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,7 +1563,7 @@ MonoBehaviour:
   jumpFeedback: {fileID: 4055635808133205619}
   landingFeedback: {fileID: 289952939215048608}
   playerInputSpace: {fileID: 3950203314303122121}
-  ball: {fileID: 3700676162753634784}
+  mainAlienBody: {fileID: 3700676162753634784}
   playerControls: {fileID: -944628639613478452, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
   maxSpeed: 1
   maxClimbSpeed: 4
@@ -3788,7 +3816,7 @@ MonoBehaviour:
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.2
   releaseDuration: 1.39
-  OnMaxScaleReached:
+  onMaxScaleReached:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 638296126828459246}
@@ -3803,7 +3831,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnNotAtMaxScale:
+  onNotAtMaxScale:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 638296126828459246}
@@ -3887,7 +3915,7 @@ Transform:
   m_GameObject: {fileID: 4271291695457146087}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -37.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4016,8 +4044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c27a8b251fecc49b469af81ab84ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentValue: 0
-  ChangeBarValueBtn: 0
+  currentValue: 0
+  changeBarValueBtn: 0
   progressBar: {fileID: 7528518967350954079}
   progressCircle: {fileID: 4802572826986043077}
 --- !u!1 &4668556479604852755
@@ -4422,10 +4450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b797a7d21d93aa42ac5f00155d95156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeOutImage: {fileID: 7378411460323717309}
-  _fadeOutSpeed: 5
-  _fadeInSpeed: 5
-  _fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
+  fadeOutImage: {fileID: 0}
+  fadeOutSpeed: 5
+  fadeInSpeed: 5
+  fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &5031363758838383731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4487,7 +4515,7 @@ Transform:
   m_GameObject: {fileID: 5126186194803024400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9799976, y: 2.0599992, z: -4.2599993}
+  m_LocalPosition: {x: 5.9800014, y: 2.0599992, z: -4.2599993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4978,7 +5006,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:
@@ -5653,7 +5709,7 @@ Transform:
   m_GameObject: {fileID: 7605960578626590058}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -209, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6790,7 +6846,7 @@ Transform:
   m_GameObject: {fileID: 8694253717101316971}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9799976, y: 2.0599992, z: -4.2599993}
+  m_LocalPosition: {x: 5.9800014, y: 2.0599992, z: -4.2599993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

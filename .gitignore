@@ -135,3 +135,4 @@ connectwebgl.zip
 WebGL Builds/dependencies.txt
 ProjectSettings/Packages/com.unity.connect.share/Settings.json
 connectwebgl.zip
+*.json
