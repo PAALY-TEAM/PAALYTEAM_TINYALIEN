@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,7 @@ namespace Pickup
 {
     public class CrayonCounter : MonoBehaviour
     {
+        /*
         private bool _isFirstTime = true;
     
     
@@ -72,30 +74,55 @@ namespace Pickup
                 }
             }
         }
-
-        public void ChangeThisCrayonStatus(GameObject thisCrayon)
-        {
+*/
+        //<SceneIndex><Int> = nameOfCrayonInScene
+        private List<List<string>> savedCrayon;
         
-            var activeScene = SceneManager.GetActiveScene().buildIndex;
-            for (int i = 0; i < _tempHolder.Length; i++)
+        //Temp Crayons in scene
+        private GameObject[] temp;
+
+        private void Awake()
+        {
+            var sceneCount = SceneManager.sceneCountInBuildSettings;
+            savedCrayon = new List<List<string>>();
+            print("SceneCount: "+ sceneCount);
+            for (int i = 0; i < sceneCount; i++)
             {
-                if (_tempHolder[i] == thisCrayon)
+                savedCrayon.Add(new List<string>());
+                print("List: "+ savedCrayon[i]);
+            }
+        }
+        //Checks if crayon has been picked up by comparing the names in list of savedCrayon
+        public void CrayonCheckup()
+        {
+            var currentScene = SceneManager.GetActiveScene().buildIndex;
+            // Stores all crayons in scene
+            temp = GameObject.FindGameObjectsWithTag("Crayon");
+         
+            // Compares savedCrayons with crayons in scene
+            for (int i = 0; i < savedCrayon[currentScene].Count; i++)
+            {
+                foreach (var t in temp)
                 {
-                    //Finds thisCrayon in the list were all crayons are stored and identify them as picked up 
-                    _crayList.Find(x => x.Crayon == _crayonHolder[_currentScene][i]).IsPicked=true;
-                    break;
+                    // If names match this loop break and goes on to check the next crayon in scene
+                    if (savedCrayon[currentScene][i] == t.name)
+                    {
+                        t.SetActive(false);
+                        break;
+                    }
                 }
             }
         }
-        class CrayonValues
+        
+        public void AddCrayonToList(GameObject thisCrayon)
         {
-            public int Crayon;
-            public bool IsPicked;
-            public CrayonValues(int crayon, bool isPicked)
-            {
-                this.Crayon = crayon;
-                this.IsPicked = isPicked;
-            } 
+            var currentScene = SceneManager.GetActiveScene().buildIndex;
+            savedCrayon[currentScene].Add(thisCrayon.name);
+        }
+
+        public void CopyValues(int from, int to)
+        {
+            savedCrayon[to] = savedCrayon[from];
         }
     }
 }
