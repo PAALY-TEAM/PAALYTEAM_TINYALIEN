@@ -20,12 +20,15 @@ namespace Interfaces.ColourChange.Gameplay01
         private GameObject _hintText;
         private bool _isActive;
 
+        private DoorTriggerInteraction _DTI;
+
     
 
         void Start()
         {
         
             _player = GameObject.FindGameObjectWithTag("Player");
+            _DTI = GetComponent<DoorTriggerInteraction>();
             Vector3 spawnPlace = new Vector3(0,2f, 0) + transform.position;
             _panelMade = Instantiate(panelPreFab, spawnPlace, Quaternion.identity);
             _panelMade.transform.SetParent(this.gameObject.transform.parent);
@@ -34,6 +37,7 @@ namespace Interfaces.ColourChange.Gameplay01
             _hintText = _panelMade.transform.Find("HintText").gameObject;
             _hintText.SetActive(false);
             _panelMade.SetActive(false);
+            
         }
 
         private bool _isColoured;
@@ -66,10 +70,10 @@ namespace Interfaces.ColourChange.Gameplay01
                     _isActive = false;
                 }
             }
-            //Later remove this unique so this script can be used for multiple minigames
+            // Interact starts the scene swaping
             if (_isActive && Input.GetButtonDown("Interact"))
             {
-                GetComponent<DoorTriggerInteraction>().Interact();
+                _DTI.Interact();
             }
         }
         private void OnCollisionStay(Collision other)

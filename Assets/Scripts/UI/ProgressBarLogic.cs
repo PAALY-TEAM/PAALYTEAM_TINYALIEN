@@ -30,7 +30,7 @@ namespace UI
         void ChangeBarValue()
         {
             progressBar.UpdateBar(CurrentValue, 0f, MaxValue);
-            progressCircle.UpdateBar(CurrentValue, 0f, MaxValue);
+            //progressCircle.UpdateBar(CurrentValue, 0f, MaxValue);
         }
     
         private void Awake()

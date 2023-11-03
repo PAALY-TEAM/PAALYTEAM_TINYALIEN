@@ -1,4 +1,5 @@
 using System.Collections;
+using Pickup.Player;
 using UnityEngine;
 
 public class RespawnTrigger : MonoBehaviour
@@ -6,10 +7,12 @@ public class RespawnTrigger : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
 
     private GameObject _player; // Changed to private as it will be assigned in Start method.
+    private GameObject _hint;
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player"); // This line finds and assigns the player GameObject.
+        _hint = _player.GetComponent<ItemManager>().hintText;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,6 +20,7 @@ public class RespawnTrigger : MonoBehaviour
         if (other.gameObject == _player)
         {
             StartCoroutine(RespawnPlayer());
+            
         }
     }
 
@@ -27,6 +31,7 @@ public class RespawnTrigger : MonoBehaviour
 
         _player.transform.position = respawnPoint.position;
 
+        _hint.SetActive(false);
         _player.SetActive(true);
     }
 }

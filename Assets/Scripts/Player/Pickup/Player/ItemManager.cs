@@ -186,7 +186,8 @@ namespace Pickup.Player
                 _isSceneVisited[_currentScene][numb-1] = true;
                 Destroy(_otherObject);
             }
-            
+            hintText.SetActive(true);
+            _canInteract = true;
         }
         private void OnTriggerExit(Collider other)
         {
