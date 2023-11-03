@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/GameEnd.unity
-    guid: 947c9944b0e6e3940bffec0bc6f9e6ff
+    path: Assets/Scenes/BuildScenes/MainMenu.unity
+    guid: f48f81e785867824797304a84fa34684
   - enabled: 1
     path: Assets/Scenes/BuildScenes/GameScene.unity
     guid: 334ca41b2a666d04da4580b2073c53bc
@@ -23,16 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildScenes/Forrest level.unity
     guid: f1ea767091836f248957864121a9a3c4
-  - enabled: 0
-    path: Assets/Scenes/BuildScenes/GameCompletion.unity
-    guid: 2d301f42a9e60514bb0d36ae097b9705
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/GameEnd.unity
+    guid: 947c9944b0e6e3940bffec0bc6f9e6ff
+  - enabled: 1
     path: Assets/Scenes/TestScenes/!SceneSwapping_Main.unity
     guid: ffd8be8a273cc7b4d89fe5b40c660091
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TestScenes/!SceneSwapping_Main_AfterFirstSpawn.unity
     guid: 9ecb0d95eac1e644e9ed693aeae7e4b4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TestScenes/!SceneSwapping_Target1.unity
     guid: 5374fa7caf0e93f4f8081295b55c209e
   m_configObjects:
