@@ -31,6 +31,12 @@ MonoBehaviour:
     m_Url: https://package.openupm.com
     m_Scopes:
     - com.littlebigfun.addressable-importer
+    - com.openupm
+    - com.unity-atoms.unity-atoms-base-atoms
+    - com.unity-atoms.unity-atoms-core
+    - com.unity-atoms.unity-atoms-input-system
+    - com.unity-atoms.unity-atoms-ui
+    - com.unity.uiextensions
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4
