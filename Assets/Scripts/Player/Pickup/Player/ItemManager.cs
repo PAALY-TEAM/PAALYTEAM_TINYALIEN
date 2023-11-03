@@ -38,6 +38,9 @@ namespace Pickup.Player
         private bool _canInteract = false;
         //Text to make it easier for player to understand something
         public GameObject hintText;
+        //Show the colour the player currently are using, because
+        //the shapes are difficult to see on player
+        private ShowColour _showColour;
         /// <summary>
         /// This part is to find all the objects in the scene by tag
         /// so that the different objects can change colour when the
@@ -58,6 +61,7 @@ namespace Pickup.Player
         
         private static bool _gameStarted = false;
         private IColourChange _colourChange01Implementation;
+        private CrayonCounter _crayonCounter;
         
 
         private int _currentScene;
@@ -95,6 +99,8 @@ namespace Pickup.Player
                 }
             }
 
+            _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
+            _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
         }
         void Start()
         {
@@ -117,6 +123,7 @@ namespace Pickup.Player
                 if (_currentScene == copyScene)
                 {
                     _isSceneVisited[copyScene] = _isSceneVisited[gameScene];
+                    _crayonCounter.CopyValues(gameScene, copyScene);
                     _copySceneLoaded = true;
                 }
             }
@@ -132,7 +139,6 @@ namespace Pickup.Player
                 //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex, Save those objects as a GameObject Array
                 GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
                 _objectsToChangeColour[i] = objectsWithEnum;
-                print("Number of iteration: "+i);   
                 
                 //Checks bool if colour been picked up in scene previously
                 if (_isSceneVisited[_currentScene][i])
@@ -143,7 +149,7 @@ namespace Pickup.Player
             _spaceShip = GameObject.Find("SpaceShip");
             hintText.SetActive(false);
             UpdateValues();
-            GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>().CrayonCheckup();
+            _crayonCounter.CrayonCheckup();
         }
 
         private void Update()
@@ -176,7 +182,7 @@ namespace Pickup.Player
                     ChangeColourOfEnvironment(numb);
                 CrayonProgress++;
                 UpdateValues();
-                GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>().ChangeThisCrayonStatus(_otherObject);
+                _crayonCounter.AddCrayonToList(_otherObject);
                 _isSceneVisited[_currentScene][numb-1] = true;
                 Destroy(_otherObject);
                 
@@ -201,11 +207,8 @@ namespace Pickup.Player
                // print(txt[i]);
                 txt[i].GetComponent<TextMeshProUGUI>().text = NumbCarried[i].ToString();
             }
-            //Is gameobject missing?
-            if (GameObject.Find("ShowColour")!=null)
-            {
-                GameObject.Find("ShowColour").GetComponent<ShowColour>().ChangeIcon(currentColour);
-            }
+            
+            _showColour.ChangeIcon(currentColour);
             
             CrayonPickedUp?.Invoke();
         }
@@ -254,6 +257,8 @@ namespace Pickup.Player
             foreach (Renderer render in rend)
                 render.sharedMaterial = colours[numb];
             currentColour = numb;
+            _showColour.ChangeIcon(currentColour);
+
 
         }
         private int[] SetOrderOfColour(int currentNumb)
@@ -265,10 +270,8 @@ namespace Pickup.Player
 
             for (int i = 0; i < colours.Length; i++)
             {
-
-                returnArray[i] = (i + currentNumb) % (colours.Length);
-
-                //Debug.Log(i + " " + returnArray[i]);
+                //Sorts number so the colours always goes in the same order
+                returnArray[i] = (i + currentNumb) % colours.Length;
             }
             return returnArray;
         }
@@ -278,6 +281,7 @@ namespace Pickup.Player
             int numberReturn = currentColour;
             for (int i = 0; i < orderChecked.Length; i++)
             {
+                // Swap to colour if collected a crayon of it
                 if (orderChecked[i] != 0 && numbOf[orderChecked[i] - 1] > 0)
                 {
                     numberReturn = orderChecked[i];
@@ -298,7 +302,6 @@ namespace Pickup.Player
                     //Change colour of each element in 2D array
                     if (obj.transform.GetComponent(nameof(EnviromentShade)) is EnviromentShade)
                     {
-                        print("obj has EnviromentShade");
                         obj.transform.GetComponent<EnviromentShade>().SwapToShade(numb-1);
                     }
                     else
