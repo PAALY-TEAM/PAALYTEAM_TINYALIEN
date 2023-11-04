@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: 334ca41b2a666d04da4580b2073c53bc
   - enabled: 1
     path: Assets/Scenes/BuildScenes/GameSceneDuplicate.unity
-    guid: 9bf3052be3c853748a889d58006d3839
+    guid: e732ea0a26ce4aa43a7ad50fdc95c5a8
   - enabled: 1
     path: Assets/Scenes/BuildScenes/LoadingScene.unity
     guid: 1488cd54322704746b83e05faf4e11c2
