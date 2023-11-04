@@ -10,15 +10,9 @@ namespace Pickup.Crayon
 
         private Renderer _rend;
 
-        private bool _isPickedUp;
+        public bool wasStolen;
 
-        private void Awake()
-        {
-            if (_isPickedUp)
-            {
-                Destroy(gameObject);
-            }
-        }
+        private CrayonLost _crayonLost;
 
         private void Start()
         {
@@ -28,6 +22,10 @@ namespace Pickup.Crayon
 
             if (isSpinning)
                 _rend.sharedMaterial = crayon.colour[0];
+
+            if (GameObject.Find("CrayonLost"))
+                _crayonLost = GameObject.Find("CrayonLost").GetComponent<CrayonLost>();
+            
         }
         void Update()
         {
@@ -37,7 +35,11 @@ namespace Pickup.Crayon
 
         public void PickedUp()
         {
-            _isPickedUp = true;
+            if (wasStolen)
+            {
+                print("I was stolen D:");
+                _crayonLost.RemoveLostCrayon(crayon.nr -1);
+            }
         }
     }
 }

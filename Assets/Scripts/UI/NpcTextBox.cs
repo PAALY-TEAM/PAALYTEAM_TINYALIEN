@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
@@ -32,23 +33,28 @@ namespace UI
         private int _currentPage;
         private int _currentName;
         private GameObject _thisPage;
-        private GameObject _menu;
+       
+        private Transform cameraTarget;
 
         private bool _activeDialogue;
-    
+
+        private void Start()
+        {
+            cameraTarget = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
+            
+        }
 
         public void DialogueStart()
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            _menu = GameObject.Find("PauseSummoner");
-            _menu.SetActive(false);
-        
+            
         
             _activeDialogue = true;
             //Finds Camera In Scene so that it can swap focus during scenes  
             _cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         
+            
             _thisCanvas = GameObject.Find("CanvasCrayon");
             _currentText = 0;
             _currentImg = 0;
@@ -63,7 +69,6 @@ namespace UI
             tempDisableMovement.OnPauseGame(_order[0]!=2);
             DialogueContinue();
         }
-
         private void DialogueContinue()
         {
             if (panelPrefab.Length > 0)
@@ -92,8 +97,8 @@ namespace UI
                     _thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[_currentText];
                     _cam.LookAt = cameraFocus[_currentText].transform;
                     _cam.Follow = cameraFocus[_currentText].transform;
-                
-                
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
                     return;
                 }
             }
@@ -137,14 +142,12 @@ namespace UI
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             _activeDialogue = false;
-            _menu.SetActive(true);
+            
             tempDisableMovement.OnResumeGame();
         
             //Set so player is the focus of camera
-            var camFocus = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
-            print(camFocus);
-            _cam.LookAt = camFocus;
-            _cam.Follow = camFocus;
+            _cam.LookAt = cameraTarget;
+            _cam.Follow = cameraTarget;
         }
         private void PrevPanel()
         { 

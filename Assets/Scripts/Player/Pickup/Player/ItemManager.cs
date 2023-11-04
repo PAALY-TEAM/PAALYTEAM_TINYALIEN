@@ -66,6 +66,9 @@ namespace Pickup.Player
         private PauseMenu _pauseMenu;
 
         private int _currentScene;
+        
+        // Crayons In UI
+        private GameObject crayonsUI;
 
         private void OnDestroy()
         {
@@ -105,6 +108,7 @@ namespace Pickup.Player
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
             _pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
+            crayonsUI = GameObject.Find("CanvasCrayon/Crayons");
         }
         void Start()
         {
@@ -189,9 +193,10 @@ namespace Pickup.Player
                 if (_objectsToChangeColour[numb - 1].Length > 0)
                     ChangeColourOfEnvironment(numb);
                 CrayonProgress++;
-                UpdateValues();
+                
                 _crayonCounter.AddCrayonToList(_otherObject);
                 _isSceneVisited[_currentScene][numb-1] = true;
+                UpdateValues();
                 Destroy(_otherObject);
             }
             else if (_otherObject.CompareTag("SpaceShip"))
@@ -210,7 +215,7 @@ namespace Pickup.Player
         {
             for (int i = 0; i < txt.Length; i++)
             {
-                txt[i] = GameObject.Find("CanvasCrayon").transform.GetChild(i).GetChild(0).gameObject;
+                txt[i] = crayonsUI.transform.GetChild(i).GetChild(0).gameObject;
                // print(txt[i]);
                 txt[i].GetComponent<TextMeshProUGUI>().text = NumbCarried[i].ToString();
             }

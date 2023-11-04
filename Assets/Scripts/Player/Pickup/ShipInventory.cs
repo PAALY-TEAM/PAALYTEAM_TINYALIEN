@@ -69,10 +69,11 @@ namespace Pickup
                 _visibleCrayon[i] = ItemManager.NumbStored[i];
             }
             
-            GetComponent<WhenCollectedCrayons>().CheckIfEnough();
             //Checks if playerColor has stored the right amount of crayon in the ship
-            if (p >= maxCrayonOnShip)
-                Win();
+           /* if (p >= maxCrayonOnShip)
+            {Win(); return;}*/
+            
+            GetComponent<WhenCollectedCrayons>().CheckIfEnough();
         }
 
         private void Win()
@@ -85,7 +86,7 @@ namespace Pickup
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("GameCompletion");
+            SceneManager.LoadScene("GameEnd");
         }
     }
 }

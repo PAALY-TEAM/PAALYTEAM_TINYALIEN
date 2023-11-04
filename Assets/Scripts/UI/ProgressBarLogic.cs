@@ -43,7 +43,7 @@ namespace UI
             }
         }
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             if (!_isSaved)
             {
@@ -57,9 +57,9 @@ namespace UI
         {
             _itemManager.CrayonPickedUp -= OnCrayonPickedUp;
         }
-        public void OnCrayonPickedUp()
+
+        private void OnCrayonPickedUp()
         {
-            print("Crayon PickedUp");
             CurrentValue = _itemManager.CrayonProgress;
             // Ensures that the UI gets updated as soon as a crayon gets picked up
             ChangeBarValue(); 

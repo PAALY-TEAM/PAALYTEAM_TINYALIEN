@@ -35,11 +35,11 @@ namespace Minigame
 		[SerializeField] private GameObject crayon;
 		[SerializeField] private CrayonNumber[] crayonColour;
 		[SerializeField] private Vector3[] spawnLocation;
-		public static int NumbTaken;
 	
-
+		//Where player is sent when caught
 		[SerializeField] private Vector3 jailLocation;
-
+		private CrayonLost _crayonLost;
+		
 		private void Start()
 		{
 			_player = GameObject.FindGameObjectWithTag("Player");
@@ -47,6 +47,7 @@ namespace Minigame
 			_viewAngle = spotlight.spotAngle;
 			_originalSpotlightColour = spotlight.color;
 			turnSpeed *= 90;
+			_crayonLost = GameObject.Find("CrayonLost").GetComponent<CrayonLost>();
 
 			_waypoints = new Vector3[pathHolder.childCount];
 			for (var i = 0; i < _waypoints.Length; i++)
@@ -83,16 +84,9 @@ namespace Minigame
 				
 					playerScript.CrayonProgress--;
 					playerScript.UpdateValues();
-					var createdCrayon = Instantiate(crayon);
-					createdCrayon.transform.position = spawnLocation[NumbTaken];
-					createdCrayon.GetComponent<CrayonDisplay>().crayon = crayonColour[i];
-					createdCrayon.GetComponent<CrayonDisplay>().isSpinning = true;
-					var rend = createdCrayon.GetComponent<Renderer>();
-					rend.enabled = true;
-					rend.sharedMaterial = crayonColour[i].colour[0];
-					NumbTaken++;
-					if (NumbTaken >= spawnLocation.Length) NumbTaken = 0;
-				
+					// Create Crayon and add to list of stolen
+					_crayonLost.AddLostCrayon(i, spawnLocation);
+					
 					transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
 					break;
 				}

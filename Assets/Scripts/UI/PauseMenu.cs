@@ -1,4 +1,6 @@
+using System;
 using Pickup.Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +10,7 @@ namespace UI
     public class PauseMenu : MonoBehaviour
     {
         [SerializeField] private TempDisableMovement  tempDisableMovement;
+        private ItemManager _itemManager;
 
         public SensitivitySettings sensitivitySettings;
         private GameObject _thisCanvas;
@@ -18,6 +21,14 @@ namespace UI
         private int[] _savedPlayerStorage;
 
         private bool _isMenuOpen = false;
+
+        private TextMeshProUGUI crayonsLeft;
+
+        private void Start()
+        {
+            _itemManager = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
+        }
+
         //Set new value for current scene, run by ItemManager MySceneLoader();
         public void NewValues()
         {
@@ -25,7 +36,7 @@ namespace UI
             _savedPlayerStorage= new int[ItemManager.NumbCarried.Length];
             for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
             {
-                print(i+ " : "+_savedPlayerStorage[i]);
+                
                 _savedPlayerStorage[i] = ItemManager.NumbCarried[i];
                 if (i < ItemManager.NumbStored.Length)
                 {
@@ -33,14 +44,16 @@ namespace UI
                 }
             }
         }
-        private void FixedUpdate()
+        private void Update()
         {
-            if (_isMenuOpen && Input.GetKeyDown(KeyCode.Escape))
+            if (_isMenuOpen && Input.GetButtonDown("Pause"))
             {
+                
                 Resume();
             }
-            else if (Input.GetKeyDown(KeyCode.Escape))
+            else if (Input.GetButtonDown("Pause"))
             {
+                
                 Pause();
             }
         }
@@ -58,6 +71,10 @@ namespace UI
 
             _thisPanel = Instantiate(pausePanel, _thisCanvas.transform.position, Quaternion.identity, _thisCanvas.transform);
 
+            // Find crayons in scene and display for player
+            int crayonInScene = GameObject.FindGameObjectsWithTag("Crayon").Length;
+            crayonsLeft = _thisPanel.transform.Find("CL").GetComponent<TextMeshProUGUI>();
+            crayonsLeft.text = "Crayons Left In This Level: " + crayonInScene;
             // Assign 
             _resume = _thisPanel.transform.Find("Resume").GetComponent<Button>();
             _reset = _thisPanel.transform.Find("Restart").GetComponent<Button>();
@@ -88,7 +105,8 @@ namespace UI
         }
         private void ReloadScene()
         {
-            RemoveListener();
+            //Gotta reset the crayons picked up value also smh
+            /*RemoveListener();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             // Sets the player inventory to what it was when entering scene
@@ -98,7 +116,7 @@ namespace UI
                 ItemManager.NumbCarried[i] = _savedPlayerStorage[i];
             }
             Destroy(_thisPanel);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
         }
 
         void RemoveListener()
