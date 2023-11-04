@@ -17293,6 +17293,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 458265519948530269, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
+      propertyPath: nameOfLevel
+      value: Forest
+      objectReference: {fileID: 0}
     - target: {fileID: 716721481733026469, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.46124002

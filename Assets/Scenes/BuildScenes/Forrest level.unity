@@ -8705,7 +8705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelPreFab: {fileID: 7741603013049896910, guid: fe5af7ffba7210545b3ed6c74a2a330d, type: 3}
   distanceVisible: 4
-  nameOfLevel: Hide&Seek
+  nameOfLevel: Hide & Seek
 --- !u!4 &716721480427023109
 Transform:
   m_ObjectHideFlags: 0
