@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/lars_/Unity/BUILD/TinyAlien/build4;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231031_102845_wasm_release_memoryprofiler;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231031_094819_wasm_release_cpuprofiler;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231031_043247_wasm_release_profiling;C:/Users/lars_/Unity/BUILD/TinyAlien/build3;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231030_232439_wasm_release_cpuprofiler;C:/Users/lars_/Unity/BUILD/TinyAlien/GoogleBuild2;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231030_215406_asm_development_uncompressed;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231030_214843_wasm_development_uncompressed;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231030_210130_wasm_release_cpuprofiler\"}"
+                "value": "{\"m_Value\":\"C:/Users/lars_/Unity/BUILD/TinyAlien/GameHandIn3;C:/Users/lars_/Unity/BUILD/TinyAlien/BuildHandIn;C:/Users/lars_/Unity/BUILD/TinyAlien/build4;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231031_102845_wasm_release_memoryprofiler;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231031_094819_wasm_release_cpuprofiler;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231031_043247_wasm_release_profiling;C:/Users/lars_/Unity/BUILD/TinyAlien/build3;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231030_232439_wasm_release_cpuprofiler;C:/Users/lars_/Unity/BUILD/TinyAlien/GoogleBuild2;C:/Users/lars_/Unity/html5_builds/TINY ALIEN_20231030_215406_asm_development_uncompressed\"}"
             }
         ]
     }

@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.littlebigfun.addressable-importer": "0.16.1",
     "com.unity-atoms.unity-atoms-base-atoms": "4.4.8",
     "com.unity-atoms.unity-atoms-core": "4.4.8",
     "com.unity-atoms.unity-atoms-fsm": "4.4.8",

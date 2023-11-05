@@ -6912,9 +6912,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dd23bf97680be41a75b45b50f0d8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetFPS: 60
+  TargetFPS: 30
   RenderFrameInterval: 0
-  VSyncCount: 0
+  VSyncCount: 2
 --- !u!4 &475878939
 Transform:
   m_ObjectHideFlags: 0

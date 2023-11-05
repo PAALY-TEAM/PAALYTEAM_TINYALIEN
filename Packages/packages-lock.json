@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.littlebigfun.addressable-importer": {
-      "version": "0.16.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.addressables": "1.1.5"
-      },
-      "url": "https://package.openupm.com"
-    },
     "com.unity-atoms.unity-atoms-base-atoms": {
       "version": "4.4.8",
       "depth": 0,
