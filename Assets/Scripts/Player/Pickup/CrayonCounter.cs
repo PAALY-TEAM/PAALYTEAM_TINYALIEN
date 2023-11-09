@@ -8,7 +8,7 @@ namespace Pickup
     public class CrayonCounter : MonoBehaviour
     {
         //<SceneIndex><Int> = nameOfCrayonInScene
-        private List<List<string>> savedCrayon;
+        public List<List<string>> savedCrayon;
         
         //Temp Crayons in scene
         private GameObject[] temp;

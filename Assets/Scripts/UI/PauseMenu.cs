@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Pickup;
 using Pickup.Player;
 using TMPro;
 using UnityEngine;
@@ -17,8 +19,15 @@ namespace UI
         private Button _resume, _settings, _reset, _exit;
         [SerializeField] private GameObject pausePanel;
         private GameObject _thisPanel;
+        private GameObject _player;
+        //Values to save for restart button
         private int[] _savedShipStorage;
         private int[] _savedPlayerStorage;
+        private List<string> _savedCrayonCounter;
+        private int _savedCurrentColour;
+        private Vector3 _savedPos;
+        
+        private CrayonCounter _crayonCounter;
 
         private bool _isMenuOpen = false;
 
@@ -26,14 +35,19 @@ namespace UI
 
         private void Start()
         {
-            _itemManager = GameObject.FindWithTag("Player").GetComponent<ItemManager>();
+            _player = GameObject.FindWithTag("Player");
+            _itemManager = _player.GetComponent<ItemManager>();
+            _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
+            
         }
 
         //Set new value for current scene, run by ItemManager MySceneLoader();
         public void NewValues()
         {
             _savedShipStorage = new int[ItemManager.NumbStored.Length];
-            _savedPlayerStorage= new int[ItemManager.NumbCarried.Length];
+            _savedPlayerStorage = new int[ItemManager.NumbCarried.Length];
+            _savedCrayonCounter = new List<string>();
+            _savedCrayonCounter = _crayonCounter.savedCrayon[SceneManager.GetActiveScene().buildIndex];
             for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
             {
                 
@@ -43,6 +57,9 @@ namespace UI
                     _savedShipStorage[i] = ItemManager.NumbStored[i];
                 }
             }
+
+            _savedCurrentColour = _itemManager.currentColour;
+            _savedPos = _player.transform.position;
         }
         private void Update()
         {
@@ -106,7 +123,7 @@ namespace UI
         private void ReloadScene()
         {
             //Gotta reset the crayons picked up value also smh
-            /*RemoveListener();
+            RemoveListener();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             // Sets the player inventory to what it was when entering scene
@@ -115,8 +132,11 @@ namespace UI
                 ItemManager.NumbStored[i] = _savedShipStorage[i];
                 ItemManager.NumbCarried[i] = _savedPlayerStorage[i];
             }
+            _crayonCounter.savedCrayon[SceneManager.GetActiveScene().buildIndex] = _savedCrayonCounter;
+            _player.transform.position = _savedPos;
+            _itemManager.ChangeAlienColour(_savedCurrentColour);
             Destroy(_thisPanel);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         void RemoveListener()

@@ -105,6 +105,7 @@ namespace Pickup.Player
                 }
             }
 
+
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
             _pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
@@ -112,12 +113,7 @@ namespace Pickup.Player
         }
         void Start()
         {
-            foreach (Renderer render in rend)
-            {
-                render.enabled = true;
-                render.sharedMaterial = colours[0];
-            }
-
+            ChangeAlienColour(0);
             UpdateValues();
         }
         //This is to change the objects that the player can colour
@@ -187,9 +183,7 @@ namespace Pickup.Player
                 int numb = _otherObject.GetComponent<CrayonDisplay>().crayon.nr;
                 currentColour = numb;
                 NumbCarried[numb - 1]++;
-                foreach (Renderer render in rend) {
-                    render.sharedMaterial = colours[numb];
-                }
+                ChangeAlienColour(numb);
                 if (_objectsToChangeColour[numb - 1].Length > 0)
                     ChangeColourOfEnvironment(numb);
                 CrayonProgress++;
@@ -248,13 +242,18 @@ namespace Pickup.Player
                     }
                 }
                 shipScript.Display();
-                foreach (Renderer render in rend)
-                    render.sharedMaterial = colours[0];
+                ChangeAlienColour(0);
                 currentColour = 0;
                 
             }
             //transform.GetChild(0).gameObject.SetActive(false);
             UpdateValues();
+        }
+
+        public void ChangeAlienColour(int colourIndex)
+        {
+            foreach (Renderer render in rend)
+                render.sharedMaterial = colours[colourIndex];
         }
         // Swaps Player Colour
         private void ColourSwapper()
