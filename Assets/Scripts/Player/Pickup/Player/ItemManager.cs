@@ -69,6 +69,8 @@ namespace Pickup.Player
         
         // Crayons In UI
         private GameObject crayonsUI;
+        private GameObject _cameraFocus;
+        private Vector3 _cameraFocusPos;
 
         private void OnDestroy()
         {
@@ -110,11 +112,13 @@ namespace Pickup.Player
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
             _pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
             crayonsUI = GameObject.Find("CanvasCrayon/Crayons");
+            _cameraFocus = transform.Find("CameraTarget").gameObject;
         }
         void Start()
         {
             ChangeAlienColour(0);
             UpdateValues();
+            _cameraFocusPos = _cameraFocus.transform.localPosition;
         }
         //This is to change the objects that the player can colour
         //to match the scene the player "loads" into
@@ -132,14 +136,12 @@ namespace Pickup.Player
                 }
             }
             
-            
-            
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
             _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
             for(int i = 0; i < tempTerrainHolder.Length; i++) 
                 _terrainToChangeColour[_currentScene][i] = tempTerrainHolder[i].gameObject;
-            //Goes through all the colours that can be picked up to
+            //Goes through all the colours that can be picked up
             for (int i = 0; i < nameOfTags.Length; i++)
             {
                 //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex,
@@ -147,13 +149,15 @@ namespace Pickup.Player
                 GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
                 _objectsToChangeColour[i] = objectsWithEnum;
                 
-                //Checks bool if colour been picked up in scene previously
+                //Checks bool if colour been picked up in scene previously to colour the surroundings
                 if (_isSceneVisited[_currentScene][i] || NumbStored[i] > 0)
                 {
                     ChangeColourOfEnvironment(i + 1);
                 }
             }
+            _showColour.ChangeIcon(currentColour);
             _spaceShip = GameObject.Find("SpaceShip");
+            _cameraFocus.transform.localPosition = _cameraFocusPos;
             hintText.SetActive(false);
             UpdateValues();
             _crayonCounter.CrayonCheckup();
@@ -215,7 +219,6 @@ namespace Pickup.Player
             }
             
             _showColour.ChangeIcon(currentColour);
-            
             CrayonPickedUp?.Invoke();
         }
         // ReSharper disable Unity.PerformanceAnalysis
@@ -274,8 +277,7 @@ namespace Pickup.Player
                 render.sharedMaterial = colours[numb];
             currentColour = numb;
             _showColour.ChangeIcon(currentColour);
-
-
+            
         }
         private int[] SetOrderOfColour(int currentNumb)
         {
@@ -339,9 +341,17 @@ namespace Pickup.Player
                     }
                 }
             }
+            
+
+            
         }
 
-        
+        public void MovePlayer(Vector3 spawnPos)
+        {
+            transform.position = spawnPos;
+            transform.parent.gameObject.transform.Find("Head").transform.position = spawnPos + new Vector3(0,1,0);
+            Physics.SyncTransforms();
+        }
         
         //Outdated code, maybe need later though
         /* else if (otherObject.CompareTag("Other"))

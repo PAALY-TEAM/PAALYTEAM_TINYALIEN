@@ -33,6 +33,8 @@ namespace UI
         private int _currentPage;
         private int _currentName;
         private GameObject _thisPage;
+        
+        private PauseMenu _pauseMenu;
        
         private Transform cameraTarget;
 
@@ -41,7 +43,7 @@ namespace UI
         private void Start()
         {
             cameraTarget = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
-            
+            _pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
         }
 
         public void DialogueStart()
@@ -49,7 +51,6 @@ namespace UI
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             
-        
             _activeDialogue = true;
             //Finds Camera In Scene so that it can swap focus during scenes  
             _cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();

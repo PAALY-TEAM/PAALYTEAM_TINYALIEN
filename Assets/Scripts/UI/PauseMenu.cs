@@ -33,6 +33,8 @@ namespace UI
 
         private TextMeshProUGUI crayonsLeft;
 
+        public bool inDialogue;
+
         private void Start()
         {
             _player = GameObject.FindWithTag("Player");
@@ -65,16 +67,13 @@ namespace UI
         {
             if (_isMenuOpen && Input.GetButtonDown("Pause"))
             {
-                
                 Resume();
             }
             else if (Input.GetButtonDown("Pause"))
             {
-                
                 Pause();
             }
         }
-        // ReSharper disable Unity.PerformanceAnalysis
         private void Pause()
         {
             Cursor.visible = true;
@@ -133,8 +132,10 @@ namespace UI
                 ItemManager.NumbCarried[i] = _savedPlayerStorage[i];
             }
             _crayonCounter.savedCrayon[SceneManager.GetActiveScene().buildIndex] = _savedCrayonCounter;
-            _player.transform.position = _savedPos;
+            _itemManager.MovePlayer(_savedPos);
+            _itemManager.currentColour = _savedCurrentColour;
             _itemManager.ChangeAlienColour(_savedCurrentColour);
+            
             Destroy(_thisPanel);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

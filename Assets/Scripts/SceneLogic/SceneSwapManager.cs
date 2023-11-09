@@ -1,4 +1,5 @@
  using System.Collections;
+ using Pickup.Player;
  using UI;
  using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -77,7 +78,7 @@ public class SceneSwapManager : MonoBehaviour
             
             FindDoor(_doorToSpawnTo);
             //warp player to correct door location
-            _player.transform.position = _playerSpawnPosition;
+            _player.GetComponent<ItemManager>().MovePlayer(_playerSpawnPosition);
             //sync transforms
             _loadFromDoor = false;
         }
@@ -103,7 +104,6 @@ public class SceneSwapManager : MonoBehaviour
 
     private void CalculateSpawnPosition()
     {
-        float colliderHeight = _playerColl.bounds.extents.y;
-        _playerSpawnPosition = _doorColl.transform.position - new Vector3(0f, colliderHeight, 0f);
+        _playerSpawnPosition = _doorColl.transform.position + new Vector3(0f, 1f, 0f);
     }
 }

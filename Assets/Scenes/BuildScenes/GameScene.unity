@@ -13028,6 +13028,7 @@ MonoBehaviour:
   tempDisableMovement: {fileID: 8579499906579494216}
   sensitivitySettings: {fileID: 6126952494371867506}
   pausePanel: {fileID: 908362742066562586, guid: 6159bd76c3cc3ee4fbc63049aaf9f594, type: 3}
+  inDialogue: 0
 --- !u!114 &443956104733712321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19748,38 +19749,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redShades:
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: a815596e820f4e44a9ad4c40f04ba286, type: 2}
+  - {fileID: 2100000, guid: 620e6b7ea4e169c4daaf7b630fc944f1, type: 2}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
   yellowShades:
   - {fileID: 2100000, guid: 97279b4d3a879d64ca723192a72b32cf, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: cfef85bcb0813284483afc6d3e646027, type: 2}
+  - {fileID: 2100000, guid: 0a34b1c297683294fae5effad0d58f97, type: 2}
   - {fileID: 2100000, guid: b1767197070c41e4786bad2585dc91d3, type: 2}
   blueShades:
   - {fileID: 2100000, guid: 77bb1d586310beb47a4998c889288682, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ecad3eb8564d26f4c9083b97e56c454b, type: 2}
+  - {fileID: 2100000, guid: 98c8ecdc71bb7af4d89c508612fa50b5, type: 2}
   - {fileID: 2100000, guid: 90606556a7b0bf542b0bb814e1df7779, type: 2}
   greenShades:
   - {fileID: 2100000, guid: 0303584f2083bba43aba68f238862b23, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: af91a968f6e34fd44b730df712193998, type: 2}
+  - {fileID: 2100000, guid: d5900a494870a8549bc450a48b97aaf2, type: 2}
   - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   orangeShades:
   - {fileID: 2100000, guid: 3f962cbe759de4d4abfd3b0b659d871b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 98f71f18c5e017747a1c4609baa01444, type: 2}
+  - {fileID: 2100000, guid: 0091a18bc4fa9c14cb60eb9b1546ea3b, type: 2}
   - {fileID: 2100000, guid: a6bbfa40fbdfd2e47805c8a87638160f, type: 2}
   purpleShades:
   - {fileID: 2100000, guid: 25214eeb934bafa4d9b33b5354463fd4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: e1f6ed776c4db3a49b286c3203f95148, type: 2}
+  - {fileID: 2100000, guid: 54df4781437cbaf4b92adb3a9bcff670, type: 2}
   - {fileID: 2100000, guid: 24d76512879e83a4db001f9f46dca36e, type: 2}
   brownShades:
   - {fileID: 2100000, guid: ca83c08b71faacf4c920d512d1cd98e0, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: dbca991a87d97ce4ba7b4c78c603efc1, type: 2}
+  - {fileID: 2100000, guid: 27c12c54d8a5fa84faec42ac3b5e910e, type: 2}
   - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
   greyShades: []
 --- !u!4 &4699309634338336663
