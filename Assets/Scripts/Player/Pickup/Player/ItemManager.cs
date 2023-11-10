@@ -252,6 +252,7 @@ namespace Pickup.Player
                 shipScript.Display();
                 ChangeAlienColour(0);
                 currentColour = 0;
+                _pauseMenu.SaveValues();
                 
             }
             //transform.GetChild(0).gameObject.SetActive(false);

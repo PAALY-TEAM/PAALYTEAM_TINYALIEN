@@ -1,13 +1,11 @@
 using TMPro;
 using UnityEngine;
 
-namespace Interfaces.ColourChange.Gameplay01
+namespace Interfaces.ColourChange.ColourChangeScripts
 {
     public class SceneSwapActivator : MonoBehaviour, IColourChange
     {
         private GameObject _player;
-        private Renderer _playerRend;
-        private Renderer _rend;
         private GameObject _panelMade;
     
         //Panel variables
@@ -19,6 +17,9 @@ namespace Interfaces.ColourChange.Gameplay01
         //HintText variables
         private GameObject _hintText;
         private bool _isActive;
+        private bool _isColoured;
+
+        private static float CD;
 
         private DoorTriggerInteraction _dti;
 
@@ -26,7 +27,6 @@ namespace Interfaces.ColourChange.Gameplay01
 
         void Start()
         {
-        
             _player = GameObject.FindGameObjectWithTag("Player");
             _dti = GetComponent<DoorTriggerInteraction>();
             Vector3 spawnPlace = new Vector3(0,2f, 0) + transform.position;
@@ -37,57 +37,49 @@ namespace Interfaces.ColourChange.Gameplay01
             _hintText = _panelMade.transform.Find("HintText").gameObject;
             _hintText.SetActive(false);
             _panelMade.SetActive(false);
-            
         }
-
-        private bool _isColoured;
         public void ColourChange()
         {
             //Activates the script
             _player = GameObject.FindGameObjectWithTag("Player");
-            _playerRend = _player.transform.Find("AlienBody_Floating").GetComponent<Renderer>();
-            _rend = GetComponent<Renderer>();
             _isActive = false;
             _isColoured = true;
-       
         }
 
-    
         private void Update()
         {
             if (_isColoured)
             {
-                if (Vector3.Distance(_player.transform.position, transform.position ) < distanceVisible)
+                if (Vector3.Distance(_player.transform.position, transform.position) < distanceVisible)
                 {
                     _panelMade.SetActive(true);
                     _hintText.SetActive(true);
                     _isActive = true;
                 }
-                else if (Vector3.Distance(_player.transform.position, transform.position)  > distanceVisible && _isActive)
+                else if (Vector3.Distance(_player.transform.position, transform.position) > distanceVisible &&
+                         _isActive)
                 {
                     _panelMade.SetActive(false);
                     _hintText.SetActive(false);
                     _isActive = false;
                 }
+
+                // Cooldown so the player doesn't return by accident
+                if (CD < 0f)
+                {
+                    CD = 0;
+                }
+                else if (CD > 0f)
+                {
+                    CD -= Time.deltaTime;
+                }
             }
+
             // Interact starts the scene swaping
-            if (_isActive && Input.GetButtonDown("Interact"))
+            if (_isActive && Input.GetButtonDown("Interact") && CD <= 0)
             {
+                CD = 2f;
                 _dti.Interact();
-            }
-        }
-        private void OnCollisionStay(Collision other)
-        {
-            if (_isActive && _rend.sharedMaterial == _playerRend.sharedMaterial && other.gameObject.CompareTag("Player"))
-            {
-                _hintText.SetActive(true);
-            } 
-        }
-        private void OnCollisionExit(Collision other)
-        {
-            if (_isActive && other.gameObject.CompareTag("Player"))
-            {
-                _hintText.SetActive(false);
             }
         }
     }

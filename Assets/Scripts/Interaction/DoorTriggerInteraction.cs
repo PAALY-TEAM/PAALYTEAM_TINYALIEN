@@ -30,11 +30,7 @@ public class DoorTriggerInteraction : TriggerInteractionBase
     {
         //GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>().hintText.SetActive(true);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        // If player has item manager, set hint text to active
-        if (player.TryGetComponent<ItemManager>(out ItemManager itemManager))
-        {
-            itemManager.hintText.SetActive(true);
-        }
+       
         // If player is not allowed to interact with this door, return
         if (!CanInteractWithDoor(player))
         {
