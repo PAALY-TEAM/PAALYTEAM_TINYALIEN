@@ -55,7 +55,7 @@ namespace Pickup.Player
         [Header("Add all Tags that are used on objects that should change colour!!")]
         [SerializeField] private string[] nameOfTags;
         // Boolean to check if scene is loaded
-        private bool[][] _isSceneVisited;
+        public bool[][] _isSceneVisited;
         [Header("Build indexes of first scene the player starts in and copy of that scene")]
         [SerializeField] private int gameScene;
         [SerializeField] private int copyScene;
@@ -126,6 +126,7 @@ namespace Pickup.Player
         public void MySceneLoader()
         {
             _currentScene = SceneManager.GetActiveScene().buildIndex;
+           
             // Makes so that crayons from first scene is saved to copy
             if (!_copySceneLoaded)
             {
@@ -136,7 +137,7 @@ namespace Pickup.Player
                     _copySceneLoaded = true;
                 }
             }
-            
+            _pauseMenu.SaveValues();
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
             _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
@@ -161,8 +162,9 @@ namespace Pickup.Player
             _cameraFocus.transform.localPosition = _cameraFocusPos;
             hintText.SetActive(false);
             UpdateValues();
+            
             _crayonCounter.CrayonCheckup();
-            _pauseMenu.NewValues();
+            
         }
         
         private void Update()
@@ -349,7 +351,7 @@ namespace Pickup.Player
             
         }
 
-        public void MovePlayer(Vector3 spawnPos)
+        public void MoveAlien(Vector3 spawnPos)
         {
             transform.position = spawnPos;
             transform.parent.gameObject.transform.Find("Head").transform.position = spawnPos + new Vector3(0,1,0);
