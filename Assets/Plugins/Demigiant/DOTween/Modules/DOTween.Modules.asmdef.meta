@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<<<< HEAD:Assets/Plugins/Demigiant/DOTween/Modules/DOTween.Modules.asmdef.meta
 guid: c871fd4a333f623489324c8e8a87f217
 AssemblyDefinitionImporter:
@@ -6,6 +7,10 @@ AssemblyDefinitionImporter:
 guid: 39878e1477c15c348a3d442a31d93f1f
 PrefabImporter:
 >>>>>>>> 83ae2c7a3ad2437864032f77d42c744deb7803b2:Assets/Prefabs/Environment/Hut_01.prefab.meta
+=======
+guid: fc1693d232478054c895c52837f696b6
+AssemblyDefinitionImporter:
+>>>>>>> Stashed changes
   externalObjects: {}
   userData: 
   assetBundleName: 
