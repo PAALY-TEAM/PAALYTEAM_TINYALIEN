@@ -7,6 +7,7 @@ using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ColourHolder = Pickup.Shade.ColourHolder;
 
 
 namespace Pickup.Player
@@ -160,9 +161,8 @@ namespace Pickup.Player
             _cameraFocus.transform.localPosition = _cameraFocusPos;
             hintText.SetActive(false);
             UpdateValues();
-            _pauseMenu.NewValues();
             _crayonCounter.CrayonCheckup();
-            
+            _pauseMenu.NewValues();
         }
         
         private void Update()
@@ -177,6 +177,8 @@ namespace Pickup.Player
             {
                 ColourSwapper();
             }
+            
+            transform.eulerAngles = Vector3.zero;
         }
         private void OnTriggerEnter(Collider other)
         {

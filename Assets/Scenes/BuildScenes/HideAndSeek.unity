@@ -9,7 +9,7 @@ OcclusionCullingSettings:
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: ad13e71fb95da7f4a964932862255b76
-  m_OcclusionCullingData: {fileID: 36300000, guid: 21af1375a805a414f9610ea273c9e301, type: 2}
+  m_OcclusionCullingData: {fileID: 36300000, guid: 8e0ffa4485ec57343a59f6937a8e8c2e, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -6066,7 +6066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   waitTime: 0.3
-  turnSpeed: 5
+  turnSpeed: 2
   timeToSpotPlayer: 5
   spotlight: {fileID: 365370977}
   viewDistance: 10
@@ -13315,7 +13315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   waitTime: 0.3
-  turnSpeed: 5
+  turnSpeed: 2
   timeToSpotPlayer: 5
   spotlight: {fileID: 1948751973}
   viewDistance: 10
@@ -13876,7 +13876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   waitTime: 0.3
-  turnSpeed: 5
+  turnSpeed: 2
   timeToSpotPlayer: 5
   spotlight: {fileID: 213443671}
   viewDistance: 10
@@ -19908,7 +19908,7 @@ GameObject:
   m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1141131851
 Transform:
@@ -29051,7 +29051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   waitTime: 0.3
-  turnSpeed: 5
+  turnSpeed: 2
   timeToSpotPlayer: 5
   spotlight: {fileID: 572705136}
   viewDistance: 10
@@ -31185,7 +31185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   waitTime: 0.3
-  turnSpeed: 5
+  turnSpeed: 2
   timeToSpotPlayer: 5
   spotlight: {fileID: 1115194392490595862}
   viewDistance: 10
@@ -31940,7 +31940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   waitTime: 0.3
-  turnSpeed: 5
+  turnSpeed: 2
   timeToSpotPlayer: 5
   spotlight: {fileID: 4798708604803279871}
   viewDistance: 10

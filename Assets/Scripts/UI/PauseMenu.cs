@@ -40,6 +40,7 @@ namespace UI
             _player = GameObject.FindWithTag("Player");
             _itemManager = _player.GetComponent<ItemManager>();
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
+            
         }
 
         //Set new value for current scene, run by ItemManager MySceneLoader();
@@ -61,7 +62,6 @@ namespace UI
 
             _savedCurrentColour = _itemManager.currentColour;
             _savedPos = _player.transform.position;
-            print("NewValues Ran");
         }
         private void Update()
         {
@@ -131,7 +131,7 @@ namespace UI
                 ItemManager.NumbStored[i] = _savedShipStorage[i];
                 ItemManager.NumbCarried[i] = _savedPlayerStorage[i];
             }
-            _crayonCounter.ReloadFunc(_savedCrayonCounter);
+            _crayonCounter.savedCrayon[SceneManager.GetActiveScene().buildIndex] = _savedCrayonCounter;
             _itemManager.MovePlayer(_savedPos);
             _itemManager.currentColour = _savedCurrentColour;
             _itemManager.ChangeAlienColour(_savedCurrentColour);
