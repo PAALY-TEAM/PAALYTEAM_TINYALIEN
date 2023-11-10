@@ -7,6 +7,7 @@ using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ColourHolder = Pickup.Shade.ColourHolder;
 
 
 namespace Pickup.Player
@@ -177,6 +178,8 @@ namespace Pickup.Player
             {
                 ColourSwapper();
             }
+            
+            transform.eulerAngles = Vector3.zero;
         }
         private void OnTriggerEnter(Collider other)
         {
