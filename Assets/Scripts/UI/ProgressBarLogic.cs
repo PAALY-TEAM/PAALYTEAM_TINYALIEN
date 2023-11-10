@@ -14,8 +14,7 @@ namespace UI
         [FormerlySerializedAs("_currentValue")] [SerializeField]
         private float currentValue;  // Field to actually hold the value
         private static float _maxValue;
-
-    
+        
         // a test button to display in our inspector and let us call the ChangeBarValue method
         [FormerlySerializedAs("ChangeBarValueBtn")] [MMInspectorButton("ChangeBarValue")] public bool changeBarValueBtn;
         //

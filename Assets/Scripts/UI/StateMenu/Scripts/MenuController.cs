@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 
@@ -8,6 +9,13 @@ namespace State.Menu
     //The state machine, which keeps track of everything
     public class MenuController : MonoBehaviour
     {
+        [SerializeField] 
+        private ItemManagerSaveLogic itemManagerSaveLogic;
+        
+        // Start is called before the first frame update
+        [SerializeField]
+        private BoolVariable playerCanMove;
+        
         //Drags = the different menus we have
         public _MenuState[] allMenus;
 
@@ -16,7 +24,6 @@ namespace State.Menu
         {
             Game, Main, Settings, Help
         }
-
         //State-object dictionary to make it easier to activate a menu 
         private Dictionary<MenuState, _MenuState> menuDictionary = new Dictionary<MenuState, _MenuState>();
 
@@ -27,9 +34,7 @@ namespace State.Menu
         //This was also suggested in the Game Programming Patterns book
         //If so we don't have to hard-code in each state what happens when we jump back one step
         private Stack<MenuState> stateHistory = new Stack<MenuState>();
-
-
-
+        
         void Start()
         {
             //Put all menus into a dictionary
@@ -63,9 +68,7 @@ namespace State.Menu
             //Activate the default menu
             SetActiveState(MenuState.Game);
         }
-
-
-
+        
         void Update()
         {
             //Jump back one menu step when we press escape
@@ -74,8 +77,6 @@ namespace State.Menu
                 activeState.JumpBack();
             }
         }
-
-
 
         //Jump back one step = what happens when we press escape or one of the back buttons
         public void JumpBack()
@@ -94,8 +95,6 @@ namespace State.Menu
                 SetActiveState(stateHistory.Peek(), isJumpingBack: true);
             }
         }
-
-
 
         //Activate a menu
         public void SetActiveState(MenuState newState, bool isJumpingBack = false)
@@ -125,15 +124,16 @@ namespace State.Menu
                 stateHistory.Push(newState);
             }
         }
-
-
-
+        
         //Quit game
         public void QuitGame()
         {
-            Debug.Log("You quit game!");
-        
+            #if UNITY_EDITOR
+            Debug.Log("Quit Scene");
+            UnityEditor.EditorApplication.isPlaying = false;
+            #else
             Application.Quit();
+            #endif
         }
     }
 }
