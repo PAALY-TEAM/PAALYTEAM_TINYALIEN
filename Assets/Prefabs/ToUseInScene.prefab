@@ -1514,6 +1514,8 @@ MonoBehaviour:
   - Orange
   - Purple
   - Brown
+  gameScene: 0
+  copyScene: 0
 --- !u!114 &8196960866006903756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,13 +1727,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd5011dc6aa5c8499e7c4a249ace34e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDeforming: 1
   sourceObject: {fileID: 2118412147474872312}
-  _oldMesh: {fileID: -2837682660325928517, guid: 84ffaada5a58fcf4ba1573853c4f3457, type: 3}
-  _newMesh: {fileID: -2837682660325928517, guid: 5d4e94ad339c4c447b7e138498130c01, type: 3}
-  _meshFilter: {fileID: 6448753548306084189}
-  _renderer: {fileID: 210469383688662486}
-  _slider: 0
+  renderer: {fileID: 0}
+  slider: 0
 --- !u!114 &5579214477300724188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1744,9 +1742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6796a70550252646a9d5a75cf8f96d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4.11
-  _maxX: 1
-  _minX: 0
+  speed: 4.11
+  maxX: 1
+  minX: 0
   _morpher: {fileID: 702851561508105047}
   movementAction: {fileID: -1327295603076114996, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
 --- !u!1 &1148820995369336369
@@ -4515,7 +4513,7 @@ Transform:
   m_GameObject: {fileID: 5126186194803024400}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9800014, y: 2.0599992, z: -4.2599993}
+  m_LocalPosition: {x: 5.9799976, y: 2.0599992, z: -4.2599993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6417,7 +6415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdd5b44e72bb0544b4b2dd83d1109ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numbCrayonsToActivate: 4
+  numbCrayonsToActivate: 
+  dialogueSummoner: []
 --- !u!1 &8519933264805954136
 GameObject:
   m_ObjectHideFlags: 0
@@ -6846,7 +6845,7 @@ Transform:
   m_GameObject: {fileID: 8694253717101316971}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9800014, y: 2.0599992, z: -4.2599993}
+  m_LocalPosition: {x: 5.9799976, y: 2.0599992, z: -4.2599993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
