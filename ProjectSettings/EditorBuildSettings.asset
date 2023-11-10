@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: 334ca41b2a666d04da4580b2073c53bc
   - enabled: 1
     path: Assets/Scenes/BuildScenes/GameSceneDuplicate.unity
-    guid: e732ea0a26ce4aa43a7ad50fdc95c5a8
+    guid: fc43c2f1f82f16f47b30a033207e837c
   - enabled: 1
     path: Assets/Scenes/BuildScenes/LoadingScene.unity
     guid: 1488cd54322704746b83e05faf4e11c2
@@ -29,15 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildScenes/GameEnd.unity
     guid: 947c9944b0e6e3940bffec0bc6f9e6ff
-  - enabled: 0
-    path: Assets/Scenes/TestScenes/!SceneSwapping_Main.unity
-    guid: ffd8be8a273cc7b4d89fe5b40c660091
-  - enabled: 0
-    path: Assets/Scenes/TestScenes/!SceneSwapping_Main_AfterFirstSpawn.unity
-    guid: 9ecb0d95eac1e644e9ed693aeae7e4b4
-  - enabled: 0
-    path: Assets/Scenes/TestScenes/!SceneSwapping_Target1.unity
-    guid: 5374fa7caf0e93f4f8081295b55c209e
   m_configObjects:
     addressableimportsettingslist: {fileID: 11400000, guid: 6746745c40024b0469c4d91aa310d121, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 98f6ab9ca0309ba46a5b2b2b47c57a3f, type: 2}
