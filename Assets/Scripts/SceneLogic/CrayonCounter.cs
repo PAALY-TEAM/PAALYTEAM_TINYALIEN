@@ -55,6 +55,14 @@ namespace Pickup
         {
             savedCrayon[to] = savedCrayon[from];
         }
+
+        public void ReloadFunc(List<string> crayons)
+        {
+            var currentScene = SceneManager.GetActiveScene().buildIndex;
+            savedCrayon[currentScene].Clear();
+            savedCrayon[currentScene] = crayons;
+
+        }
     }
 }
 

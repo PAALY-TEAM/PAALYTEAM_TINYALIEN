@@ -160,8 +160,9 @@ namespace Pickup.Player
             _cameraFocus.transform.localPosition = _cameraFocusPos;
             hintText.SetActive(false);
             UpdateValues();
-            _crayonCounter.CrayonCheckup();
             _pauseMenu.NewValues();
+            _crayonCounter.CrayonCheckup();
+            
         }
         
         private void Update()
