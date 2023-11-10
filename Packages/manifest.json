@@ -10,6 +10,7 @@
     "com.unity-atoms.unity-atoms-ui": "4.4.8",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.addressables": "1.21.19",
+    "com.unity.ai.navigation": "1.1.5",
     "com.unity.build-report-inspector": "0.3.0-preview",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.connect.share": "4.2.3",
