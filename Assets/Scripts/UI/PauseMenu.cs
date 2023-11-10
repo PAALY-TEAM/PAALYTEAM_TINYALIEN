@@ -24,16 +24,16 @@ namespace UI
         private int[] _savedShipStorage;
         private int[] _savedPlayerStorage;
         private List<string> _savedCrayonCounter;
+        private bool[] _savedVisitedState;
         private int _savedCurrentColour;
         private Vector3 _savedPos;
-        
+
+        private int _currentScene;
         private CrayonCounter _crayonCounter;
 
         private bool _isMenuOpen = false;
 
         private TextMeshProUGUI crayonsLeft;
-
-        public bool inDialogue;
 
         private void Start()
         {
@@ -44,22 +44,27 @@ namespace UI
         }
 
         //Set new value for current scene, run by ItemManager MySceneLoader();
-        public void NewValues()
+        public void SaveValues()
         {
+            _currentScene = SceneManager.GetActiveScene().buildIndex;
             _savedShipStorage = new int[ItemManager.NumbStored.Length];
             _savedPlayerStorage = new int[ItemManager.NumbCarried.Length];
             _savedCrayonCounter = new List<string>();
-            _savedCrayonCounter = _crayonCounter.savedCrayon[SceneManager.GetActiveScene().buildIndex];
+            foreach (var crayon in _crayonCounter.savedCrayon[_currentScene])
+            {
+                _savedCrayonCounter.Add(crayon);
+            }
+            _savedVisitedState = new bool[ItemManager.NumbStored.Length];
             for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
             {
-                
                 _savedPlayerStorage[i] = ItemManager.NumbCarried[i];
                 if (i < ItemManager.NumbStored.Length)
                 {
                     _savedShipStorage[i] = ItemManager.NumbStored[i];
+                    _savedVisitedState[i] = _itemManager._isSceneVisited[_currentScene][i];
                 }
             }
-
+            
             _savedCurrentColour = _itemManager.currentColour;
             _savedPos = _player.transform.position;
         }
@@ -126,16 +131,26 @@ namespace UI
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             // Sets the player inventory to what it was when entering scene
-            for (int i = 0; i < ItemManager.NumbStored.Length; i++)
+            for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
             {
-                ItemManager.NumbStored[i] = _savedShipStorage[i];
                 ItemManager.NumbCarried[i] = _savedPlayerStorage[i];
+                if (i < ItemManager.NumbStored.Length)
+                {
+                    
+                    ItemManager.NumbStored[i] = _savedShipStorage[i];
+                    _itemManager._isSceneVisited[_currentScene][i] = _savedVisitedState[i];
+                }
+                
             }
-            _crayonCounter.savedCrayon[SceneManager.GetActiveScene().buildIndex] = _savedCrayonCounter;
-            _itemManager.MovePlayer(_savedPos);
+
+            _crayonCounter.savedCrayon[_currentScene].Clear();
+            foreach (var crayon in _savedCrayonCounter)
+            {
+                _crayonCounter.savedCrayon[_currentScene].Add(crayon);
+            }
+            _itemManager.MoveAlien(_savedPos);
             _itemManager.currentColour = _savedCurrentColour;
             _itemManager.ChangeAlienColour(_savedCurrentColour);
-            
             Destroy(_thisPanel);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

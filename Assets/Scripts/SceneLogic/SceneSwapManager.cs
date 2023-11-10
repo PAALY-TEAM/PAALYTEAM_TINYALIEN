@@ -78,7 +78,7 @@ public class SceneSwapManager : MonoBehaviour
             
             FindDoor(_doorToSpawnTo);
             //warp player to correct door location
-            _player.GetComponent<ItemManager>().MovePlayer(_playerSpawnPosition);
+            _player.GetComponent<ItemManager>().MoveAlien(_playerSpawnPosition);
             //sync transforms
             _loadFromDoor = false;
         }
