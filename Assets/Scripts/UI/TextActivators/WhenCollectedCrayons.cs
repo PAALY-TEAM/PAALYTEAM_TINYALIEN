@@ -1,5 +1,6 @@
 using System;
 using Pickup;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace UI.TextActivators
@@ -18,7 +19,7 @@ namespace UI.TextActivators
 
         public void CheckIfEnough()
         {
-            for (int i = 0; i < numbCrayonsToActivate.Length; i++)
+            for (int i = numbCrayonsToActivate.Length-1; i >= 0; i--)
             {
                 if (numbCrayonsToActivate[i] <= GetComponent<ShipInventory>().p && !_isUsed[i])
                 {
