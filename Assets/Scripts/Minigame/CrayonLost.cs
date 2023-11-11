@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class CrayonLost : MonoBehaviour
 {
     //int[Scene][Colour] = Count of lost crayon in scene
-    private static int[][] crayonLost;
+    public static int[][] crayonLost;
     //Vector3[Scene][Positions] = Position to spawn crayon
     private static Vector3[][] spawnLocations;
     // The crayon to spawn

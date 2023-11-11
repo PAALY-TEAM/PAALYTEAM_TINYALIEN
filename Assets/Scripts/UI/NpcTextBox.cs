@@ -34,7 +34,6 @@ namespace UI
         private int _currentName;
         private GameObject _thisPage;
         
-        private PauseMenu _pauseMenu;
        
         private Transform cameraTarget;
 
@@ -43,7 +42,6 @@ namespace UI
         private void Start()
         {
             cameraTarget = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
-            _pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
         }
 
         public void DialogueStart()

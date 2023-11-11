@@ -50,7 +50,7 @@ namespace Pickup.Player
         /// The scripts continues in start
         /// </summary>
         private GameObject[][] _objectsToChangeColour;
-        private GameObject[][] _terrainToChangeColour;
+        private GameObject[] _terrainToChangeColour;
         [Header("Add TAG in Unity!!!")]
         [Header("Add all Tags that are used on objects that should change colour!!")]
         [SerializeField] private string[] nameOfTags;
@@ -64,7 +64,9 @@ namespace Pickup.Player
         private static bool _gameStarted = false;
         private IColourChange _colourChange01Implementation;
         private CrayonCounter _crayonCounter;
+        //Both are pauseMenus
         private PauseMenu _pauseMenu;
+        private ItemManagerSaveLogic _IMSLogic;
 
         private int _currentScene;
         
@@ -96,7 +98,7 @@ namespace Pickup.Player
             //Defining the length of the 2D array
             var sceneCount = SceneManager.sceneCountInBuildSettings;
             _objectsToChangeColour = new GameObject[NumbStored.Length][];
-            _terrainToChangeColour = new GameObject[NumbStored.Length][];
+            _terrainToChangeColour = new GameObject[NumbStored.Length];
             _isSceneVisited = new bool[sceneCount][];
             
             for (int i = 0; i<_isSceneVisited.Length; i++)
@@ -111,7 +113,8 @@ namespace Pickup.Player
 
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
-            _pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
+            //_pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
+            _IMSLogic = GameObject.Find("MenuController").GetComponent<ItemManagerSaveLogic>();
             crayonsUI = GameObject.Find("CanvasCrayon/Crayons");
             _cameraFocus = transform.Find("CameraTarget").gameObject;
         }
@@ -137,12 +140,22 @@ namespace Pickup.Player
                     _copySceneLoaded = true;
                 }
             }
-            _pauseMenu.SaveValues();
+
+            if (_pauseMenu)
+            {
+                _pauseMenu.SaveValues();
+            }
+
+            if (_IMSLogic)
+            {
+                _IMSLogic.SaveValues();
+            }
+            
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
-            _terrainToChangeColour[_currentScene] = new GameObject[tempTerrainHolder.Length];
+            _terrainToChangeColour = new GameObject[tempTerrainHolder.Length];
             for(int i = 0; i < tempTerrainHolder.Length; i++) 
-                _terrainToChangeColour[_currentScene][i] = tempTerrainHolder[i].gameObject;
+                _terrainToChangeColour[i] = tempTerrainHolder[i].gameObject;
             //Goes through all the colours that can be picked up
             for (int i = 0; i < nameOfTags.Length; i++)
             {
@@ -252,7 +265,15 @@ namespace Pickup.Player
                 shipScript.Display();
                 ChangeAlienColour(0);
                 currentColour = 0;
-                _pauseMenu.SaveValues();
+                if (_pauseMenu)
+                {
+                    _pauseMenu.SaveValues();
+                }
+
+                if (_IMSLogic)
+                {
+                    _IMSLogic.SaveValues();
+                }
                 
             }
             //transform.GetChild(0).gameObject.SetActive(false);
@@ -339,7 +360,7 @@ namespace Pickup.Player
                 
                 
                 // Checks if terrain is used in scene and sends the colour index to check if it has the colour
-                foreach (var obj in _terrainToChangeColour[_currentScene])
+                foreach (var obj in _terrainToChangeColour)
                 {
                     if (obj.transform.GetComponent(nameof(TerrainShade)) is TerrainShade)
                     {

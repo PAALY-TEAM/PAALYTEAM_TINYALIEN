@@ -72,7 +72,7 @@ namespace Minigame
 		// ReSharper disable Unity.PerformanceAnalysis
 		private void Lose()
 		{
-			var head = GameObject.Find("Head");
+			var playerScript = _player.GetComponent<ItemManager>();
 			//Script to make playerColor lose crayon on lose
 			var playerCrayons = ItemManager.NumbCarried;
 			for (var i = 0; i < playerCrayons.Length; i++)
@@ -80,7 +80,6 @@ namespace Minigame
 				if (playerCrayons[i] > 0)
 				{
 					playerCrayons[i]--;
-					var playerScript = _player.GetComponent<ItemManager>();
 				
 					playerScript.CrayonProgress--;
 					playerScript.UpdateValues();
@@ -91,10 +90,8 @@ namespace Minigame
 					break;
 				}
 			}
-			//get head pos
-			head.transform.position = jailLocation;
-			_playerTransform.position = jailLocation;
-			Physics.SyncTransforms();
+			//Move Player
+			playerScript.MoveAlien(jailLocation);
 		}
 	
 		private void GuardMovement()

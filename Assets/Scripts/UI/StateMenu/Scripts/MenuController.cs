@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ namespace State.Menu
         //Drags = the different menus we have
         public _MenuState[] allMenus;
 
+        private TempDisableMovement _tempDisableMovement;
+
         //The states we can choose from
         public enum MenuState
         {
@@ -37,6 +40,7 @@ namespace State.Menu
         
         void Start()
         {
+            _tempDisableMovement = GetComponent<TempDisableMovement>();
             //Put all menus into a dictionary
             foreach (_MenuState menu in allMenus)
             {
@@ -72,9 +76,10 @@ namespace State.Menu
         void Update()
         {
             //Jump back one menu step when we press escape
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetButtonDown("Pause"))
             {
                 activeState.JumpBack();
+                
             }
         }
 
@@ -85,6 +90,9 @@ namespace State.Menu
             if (stateHistory.Count <= 1)
             {
                 SetActiveState(MenuState.Main);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                _tempDisableMovement.OnPauseGame(true);
             }
             else
             {
@@ -93,6 +101,12 @@ namespace State.Menu
 
                 //Activate the menu that's on the top of the stack
                 SetActiveState(stateHistory.Peek(), isJumpingBack: true);
+            }
+            if (stateHistory.Count <= 1)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                _tempDisableMovement.OnResumeGame();
             }
         }
 
