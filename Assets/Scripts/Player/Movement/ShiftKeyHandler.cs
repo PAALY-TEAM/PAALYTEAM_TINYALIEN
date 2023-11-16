@@ -11,7 +11,7 @@ namespace Movement
     {
         [Header("Feedbacks")]
         [SerializeField] private MMFeedbacks sprintFeedback;
-        [SerializeField] private GameObject target;
+        [SerializeField] private GameObject mainBodyTarget;
         [SerializeField] private GameObject secondTarget;
         [SerializeField] private Vector3 initialScale = Vector3.one;
         [SerializeField] private Vector3 targetScale;
@@ -74,14 +74,14 @@ namespace Movement
                 sprintFeedback?.StopFeedbacks();
             }
         }
-        private void OnPress(InputAction.CallbackContext context)
+        public void OnPress(InputAction.CallbackContext context)
         {
             EaseBackDown();
             ScaleUpSecondObject();
             _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxRollingSpeed());
         }
 
-        private void OnRelease(InputAction.CallbackContext context)
+        public void OnRelease(InputAction.CallbackContext context)
         {
             // Check if the ShiftKeyHandler object still exists
             if (this != null)
@@ -117,6 +117,12 @@ namespace Movement
 
         private void EaseBackDown()
         {
+            if (this == null)
+            {
+                // The ShiftKeyHandler object has been destroyed, so return immediately
+                return;
+            }
+            
             transform.DOKill(); // Stop any ongoing tween
             transform.DOScale(initialScale, releaseDuration)
                 .SetEase(Ease.OutBounce)

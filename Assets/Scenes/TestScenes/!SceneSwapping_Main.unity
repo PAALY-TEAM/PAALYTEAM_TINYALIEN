@@ -985,6 +985,10 @@ PrefabInstance:
       propertyPath: secondTarget
       value: 
       objectReference: {fileID: 1967300883}
+    - target: {fileID: 430378368181572363, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: mainBodyTarget
+      value: 
+      objectReference: {fileID: 1407930014}
     - target: {fileID: 439707120932479595, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1085,6 +1089,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a1b964bc3129b448bbf679b33f2774c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 7115260805469129279}
+--- !u!114 &7115260805469129279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5707068859519219917, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+  m_PrefabInstance: {fileID: 7115260805469129276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115260805469129277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7145115068931741677
