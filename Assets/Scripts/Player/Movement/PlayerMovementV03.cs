@@ -34,7 +34,7 @@ namespace Movement
         private float maxClimbSpeed = 4f;
 
         [SerializeField]
-        private float maxRollingSpeed = 8f, maxFloatingSpeed = 2f;
+        private float maxRollingSpeed = 8f, maxFloatingSpeed = 12f;
         private float _currentSpeed;
         
         [SerializeField, Range(0f, 100f)] private float
