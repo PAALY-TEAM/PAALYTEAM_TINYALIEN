@@ -13,22 +13,14 @@ namespace Movement
 
         [SerializeField] Transform playerInputSpace = default;
         [FormerlySerializedAs("ball")] [SerializeField] Transform mainAlienBody = default;
-        [SerializeField] private InputActionAsset playerControls;
-        //
-        private PlayerInput _playerInput;
-        //
+        
+        private PlayerInputHandler _inputHandler;
         private Vector3 _inputVector;
         
         public static bool WasJumpPressed;
         public static bool IsJumpingPressed;
         public static bool WasJumpReleased;
         public static bool WasInteractPressed;
-        
-        private InputAction _moveAction;
-        private InputAction _jumpAction;
-        private InputAction _climbAction;
-        private InputAction _interactAction;
-        private InputAction _sprintAction;
         
         [SerializeField, Range(0f, 100f)] 
         private float maxClimbSpeed = 4f;
@@ -118,56 +110,26 @@ namespace Movement
             _body = GetComponent<Rigidbody>();
             _body.useGravity = false;
             _meshRenderer = mainAlienBody.GetComponent<MeshRenderer>();
-            _playerInput = GetComponent<PlayerInput>();
             OnValidate();
-            // Get the Input Actions from the Input Action Asset
-            _moveAction = playerControls.FindAction("Move");
-            _jumpAction = playerControls.FindAction("Jump");
-            _climbAction = playerControls.FindAction("Climb");
-            _interactAction = playerControls.FindAction("Interact");
-            _sprintAction = _playerInput.actions.FindAction("Sprint");
+            
+            _inputHandler = GetComponent<PlayerInputHandler>();
             
             // Set currentSpeed to maxRollingSpeed initially
             _currentSpeed = maxRollingSpeed;
         }
-
-        #region Input Handling
-
-        private void OnEnable() {
-            // Enable the Input Actions
-            _moveAction.Enable();
-            _jumpAction.Enable();
-            _climbAction.Enable();
-            _interactAction.Enable();
-        }
-        private void OnDisable() {
-            // Disable the Input Actions
-            _moveAction.Disable();
-            _jumpAction.Disable();
-            _climbAction.Disable();
-            _interactAction.Disable();
-        }
-        private void OnDestroy()
-        {           
-            // Disable the Input Actions
-            _moveAction.Disable();
-            _jumpAction.Disable();
-            _climbAction.Disable();
-            _interactAction.Disable();
-        }
-        #endregion
+        
         private void Update()
         {
-            Vector2 inputVector = _moveAction.ReadValue<Vector2>();
+            Vector2 inputVector = _inputHandler.GetMoveInput();
             _inputVector.x = inputVector.x;
             _inputVector.z = inputVector.y;
             
             //Using ClampMagnitude instead of normalized to allow input that is in-between. Because, normalize is a typeof "all-or-nothing input".
             _inputVector = Vector3.ClampMagnitude(_inputVector, 1f);
-            WasInteractPressed = _interactAction.WasPressedThisFrame();
+            WasInteractPressed = _inputHandler.GetInteractInput();
             
             // Check if the shift key is currently pressed
-            bool isShiftPressed = _sprintAction.ReadValue<float>() > 0.5f;
+            bool isShiftPressed = _inputHandler.GetSprintInput();
             // Set currentSpeed to maxRollingSpeed if the shift key is not pressed, and to maxFloatingSpeed if it is
             _currentSpeed = isShiftPressed ? maxFloatingSpeed : maxRollingSpeed;
             
@@ -183,8 +145,8 @@ namespace Movement
             _desiredVelocity =
                 new Vector3(_inputVector.x, 0f, _inputVector.y) * _currentSpeed;
             
-            _desiredJump |= _jumpAction.triggered;
-            _desiresClimbing = _climbAction.ReadValue<float>() > 0.5f;
+            _desiredJump |= _inputHandler.GetJumpInput();
+            _desiresClimbing = _inputHandler.GetClimbInput();
                 
             UpdateBall();
         }

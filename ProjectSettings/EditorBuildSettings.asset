@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/BuildScenes/MainMenu.unity
-    guid: f48f81e785867824797304a84fa34684
+    guid: 89a0ae6528ff85746820990debb32a78
   - enabled: 1
     path: Assets/Scenes/BuildScenes/GameScene.unity
     guid: 24f89fb43fab3184fb80387b9f0e08ee
@@ -25,8 +25,11 @@ EditorBuildSettings:
     guid: f1ea767091836f248957864121a9a3c4
   - enabled: 1
     path: Assets/Scenes/BuildScenes/GameCompletion.unity
+    guid: f48f81e785867824797304a84fa34684
+  - enabled: 0
+    path: Assets/Scenes/BuildScenes/GameCompletion_Old.unity
     guid: 2d301f42a9e60514bb0d36ae097b9705
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BuildScenes/GameEnd.unity
     guid: 947c9944b0e6e3940bffec0bc6f9e6ff
   - enabled: 0
