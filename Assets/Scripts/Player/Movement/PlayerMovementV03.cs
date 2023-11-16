@@ -226,6 +226,7 @@ namespace Movement
             _inputVector.x = direction.x;
             _inputVector.y = 0f; // Ensure y component is always 0
             _inputVector.z = direction.y;
+            //Using ClampMagnitude instead of normalized to allow input that is in-between. Because, normalize is a typeof "all-or-nothing input".
             _inputVector = Vector3.ClampMagnitude(_inputVector, 1f);
         }
 
