@@ -18,7 +18,7 @@ namespace Movement.Commands
 
         public override void Execute()
         {
-            _playerMovement.Interact();
+            //_playerMovement.Interact();
         }
     }
 }

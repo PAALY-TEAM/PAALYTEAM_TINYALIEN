@@ -611,18 +611,5 @@ namespace Movement
         {
             _currentSpeed = speed;
         }
-        
-        public void Climb()
-        {
-            
-        }
-        public void Interact()
-        {
-            // Add the logic for interacting here
-        }
-        public void Sprint()
-        {
-            
-        }
     }
 }
