@@ -28,12 +28,14 @@ namespace Movement
         private InputAction _jumpAction;
         private InputAction _climbAction;
         private InputAction _interactAction;
+        private InputAction _sprintAction;
         
         [SerializeField, Range(0f, 100f)] 
-        private float maxSpeed = 10f, maxClimbSpeed = 4f;
+        private float maxClimbSpeed = 4f;
 
         [SerializeField]
-        private float maxSprintSpeed = 8f, maxFloatingSpeed = 2f;
+        private float maxRollingSpeed = 8f, maxFloatingSpeed = 2f;
+        private float _currentSpeed;
         
         [SerializeField, Range(0f, 100f)] private float
             maxAcceleration = 10f,
@@ -101,7 +103,6 @@ namespace Movement
         private int _stepsSinceLastGrounded, _stepsSinceLastJump;
         
         private MeshRenderer _meshRenderer;
-
         
         public void PreventSnapToGround () {
             _stepsSinceLastJump = -1;
@@ -124,6 +125,10 @@ namespace Movement
             _jumpAction = playerControls.FindAction("Jump");
             _climbAction = playerControls.FindAction("Climb");
             _interactAction = playerControls.FindAction("Interact");
+            _sprintAction = _playerInput.actions.FindAction("Sprint");
+            
+            // Set currentSpeed to maxRollingSpeed initially
+            _currentSpeed = maxRollingSpeed;
         }
 
         #region Input Handling
@@ -161,6 +166,11 @@ namespace Movement
             _inputVector = Vector3.ClampMagnitude(_inputVector, 1f);
             WasInteractPressed = _interactAction.WasPressedThisFrame();
             
+            // Check if the shift key is currently pressed
+            bool isShiftPressed = _sprintAction.ReadValue<float>() > 0.5f;
+            // Set currentSpeed to maxRollingSpeed if the shift key is not pressed, and to maxFloatingSpeed if it is
+            _currentSpeed = isShiftPressed ? maxFloatingSpeed : maxRollingSpeed;
+            
             if (playerInputSpace) {
                 _rightAxis = ProjectDirectionOnPlane(playerInputSpace.right, _upAxis);
                 _forwardAxis =
@@ -171,7 +181,7 @@ namespace Movement
                 _forwardAxis = ProjectDirectionOnPlane(Vector3.forward, _upAxis);
             }
             _desiredVelocity =
-                new Vector3(_inputVector.x, 0f, _inputVector.y) * maxSpeed;
+                new Vector3(_inputVector.x, 0f, _inputVector.y) * _currentSpeed;
             
             _desiredJump |= _jumpAction.triggered;
             _desiresClimbing = _climbAction.ReadValue<float>() > 0.5f;
@@ -401,7 +411,7 @@ namespace Movement
             }
             else {
                 acceleration = OnGround ? maxAcceleration : maxAirAcceleration;
-                speed = OnGround && _desiresClimbing ? maxClimbSpeed : maxSpeed;
+                speed = OnGround && _desiresClimbing ? maxClimbSpeed : _currentSpeed;
                 xAxis = _rightAxis;
                 zAxis = _forwardAxis;
             }
@@ -458,7 +468,7 @@ namespace Movement
             _hasJumped = true;
         }
 
-        #region Collision Logic
+        #region Collision logic
 
         private void OnCollisionEnter (Collision collision) {
             // Check if the collision is with the ground layer and if the playerColor has jumped
@@ -528,15 +538,17 @@ namespace Movement
         // UNITY EVENT METHODS
         //
         //
-        
-        public void SetMaxSpeedToHigh()
+        public float GetMaxRollingSpeed()
         {
-            maxSpeed = maxSprintSpeed;
+            return maxRollingSpeed;
         }
-
-        public void SetMaxSpeedToLow()
+        public float GetMaxFloatingSpeed()
         {
-            maxSpeed = maxFloatingSpeed;
+            return maxFloatingSpeed;
+        }
+        public void SetCurrentSpeed(float speed)
+        {
+            _currentSpeed = speed;
         }
     }
     

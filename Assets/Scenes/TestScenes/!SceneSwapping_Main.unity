@@ -264,6 +264,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70f479c84a20aa943a053cf8876cf35d, type: 3}
+--- !u!1 &1407930014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4361645323949965852, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+  m_PrefabInstance: {fileID: 7115260805469129276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1465664080
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +468,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1967300883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6928844010714325732, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+  m_PrefabInstance: {fileID: 7115260805469129276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2069072821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -913,6 +923,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 430378368181572363, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1407930014}
+    - target: {fileID: 430378368181572363, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: secondTarget
+      value: 
+      objectReference: {fileID: 1967300883}
     - target: {fileID: 664117267754757778, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -953,10 +971,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6036841322925645036, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5302568919011541938, guid: 5e11cc1fa3e9c4646911da4525500ea0, type: 3}
+    - target: {fileID: 7311774017860048469, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: maxSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311774017860048469, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: maxSprintSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311774017860048469, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: maxFloatingSpeed
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7846309828157264456, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
       propertyPath: m_Name
       value: Persistant
       objectReference: {fileID: 0}
+    - target: {fileID: 7943726573059800578, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2837682660325928517, guid: 84ffaada5a58fcf4ba1573853c4f3457, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
