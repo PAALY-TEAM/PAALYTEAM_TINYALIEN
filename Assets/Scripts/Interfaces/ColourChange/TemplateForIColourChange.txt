@@ -1,4 +1,4 @@
-public class "ScriptName" : MonoBehaviour, IColourChange
+public class <ScriptName> : MonoBehaviour, IColourChange
 {
  
     private bool isColoured;

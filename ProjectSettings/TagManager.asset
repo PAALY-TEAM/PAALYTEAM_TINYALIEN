@@ -8,15 +8,9 @@ TagManager:
   - SpaceShip
   - NPC
   - Other
-  - Red
-  - Blue
-  - Yellow
-  - Green
-  - Brown
-  - Orange
-  - Purple
   - CinemachineTarget
   - PlayerColor
+  - Head
   layers:
   - Default
   - TransparentFX

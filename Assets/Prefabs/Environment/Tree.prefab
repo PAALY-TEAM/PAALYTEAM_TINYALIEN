@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2043400554978585898}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colourToBe: 6
   shadeType: 3
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &2072228813558744907
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ GameObject:
   - component: {fileID: 3550750240215297860}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,3 +274,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colourToBe: 0
   shadeType: 0
+  uniqueMaterial: {fileID: 0}
