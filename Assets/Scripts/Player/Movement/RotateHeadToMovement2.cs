@@ -10,11 +10,18 @@ namespace Movement
         private float _noInputTimeCounter = 0f;
         
         private Quaternion _initialRotation;
+
+        private void Start()
+        {
+            _initialRotation = transform.rotation;
+        }
+        
         
         private void Start()
         {
             _initialRotation = transform.rotation;
         }
+
 
         public void ResetRotation()
         {
