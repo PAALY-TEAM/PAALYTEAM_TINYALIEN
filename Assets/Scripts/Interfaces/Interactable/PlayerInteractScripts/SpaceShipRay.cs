@@ -6,14 +6,15 @@ using UnityEngine;
 
 public class SpaceShipRay : MonoBehaviour, IPlayerInteract
 {
-    private ItemManagerSaveLogic IMS;
     public void PlayerInteract()
     {
         //For future coding if we want visible display of crayons to have a origin position to the crayons
         var shipScript = transform.parent.GetComponent<ShipInventory>();
+        var ims = GameObject.Find("MenuController").GetComponent<ItemManagerSaveLogic>();
+        var itemManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
         //Adding the crayons to ship
         //Visible in the debug log
-        for (int i = 0; i < colours.Length - 1; i++)
+        for (int i = 0; i < ItemManager.NumbCarried.Length - 1; i++)
         {
             if (ItemManager.NumbCarried[i] > 0)
             {
@@ -21,21 +22,16 @@ public class SpaceShipRay : MonoBehaviour, IPlayerInteract
                 ItemManager.NumbCarried[i] = 0;
                 if (ItemManager.NumbStored[i] > 0)
                 {
-                    ChangeColourOfEnvironment(i+1);
+                    itemManager.ChangeColourOfEnvironment(i+1);
                 }
             }
         }
         shipScript.Display();
-        ChangeAlienColour(0);
-        currentColour = 0;
-        if (_pauseMenu)
-        {
-            _pauseMenu.SaveValues();
-        }
+        itemManager.ChangeAlienColour(0);
+        itemManager.currentColour = 0;
+        
+        ims.SaveValues();
 
-        if (_IMSLogic)
-        {
-            _IMSLogic.SaveValues();
-        }
+        
     }
 }

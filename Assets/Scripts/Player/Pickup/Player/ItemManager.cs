@@ -113,7 +113,6 @@ namespace Pickup.Player
 
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
-            //_pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
             _IMSLogic = GameObject.Find("MenuController").GetComponent<ItemManagerSaveLogic>();
             crayonsUI = GameObject.Find("CanvasCrayon/Crayons");
             _cameraFocus = transform.Find("CameraTarget").gameObject;
@@ -140,16 +139,10 @@ namespace Pickup.Player
                     _copySceneLoaded = true;
                 }
             }
-
-            if (_pauseMenu)
-            {
-                _pauseMenu.SaveValues();
-            }
-
-            if (_IMSLogic)
-            {
-                _IMSLogic.SaveValues();
-            }
+            
+            
+            _IMSLogic.SaveValues();
+            
             
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
@@ -305,7 +298,7 @@ namespace Pickup.Player
             }
             return numberReturn;
         }
-        private void ChangeColourOfEnvironment(int playerColourIndex)
+        public void ChangeColourOfEnvironment(int playerColourIndex)
         {
             //Check if colour is already applied
             //if (objectsToChangeColour[playerColourIndex - 1][0].transform.GetComponent<Renderer>().sharedMaterial
