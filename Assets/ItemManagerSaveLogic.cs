@@ -11,12 +11,12 @@ public class ItemManagerSaveLogic : MonoBehaviour
     [SerializeField] private TempDisableMovement  tempDisableMovement;
     private ItemManager _itemManager;
     
-    public int[] savedShipStorage;
-    public int[] savedPlayerStorage;
-    public List<string> savedCrayonCounter;
-    public bool[] savedVisitedState;
-    public int savedCurrentColour;
-    public Vector3 savedPos;
+    private int[] savedShipStorage;
+    private int[] savedPlayerStorage;
+    private List<string> savedCrayonCounter;
+    private bool[] savedVisitedState;
+    private int savedCurrentColour;
+    private Vector3 savedPos;
     private int[] savedCrayonLost;
                      
     public GameObject Player { get; private set; }

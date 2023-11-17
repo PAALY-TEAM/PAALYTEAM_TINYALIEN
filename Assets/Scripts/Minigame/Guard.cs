@@ -31,14 +31,12 @@ namespace Minigame
 		private Vector3[] _waypoints;
 		private int _targetWaypointIndex;
 		[SerializeField] private bool isFlying;
-
-		[SerializeField] private GameObject crayon;
-		[SerializeField] private CrayonNumber[] crayonColour;
+		
 		[SerializeField] private Vector3[] spawnLocation;
 	
 		//Where player is sent when caught
 		[SerializeField] private Vector3 jailLocation;
-		private CrayonLost _crayonLost;
+		
 		
 		private void Start()
 		{
@@ -47,7 +45,7 @@ namespace Minigame
 			_viewAngle = spotlight.spotAngle;
 			_originalSpotlightColour = spotlight.color;
 			turnSpeed *= 90;
-			_crayonLost = GameObject.Find("CrayonLost").GetComponent<CrayonLost>();
+			
 
 			_waypoints = new Vector3[pathHolder.childCount];
 			for (var i = 0; i < _waypoints.Length; i++)
@@ -66,34 +64,11 @@ namespace Minigame
 		{
 			if (other.gameObject.CompareTag("Player"))
 			{
-				Lose();
+				other.gameObject.GetComponent<LoseGame>().Lose(spawnLocation, jailLocation);
 			}
-		}
-		// ReSharper disable Unity.PerformanceAnalysis
-		private void Lose()
-		{
-			var playerScript = _player.GetComponent<ItemManager>();
-			//Script to make playerColor lose crayon on lose
-			var playerCrayons = ItemManager.NumbCarried;
-			for (var i = 0; i < playerCrayons.Length; i++)
-			{
-				if (playerCrayons[i] > 0)
-				{
-					playerCrayons[i]--;
-				
-					playerScript.CrayonProgress--;
-					playerScript.UpdateValues();
-					// Create Crayon and add to list of stolen
-					_crayonLost.AddLostCrayon(i, spawnLocation);
-					
-					transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
-					break;
-				}
-			}
-			//Move Player
-			playerScript.MoveAlien(jailLocation);
 		}
 	
+		
 		private void GuardMovement()
 		{
 			if (CanSeePlayer())

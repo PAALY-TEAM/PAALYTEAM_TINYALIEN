@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Cinemachine;
+using Pickup.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace UI
         private GameObject _thisCanvas;
         [Header("Panel 0: Only Text")] 
         [Header("Panel 1: Text and Image")]
+        [Header("Panel 2: Dialogue Box")]
         [SerializeField] private GameObject[] panelPrefab;
         [SerializeField] private Sprite npcImg;
         [SerializeField] private string[] npcName;
@@ -31,14 +33,14 @@ namespace UI
         [SerializeField] private TempDisableMovement  tempDisableMovement;
     
         private int _sumPages;
-        private int _currentPage;
+        public int _currentPage;
         private int _currentName;
         private GameObject _thisPage;
         
        
         private Transform cameraTarget;
 
-        private bool _activeDialogue;
+        private bool _activeDialogue = false;
 
         private void Start()
         {
@@ -49,10 +51,10 @@ namespace UI
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            Invoke(nameof(WaitAfterPanel), .5f);
             
-            _activeDialogue = true;
             // Time player so they doesn't skip first dialogue when first interacting
-            StartCoroutine(WaitAfterPanel());
+            
             //Finds Camera In Scene so that it can swap focus during scenes  
             _cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         
@@ -68,8 +70,9 @@ namespace UI
                 _order[i] = int.Parse(panelsToSpawn[i].ToString());
             }
         
-            tempDisableMovement.OnPauseGame(_order[0]!=2);
+            tempDisableMovement.OnPauseGame(false);
             DialogueContinue();
+            
         }
         private void DialogueContinue()
         {
@@ -125,28 +128,23 @@ namespace UI
 
         private void Update()
         {
-            if (_activeDialogue)
+            if (!_activeDialogue) return;
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    DialogueEnd();
-                }
-
-                if (Input.GetButtonDown("Interact"))
-                {
-                    NextPanel();
-                }
+                DialogueEnd();
+            }
+            if (Input.GetButtonDown("Interact"))
+            {
+                NextPanel();
             }
         }
 
         private void DialogueEnd()
         {
-            print("Ended Dialogue");
             Destroy(_thisPage);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             _activeDialogue = false;
-            
             tempDisableMovement.OnResumeGame();
         
             //Set so player is the focus of camera
@@ -188,16 +186,17 @@ namespace UI
             if (_currentPage == _sumPages)
             {
                 DialogueEnd();
-                print("DialogueEndCaled");
             } else {
                 Destroy(_thisPage);
                 DialogueContinue();
             }
         }
 
-         private IEnumerator WaitAfterPanel()
+         private void WaitAfterPanel()
         {
-            yield return new WaitForSeconds(.2f);
+            
+            print("bifs");
+            _activeDialogue = true;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace UI.StateMenu.Scripts.State
         private CameraInput _cameraInput;
         [SerializeField] private GameObject _mouseSenseSlider;
 
-        private void Start()
+        private void Awake()
         {
             _cameraInput = GameObject.FindWithTag("Player").GetComponent<CameraInput>();
         }

@@ -75,6 +75,7 @@ namespace Pickup.Player
         private GameObject _cameraFocus;
         private Vector3 _cameraFocusPos;
 
+        public bool menuOpen = false;
         private void OnDestroy()
         {
             _copySceneLoaded = false;
@@ -172,12 +173,13 @@ namespace Pickup.Player
             _crayonCounter.CrayonCheckup();
             
         }
+
         
         private void Update()
         {
             //If player enters an area with triggers "canInteract = true" they can interact with the object and based on
             //the TAG of the object different actions is executed
-            if (_canInteract && Input.GetButtonDown("Interact"))
+            if (_canInteract && Input.GetButtonDown("Interact") && !menuOpen)
             {
                 HandleInteractions();
             }
@@ -208,7 +210,7 @@ namespace Pickup.Player
                 UpdateValues();
                 Destroy(_otherObject);
             }
-            else if (_otherObject.CompareTag("SpaceShip"))
+            else if (_otherObject.transform.GetComponent(nameof(IPlayerInteract)) is IPlayerInteract)
             {
                 hintText.SetActive(true);
                 _canInteract = true; 
@@ -235,7 +237,6 @@ namespace Pickup.Player
         // ReSharper disable Unity.PerformanceAnalysis
         void HandleInteractions()
         {
-            
             if (_otherObject.transform.GetComponent(nameof(IPlayerInteract)) is IPlayerInteract)
             {
                 _otherObject.GetComponent<IPlayerInteract>().PlayerInteract();
