@@ -6,9 +6,23 @@ namespace Movement
     {
         [SerializeField] private Transform orbitCamera;
         [SerializeField] private float turnSmoothTime = 0.1f;
-
+        
+        private float _noInputTimeCounter = 0f;
+        
+        private Quaternion _initialRotation;
+        
+        public void ResetRotation()
+        {
+            transform.rotation = _initialRotation;
+            _noInputTimeCounter = 0f; // Reset the no input time counter
+        }
+        
         private void Update()
         {
+            if (RespawnTrigger.IsRespawning)
+            {
+                return;
+            }
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
