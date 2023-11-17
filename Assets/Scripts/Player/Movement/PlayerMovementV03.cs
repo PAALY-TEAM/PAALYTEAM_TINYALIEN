@@ -1,4 +1,6 @@
-﻿using MoreMountains.Feedbacks;
+﻿using System.Collections.Generic;
+using MoreMountains.Feedbacks;
+using Movement.Commands;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -12,65 +14,61 @@ namespace Movement
         [SerializeField] private MMFeedbacks landingFeedback;
 
         [SerializeField] Transform playerInputSpace = default;
-        [FormerlySerializedAs("ball")] [SerializeField] Transform mainAlienBody = default;
-        [SerializeField] private InputActionAsset playerControls;
-        //
-        private PlayerInput _playerInput;
-        //
+        [FormerlySerializedAs("ball")] [SerializeField]
+        Transform mainAlienBody = default;
+
+        private PlayerInputHandler _inputHandler;
         private Vector3 _inputVector;
-        
+
         public static bool WasJumpPressed;
         public static bool IsJumpingPressed;
         public static bool WasJumpReleased;
         public static bool WasInteractPressed;
-        
-        private InputAction _moveAction;
-        private InputAction _jumpAction;
-        private InputAction _climbAction;
-        private InputAction _interactAction;
-        
-        [SerializeField, Range(0f, 100f)] 
-        private float maxSpeed = 10f, maxClimbSpeed = 4f;
+
+        [SerializeField, Range(0f, 100f)]
+        private float maxClimbSpeed = 4f;
 
         [SerializeField]
-        private float maxSprintSpeed = 8f, maxFloatingSpeed = 2f;
-        
+        private float maxRollingSpeed = 8f, maxFloatingSpeed = 12f;
+        private float _currentSpeed;
+
         [SerializeField, Range(0f, 100f)] private float
             maxAcceleration = 10f,
             maxAirAcceleration = 1f,
             maxClimbAcceleration = 40f;
 
-        [SerializeField, Range(0f, 10f)] 
+        [SerializeField, Range(0f, 10f)]
         private float jumpHeight = 2f;
 
-        [SerializeField, Range(0, 5)] 
+        [SerializeField, Range(0, 5)]
         private int maxAirJumps = 0;
 
-        [SerializeField, Range(0, 90)] 
+        [SerializeField, Range(0, 90)]
         private float maxGroundAngle = 25f, maxStairsAngle = 50f;
 
-        [SerializeField, Range(90, 170)] 
+        [SerializeField, Range(90, 170)]
         private float maxClimbAngle = 140f;
 
-        [SerializeField, Range(0f, 100f)] 
+        [SerializeField, Range(0f, 100f)]
         private float maxSnapSpeed = 100f;
 
-        [SerializeField, Min(0f)] 
+        [SerializeField, Min(0f)]
         private float probeDistance = 1f;
 
-        [SerializeField] 
+        [SerializeField]
         private LayerMask probeMask = -1, stairsMask = -1, climbMask = -1;
-        
-        [SerializeField, Min(0.1f)] 
+
+        [SerializeField, Min(0.1f)]
         private float ballRadius = 0.5f;
 
-        [SerializeField, Min(0f)] 
+        [SerializeField, Min(0f)]
         public float ballAlignSpeed = 180f;
 
-        [SerializeField, Min(0f)] 
+        [SerializeField, Min(0f)]
         private float ballAirRotation = 0.5f;
 
-        private Rigidbody _body, _connectedBody, _previousConnectedBody;
+        public Rigidbody body;
+        private Rigidbody _connectedBody, _previousConnectedBody;
 
         private Vector3 _velocity, _desiredVelocity, _connectionVelocity;
 
@@ -99,116 +97,115 @@ namespace Movement
         private float _minGroundDotProduct, _minStairsDotProduct, _minClimbDotProduct;
 
         private int _stepsSinceLastGrounded, _stepsSinceLastJump;
-        
+
         private MeshRenderer _meshRenderer;
 
-        
-        public void PreventSnapToGround () {
+        public void PreventSnapToGround()
+        {
             _stepsSinceLastJump = -1;
         }
 
-        private void OnValidate () {
+        private void OnValidate()
+        {
             _minGroundDotProduct = Mathf.Cos(maxGroundAngle * Mathf.Deg2Rad);
             _minStairsDotProduct = Mathf.Cos(maxStairsAngle * Mathf.Deg2Rad);
             _minClimbDotProduct = Mathf.Cos(maxClimbAngle * Mathf.Deg2Rad);
         }
 
-        void Awake () {
-            _body = GetComponent<Rigidbody>();
-            _body.useGravity = false;
+        void Awake()
+        {
+            body = GetComponent<Rigidbody>();
+            body.useGravity = false;
             _meshRenderer = mainAlienBody.GetComponent<MeshRenderer>();
-            _playerInput = GetComponent<PlayerInput>();
             OnValidate();
-            // Get the Input Actions from the Input Action Asset
-            _moveAction = playerControls.FindAction("Move");
-            _jumpAction = playerControls.FindAction("Jump");
-            _climbAction = playerControls.FindAction("Climb");
-            _interactAction = playerControls.FindAction("Interact");
+
+            _inputHandler = GetComponent<PlayerInputHandler>();
+            if (_inputHandler == null)
+            {
+                Debug.LogError("PlayerInputHandler component not found on this game object.");
+                return;
+            }
+
+            // Set currentSpeed to maxRollingSpeed initially
+            _currentSpeed = maxRollingSpeed;
         }
 
-        #region Input Handling
-
-        private void OnEnable() {
-            // Enable the Input Actions
-            _moveAction.Enable();
-            _jumpAction.Enable();
-            _climbAction.Enable();
-            _interactAction.Enable();
-        }
-        private void OnDisable() {
-            // Disable the Input Actions
-            _moveAction.Disable();
-            _jumpAction.Disable();
-            _climbAction.Disable();
-            _interactAction.Disable();
-        }
-        private void OnDestroy()
-        {           
-            // Disable the Input Actions
-            _moveAction.Disable();
-            _jumpAction.Disable();
-            _climbAction.Disable();
-            _interactAction.Disable();
-        }
-        #endregion
         private void Update()
         {
-            Vector2 inputVector = _moveAction.ReadValue<Vector2>();
+            Vector2 inputVector = _inputHandler.GetMoveInput();
+            SetInputVector(inputVector);
+            
+            /*
             _inputVector.x = inputVector.x;
             _inputVector.z = inputVector.y;
-            
             //Using ClampMagnitude instead of normalized to allow input that is in-between. Because, normalize is a typeof "all-or-nothing input".
             _inputVector = Vector3.ClampMagnitude(_inputVector, 1f);
-            WasInteractPressed = _interactAction.WasPressedThisFrame();
+            */
             
-            if (playerInputSpace) {
+            WasInteractPressed = _inputHandler.GetInteractInput();
+            
+            // Check if the shift key is currently pressed
+            bool isShiftPressed = _inputHandler.GetSprintInput();
+            // Set currentSpeed to maxRollingSpeed if the shift key is not pressed, and to maxFloatingSpeed if it is
+            _currentSpeed = isShiftPressed ? maxFloatingSpeed : maxRollingSpeed;
+
+            if (playerInputSpace)
+            {
                 _rightAxis = ProjectDirectionOnPlane(playerInputSpace.right, _upAxis);
                 _forwardAxis =
                     ProjectDirectionOnPlane(playerInputSpace.forward, _upAxis);
             }
-            else {
+            else
+            {
                 _rightAxis = ProjectDirectionOnPlane(Vector3.right, _upAxis);
                 _forwardAxis = ProjectDirectionOnPlane(Vector3.forward, _upAxis);
             }
-            _desiredVelocity =
-                new Vector3(_inputVector.x, 0f, _inputVector.y) * maxSpeed;
-            
-            _desiredJump |= _jumpAction.triggered;
-            _desiresClimbing = _climbAction.ReadValue<float>() > 0.5f;
-                
+            CalculateDesiredVelocity();
+
+            _desiredJump |= _inputHandler.GetJumpInput();
+            _desiresClimbing = _inputHandler.GetClimbInput();
+
             UpdateBall();
         }
-        private void UpdateBall () {
+        private void UpdateBall()
+        {
             Vector3 rotationPlaneNormal = _lastContactNormal;
             float rotationFactor = 1f;
-            
-            if (!OnGround) {
-                if (OnSteep) {
+
+            if (!OnGround)
+            {
+                if (OnSteep)
+                {
                     rotationPlaneNormal = _lastSteepNormal;
                 }
-                else {
+                else
+                {
                     rotationFactor = ballAirRotation;
                 }
             }
 
             Vector3 movement =
-                (_body.velocity - _lastConnectionVelocity) * Time.deltaTime;
+                (body.velocity - _lastConnectionVelocity) * Time.deltaTime;
             movement -=
                 rotationPlaneNormal * Vector3.Dot(movement, rotationPlaneNormal);
 
             float distance = movement.magnitude;
 
             Quaternion rotation = mainAlienBody.localRotation;
-            if (_connectedBody && _connectedBody == _previousConnectedBody) {
+            if (_connectedBody && _connectedBody == _previousConnectedBody)
+            {
                 rotation = Quaternion.Euler(
-                    _connectedBody.angularVelocity * (Mathf.Rad2Deg * Time.deltaTime)
-                ) * rotation;
-                if (distance < 0.001f) {
+                        _connectedBody.angularVelocity * (Mathf.Rad2Deg * Time.deltaTime)
+                    ) *
+                    rotation;
+                if (distance < 0.001f)
+                {
                     mainAlienBody.localRotation = rotation;
                     return;
                 }
             }
-            else if (distance < 0.001f) {
+            else if (distance < 0.001f)
+            {
                 return;
             }
 
@@ -216,15 +213,33 @@ namespace Movement
             Vector3 rotationAxis =
                 Vector3.Cross(rotationPlaneNormal, movement).normalized;
             rotation = Quaternion.Euler(rotationAxis * angle) * rotation;
-            if (ballAlignSpeed > 0f) {
+            if (ballAlignSpeed > 0f)
+            {
                 rotation = AlignBallRotation(rotationAxis, rotation, distance);
             }
             mainAlienBody.localRotation = rotation;
         }
+        
+        
+        public void SetInputVector(Vector3 direction)
+        {
+            _inputVector.x = direction.x;
+            _inputVector.y = 0f; // Ensure y component is always 0
+            _inputVector.z = direction.y;
+            //Using ClampMagnitude instead of normalized to allow input that is in-between. Because, normalize is a typeof "all-or-nothing input".
+            _inputVector = Vector3.ClampMagnitude(_inputVector, 1f);
+        }
 
-        private Quaternion AlignBallRotation (
+        public void CalculateDesiredVelocity()
+        {
+            _desiredVelocity = new Vector3(_inputVector.x, 0f, _inputVector.y) * _currentSpeed;
+        }
+        
+
+        private Quaternion AlignBallRotation(
             Vector3 rotationAxis, Quaternion rotation, float traveledDistance
-        ) {
+        )
+        {
             Vector3 ballAxis = mainAlienBody.up;
             float dot = Mathf.Clamp(Vector3.Dot(ballAxis, rotationAxis), -1f, 1f);
             float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
@@ -232,20 +247,24 @@ namespace Movement
 
             Quaternion newAlignment =
                 Quaternion.FromToRotation(ballAxis, rotationAxis) * rotation;
-            if (angle <= maxAngle) {
+            if (angle <= maxAngle)
+            {
                 return newAlignment;
             }
-            else {
+            else
+            {
                 return Quaternion.SlerpUnclamped(
                     rotation, newAlignment, maxAngle / angle
                 );
             }
         }
 
-        private void FixedUpdate () {
-            Vector3 gravity = CustomGravityV01.GetGravity(_body.position, out _upAxis);
+        private void FixedUpdate()
+        {
+            Vector3 gravity = CustomGravityV01.GetGravity(body.position, out _upAxis);
             UpdateState();
 
+            
             AdjustVelocity();
 
             if (_desiredJump)
@@ -253,31 +272,36 @@ namespace Movement
                 _desiredJump = false;
                 Jump(gravity);
             }
-            
-            if (Climbing) {
+
+            if (Climbing)
+            {
                 _velocity -=
                     _contactNormal * (maxClimbAcceleration * 0.9f * Time.deltaTime);
             }
-            else if (OnGround && _velocity.sqrMagnitude < 0.01f) {
+            else if (OnGround && _velocity.sqrMagnitude < 0.01f)
+            {
                 _velocity +=
                     _contactNormal *
                     (Vector3.Dot(gravity, _contactNormal) * Time.deltaTime);
             }
-            else if (_desiresClimbing && OnGround) {
+            else if (_desiresClimbing && OnGround)
+            {
                 _velocity +=
                     (gravity - _contactNormal * (maxClimbAcceleration * 0.9f)) *
                     Time.deltaTime;
             }
-            else {
+            else
+            {
                 _velocity += gravity * Time.deltaTime;
             }
-            _body.velocity = _velocity;
+            body.velocity = _velocity;
             ClearState();
         }
 
         #region States
 
-        private void ClearState () {
+        private void ClearState()
+        {
             _lastContactNormal = _contactNormal;
             _lastSteepNormal = _steepNormal;
             _lastConnectionVelocity = _connectionVelocity;
@@ -288,54 +312,69 @@ namespace Movement
             _connectedBody = null;
         }
 
-        private void UpdateState () {
+        private void UpdateState()
+        {
             _stepsSinceLastGrounded += 1;
             _stepsSinceLastJump += 1;
-            _velocity = _body.velocity;
+            _velocity = body.velocity;
             if (
                 CheckClimbing() ||
-                OnGround || SnapToGround() || CheckSteepContacts()
-            ) {
+                OnGround ||
+                SnapToGround() ||
+                CheckSteepContacts()
+            )
+            {
                 _stepsSinceLastGrounded = 0;
-                if (_stepsSinceLastJump > 1) {
+                if (_stepsSinceLastJump > 1)
+                {
                     _jumpPhase = 0;
                 }
-                if (_groundContactCount > 1) {
+                if (_groundContactCount > 1)
+                {
                     _contactNormal.Normalize();
                 }
             }
-            else {
+            else
+            {
                 _contactNormal = _upAxis;
             }
-		
-            if (_connectedBody) {
-                if (_connectedBody.isKinematic || _connectedBody.mass >= _body.mass) {
+
+            if (_connectedBody)
+            {
+                if (_connectedBody.isKinematic || _connectedBody.mass >= body.mass)
+                {
                     UpdateConnectionState();
                 }
             }
         }
 
-        private void UpdateConnectionState () {
-            if (_connectedBody == _previousConnectedBody) {
+        private void UpdateConnectionState()
+        {
+            if (_connectedBody == _previousConnectedBody)
+            {
                 Vector3 connectionMovement =
                     _connectedBody.transform.TransformPoint(_connectionLocalPosition) -
                     _connectionWorldPosition;
                 _connectionVelocity = connectionMovement / Time.deltaTime;
             }
-            _connectionWorldPosition = _body.position;
+            _connectionWorldPosition = body.position;
             _connectionLocalPosition = _connectedBody.transform.InverseTransformPoint(
                 _connectionWorldPosition
             );
         }
 
         #endregion
-        
-        private bool CheckClimbing () {
-            if (Climbing) {
-                if (_climbContactCount > 1) {
+
+        private bool CheckClimbing()
+        {
+            if (Climbing)
+            {
+                if (_climbContactCount > 1)
+                {
                     _climbNormal.Normalize();
                     float upDot = Vector3.Dot(_upAxis, _climbNormal);
-                    if (upDot >= _minGroundDotProduct) {
+                    if (upDot >= _minGroundDotProduct)
+                    {
                         _climbNormal = _lastClimbNormal;
                     }
                 }
@@ -346,41 +385,50 @@ namespace Movement
             return false;
         }
 
-        private bool SnapToGround () {
-            if (_stepsSinceLastGrounded > 1 || _stepsSinceLastJump <= 2) {
+        private bool SnapToGround()
+        {
+            if (_stepsSinceLastGrounded > 1 || _stepsSinceLastJump <= 2)
+            {
                 return false;
             }
             float speed = _velocity.magnitude;
-            if (speed > maxSnapSpeed) {
+            if (speed > maxSnapSpeed)
+            {
                 return false;
             }
             if (!Physics.Raycast(
-                    _body.position, -_upAxis, out RaycastHit hit,
+                    body.position, -_upAxis, out RaycastHit hit,
                     probeDistance, probeMask, QueryTriggerInteraction.Ignore
-                )) {
+                ))
+            {
                 return false;
             }
 
             float upDot = Vector3.Dot(_upAxis, hit.normal);
-            if (upDot < GetMinDot(hit.collider.gameObject.layer)) {
+            if (upDot < GetMinDot(hit.collider.gameObject.layer))
+            {
                 return false;
             }
 
             _groundContactCount = 1;
             _contactNormal = hit.normal;
             float dot = Vector3.Dot(_velocity, hit.normal);
-            if (dot > 0f) {
+            if (dot > 0f)
+            {
                 _velocity = (_velocity - hit.normal * dot).normalized * speed;
             }
             _connectedBody = hit.rigidbody;
             return true;
         }
 
-        private bool CheckSteepContacts () {
-            if (_steepContactCount > 1) {
+        private bool CheckSteepContacts()
+        {
+            if (_steepContactCount > 1)
+            {
                 _steepNormal.Normalize();
                 float upDot = Vector3.Dot(_upAxis, _steepNormal);
-                if (upDot >= _minGroundDotProduct) {
+                if (upDot >= _minGroundDotProduct)
+                {
                     _steepContactCount = 0;
                     _groundContactCount = 1;
                     _contactNormal = _steepNormal;
@@ -389,22 +437,27 @@ namespace Movement
             }
             return false;
         }
+
         
-        private void AdjustVelocity () {
+        private void AdjustVelocity()
+        {
             float acceleration, speed;
             Vector3 xAxis, zAxis;
-            if (Climbing) {
+            if (Climbing)
+            {
                 acceleration = maxClimbAcceleration;
                 speed = maxClimbSpeed;
                 xAxis = Vector3.Cross(_contactNormal, _upAxis);
                 zAxis = _upAxis;
             }
-            else {
+            else
+            {
                 acceleration = OnGround ? maxAcceleration : maxAirAcceleration;
-                speed = OnGround && _desiresClimbing ? maxClimbSpeed : maxSpeed;
+                speed = OnGround && _desiresClimbing ? maxClimbSpeed : _currentSpeed;
                 xAxis = _rightAxis;
                 zAxis = _forwardAxis;
             }
+            
             xAxis = ProjectDirectionOnPlane(xAxis, _contactNormal);
             zAxis = ProjectDirectionOnPlane(zAxis, _contactNormal);
 
@@ -421,46 +474,54 @@ namespace Movement
             _velocity += xAxis * adjustment.x + zAxis * adjustment.z;
             
         }
-
-        private void Jump (Vector3 gravity) {
+        
+        public void Jump(Vector3 gravity)
+        {
             Vector3 jumpDirection;
-            if (OnGround) {
+            if (OnGround)
+            {
                 jumpDirection = _contactNormal;
             }
-            else if (OnSteep) {
+            else if (OnSteep)
+            {
                 jumpDirection = _steepNormal;
                 _jumpPhase = 0;
             }
-            else if (maxAirJumps > 0 && _jumpPhase <= maxAirJumps) {
-                if (_jumpPhase == 0) {
+            else if (maxAirJumps > 0 && _jumpPhase <= maxAirJumps)
+            {
+                if (_jumpPhase == 0)
+                {
                     _jumpPhase = 1;
                 }
                 jumpDirection = _contactNormal;
             }
-            else {
+            else
+            {
                 return;
             }
-            
+
             // play jump feedback here
             jumpFeedback?.PlayFeedbacks();
-            
+
             _stepsSinceLastJump = 0;
             _jumpPhase += 1;
             float jumpSpeed = Mathf.Sqrt(2f * gravity.magnitude * jumpHeight);
-            //jumpDirection = (jumpDirection + _upAxis).normalized;
             jumpDirection = (jumpDirection + Vector3.up).normalized;
             float alignedSpeed = Vector3.Dot(_velocity, jumpDirection);
-            if (alignedSpeed > 0f) {
+            if (alignedSpeed > 0f)
+            {
                 jumpSpeed = Mathf.Max(jumpSpeed - alignedSpeed, 0f);
             }
             _velocity += jumpDirection * jumpSpeed;
+            
             // Set hasJumped to true after a successful jump
             _hasJumped = true;
         }
 
-        #region Collision Logic
+        #region Collision logic
 
-        private void OnCollisionEnter (Collision collision) {
+        private void OnCollisionEnter(Collision collision)
+        {
             // Check if the collision is with the ground layer and if the playerColor has jumped
             if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") && _hasJumped)
             {
@@ -470,39 +531,48 @@ namespace Movement
                 // Set hasJumped back to false after playing the feedback
                 _hasJumped = false;
             }
-            
+
             EvaluateCollision(collision);
         }
 
-        private void OnCollisionStay (Collision collision) {
+        private void OnCollisionStay(Collision collision)
+        {
             EvaluateCollision(collision);
         }
 
-        private void EvaluateCollision (Collision collision) {
+        private void EvaluateCollision(Collision collision)
+        {
             int layer = collision.gameObject.layer;
             float minDot = GetMinDot(layer);
-            for (int i = 0; i < collision.contactCount; i++) {
+            for (int i = 0; i < collision.contactCount; i++)
+            {
                 Vector3 normal = collision.GetContact(i).normal;
-                if(normal.y >= 0.9f) _groundContactCount = 1;
+                if (normal.y >= 0.9f) _groundContactCount = 1;
                 float upDot = Vector3.Dot(_upAxis, normal);
-                if (upDot >= minDot) {
+                if (upDot >= minDot)
+                {
                     _groundContactCount += 1;
                     _contactNormal += normal;
                     _connectedBody = collision.rigidbody;
                 }
-                else {
+                else
+                {
                     //make -0.01f to activate wall jump on straight walls
-                    if (upDot > -0.01f) {
+                    if (upDot > -0.01f)
+                    {
                         _steepContactCount += 1;
                         _steepNormal += normal;
-                        if (_groundContactCount == 0) {
+                        if (_groundContactCount == 0)
+                        {
                             _connectedBody = collision.rigidbody;
                         }
                     }
                     if (
-                        _desiresClimbing && upDot >= _minClimbDotProduct &&
+                        _desiresClimbing &&
+                        upDot >= _minClimbDotProduct &&
                         (climbMask & (1 << layer)) != 0
-                    ) {
+                    )
+                    {
                         _climbContactCount += 1;
                         _climbNormal += normal;
                         _lastClimbNormal = normal;
@@ -511,33 +581,36 @@ namespace Movement
                 }
             }
         }
-
-        private Vector3 ProjectDirectionOnPlane (Vector3 direction, Vector3 normal) {
+        
+        private Vector3 ProjectDirectionOnPlane(Vector3 direction, Vector3 normal)
+        {
             return (direction - normal * Vector3.Dot(direction, normal)).normalized;
         }
-
-        private float GetMinDot (int layer) {
-            return (stairsMask & (1 << layer)) == 0 ?
-                _minGroundDotProduct : _minStairsDotProduct;
-        }
         
+        private float GetMinDot(int layer)
+        {
+            return (stairsMask & (1 << layer)) == 0 ? _minGroundDotProduct : _minStairsDotProduct;
+        }
+
 
         #endregion
+
         //
         //
         // UNITY EVENT METHODS
         //
         //
-        
-        public void SetMaxSpeedToHigh()
+        public float GetMaxRollingSpeed()
         {
-            maxSpeed = maxSprintSpeed;
+            return maxRollingSpeed;
         }
-
-        public void SetMaxSpeedToLow()
+        public float GetMaxFloatingSpeed()
         {
-            maxSpeed = maxFloatingSpeed;
+            return maxFloatingSpeed;
+        }
+        public void SetCurrentSpeed(float speed)
+        {
+            _currentSpeed = speed;
         }
     }
-    
 }

@@ -33,15 +33,16 @@ public class RespawnTrigger : MonoBehaviour
 
     private IEnumerator RespawnPlayer()
     {
-        IsRespawning = true;
+        IsRespawning = true; // Add this line
 
         _player.SetActive(false);
         yield return new WaitForSeconds(0.1f);
 
-        _player.transform.position = respawnPoint.position;
+        _player.GetComponent<ItemManager>().MoveAlien(respawnPoint.position);
+        _rotateHeadToMovement2.ResetRotation();
 
         _hint.SetActive(false);
         _player.SetActive(true);
-        IsRespawning = false; 
+        IsRespawning = false; // Add this line
     }
 }

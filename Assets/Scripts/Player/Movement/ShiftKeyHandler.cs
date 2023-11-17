@@ -11,7 +11,7 @@ namespace Movement
     {
         [Header("Feedbacks")]
         [SerializeField] private MMFeedbacks sprintFeedback;
-        [SerializeField] private GameObject target;
+        [SerializeField] private GameObject mainBodyTarget;
         [SerializeField] private GameObject secondTarget;
         [SerializeField] private Vector3 initialScale = Vector3.one;
         [SerializeField] private Vector3 targetScale;
@@ -20,12 +20,23 @@ namespace Movement
 
         [FormerlySerializedAs("OnMaxScaleReached")] public UnityEvent onMaxScaleReached;
         [FormerlySerializedAs("OnNotAtMaxScale")] public UnityEvent onNotAtMaxScale;
+        
+        private PlayerMovementV03 _playerMovement;
 
+        private PlayerInput _playerInput;
         private InputAction _sprintAction;
 
         void Awake()
         {
-            _sprintAction = new InputAction("Sprint", InputActionType.Button, "<Keyboard>/shift");
+            // Get the PlayerInput component from the player object
+            _playerInput = GameObject.FindWithTag("Player").GetComponent<PlayerInput>();
+
+            // Find the _sprintAction from the PlayerInput.actions list
+            _sprintAction = _playerInput.actions.FindAction("Sprint");
+
+            // Get the PlayerMovementV03 component from the player object
+            _playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovementV03>();
+            
             _sprintAction.performed += OnPress;
             _sprintAction.canceled += OnRelease;
         }
@@ -33,7 +44,17 @@ namespace Movement
         void Start()
         {
             transform.localScale = initialScale;
+            // Call InitialSetup at the start of the game
+            InitialSetup();
         }
+        
+        private void InitialSetup()
+        {
+            OnScale();
+            ScaleDownSecondObject();
+            _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxRollingSpeed());
+        }
+        
         void Update()
         {
             CheckScaleStatus();
@@ -53,17 +74,22 @@ namespace Movement
                 sprintFeedback?.StopFeedbacks();
             }
         }
-        private void OnPress(InputAction.CallbackContext context)
-        {
-            OnScale();
-            ScaleDownSecondObject();
-            //sprintFeedback?.PlayFeedbacks();
-        }
-
-        private void OnRelease(InputAction.CallbackContext context)
+        public void OnPress(InputAction.CallbackContext context)
         {
             EaseBackDown();
             ScaleUpSecondObject();
+            _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxRollingSpeed());
+        }
+
+        public void OnRelease(InputAction.CallbackContext context)
+        {
+            // Check if the ShiftKeyHandler object still exists
+            if (this != null)
+            {
+                OnScale();
+                ScaleDownSecondObject();
+                _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxFloatingSpeed());
+            }
         }
 
         private void OnScale()
@@ -91,6 +117,12 @@ namespace Movement
 
         private void EaseBackDown()
         {
+            if (this == null)
+            {
+                // The ShiftKeyHandler object has been destroyed, so return immediately
+                return;
+            }
+            
             transform.DOKill(); // Stop any ongoing tween
             transform.DOScale(initialScale, releaseDuration)
                 .SetEase(Ease.OutBounce)

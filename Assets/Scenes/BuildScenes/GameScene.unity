@@ -5754,7 +5754,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ed39e8628ea328e4886e587c5ed18d35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8216,7 +8216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ed39e8628ea328e4886e587c5ed18d35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15408,6 +15408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitCamera: {fileID: 7839031139573598234}
   turnSmoothTime: 6
+  tiltBackSmoothTime: 1.5
+  tiltBackAfterSeconds: 1
 --- !u!224 &1329735027667054476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25767,7 +25769,7 @@ GameObject:
   - component: {fileID: 7838468831809129543}
   m_Layer: 8
   m_Name: Head
-  m_TagString: Head
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26515,7 +26517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintFeedback: {fileID: 0}
-  target: {fileID: 0}
+  mainBodyTarget: {fileID: 0}
   secondTarget: {fileID: 719167945379553361}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 1, y: 1, z: 1}
@@ -26620,9 +26622,6 @@ MonoBehaviour:
   springDamping: 0.3
   springDampingY: 0.6
   springFrequency: 3
-  _velocity: {x: 0, y: 0, z: 0}
-  _initialPosition: {x: 0, y: 0, z: 0}
-  _offset: {x: 0, y: 0, z: 0}
 --- !u!54 &7838468831809129543
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28046,10 +28045,8 @@ MonoBehaviour:
   landingFeedback: {fileID: 4163796025064556146}
   playerInputSpace: {fileID: 7839031139573598234}
   mainAlienBody: {fileID: 6096481200859916579}
-  playerControls: {fileID: 0}
-  maxSpeed: 10
   maxClimbSpeed: 4
-  maxSprintSpeed: 8
+  maxRollingSpeed: 8
   maxFloatingSpeed: 12
   maxAcceleration: 22.4
   maxAirAcceleration: 26
@@ -28073,6 +28070,7 @@ MonoBehaviour:
   ballRadius: 0.45
   ballAlignSpeed: 0.85
   ballAirRotation: 0.7
+  body: {fileID: 0}
 --- !u!114 &9172846915865955421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28085,9 +28083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1b964bc3129b448bbf679b33f2774c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 0}
-  _playerMovement: {fileID: 0}
-  _shiftKeyHandler: {fileID: 0}
 --- !u!65 &9222636502084091096
 BoxCollider:
   m_ObjectHideFlags: 0

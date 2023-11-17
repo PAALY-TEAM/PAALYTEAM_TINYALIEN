@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Tools;
-using UnityEngine.Serialization;
 
 namespace MoreMountains.Feel
 {
@@ -12,21 +11,21 @@ namespace MoreMountains.Feel
 	/// </summary>
 	public class FeelDemosInstructions : MonoBehaviour
 	{
-		[FormerlySerializedAs("TargetText")] [Header("Bindings")]
+		[Header("Bindings")]
 		/// a text component where we'll display instructions
-		public Text targetText;
+		public Text TargetText;
 		/// the delay, in seconds, before instructions disappear
-		[FormerlySerializedAs("DisappearDelay")] public float disappearDelay = 3f;
+		public float DisappearDelay = 3f;
 		/// the duration, in seconds, of the instructions disappearing transition
-		[FormerlySerializedAs("DisappearDuration")] public float disappearDuration = 0.3f;
+		public float DisappearDuration = 0.3f;
 
-		[FormerlySerializedAs("DesktopText")] [Header("Texts")]
+		[Header("Texts")]
 		/// the text to display when running the demos on desktop
-		public string desktopText = "Press space to...";
+		public string DesktopText = "Press space to...";
 		/// the text to display when running the demos on mobile
-		[FormerlySerializedAs("MobileText")] public string mobileText = "Tap anywhere to...";
+		public string MobileText = "Tap anywhere to...";
 
-		protected CanvasGroup CanvasGroup;
+		protected CanvasGroup _canvasGroup;
         
 		/// <summary>
 		/// On Awake we detect our platform and assign text accordingly
@@ -36,10 +35,10 @@ namespace MoreMountains.Feel
 			#if UNITY_ANDROID || UNITY_IPHONE
                 TargetText.text = MobileText;
 			#else
-			targetText.text = desktopText;
+			TargetText.text = DesktopText;
 			#endif
 
-			CanvasGroup = this.gameObject.GetComponent<CanvasGroup>();
+			_canvasGroup = this.gameObject.GetComponent<CanvasGroup>();
 			StartCoroutine(DisappearCo());
 		}
 
@@ -49,9 +48,9 @@ namespace MoreMountains.Feel
 		/// <returns></returns>
 		protected virtual IEnumerator DisappearCo()
 		{
-			yield return MMCoroutine.WaitFor(disappearDelay);
-			StartCoroutine(MMFade.FadeCanvasGroup(CanvasGroup, disappearDuration, 0f, true));
-			yield return  MMCoroutine.WaitFor(disappearDuration + 0.1f);
+			yield return MMCoroutine.WaitFor(DisappearDelay);
+			StartCoroutine(MMFade.FadeCanvasGroup(_canvasGroup, DisappearDuration, 0f, true));
+			yield return  MMCoroutine.WaitFor(DisappearDuration + 0.1f);
 			this.gameObject.SetActive(false);
 		}
 	}

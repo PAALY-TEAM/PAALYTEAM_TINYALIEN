@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Temp MazeGame/Scenes/Maze.unity.meta
 guid: 86e3b024875aeb6418c1b16c1969f753
 DefaultImporter:
+========
+guid: 2f33e182f2a8c434bb40185a96d2fde7
+AssemblyDefinitionImporter:
+>>>>>>>> Stashed changes:Assets/Plugins/Demigiant/DOTween/Modules/DOTween.Modules.asmdef.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
