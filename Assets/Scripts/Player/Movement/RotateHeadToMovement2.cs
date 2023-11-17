@@ -9,12 +9,27 @@ namespace Movement
         [SerializeField] private float tiltBackSmoothTime = 1.5f; // New field for slower tilt back
         [SerializeField] private float tiltBackAfterSeconds = 1f;
         
-        private Transform spawnPoint;
-
         private float _noInputTimeCounter = 0f;
+        
+        private Quaternion _initialRotation;
 
+        private void Start()
+        {
+            _initialRotation = transform.rotation;
+        }
+        
+        public void ResetRotation()
+        {
+            transform.rotation = _initialRotation;
+            _noInputTimeCounter = 0f; // Reset the no input time counter
+        }
+        
         private void Update()
         {
+            if (RespawnTrigger.IsRespawning)
+            {
+                return;
+            }
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
