@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
@@ -50,6 +51,8 @@ namespace UI
             Cursor.lockState = CursorLockMode.None;
             
             _activeDialogue = true;
+            // Time player so they doesn't skip first dialogue when first interacting
+            StartCoroutine(WaitAfterPanel());
             //Finds Camera In Scene so that it can swap focus during scenes  
             _cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         
@@ -101,6 +104,8 @@ namespace UI
                     return;
                 }
             }
+
+            
             //Find New Buttons
             _prev = _thisPage.transform.Find("Prev").GetComponent<Button>();
             _next = _thisPage.transform.Find("Next").GetComponent<Button>();
@@ -127,7 +132,7 @@ namespace UI
                     DialogueEnd();
                 }
 
-                if (Input.GetButtonDown("Interact") && _order[_currentPage] == 2)
+                if (Input.GetButtonDown("Interact"))
                 {
                     NextPanel();
                 }
@@ -188,6 +193,11 @@ namespace UI
                 Destroy(_thisPage);
                 DialogueContinue();
             }
+        }
+
+         private IEnumerator WaitAfterPanel()
+        {
+            yield return new WaitForSeconds(.2f);
         }
     }
 }
