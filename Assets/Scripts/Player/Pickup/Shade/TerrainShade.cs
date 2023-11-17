@@ -37,7 +37,6 @@ public class TerrainShade : MonoBehaviour
     private void Awake()
     {
         thisTarrain = GetComponent<Terrain>();
-        
         _texturesThatChanges = new TerrainChange[affectingColour.Length];
         // Initialized all values into the constructor
         for (int i = 0; i < _texturesThatChanges.Length; i++)
