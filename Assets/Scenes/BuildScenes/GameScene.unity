@@ -28047,7 +28047,7 @@ MonoBehaviour:
   mainAlienBody: {fileID: 6096481200859916579}
   maxClimbSpeed: 4
   maxRollingSpeed: 8
-  maxFloatingSpeed: 2
+  maxFloatingSpeed: 12
   maxAcceleration: 22.4
   maxAirAcceleration: 26
   maxClimbAcceleration: 40

@@ -8,6 +8,8 @@ namespace Movement
         [SerializeField] private float turnSmoothTime = 6f;
         [SerializeField] private float tiltBackSmoothTime = 1.5f; // New field for slower tilt back
         [SerializeField] private float tiltBackAfterSeconds = 1f;
+        
+        private Transform spawnPoint;
 
         private float _noInputTimeCounter = 0f;
 
