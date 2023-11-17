@@ -999,6 +999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 1927523210}
+  settingsButton: {fileID: 0}
+  helpButton: {fileID: 0}
   quitButton: {fileID: 1855120083}
 --- !u!1 &372735358
 GameObject:
@@ -16424,7 +16426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintFeedback: {fileID: 0}
-  target: {fileID: 1302747687}
+  mainBodyTarget: {fileID: 0}
   secondTarget: {fileID: 1244550250}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 1, y: 1, z: 1}

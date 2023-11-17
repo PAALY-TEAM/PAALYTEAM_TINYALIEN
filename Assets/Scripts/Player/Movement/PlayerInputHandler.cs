@@ -7,7 +7,7 @@ namespace Movement
 {
     public class PlayerInputHandler : MonoBehaviour
     {
-        public PlayerInput playerInput;
+        private PlayerInput _playerInput;
         private PlayerMovementV03 _playerMovement;
         private ShiftKeyHandler _shiftKeyHandler;
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
@@ -15,18 +15,18 @@ namespace Movement
 
         private void Awake()
         {
-            playerInput = GetComponent<PlayerInput>();
+            _playerInput = GetComponent<PlayerInput>();
             _playerMovement = GetComponent<PlayerMovementV03>();
             _shiftKeyHandler = GetComponent<ShiftKeyHandler>();
             
             _commandActionMap = new Dictionary<InputAction, Command>
             {
                 // Initialize the actionCommandMap dictionary
-                [playerInput.actions.FindAction("Move")] = new MoveCommand(_playerMovement, Vector2.zero),
-                [playerInput.actions.FindAction("Jump")] = new JumpCommand(_playerMovement),
-                [playerInput.actions.FindAction("Climb")] = new ClimbCommand(_playerMovement),
-                [playerInput.actions.FindAction("Interact")] = new InteractCommand(_playerMovement),
-                [playerInput.actions.FindAction("Sprint")] = new SprintCommand(_shiftKeyHandler)
+                [_playerInput.actions.FindAction("Move")] = new MoveCommand(_playerMovement, Vector2.zero),
+                [_playerInput.actions.FindAction("Jump")] = new JumpCommand(_playerMovement),
+                [_playerInput.actions.FindAction("Climb")] = new ClimbCommand(_playerMovement),
+                [_playerInput.actions.FindAction("Interact")] = new InteractCommand(_playerMovement),
+                [_playerInput.actions.FindAction("Sprint")] = new SprintCommand(_shiftKeyHandler)
             };
 
             // Enable all InputActions
@@ -39,7 +39,7 @@ namespace Movement
         {
             
             // Get the player's input
-            Vector2 direction = playerInput.actions.FindAction("Move").ReadValue<Vector2>();
+            Vector2 direction = _playerInput.actions.FindAction("Move").ReadValue<Vector2>();
 
             // Execute the appropriate command when the corresponding key is pressed
             foreach (KeyValuePair<InputAction, Command> actionCommandPair in _commandActionMap)
@@ -107,23 +107,22 @@ namespace Movement
         }
         public InputAction GetAction(string actionName)
         {
-            return playerInput.actions.FindAction(actionName);
+            return _playerInput.actions.FindAction(actionName);
         }
         
         public Vector2 GetMoveInput()
         {
-            InputAction moveAction = playerInput.actions.FindAction("Move");
+            InputAction moveAction = _playerInput.actions.FindAction("Move");
             Vector2 direction = moveAction.ReadValue<Vector2>();
             ((MoveCommand)_commandActionMap[moveAction]).Execute();
             return direction;
         }
-
-
+        
         public bool GetJumpInput()
         {
-            if (playerInput.actions.FindAction("Jump").ReadValue<float>() > 0.5f)
+            if (_playerInput.actions.FindAction("Jump").ReadValue<float>() > 0.5f)
             {
-                ((JumpCommand)_commandActionMap[playerInput.actions.FindAction("Jump")]).Execute();
+                ((JumpCommand)_commandActionMap[_playerInput.actions.FindAction("Jump")]).Execute();
                 return true;
             }
             return false;
@@ -142,9 +141,9 @@ namespace Movement
 
         public bool GetInteractInput()
         {
-            if (playerInput.actions.FindAction("Interact").WasPressedThisFrame())
+            if (_playerInput.actions.FindAction("Interact").WasPressedThisFrame())
             {
-                ((InteractCommand)_commandActionMap[playerInput.actions.FindAction("Interact")]).Execute();
+                ((InteractCommand)_commandActionMap[_playerInput.actions.FindAction("Interact")]).Execute();
                 return true;
             }
             return false;
@@ -152,9 +151,9 @@ namespace Movement
 
         public bool GetSprintInput()
         {
-            if (playerInput.actions.FindAction("Sprint").ReadValue<float>() > 0.5f)
+            if (_playerInput.actions.FindAction("Sprint").ReadValue<float>() > 0.5f)
             {
-                ((SprintCommand)_commandActionMap[playerInput.actions.FindAction("Sprint")]).Execute();
+                ((SprintCommand)_commandActionMap[_playerInput.actions.FindAction("Sprint")]).Execute();
                 return true;
             }
             return false;
