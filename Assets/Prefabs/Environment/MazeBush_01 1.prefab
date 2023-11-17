@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8687351221796061033}
   - component: {fileID: 1321275588643277599}
   - component: {fileID: -74130089719157238}
+  - component: {fileID: -7423928709825244755}
   m_Layer: 0
   m_Name: MazeBush_01 1
   m_TagString: Untagged
@@ -127,6 +128,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6259003, y: 10, z: 1.8101425}
   m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &-7423928709825244755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510057413498649998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colourToBe: 3
+  shadeType: 0
+  uniqueMaterial: {fileID: 0}
 --- !u!1 &622940089886739855
 GameObject:
   m_ObjectHideFlags: 0
