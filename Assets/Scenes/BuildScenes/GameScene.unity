@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2085376}
   m_Layer: 0
   m_Name: Building (4)
-  m_TagString: Orange
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 103649963}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 184890330}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 197901563}
   m_Layer: 0
   m_Name: Building (13)
-  m_TagString: Red
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -997,7 +997,7 @@ GameObject:
   - component: {fileID: 218109090}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 221372966}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -1196,7 +1196,7 @@ GameObject:
   - component: {fileID: 233211286}
   m_Layer: 0
   m_Name: Building (6)
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -1710,7 +1710,7 @@ GameObject:
   - component: {fileID: 328421519}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -2224,7 +2224,7 @@ GameObject:
   - component: {fileID: 431937093}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -2423,7 +2423,7 @@ GameObject:
   - component: {fileID: 435601811}
   m_Layer: 0
   m_Name: Building (2)
-  m_TagString: Blue
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -2676,7 +2676,7 @@ GameObject:
   - component: {fileID: 440587874}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -2896,7 +2896,7 @@ GameObject:
   - component: {fileID: 533468090}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -3244,7 +3244,7 @@ GameObject:
   - component: {fileID: 589211875}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -3519,7 +3519,7 @@ GameObject:
   - component: {fileID: 599925592}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -3718,7 +3718,7 @@ GameObject:
   - component: {fileID: 635621838}
   m_Layer: 0
   m_Name: Building (10)
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -4381,7 +4381,7 @@ GameObject:
   - component: {fileID: 710674858}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -5116,7 +5116,7 @@ GameObject:
   - component: {fileID: 840116262}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -5215,7 +5215,7 @@ GameObject:
   - component: {fileID: 842434949}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -5314,7 +5314,7 @@ GameObject:
   - component: {fileID: 879621004}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -5495,7 +5495,7 @@ GameObject:
   - component: {fileID: 908546828}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -5594,7 +5594,7 @@ GameObject:
   - component: {fileID: 911153063}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -5754,7 +5754,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ed39e8628ea328e4886e587c5ed18d35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5798,7 +5798,7 @@ GameObject:
   - component: {fileID: 979009953}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -6002,7 +6002,7 @@ GameObject:
   - component: {fileID: 985923320}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -6223,7 +6223,7 @@ GameObject:
   - component: {fileID: 1011149260}
   m_Layer: 0
   m_Name: Building (11)
-  m_TagString: Blue
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -6344,7 +6344,7 @@ GameObject:
   - component: {fileID: 1011292483}
   m_Layer: 0
   m_Name: Hat
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -6466,7 +6466,7 @@ GameObject:
   - component: {fileID: 1017540040}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -7450,7 +7450,7 @@ GameObject:
   - component: {fileID: 1180869971}
   m_Layer: 0
   m_Name: Building
-  m_TagString: Green
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -7592,7 +7592,7 @@ GameObject:
   - component: {fileID: 1193264223}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -7813,7 +7813,7 @@ GameObject:
   - component: {fileID: 1206318479}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Red
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -7935,7 +7935,7 @@ GameObject:
   - component: {fileID: 1206561637}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -8216,7 +8216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ed39e8628ea328e4886e587c5ed18d35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8676,7 +8676,7 @@ GameObject:
   - component: {fileID: 1417403297}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -8775,7 +8775,7 @@ GameObject:
   - component: {fileID: 1425932647}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -8875,7 +8875,7 @@ GameObject:
   - component: {fileID: 1426549199}
   m_Layer: 0
   m_Name: Building (7)
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -9144,7 +9144,7 @@ GameObject:
   - component: {fileID: 1464389180}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -9454,7 +9454,7 @@ GameObject:
   - component: {fileID: 1534818524}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -9553,7 +9553,7 @@ GameObject:
   - component: {fileID: 1545193714}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -9653,7 +9653,7 @@ GameObject:
   - component: {fileID: 1549210854}
   m_Layer: 0
   m_Name: Building (1)
-  m_TagString: Red
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -9773,7 +9773,7 @@ GameObject:
   - component: {fileID: 1551181759}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -10016,7 +10016,7 @@ GameObject:
   - component: {fileID: 1573446737}
   m_Layer: 0
   m_Name: Building (12)
-  m_TagString: Purple
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -10348,7 +10348,7 @@ GameObject:
   - component: {fileID: 1656762185}
   m_Layer: 0
   m_Name: Hat speer
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -10612,7 +10612,7 @@ GameObject:
   - component: {fileID: 1686839708}
   m_Layer: 0
   m_Name: Building (3)
-  m_TagString: Purple
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -11211,7 +11211,7 @@ GameObject:
   - component: {fileID: 1719932910}
   m_Layer: 0
   m_Name: Building (5)
-  m_TagString: Green
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -11530,7 +11530,7 @@ GameObject:
   - component: {fileID: 1819583453}
   m_Layer: 0
   m_Name: Building (8)
-  m_TagString: Purple
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -11848,7 +11848,7 @@ GameObject:
   - component: {fileID: 2002819425}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -12115,7 +12115,7 @@ GameObject:
   - component: {fileID: 2024828403}
   m_Layer: 0
   m_Name: Farmer NPC
-  m_TagString: Green
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -14064,7 +14064,7 @@ GameObject:
   - component: {fileID: 2043400554958399377}
   m_Layer: 0
   m_Name: bark
-  m_TagString: Brown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125
@@ -27286,7 +27286,7 @@ GameObject:
   - component: {fileID: 3550750240235480575}
   m_Layer: 0
   m_Name: leaves
-  m_TagString: Yellow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 125

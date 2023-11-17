@@ -113,7 +113,6 @@ namespace Pickup.Player
 
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
-            //_pauseMenu = GameObject.Find("PauseSummoner").GetComponent<PauseMenu>();
             _IMSLogic = GameObject.Find("MenuController").GetComponent<ItemManagerSaveLogic>();
             crayonsUI = GameObject.Find("CanvasCrayon/Crayons");
             _cameraFocus = transform.Find("CameraTarget").gameObject;
@@ -140,16 +139,10 @@ namespace Pickup.Player
                     _copySceneLoaded = true;
                 }
             }
-
-            if (_pauseMenu)
-            {
-                _pauseMenu.SaveValues();
-            }
-
-            if (_IMSLogic)
-            {
-                _IMSLogic.SaveValues();
-            }
+            
+            
+            _IMSLogic.SaveValues();
+            
             
             //Finds terrain in scenes to colour
             TerrainShade[] tempTerrainHolder = FindObjectsOfType<TerrainShade>();
@@ -243,40 +236,10 @@ namespace Pickup.Player
         void HandleInteractions()
         {
             
-            if (_otherObject == null) return;
-            if (_otherObject.CompareTag("SpaceShip"))
+            if (_otherObject.transform.GetComponent(nameof(IPlayerInteract)) is IPlayerInteract)
             {
-                //For future coding if we want visible display of crayons to have a origin position to the crayons
-                var shipScript = _spaceShip.GetComponent<ShipInventory>();
-                //Adding the crayons to ship
-                //Visible in the debug log
-                for (int i = 0; i < colours.Length - 1; i++)
-                {
-                    if (NumbCarried[i] > 0)
-                    {
-                        NumbStored[i] += NumbCarried[i];
-                        NumbCarried[i] = 0;
-                        if (NumbStored[i] > 0)
-                        {
-                            ChangeColourOfEnvironment(i+1);
-                        }
-                    }
-                }
-                shipScript.Display();
-                ChangeAlienColour(0);
-                currentColour = 0;
-                if (_pauseMenu)
-                {
-                    _pauseMenu.SaveValues();
-                }
-
-                if (_IMSLogic)
-                {
-                    _IMSLogic.SaveValues();
-                }
-                
+                _otherObject.GetComponent<IPlayerInteract>().PlayerInteract();
             }
-            //transform.GetChild(0).gameObject.SetActive(false);
             UpdateValues();
         }
 
@@ -335,7 +298,7 @@ namespace Pickup.Player
             }
             return numberReturn;
         }
-        private void ChangeColourOfEnvironment(int playerColourIndex)
+        public void ChangeColourOfEnvironment(int playerColourIndex)
         {
             //Check if colour is already applied
             //if (objectsToChangeColour[playerColourIndex - 1][0].transform.GetComponent<Renderer>().sharedMaterial

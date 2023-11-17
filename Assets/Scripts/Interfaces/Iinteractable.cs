@@ -7,7 +7,7 @@ namespace Interfaces
         GameObject Player { get; set; }
     
         bool CanInteract { get; set; }
-
+        
         void Interact();
     }
 }
