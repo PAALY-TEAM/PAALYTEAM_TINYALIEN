@@ -16,13 +16,6 @@ namespace Movement
             _initialRotation = transform.rotation;
         }
         
-        
-        private void Start()
-        {
-            _initialRotation = transform.rotation;
-        }
-
-
         public void ResetRotation()
         {
             transform.rotation = _initialRotation;
