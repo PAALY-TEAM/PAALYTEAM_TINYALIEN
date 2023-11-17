@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MoreMountains.Feel
 {
@@ -10,13 +11,13 @@ namespace MoreMountains.Feel
 	/// </summary>
 	public class FeelDemosNextDemoButtonInput : MonoBehaviour
 	{
-		public MMFeedbacks OnInputFeedback;
+		[FormerlySerializedAs("OnInputFeedback")] public MMFeedbacks onInputFeedback;
 
 		protected virtual void Update()
 		{
 			if (FeelDemosInputHelper.CheckEnterPressedThisFrame())
 			{
-				OnInputFeedback?.PlayFeedbacks();
+				onInputFeedback?.PlayFeedbacks();
 			}
 		}
 	}	

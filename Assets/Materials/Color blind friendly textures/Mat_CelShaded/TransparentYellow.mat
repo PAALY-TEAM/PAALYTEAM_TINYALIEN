@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TransparentYellow
-  m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
+  m_Shader: {fileID: 4800000, guid: f67990759854d1e4aa64a3821734dcd8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -27,10 +27,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -131,16 +127,12 @@ Material:
     - _ReflectionTextureStrength: 1
     - _RimAmount: 0.7
     - _RimPower: 0.6547081
-    - _RimStep: 0.65
-    - _RimStepSmooth: 0.4
     - _SecondaryTextureSize: 0.73
     - _SecondaryTextureSpeedFactor: 0
     - _SecondaryTextureStrength: 0
     - _ShadowBlur: 1
     - _ShadowMixMode: 1
     - _ShadowSize: 0.5
-    - _ShadowStep: 0.5
-    - _ShadowStepSmooth: 0.04
     - _ShadowStrength: 1
     - _SharpRimLight: 1
     - _SmoothnessTextureChannel: 0
@@ -149,8 +141,6 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularPower: 1
     - _SpecularSize: 0.4
-    - _SpecularStep: 0.6
-    - _SpecularStepSmooth: 0.05
     - _SrcBlend: 5
     - _Stencil: 0
     - _StencilComp: 8
@@ -176,7 +166,6 @@ Material:
     - _ZWrite: 0
     - __dirty: 1
     m_Colors:
-    - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 1, g: 0.92449653, b: 0.14528298, a: 0.4392157}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _GradientRemap0: {r: 0, g: 0, b: 0, a: 0}
