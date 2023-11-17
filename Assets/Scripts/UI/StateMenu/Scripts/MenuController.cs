@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UI;
-using UnityAtoms.BaseAtoms;
 using UnityEngine;
 
 
@@ -12,10 +11,6 @@ namespace State.Menu
     {
         [SerializeField] 
         private ItemManagerSaveLogic itemManagerSaveLogic;
-        
-        // Start is called before the first frame update
-        [SerializeField]
-        private BoolVariable playerCanMove;
         
         //Drags = the different menus we have
         public _MenuState[] allMenus;

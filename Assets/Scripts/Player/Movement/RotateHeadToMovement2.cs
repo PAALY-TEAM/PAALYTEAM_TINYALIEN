@@ -11,6 +11,11 @@ namespace Movement
         
         private Quaternion _initialRotation;
         
+        private void Start()
+        {
+            _initialRotation = transform.rotation;
+        }
+
         public void ResetRotation()
         {
             transform.rotation = _initialRotation;
