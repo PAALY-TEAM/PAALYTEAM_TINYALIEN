@@ -26,24 +26,42 @@ public class TerrainShade : MonoBehaviour
     }
     private Terrain thisTarrain;
 
+    [Header("GroundTexture Indexes")]
     // The values needed to be added for good game
-    [SerializeField] private ColourHolder.Colour[] affectingColour;
+    [SerializeField] private ColourHolder.Colour[] affectingColourGround;
     [SerializeField] private int[] startIndex;
     [SerializeField] private int[] endIndex;
     
     private TerrainChange[] _texturesThatChanges;
     
+    // The layers that should appear
+    [Header("GrassTexture Indexes")]
+    [SerializeField] private ColourHolder.Colour[] affectingColourGrass;
+    //[SerializeField] private int[] indexesToGrassLayers;
+    private int [][,] storedGrassDetails;
     
     private void Awake()
     {
         thisTarrain = GetComponent<Terrain>();
         
-        _texturesThatChanges = new TerrainChange[affectingColour.Length];
+        _texturesThatChanges = new TerrainChange[affectingColourGround.Length];
         // Initialized all values into the constructor
         for (int i = 0; i < _texturesThatChanges.Length; i++)
         {
-            _texturesThatChanges[i] = new TerrainChange(affectingColour[i], startIndex[i], endIndex[i]);
+            _texturesThatChanges[i] = new TerrainChange(affectingColourGround[i], startIndex[i], endIndex[i]);
         }
+
+        storedGrassDetails = new int[affectingColourGrass.Length][,];
+
+        for (int i = 0; i < affectingColourGrass.Length; i++)
+        {
+            // Store the OG grass
+            int detailResolution = thisTarrain.terrainData.detailResolution;
+            storedGrassDetails[i] = thisTarrain.terrainData.GetDetailLayer(0, 0, detailResolution, detailResolution,  i);
+            
+            SetGrassEnabled(true, i, storedGrassDetails[i]);
+        }
+        
     }
     
     //So that the textures changes back after scene is finished
@@ -53,9 +71,13 @@ public class TerrainShade : MonoBehaviour
         {
             UpdateTerrainTexture(ttc.IndexTo, ttc.IndexFrom);
         }
+        for (int i = 0; i < affectingColourGrass.Length; i++)
+        {
+            SetGrassEnabled(false, i, storedGrassDetails[i]);
+        }
     }
     
-    //Called by other scripts to find which textures to swap
+    //Called by other scripts to find which textures to swap in this script
     public void FindCurrentTexture(int colourIndex)
     {
         foreach (var ttc in _texturesThatChanges)
@@ -63,6 +85,14 @@ public class TerrainShade : MonoBehaviour
             if ((int)ttc.ColourThatChanges == colourIndex)
             {
                 UpdateTerrainTexture(ttc.IndexFrom,ttc.IndexTo);   
+            }
+        }
+
+        for (int i = 0; i < affectingColourGrass.Length; i++)
+        {
+            if ((int)affectingColourGrass[i] == colourIndex)
+            {
+                SetGrassEnabled(false, i, storedGrassDetails[i]);
             }
         }
     }
@@ -87,5 +117,34 @@ public class TerrainShade : MonoBehaviour
         // apply the new alpha
         thisTerrainData.SetAlphamaps(0, 0, alphas);
     }
+    
+    private void SetGrassEnabled(bool disable, int grassLayerIndex, int[,] savedGrass)
+    {
+        // Get the detail resolution of the specified detail layer
+        int detailResolution = thisTarrain.terrainData.detailResolution;
+        int[,] details = thisTarrain.terrainData.GetDetailLayer(0, 0, detailResolution, detailResolution, grassLayerIndex);
+
+        // Set the grass density to 0 or 1 based on the enabled parameter
+        for (int x = 0; x < detailResolution; x++)
+        {
+            for (int y = 0; y < detailResolution; y++)
+            {
+                if (disable)
+                {
+                    details[x, y] = 0;
+                }
+                else
+                {
+                    details[x, y] = savedGrass[x, y];
+                }
+                
+            }
+        }
+
+        // Apply the modified detail layer back to the terrain
+        thisTarrain.terrainData.SetDetailLayer(0, 0, grassLayerIndex, details);
+    }
+
+    
 }
 

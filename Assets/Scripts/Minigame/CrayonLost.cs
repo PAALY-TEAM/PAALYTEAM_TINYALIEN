@@ -25,6 +25,11 @@ public class CrayonLost : MonoBehaviour
     private static int id;
     private void Awake()
     {
+        
+    }
+
+    private void Start()
+    {
         if (crayonLost == null)
         {
             //Declare Variable
@@ -43,10 +48,7 @@ public class CrayonLost : MonoBehaviour
             }
         }
         tempStorage = new List<string>();
-    }
-
-    private void Start()
-    {
+        
         currentScene = SceneManager.GetActiveScene().buildIndex;
         int tempCount = 0;
         // Stops the code if empty

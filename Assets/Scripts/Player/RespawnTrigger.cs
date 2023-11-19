@@ -31,6 +31,10 @@ public class RespawnTrigger : MonoBehaviour
         }
     }
 
+    public void FindNewPoint(GameObject newPoint)
+    {
+        respawnPoint = newPoint.transform;
+    }
     private IEnumerator RespawnPlayer()
     {
         IsRespawning = true; // Add this line

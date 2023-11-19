@@ -64,6 +64,7 @@ namespace Pickup.Player
         private static bool _gameStarted = false;
         private IColourChange _colourChange01Implementation;
         private CrayonCounter _crayonCounter;
+        private RespawnTrigger _respawnTrigger;
         //Both are pauseMenus
         private PauseMenu _pauseMenu;
         private ItemManagerSaveLogic _IMSLogic;
@@ -114,6 +115,7 @@ namespace Pickup.Player
 
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
+            _respawnTrigger = GameObject.Find("RespawnTrigger").GetComponent<RespawnTrigger>();
             _IMSLogic = GameObject.Find("MenuController").GetComponent<ItemManagerSaveLogic>();
             crayonsUI = GameObject.Find("CanvasCrayon/Crayons");
             _cameraFocus = transform.Find("CameraTarget").gameObject;
@@ -169,6 +171,9 @@ namespace Pickup.Player
             _cameraFocus.transform.localPosition = _cameraFocusPos;
             hintText.SetActive(false);
             UpdateValues();
+
+            var point = GameObject.FindWithTag("RespawnPoint");
+            _respawnTrigger.FindNewPoint(point);
             
             _crayonCounter.CrayonCheckup();
             

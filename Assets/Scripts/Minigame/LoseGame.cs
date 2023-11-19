@@ -12,7 +12,7 @@ public class LoseGame : MonoBehaviour
 
     private void Start()
     {
-        _crayonLost = GameObject.Find("CrayonLost").GetComponent<CrayonLost>();
+        _crayonLost = GameObject.Find("CrayonCounter").GetComponent<CrayonLost>();
     }
 
     public void Lose(Vector3[] crayonSpawns, Vector3 playerSpawn)
@@ -31,7 +31,7 @@ public class LoseGame : MonoBehaviour
                 // Create Crayon and add to list of stolen
                 _crayonLost.AddLostCrayon(i, crayonSpawns);
 					
-                transform.Find("LoseText").GetComponent<NpcTextBox>().DialogueStart();
+                GameObject.Find("LoseText").GetComponent<NpcTextBox>().DialogueStart();
                 break;
             }
         }
