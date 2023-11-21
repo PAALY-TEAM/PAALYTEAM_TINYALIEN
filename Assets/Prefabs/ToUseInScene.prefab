@@ -167,6 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitCamera: {fileID: 3950203314303122121}
   turnSmoothTime: 6
+  tiltBackSmoothTime: 1.5
+  tiltBackAfterSeconds: 1
 --- !u!1 &124139268879508324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,9 +1395,6 @@ GameObject:
   - component: {fileID: 8196960866006903756}
   - component: {fileID: 1595915123606906468}
   - component: {fileID: 638296126828459246}
-  - component: {fileID: 3828532511319297678}
-  - component: {fileID: 702851561508105047}
-  - component: {fileID: 5579214477300724188}
   m_Layer: 6
   m_Name: Player_Alien
   m_TagString: Player
@@ -1481,15 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 6e05a8fc68fe5fc4e89fa3c7fcf54bd6, type: 2}
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
@@ -1515,6 +1506,7 @@ MonoBehaviour:
   - Brown
   gameScene: 0
   copyScene: 0
+  menuOpen: 0
 --- !u!114 &8196960866006903756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,10 +1557,8 @@ MonoBehaviour:
   landingFeedback: {fileID: 289952939215048608}
   playerInputSpace: {fileID: 3950203314303122121}
   mainAlienBody: {fileID: 3700676162753634784}
-  playerControls: {fileID: -944628639613478452, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
-  maxSpeed: 1
   maxClimbSpeed: 4
-  maxSprintSpeed: 12
+  maxRollingSpeed: 8
   maxFloatingSpeed: 2
   maxAcceleration: 22.4
   maxAirAcceleration: 26
@@ -1592,160 +1582,7 @@ MonoBehaviour:
   ballRadius: 0.45
   ballAlignSpeed: 0.85
   ballAirRotation: 0.7
---- !u!114 &3828532511319297678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117995951301038509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 8832902427799117326}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7f8adc87-6402-4b1a-844a-8ffef72c30b6
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 07b10814-dd89-477a-bbd4-4c9dfc9e2096
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3e59c083-396a-432b-b6d4-d0e4ab5f7966
-    m_ActionName: Player/Pause[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: e2e730c5-0192-47a3-8cab-5b1d29b646e1
-    m_ActionName: Player/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f5a3936d-19cd-4ef8-9bae-287a499f80b7
-    m_ActionName: Player/Climb[/Keyboard/p]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ceea41de-0a5f-4661-beb9-ee144a9930f0
-    m_ActionName: Player/Interact[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e91b57ad-8cee-451b-8d41-06652c6d5dad
-    m_ActionName: Player/ChangeColour[/Keyboard/c]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 64a22447-fa4c-4460-8da5-3d915619138c
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1340c90f-7650-4832-93a2-b205fda9df91
-    m_ActionName: UI/Submit[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2b1178dc-6868-4763-99bc-3a826f2ff9e3
-    m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b4d35933-04e6-437f-84e2-2617bc12d1fb
-    m_ActionName: UI/Point[/Mouse/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4c229d2a-f134-4196-8da7-21a3cddd6739
-    m_ActionName: UI/Click[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8ceb62fb-b404-4d6d-bb37-efe3436bc2c7
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ea070801-5f08-4832-b8bb-7875c22c1f91
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6b4c753a-9ef0-4f01-ac68-b9387ff0cc58
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5706819d-bed9-4130-9551-a3afd548f31d
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 25ed2a8a-f21c-4329-a133-015653a4a9ec
-    m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &702851561508105047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117995951301038509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd5011dc6aa5c8499e7c4a249ace34e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sourceObject: {fileID: 2118412147474872312}
-  renderer: {fileID: 0}
-  slider: 0
---- !u!114 &5579214477300724188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117995951301038509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6796a70550252646a9d5a75cf8f96d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4.11
-  maxX: 1
-  minX: 0
-  _morpher: {fileID: 702851561508105047}
-  movementAction: {fileID: -1327295603076114996, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
+  body: {fileID: 0}
 --- !u!1 &1148820995369336369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2033,7 +1870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3147,42 +2984,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintFeedback: {fileID: 0}
-  target: {fileID: 3940731797061418555}
+  mainBodyTarget: {fileID: 0}
   secondTarget: {fileID: 6236040921284787125}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.2
   releaseDuration: 1.39
-  onMaxScaleReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 638296126828459246}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToHigh
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onNotAtMaxScale:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 638296126828459246}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToLow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &4138315263599591368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4042,7 +3849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4804,7 +4611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5179,7 +4986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5998,6 +5805,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 1419400584023058360}
+  _currentPage: 0
 --- !u!114 &1419400584023058360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6021,10 +5829,8 @@ GameObject:
   - component: {fileID: 3950203314303122121}
   - component: {fileID: 182151360545511514}
   - component: {fileID: 4450697876769580704}
-  - component: {fileID: 6980182287172860679}
-  - component: {fileID: 2540540359025178513}
   - component: {fileID: 1279507309336549730}
-  - component: {fileID: 5302527018237913894}
+  - component: {fileID: 3034482087411151588}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -6108,78 +5914,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8694253717101316971}
   m_Enabled: 1
---- !u!114 &6980182287172860679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8694253717101316971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 3950203314303122121}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 1
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
---- !u!114 &2540540359025178513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8694253717101316971}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0616641a2d13ff46b1e0d037c431e6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1279507309336549730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6214,7 +5948,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5302527018237913894
+--- !u!114 &3034482087411151588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6223,10 +5957,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 8694253717101316971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2436c2ba147129746badf6cfa2ee2d1b, type: 3}
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimescaleMode: 0
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &8814021772279811871
 GameObject:
   m_ObjectHideFlags: 0

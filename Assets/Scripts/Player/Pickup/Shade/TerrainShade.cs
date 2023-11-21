@@ -17,14 +17,14 @@ public class TerrainShade : MonoBehaviour
         public int IndexFrom;
         public int IndexTo;
 
-        public TerrainChange(ColourHolder.Colour CTC, int IF, int IT)
+        public TerrainChange(ColourHolder.Colour ctc, int @if, int it)
         {
-            ColourThatChanges = CTC;
-            IndexFrom = IF;
-            IndexTo = IT;
+            ColourThatChanges = ctc;
+            IndexFrom = @if;
+            IndexTo = it;
         }
     }
-    private Terrain thisTarrain;
+    private Terrain _thisTarrain;
 
     [Header("GroundTexture Indexes")]
     // The values needed to be added for good game
@@ -38,11 +38,11 @@ public class TerrainShade : MonoBehaviour
     [Header("GrassTexture Indexes")]
     [SerializeField] private ColourHolder.Colour[] affectingColourGrass;
     //[SerializeField] private int[] indexesToGrassLayers;
-    private int [][,] storedGrassDetails;
+    private int [][,] _storedGrassDetails;
     
     private void Awake()
     {
-        thisTarrain = GetComponent<Terrain>();
+        _thisTarrain = GetComponent<Terrain>();
         
         _texturesThatChanges = new TerrainChange[affectingColourGround.Length];
         // Initialized all values into the constructor
@@ -51,15 +51,15 @@ public class TerrainShade : MonoBehaviour
             _texturesThatChanges[i] = new TerrainChange(affectingColourGround[i], startIndex[i], endIndex[i]);
         }
 
-        storedGrassDetails = new int[affectingColourGrass.Length][,];
+        _storedGrassDetails = new int[affectingColourGrass.Length][,];
 
         for (int i = 0; i < affectingColourGrass.Length; i++)
         {
             // Store the OG grass
-            int detailResolution = thisTarrain.terrainData.detailResolution;
-            storedGrassDetails[i] = thisTarrain.terrainData.GetDetailLayer(0, 0, detailResolution, detailResolution,  i);
+            int detailResolution = _thisTarrain.terrainData.detailResolution;
+            _storedGrassDetails[i] = _thisTarrain.terrainData.GetDetailLayer(0, 0, detailResolution, detailResolution,  i);
             
-            SetGrassEnabled(true, i, storedGrassDetails[i]);
+            SetGrassEnabled(true, i, _storedGrassDetails[i]);
         }
         
     }
@@ -73,7 +73,7 @@ public class TerrainShade : MonoBehaviour
         }
         for (int i = 0; i < affectingColourGrass.Length; i++)
         {
-            SetGrassEnabled(false, i, storedGrassDetails[i]);
+            SetGrassEnabled(false, i, _storedGrassDetails[i]);
         }
     }
     
@@ -92,14 +92,14 @@ public class TerrainShade : MonoBehaviour
         {
             if ((int)affectingColourGrass[i] == colourIndex)
             {
-                SetGrassEnabled(false, i, storedGrassDetails[i]);
+                SetGrassEnabled(false, i, _storedGrassDetails[i]);
             }
         }
     }
     //Swaps the texture of terrain so it becomes coloured
     private void UpdateTerrainTexture(int textureNumberFrom, int textureNumberTo)
     {
-        var thisTerrainData = thisTarrain.terrainData;
+        var thisTerrainData = _thisTarrain.terrainData;
         float[, ,] alphas = thisTerrainData.GetAlphamaps(0, 0, thisTerrainData.alphamapWidth, thisTerrainData.alphamapHeight);
         
         
@@ -121,8 +121,8 @@ public class TerrainShade : MonoBehaviour
     private void SetGrassEnabled(bool disable, int grassLayerIndex, int[,] savedGrass)
     {
         // Get the detail resolution of the specified detail layer
-        int detailResolution = thisTarrain.terrainData.detailResolution;
-        int[,] details = thisTarrain.terrainData.GetDetailLayer(0, 0, detailResolution, detailResolution, grassLayerIndex);
+        int detailResolution = _thisTarrain.terrainData.detailResolution;
+        int[,] details = _thisTarrain.terrainData.GetDetailLayer(0, 0, detailResolution, detailResolution, grassLayerIndex);
 
         // Set the grass density to 0 or 1 based on the enabled parameter
         for (int x = 0; x < detailResolution; x++)
@@ -142,7 +142,7 @@ public class TerrainShade : MonoBehaviour
         }
 
         // Apply the modified detail layer back to the terrain
-        thisTarrain.terrainData.SetDetailLayer(0, 0, grassLayerIndex, details);
+        _thisTarrain.terrainData.SetDetailLayer(0, 0, grassLayerIndex, details);
     }
 
     

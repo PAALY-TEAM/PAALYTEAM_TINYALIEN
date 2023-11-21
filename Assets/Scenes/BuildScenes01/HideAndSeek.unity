@@ -6075,15 +6075,6 @@ MonoBehaviour:
     m_Bits: 136
   pathHolder: {fileID: 677942025}
   isFlying: 0
-  crayon: {fileID: 4612321551521150637, guid: 9b57e0a9835d9914b88e93247af8a415, type: 3}
-  crayonColour:
-  - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
-  - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
-  - {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
-  - {fileID: 11400000, guid: 10b1d22e22422f84a8550f334233cef6, type: 2}
-  - {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
-  - {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
-  - {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
   spawnLocation:
   - {x: -39.5, y: -7.8, z: 30}
   - {x: -38.5, y: -7.8, z: 30}
@@ -6890,6 +6881,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 463989851}
+  _currentPage: 0
 --- !u!1 &482964092
 GameObject:
   m_ObjectHideFlags: 0
@@ -13324,15 +13316,6 @@ MonoBehaviour:
     m_Bits: 136
   pathHolder: {fileID: 1808492912}
   isFlying: 0
-  crayon: {fileID: 4612321551521150637, guid: 9b57e0a9835d9914b88e93247af8a415, type: 3}
-  crayonColour:
-  - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
-  - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
-  - {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
-  - {fileID: 11400000, guid: 10b1d22e22422f84a8550f334233cef6, type: 2}
-  - {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
-  - {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
-  - {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
   spawnLocation:
   - {x: -39.5, y: -7.8, z: 30}
   - {x: -38.5, y: -7.8, z: 30}
@@ -13885,15 +13868,6 @@ MonoBehaviour:
     m_Bits: 136
   pathHolder: {fileID: 902127329}
   isFlying: 1
-  crayon: {fileID: 4612321551521150637, guid: 9b57e0a9835d9914b88e93247af8a415, type: 3}
-  crayonColour:
-  - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
-  - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
-  - {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
-  - {fileID: 11400000, guid: 10b1d22e22422f84a8550f334233cef6, type: 2}
-  - {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
-  - {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
-  - {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
   spawnLocation:
   - {x: -39.5, y: -7.8, z: 30}
   - {x: -38.5, y: -7.8, z: 30}
@@ -14151,6 +14125,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 633722982}
+  _currentPage: 0
 --- !u!1 &636511831
 GameObject:
   m_ObjectHideFlags: 0
@@ -20872,6 +20847,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 1257058117}
+  _currentPage: 0
 --- !u!1 &1270871837
 GameObject:
   m_ObjectHideFlags: 0
@@ -27980,6 +27956,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 1954310133}
+  _currentPage: 0
 --- !u!1 &1974048763
 GameObject:
   m_ObjectHideFlags: 0
@@ -29060,15 +29037,6 @@ MonoBehaviour:
     m_Bits: 136
   pathHolder: {fileID: 522542175}
   isFlying: 0
-  crayon: {fileID: 4612321551521150637, guid: 9b57e0a9835d9914b88e93247af8a415, type: 3}
-  crayonColour:
-  - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
-  - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
-  - {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
-  - {fileID: 11400000, guid: 10b1d22e22422f84a8550f334233cef6, type: 2}
-  - {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
-  - {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
-  - {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
   spawnLocation:
   - {x: -39.5, y: -7.8, z: 30}
   - {x: -38.5, y: -7.8, z: 30}
@@ -31194,15 +31162,6 @@ MonoBehaviour:
     m_Bits: 136
   pathHolder: {fileID: 1074312302768228318}
   isFlying: 0
-  crayon: {fileID: 4612321551521150637, guid: 9b57e0a9835d9914b88e93247af8a415, type: 3}
-  crayonColour:
-  - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
-  - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
-  - {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
-  - {fileID: 11400000, guid: 10b1d22e22422f84a8550f334233cef6, type: 2}
-  - {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
-  - {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
-  - {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
   spawnLocation:
   - {x: -39.5, y: -7.8, z: 30}
   - {x: -38.5, y: -7.8, z: 30}
@@ -31390,6 +31349,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 2496367037364201691}
+  _currentPage: 0
 --- !u!1 &2236285762368393304
 GameObject:
   m_ObjectHideFlags: 0
@@ -31949,15 +31909,6 @@ MonoBehaviour:
     m_Bits: 136
   pathHolder: {fileID: 7410285685291011028}
   isFlying: 1
-  crayon: {fileID: 4612321551521150637, guid: 9b57e0a9835d9914b88e93247af8a415, type: 3}
-  crayonColour:
-  - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
-  - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
-  - {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
-  - {fileID: 11400000, guid: 10b1d22e22422f84a8550f334233cef6, type: 2}
-  - {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
-  - {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
-  - {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
   spawnLocation:
   - {x: -39.5, y: -7.8, z: 30}
   - {x: -38.5, y: -7.8, z: 30}
@@ -32159,6 +32110,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 5698761563452875592}
+  _currentPage: 0
 --- !u!1 &7352452867155244927
 GameObject:
   m_ObjectHideFlags: 0
@@ -32258,6 +32210,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 5909061619732802329}
+  _currentPage: 0
 --- !u!33 &8090220913434752701
 MeshFilter:
   m_ObjectHideFlags: 0

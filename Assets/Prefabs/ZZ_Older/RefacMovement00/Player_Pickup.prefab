@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 7400334790070751409}
   - component: {fileID: 7062198909211482437}
   - component: {fileID: 6365294496784184957}
-  - component: {fileID: 6214461035819032913}
   - component: {fileID: 490267706635578203}
   - component: {fileID: 3370760340726529124}
   m_Layer: 8
@@ -333,34 +332,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 0
---- !u!114 &6214461035819032913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2189638435423323192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f947a727eea564882461adcbfeef96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInputSpace: {fileID: 1723039610963828537}
-  maxSpeed: 10
-  maxAcceleration: 10
-  maxAirAcceleration: 1
-  jumpHeight: 2
-  maxAirJumps: 0
-  maxGroundAngle: 25
-  maxStairsAngle: 50
-  maxSnapSpeed: 100
-  probeDistance: 1
-  probeMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  stairsMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!54 &490267706635578203
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -400,27 +371,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  otherText:
-  - 'Red Crayon: '
-  - 'Yellow Crayon: '
-  - 'Blue Crayon: '
-  crayon: {fileID: 8799412180936511222, guid: 2edbff6edfb575740a3fab1596f3aa5a, type: 3}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
   - {fileID: 2100000, guid: b1767197070c41e4786bad2585dc91d3, type: 2}
   - {fileID: 2100000, guid: 90606556a7b0bf542b0bb814e1df7779, type: 2}
+  rend: []
+  currentColour: 0
+  hintText: {fileID: 0}
   nameOfTags:
   - Red
   - Yellow
   - Blue
   - Green
   - Brown
+  gameScene: 0
+  copyScene: 0
+  menuOpen: 0
 --- !u!1 &3641989426619061504
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +400,6 @@ GameObject:
   - component: {fileID: 1723039610963828537}
   - component: {fileID: 5517562932371406151}
   - component: {fileID: 3265723561939527682}
-  - component: {fileID: 3664003271858524809}
   - component: {fileID: 3691544115444714718}
   m_Layer: 0
   m_Name: Orbit Camera 01
@@ -516,30 +483,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3641989426619061504}
   m_Enabled: 1
---- !u!114 &3664003271858524809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641989426619061504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d671fad0c79c6746b64f52468406a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focus: {fileID: 3669676344999700671}
-  distance: 8
-  focusRadius: 0.58
-  focusCentering: 0.977
-  rotationSpeed: 90
-  minVerticalAngle: -45
-  maxVerticalAngle: 45
-  alignDelay: 15
-  alignSmoothRange: 45.8
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &3691544115444714718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,7 +760,6 @@ GameObject:
   - component: {fileID: 6660778166675642928}
   - component: {fileID: 1770329455814610429}
   - component: {fileID: 1135762969862549813}
-  - component: {fileID: 6663932067814319871}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -868,7 +810,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7791486788655378091, guid: 07083bfd371375f4f8e720ee8f30f621, type: 3}
+  - {fileID: 2100000, guid: aa82b3a1a5c4e564dbf7a9f31702e87e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -890,19 +832,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6663932067814319871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6625210825813259843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90f2c3156eeec434c908c85822e2e235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
 --- !u!1 &6835300074529900741
 GameObject:
   m_ObjectHideFlags: 0

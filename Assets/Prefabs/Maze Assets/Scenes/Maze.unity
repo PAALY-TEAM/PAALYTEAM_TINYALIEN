@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a6e354b41665946a8899718c2b2f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 3227933954832025625, guid: 2b5329949cf162c48a83a15a71b5a7d0, type: 3}
+  laser: {fileID: 0}
   player: {fileID: 1128010298}
 --- !u!1001 &795898541
 PrefabInstance:
@@ -2586,6 +2586,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7920055186875236211, guid: 4cd5ce194c9f0ee4a856c5308e6369b9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e2c8b7154f2a58b4b998933211323a6f, type: 3}
     - target: {fileID: 9046819737985269781, guid: 4cd5ce194c9f0ee4a856c5308e6369b9, type: 3}
       propertyPath: m_Name
       value: Cube (1) 1 (3)
@@ -2644,7 +2648,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.096666664
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 56d0ada1f5d7aee45983aa7b095fe390, type: 2}
   m_BuildHeightMesh: 0

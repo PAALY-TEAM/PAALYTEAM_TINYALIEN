@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42da155cd76d1141a70cdba0cb41a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mouseSenseSlider: {fileID: 0}
 --- !u!1 &298886316205973062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,15 +2288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
@@ -2322,6 +2315,7 @@ MonoBehaviour:
   - Brown
   gameScene: 1
   copyScene: 2
+  menuOpen: 0
 --- !u!114 &6270839986243881562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,10 +2366,8 @@ MonoBehaviour:
   landingFeedback: {fileID: 1643580684032033458}
   playerInputSpace: {fileID: 1210390158835239070}
   mainAlienBody: {fileID: 8584470746935395516}
-  playerControls: {fileID: -944628639613478452, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
-  maxSpeed: 1
   maxClimbSpeed: 4
-  maxSprintSpeed: 12
+  maxRollingSpeed: 8
   maxFloatingSpeed: 2
   maxAcceleration: 22.4
   maxAirAcceleration: 26
@@ -2399,6 +2391,7 @@ MonoBehaviour:
   ballRadius: 0.45
   ballAlignSpeed: 0.85
   ballAirRotation: 0.7
+  body: {fileID: 0}
 --- !u!114 &5707068859519219917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3489,7 +3482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4787,7 +4780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4862,7 +4855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4970,42 +4963,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintFeedback: {fileID: 0}
-  target: {fileID: 4361645323949965852}
+  mainBodyTarget: {fileID: 0}
   secondTarget: {fileID: 6928844010714325732}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.2
   releaseDuration: 1.39
-  onMaxScaleReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7311774017860048469}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToHigh
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onNotAtMaxScale:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7311774017860048469}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToLow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &4428266706007899808
 GameObject:
   m_ObjectHideFlags: 0
@@ -7456,6 +7419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitCamera: {fileID: 1210390158835239070}
   turnSmoothTime: 6
+  tiltBackSmoothTime: 1.5
+  tiltBackAfterSeconds: 1
 --- !u!1 &6359654795645275306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7502,38 +7467,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redShades:
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
   yellowShades:
   - {fileID: 2100000, guid: 97279b4d3a879d64ca723192a72b32cf, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: b1767197070c41e4786bad2585dc91d3, type: 2}
   blueShades:
   - {fileID: 2100000, guid: 77bb1d586310beb47a4998c889288682, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 90606556a7b0bf542b0bb814e1df7779, type: 2}
   greenShades:
   - {fileID: 2100000, guid: 0303584f2083bba43aba68f238862b23, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   orangeShades:
   - {fileID: 2100000, guid: 3f962cbe759de4d4abfd3b0b659d871b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: a6bbfa40fbdfd2e47805c8a87638160f, type: 2}
   purpleShades:
   - {fileID: 2100000, guid: 25214eeb934bafa4d9b33b5354463fd4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 24d76512879e83a4db001f9f46dca36e, type: 2}
   brownShades:
   - {fileID: 2100000, guid: ca83c08b71faacf4c920d512d1cd98e0, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
   greyShades: []
 --- !u!1 &6828909780632658777
@@ -9432,7 +9383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9961,7 +9912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6992685685e33ad43aa7f0610ea5fcd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCanMove: {fileID: 0}
+  itemManagerSaveLogic: {fileID: 0}
   allMenus:
   - {fileID: 8733867659391697890}
   - {fileID: 5307213650333755926}

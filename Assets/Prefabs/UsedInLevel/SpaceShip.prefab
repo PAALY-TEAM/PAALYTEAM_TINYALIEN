@@ -154,6 +154,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 1338362739022651013}
+  _currentPage: 0
 --- !u!114 &1338362739022651013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60da8dcd614b1947849fc03a1a01601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankCrayon: {fileID: 8799412180936511222, guid: 11a1b14fbc95de441bd00ac1e4750b5f, type: 3}
+  blankCrayon: {fileID: 0}
   crayonColour:
   - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
   - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
@@ -542,4 +543,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdd5b44e72bb0544b4b2dd83d1109ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numbCrayonsToActivate: 4
+  numbCrayonsToActivate: 
+  dialogueSummoner: []

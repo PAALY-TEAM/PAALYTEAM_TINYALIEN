@@ -46,37 +46,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redShades:
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
   yellowShades:
   - {fileID: 2100000, guid: 97279b4d3a879d64ca723192a72b32cf, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: b1767197070c41e4786bad2585dc91d3, type: 2}
   blueShades:
   - {fileID: 2100000, guid: 77bb1d586310beb47a4998c889288682, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 90606556a7b0bf542b0bb814e1df7779, type: 2}
   greenShades:
   - {fileID: 2100000, guid: 0303584f2083bba43aba68f238862b23, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   orangeShades:
   - {fileID: 2100000, guid: 3f962cbe759de4d4abfd3b0b659d871b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: a6bbfa40fbdfd2e47805c8a87638160f, type: 2}
   purpleShades:
   - {fileID: 2100000, guid: 25214eeb934bafa4d9b33b5354463fd4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 24d76512879e83a4db001f9f46dca36e, type: 2}
   brownShades:
   - {fileID: 2100000, guid: ca83c08b71faacf4c920d512d1cd98e0, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
   greyShades: []

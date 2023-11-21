@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9127276178470149368}
   - component: {fileID: 1173738712597436690}
   - component: {fileID: 5022892028459110205}
-  - component: {fileID: 2471734425480652303}
   m_Layer: 0
   m_Name: Orbit Camera 01
   m_TagString: MainCamera
@@ -93,30 +92,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2398218614944056846}
   m_Enabled: 1
---- !u!114 &2471734425480652303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2398218614944056846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d671fad0c79c6746b64f52468406a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focus: {fileID: 8939740504501651340}
-  distance: 2.85
-  focusRadius: 0.58
-  focusCentering: 0.977
-  rotationSpeed: 90
-  minVerticalAngle: -45
-  maxVerticalAngle: 45
-  alignDelay: 5
-  alignSmoothRange: 0
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &2816703836111444329
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +138,6 @@ GameObject:
   - component: {fileID: 8553804849362600717}
   - component: {fileID: 5226816610669387613}
   - component: {fileID: 7360153874781515478}
-  - component: {fileID: 940069787939999542}
   - component: {fileID: 935817580220566006}
   m_Layer: 8
   m_Name: Player_Alien
@@ -362,34 +336,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 0
---- !u!114 &940069787939999542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6601121474335953640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f947a727eea564882461adcbfeef96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInputSpace: {fileID: 9127276178470149368}
-  maxSpeed: 10
-  maxAcceleration: 10
-  maxAirAcceleration: 1
-  jumpHeight: 2
-  maxAirJumps: 0
-  maxGroundAngle: 25
-  maxStairsAngle: 50
-  maxSnapSpeed: 100
-  probeDistance: 1
-  probeMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  stairsMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!54 &935817580220566006
 Rigidbody:
   m_ObjectHideFlags: 0

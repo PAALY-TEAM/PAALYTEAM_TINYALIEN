@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -719,9 +719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94c564968cee994a849bcec592fc1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectingColour: 0600000003000000
+  affectingColourGround: 
   startIndex: 0000000002000000
   endIndex: 0300000004000000
+  affectingColourGrass: 
 --- !u!1 &184890328
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,6 +3160,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 564813780}
+  _currentPage: 0
 --- !u!1 &571503002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5130,6 +5132,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 000
   tempDisableMovement: {fileID: 834555663}
+  _currentPage: 0
 --- !u!1 &840116260
 GameObject:
   m_ObjectHideFlags: 0
@@ -7342,6 +7345,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dca57984a28b3764980a54168561bd3c, type: 3}
   panelsToSpawn: 00
   tempDisableMovement: {fileID: 1165142235}
+  _currentPage: 0
 --- !u!1 &1171162657
 GameObject:
   m_ObjectHideFlags: 0
@@ -9088,6 +9092,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cc6e166ade95d49459da267e4d07208c, type: 3}
   panelsToSpawn: 000
   tempDisableMovement: {fileID: 1429631936}
+  _currentPage: 0
 --- !u!1 &1440654860
 GameObject:
   m_ObjectHideFlags: 0
@@ -19849,15 +19854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
@@ -19884,6 +19881,7 @@ MonoBehaviour:
   - Brown
   gameScene: 1
   copyScene: 2
+  menuOpen: 0
 --- !u!1 &4948117708402690725
 GameObject:
   m_ObjectHideFlags: 0
@@ -20456,7 +20454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21363,7 +21361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21448,7 +21446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21519,36 +21517,6 @@ MonoBehaviour:
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.2
   releaseDuration: 1.39
-  onMaxScaleReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9172846915865955420}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToHigh
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onNotAtMaxScale:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9172846915865955420}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToLow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &7838468831809129541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22175,7 +22143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22227,6 +22195,7 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 002
   tempDisableMovement: {fileID: 44707291330949645}
+  _currentPage: 0
 --- !u!135 &8827949433399992727
 SphereCollider:
   m_ObjectHideFlags: 0

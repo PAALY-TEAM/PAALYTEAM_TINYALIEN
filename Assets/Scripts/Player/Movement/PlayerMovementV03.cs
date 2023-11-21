@@ -17,7 +17,7 @@ namespace Movement
         [FormerlySerializedAs("ball")] [SerializeField]
         Transform mainAlienBody = default;
 
-        private PlayerInputHandler _inputHandler;
+        private PlayerInputCommandHandler _inputCommandHandler;
         private Vector3 _inputVector;
 
         public static bool WasJumpPressed;
@@ -119,10 +119,10 @@ namespace Movement
             _meshRenderer = mainAlienBody.GetComponent<MeshRenderer>();
             OnValidate();
 
-            _inputHandler = GetComponent<PlayerInputHandler>();
-            if (_inputHandler == null)
+            _inputCommandHandler = GetComponent<PlayerInputCommandHandler>();
+            if (_inputCommandHandler == null)
             {
-                Debug.LogError("PlayerInputHandler component not found on this game object.");
+                Debug.LogError("PlayerInputCommandHandler component not found on this game object.");
                 return;
             }
 
@@ -132,7 +132,7 @@ namespace Movement
 
         private void Update()
         {
-            Vector2 inputVector = _inputHandler.GetMoveInput();
+            Vector2 inputVector = _inputCommandHandler.GetMoveInput();
             SetInputVector(inputVector);
             
             /*
@@ -142,10 +142,10 @@ namespace Movement
             _inputVector = Vector3.ClampMagnitude(_inputVector, 1f);
             */
             
-            WasInteractPressed = _inputHandler.GetInteractInput();
+            WasInteractPressed = _inputCommandHandler.GetInteractInput();
             
             // Check if the shift key is currently pressed
-            bool isShiftPressed = _inputHandler.GetSprintInput();
+            bool isShiftPressed = _inputCommandHandler.GetSprintInput();
             // Set currentSpeed to maxRollingSpeed if the shift key is not pressed, and to maxFloatingSpeed if it is
             _currentSpeed = isShiftPressed ? maxFloatingSpeed : maxRollingSpeed;
 
@@ -162,8 +162,8 @@ namespace Movement
             }
             CalculateDesiredVelocity();
 
-            _desiredJump |= _inputHandler.GetJumpInput();
-            _desiresClimbing = _inputHandler.GetClimbInput();
+            _desiredJump |= _inputCommandHandler.GetJumpInput();
+            _desiresClimbing = _inputCommandHandler.GetClimbInput();
 
             UpdateBall();
         }
@@ -224,8 +224,8 @@ namespace Movement
         public void SetInputVector(Vector3 direction)
         {
             _inputVector.x = direction.x;
-            _inputVector.y = 0f; // Ensure y component is always 0
-            _inputVector.z = direction.y;
+            _inputVector.y = 0f;
+            _inputVector.z = direction.y; // Ensure z component is always 0
             //Using ClampMagnitude instead of normalized to allow input that is in-between. Because, normalize is a typeof "all-or-nothing input".
             _inputVector = Vector3.ClampMagnitude(_inputVector, 1f);
         }
@@ -234,7 +234,6 @@ namespace Movement
         {
             _desiredVelocity = new Vector3(_inputVector.x, 0f, _inputVector.y) * _currentSpeed;
         }
-        
 
         private Quaternion AlignBallRotation(
             Vector3 rotationAxis, Quaternion rotation, float traveledDistance
@@ -263,8 +262,9 @@ namespace Movement
         {
             Vector3 gravity = CustomGravityV01.GetGravity(body.position, out _upAxis);
             UpdateState();
-
             
+            
+
             AdjustVelocity();
 
             if (_desiredJump)
@@ -295,6 +295,8 @@ namespace Movement
                 _velocity += gravity * Time.deltaTime;
             }
             body.velocity = _velocity;
+            // Lerp current velocity towards desired velocity
+            _velocity = Vector3.Lerp(_velocity, _desiredVelocity, Time.deltaTime * maxAcceleration);
             ClearState();
         }
 

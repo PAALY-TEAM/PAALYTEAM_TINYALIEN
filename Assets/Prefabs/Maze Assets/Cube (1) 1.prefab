@@ -184,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a8875b824d389545b2e52ef557ef5c0, type: 2}
+  - {fileID: 2100000, guid: 6e05a8fc68fe5fc4e89fa3c7fcf54bd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf2f68ad9ad7e24181b986a982c06ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+  player: {fileID: 0}
   gateColor: {r: 0, g: 1, b: 0, a: 0}
   raycastDistance: 5
   gateCollider: 0

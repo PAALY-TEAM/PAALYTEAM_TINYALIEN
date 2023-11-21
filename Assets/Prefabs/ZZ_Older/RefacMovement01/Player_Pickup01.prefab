@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7791486788655378091, guid: 07083bfd371375f4f8e720ee8f30f621, type: 3}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -419,7 +419,6 @@ GameObject:
   - component: {fileID: 3220021319462959776}
   - component: {fileID: 9104059346063507065}
   - component: {fileID: 4237867852890034328}
-  - component: {fileID: 6234545122381083166}
   - component: {fileID: 9138839413420702548}
   m_Layer: 6
   m_Name: Player_Alien
@@ -495,44 +494,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6234545122381083166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712585456008313565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ee05d52c54ea04c97a1e2283d023cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInputSpace: {fileID: 202765484535868230}
-  ball: {fileID: 1967810285122061345}
-  maxSpeed: 6.5
-  maxClimbSpeed: 4
-  maxAcceleration: 22.4
-  maxAirAcceleration: 26
-  maxClimbAcceleration: 40
-  jumpHeight: 2
-  maxAirJumps: 1
-  maxGroundAngle: 40
-  maxStairsAngle: 50
-  maxClimbAngle: 140
-  maxSnapSpeed: 100
-  probeDistance: 1
-  probeMask:
-    serializedVersion: 2
-    m_Bits: 43
-  stairsMask:
-    serializedVersion: 2
-    m_Bits: 0
-  climbMask:
-    serializedVersion: 2
-    m_Bits: 35
-  ballRadius: 0.45
-  ballAlignSpeed: 0.85
-  ballAirRotation: 0.7
 --- !u!114 &9138839413420702548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,20 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  otherText:
-  - 'Red Crayon: '
-  - 'Yellow Crayon: '
-  - 'Blue Crayon: '
-  - 'Green Crayon: '
-  - 'Brown Crayon: '
-  crayon: {fileID: 8799412180936511222, guid: 2edbff6edfb575740a3fab1596f3aa5a, type: 3}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
@@ -566,12 +514,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 90606556a7b0bf542b0bb814e1df7779, type: 2}
   - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
+  rend: []
+  currentColour: 0
+  hintText: {fileID: 0}
   nameOfTags:
   - Red
   - Yellow
   - Blue
   - Green
   - Brown
+  gameScene: 0
+  copyScene: 0
+  menuOpen: 0
 --- !u!1 &4017920216504513178
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +537,6 @@ GameObject:
   - component: {fileID: 202765484535868230}
   - component: {fileID: 7291394979278441284}
   - component: {fileID: 2942012975301745969}
-  - component: {fileID: 5318607571851059326}
   - component: {fileID: 4807282153209180695}
   m_Layer: 0
   m_Name: Orbit Camera 01
@@ -666,30 +619,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4017920216504513178}
   m_Enabled: 1
---- !u!114 &5318607571851059326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017920216504513178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d671fad0c79c6746b64f52468406a6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  focus: {fileID: 7844242989692999158}
-  distance: 3.2
-  focusRadius: 0.75
-  focusCentering: 0.645
-  rotationSpeed: 90
-  minVerticalAngle: -6.7
-  maxVerticalAngle: 75
-  alignDelay: 30
-  alignSmoothRange: 30
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 186
 --- !u!114 &4807282153209180695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +681,6 @@ GameObject:
   - component: {fileID: 571003758247975064}
   - component: {fileID: 5163294021401460272}
   - component: {fileID: 279369934992560581}
-  - component: {fileID: 3629355441848770126}
   m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
@@ -919,19 +847,6 @@ MonoBehaviour:
   MaximumDistance: 0
   AnchorToInitialPosition: 0
   MaxDistanceToAnchor: 1
---- !u!114 &3629355441848770126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5155977126804065342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6557942d7d888ae43a40801477c694b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbitCamera: {fileID: 202765484535868230}
 --- !u!1 &5950842981896297170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1025,6 @@ GameObject:
   - component: {fileID: 8203827334702392923}
   - component: {fileID: 2089188999763435595}
   - component: {fileID: 4044386317027087116}
-  - component: {fileID: 1052682973976889334}
   m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
@@ -1183,16 +1097,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1052682973976889334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8396230315947078022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aba2cae0f5a4dd142a51bbf32e2f01d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100

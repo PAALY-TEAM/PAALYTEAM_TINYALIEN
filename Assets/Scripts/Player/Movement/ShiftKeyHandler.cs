@@ -18,9 +18,10 @@ namespace Movement
         [SerializeField] private float pressDuration = 0.26f;
         [SerializeField] private float releaseDuration = 1.51f;
 
+        /*
         [FormerlySerializedAs("OnMaxScaleReached")] public UnityEvent onMaxScaleReached;
         [FormerlySerializedAs("OnNotAtMaxScale")] public UnityEvent onNotAtMaxScale;
-        
+        */
         private PlayerMovementV03 _playerMovement;
 
         private PlayerInput _playerInput;
@@ -64,13 +65,13 @@ namespace Movement
         {
             if (transform.localScale == targetScale)
             {
-                onMaxScaleReached.Invoke();
+                //onMaxScaleReached?.Invoke();
                 sprintFeedback?.PlayFeedbacks();
 
             }
             else
             {
-                onNotAtMaxScale.Invoke();
+                //onNotAtMaxScale?.Invoke();
                 sprintFeedback?.StopFeedbacks();
             }
         }
@@ -96,9 +97,9 @@ namespace Movement
         {
             transform.DOKill(); // Stop any ongoing tween
             transform.DOScale(targetScale, pressDuration)
-                .SetEase(Ease.InOutSine)
-                .OnComplete(() => onMaxScaleReached.Invoke());
-            
+                .SetEase(Ease.InOutSine);
+            //.OnComplete(() => onMaxScaleReached.Invoke());
+
         }
 
         private void ScaleDownSecondObject()
@@ -125,8 +126,8 @@ namespace Movement
             
             transform.DOKill(); // Stop any ongoing tween
             transform.DOScale(initialScale, releaseDuration)
-                .SetEase(Ease.OutBounce)
-                .OnComplete(() => onNotAtMaxScale.Invoke());
+                .SetEase(Ease.OutBounce);
+            //.OnComplete(() => onNotAtMaxScale.Invoke());
         }
 
         private void OnEnable()
