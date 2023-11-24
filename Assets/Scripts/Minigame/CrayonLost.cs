@@ -14,8 +14,6 @@ public class CrayonLost : MonoBehaviour
     private static Vector3[][] spawnLocations;
     // The crayon to spawn
     [SerializeField] private GameObject[] stolenCrayon;
-    // To keep track of crayons spawned in scene string[colour] = name of crayon
-    private List<string> tempStorage;
 
     // Counts how many crayons stolen for placement
     private int stolenCounter;
@@ -47,8 +45,7 @@ public class CrayonLost : MonoBehaviour
                 }
             }
         }
-        tempStorage = new List<string>();
-        
+      
         currentScene = SceneManager.GetActiveScene().buildIndex;
         int tempCount = 0;
         // Stops the code if empty
