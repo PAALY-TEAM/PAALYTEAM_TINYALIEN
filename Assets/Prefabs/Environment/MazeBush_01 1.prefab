@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5596088912413895478}
   - component: {fileID: 5541970463210738840}
   - component: {fileID: -74130089719157238}
-  - component: {fileID: -7423928709825244755}
   m_Layer: 0
   m_Name: MazeBush_01 1
   m_TagString: Untagged
@@ -27,9 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510057413498649998}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.013089582, z: 0, w: 0.99991435}
   m_LocalPosition: {x: -44.8886, y: 86.22869, z: -7.800003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1308041363349969080}
@@ -39,7 +38,7 @@ Transform:
   - {fileID: 4889037344156328434}
   - {fileID: 7493546105114306649}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1.5, z: 0}
 --- !u!111 &5541970463210738840
 Animation:
   m_ObjectHideFlags: 0
@@ -76,21 +75,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6259003, y: 10, z: 1.8101425}
   m_Center: {x: 0, y: 5, z: 0}
---- !u!114 &-7423928709825244755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510057413498649998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
 --- !u!1 &622940089886739855
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +86,6 @@ GameObject:
   - component: {fileID: 1308041363349969080}
   - component: {fileID: 3206344277339519444}
   - component: {fileID: 8369333187660428757}
-  - component: {fileID: 6159799188150425656}
   m_Layer: 0
   m_Name: bush_leaves
   m_TagString: Untagged
@@ -153,7 +136,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
+  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,21 +158,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6159799188150425656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622940089886739855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
 --- !u!1 &1121651617306326689
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +169,6 @@ GameObject:
   - component: {fileID: 7493546105114306649}
   - component: {fileID: 7998443301629256369}
   - component: {fileID: 3584803462762638031}
-  - component: {fileID: 736371685476358174}
   m_Layer: 0
   m_Name: main_bush_body
   m_TagString: Untagged
@@ -252,7 +219,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
+  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -274,21 +241,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &736371685476358174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121651617306326689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 1
-  uniqueMaterial: {fileID: 0}
 --- !u!1 &1246323849872152265
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +252,6 @@ GameObject:
   - component: {fileID: 6029627271883352396}
   - component: {fileID: 8880754846346021515}
   - component: {fileID: 4506569712699851986}
-  - component: {fileID: 8835575335394549849}
   m_Layer: 0
   m_Name: bush_leaves3
   m_TagString: Untagged
@@ -351,7 +302,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
+  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -373,21 +324,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8835575335394549849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246323849872152265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
 --- !u!1 &4415083793134642442
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +335,6 @@ GameObject:
   - component: {fileID: 4772555304114809558}
   - component: {fileID: 5027442279747082778}
   - component: {fileID: 8327525041627686553}
-  - component: {fileID: 2007104410554520136}
   m_Layer: 0
   m_Name: bush_leaves2
   m_TagString: Untagged
@@ -450,7 +385,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
+  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -472,21 +407,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2007104410554520136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415083793134642442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
 --- !u!1 &6665525265836278452
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +418,6 @@ GameObject:
   - component: {fileID: 3832188519715171786}
   - component: {fileID: 8986120957884048870}
   - component: {fileID: 6046314743278336307}
-  - component: {fileID: 6655626881252331120}
   m_Layer: 0
   m_Name: bush_leaves1
   m_TagString: Untagged
@@ -549,7 +468,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
+  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -571,21 +490,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6655626881252331120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6665525265836278452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
 --- !u!1 &7785108120725033294
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +501,6 @@ GameObject:
   - component: {fileID: 4889037344156328434}
   - component: {fileID: 1057883667646800493}
   - component: {fileID: 3916532141736752947}
-  - component: {fileID: 3073586023377252282}
   m_Layer: 0
   m_Name: bush_leaves4
   m_TagString: Untagged
@@ -648,7 +551,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63d572cb4cdfb3e498de640c4e8231b0, type: 2}
+  - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -670,18 +573,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3073586023377252282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7785108120725033294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}

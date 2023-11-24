@@ -35,6 +35,7 @@ namespace Pickup.Crayon
 
         public void PickedUp()
         {
+            if (!GameObject.Find("CrayonLost")) return;
             if (wasStolen)
             {
                 print("I was stolen D:");
