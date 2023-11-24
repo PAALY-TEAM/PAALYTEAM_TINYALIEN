@@ -14,20 +14,23 @@ public class ItemManagerSaveLogic : MonoBehaviour
     private int[] savedShipStorage;
     private int[] savedPlayerStorage;
     private List<string> savedCrayonCounter;
-    private bool[] savedVisitedState;
+    // No longer in use
+    // private bool[] savedVisitedState;
     private int savedCurrentColour;
     private Vector3 savedPos;
     private int[] savedCrayonLost;
-                     
-    public GameObject Player { get; private set; }
-    public int CurrentScene { get; private set; }
-    public CrayonCounter CrayonCounter { get; private set; }
+
+    private GameObject Player;
+    private int CurrentScene;
+    private CrayonCounter CrayonCounter;
+    private CrayonLost _crayonLost;
                      
     private void Awake()
     {
         Player = GameObject.FindWithTag("Player");
         _itemManager = Player.GetComponent<ItemManager>();
         CrayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
+        _crayonLost = GameObject.Find("CrayonLost").GetComponent<CrayonLost>();
     }
                      
     //Set new value for current scene, run by ItemManager MySceneLoader();
@@ -43,18 +46,19 @@ public class ItemManagerSaveLogic : MonoBehaviour
         {
             savedCrayonCounter.Add(crayon);
         }
-        savedVisitedState = new bool[ItemManager.NumbStored.Length];
+        //savedVisitedState = new bool[ItemManager.NumbStored.Length];
         for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
         {
             savedPlayerStorage[i] = ItemManager.NumbCarried[i];
             if (i < ItemManager.NumbStored.Length)
             {
                 savedShipStorage[i] = ItemManager.NumbStored[i];
-                savedVisitedState[i] = _itemManager._isSceneVisited[CurrentScene][i];
+                //savedVisitedState[i] = _itemManager._isSceneVisited[CurrentScene][i];
                 
-                
+                savedCrayonLost[i] = CrayonLost.crayonLost[CurrentScene][i];
             }
         }
+
         
         savedCurrentColour = _itemManager.currentColour;
         savedPos = Player.transform.position;
@@ -71,9 +75,9 @@ public class ItemManagerSaveLogic : MonoBehaviour
             if (i < ItemManager.NumbStored.Length)
             {
                 ItemManager.NumbStored[i] = savedShipStorage[i];
-                _itemManager._isSceneVisited[CurrentScene][i] = savedVisitedState[i];
+                //_itemManager._isSceneVisited[CurrentScene][i] = savedVisitedState[i];
                 
-                
+                CrayonLost.crayonLost[CurrentScene][i] = savedCrayonLost[i];
             }
         }
                      

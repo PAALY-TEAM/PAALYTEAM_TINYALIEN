@@ -111,7 +111,6 @@ GameObject:
   - component: {fileID: 7041963235515618989}
   - component: {fileID: 8584830055309579620}
   - component: {fileID: 6807776645850284054}
-  - component: {fileID: 377640274273992770}
   m_Layer: 0
   m_Name: flowerCenter
   m_TagString: Untagged
@@ -198,21 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colourToBe: 1
   shadeType: 3
-  uniqueMaterial: {fileID: 0}
---- !u!114 &377640274273992770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950689088289115965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
   uniqueMaterial: {fileID: 0}
 --- !u!1 &2476707456912216405
 GameObject:
