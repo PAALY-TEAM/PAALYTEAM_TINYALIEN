@@ -356,7 +356,7 @@ MonoBehaviour:
     m_Bits: 136
   pathHolder: {fileID: 4912192011285908}
   isFlying: 0
-  crayon: {fileID: 8799412180936511222, guid: 11a1b14fbc95de441bd00ac1e4750b5f, type: 3}
+  crayon: {fileID: 0}
   crayonColour:
   - {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
   - {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}

@@ -1,4 +1,5 @@
  using System.Collections;
+ using Movement;
  using Pickup.Player;
  using UI;
  using UnityEngine;
@@ -66,6 +67,13 @@ public class SceneSwapManager : MonoBehaviour
         }
         //Activate TempDisableMovement script
         _player.GetComponent<TempDisableMovement>().enabled = false;
+        
+        //Find the GameObject tagged "Head"
+        GameObject head = GameObject.FindGameObjectWithTag("Head");
+        //Get the RotateHeadToMovement2 component from the "Head" GameObject
+        RotateHeadToMovement2 rotateHeadToMovement2 = head.GetComponent<RotateHeadToMovement2>();
+        //Reset the rotation of the head
+        rotateHeadToMovement2.ResetRotation();
     }
     
     //CALLED WHENEVER A NEW SCENE IS LOADED (INCLUDING THE START OF THE GAME)

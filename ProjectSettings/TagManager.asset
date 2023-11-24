@@ -11,6 +11,8 @@ TagManager:
   - CinemachineTarget
   - PlayerColor
   - Head
+  - Blue
+  - RespawnPoint
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -703,6 +703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!23 &1664032964
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1363,8 +1364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c27a8b251fecc49b469af81ab84ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentValue: 0
-  ChangeBarValueBtn: 0
+  currentValue: 0
+  changeBarValueBtn: 0
   progressBar: {fileID: 1269952693472439980}
   progressCircle: {fileID: 5259264533237227750}
 --- !u!1 &536368992803322937
@@ -1417,10 +1418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b797a7d21d93aa42ac5f00155d95156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeOutImage: {fileID: 379360526148661684}
-  _fadeOutSpeed: 5
-  _fadeInSpeed: 5
-  _fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
+  fadeOutImage: {fileID: 0}
+  fadeOutSpeed: 5
+  fadeInSpeed: 5
+  fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!224 &573499914956396791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1781,6 +1782,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 2461989615550206625}
+  _currentPage: 0
 --- !u!1 &979510039489425985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2170,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:
@@ -2685,7 +2715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdd5b44e72bb0544b4b2dd83d1109ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numbCrayonsToActivate: 4
+  numbCrayonsToActivate: 
+  dialogueSummoner: []
 --- !u!1 &1704012908459764063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,7 +2871,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3047,7 +3078,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3371,11 +3402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdc8e493c8a93d468ff1224b9b266af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CinemachineCameraTarget: {fileID: 1601019349234578663}
-  TopClamp: 70
-  BottomClamp: -30
-  CameraAngleOverride: 0
-  LockCameraPosition: 0
+  cinemachineCameraTarget: {fileID: 1601019349234578663}
+  topClamp: 70
+  bottomClamp: -30
+  cameraAngleOverride: 0
+  lockCameraPosition: 0
 --- !u!224 &2771676006262448285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4024,7 +4055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4497,42 +4528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintFeedback: {fileID: 0}
-  target: {fileID: 2839065991483463470}
+  mainBodyTarget: {fileID: 0}
   secondTarget: {fileID: 5747639678903792300}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.2
   releaseDuration: 1.39
-  OnMaxScaleReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5185097887952588206}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToHigh
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnNotAtMaxScale:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5185097887952588206}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToLow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &4043471210530430464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5108,11 +5109,9 @@ MonoBehaviour:
   jumpFeedback: {fileID: 1519201007155971523}
   landingFeedback: {fileID: 3193421441086255697}
   playerInputSpace: {fileID: 4253722237961233740}
-  ball: {fileID: 3564139690454989429}
-  playerControls: {fileID: -944628639613478452, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
-  maxSpeed: 1
+  mainAlienBody: {fileID: 3564139690454989429}
   maxClimbSpeed: 4
-  maxSprintSpeed: 12
+  maxRollingSpeed: 8
   maxFloatingSpeed: 2
   maxAcceleration: 22.4
   maxAirAcceleration: 26
@@ -5136,6 +5135,7 @@ MonoBehaviour:
   ballRadius: 0.45
   ballAlignSpeed: 0.85
   ballAirRotation: 0.7
+  body: {fileID: 0}
 --- !u!224 &5204044139888405346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5369,7 +5369,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:
@@ -5706,7 +5734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5730,6 +5758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!114 &5927915936905086996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5744,6 +5773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!114 &5927915937974900332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5758,6 +5788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!114 &5927915938365420681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5772,6 +5803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 10b1d22e22422f84a8550f334233cef6, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!222 &6139230497235748529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6470,6 +6502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitCamera: {fileID: 4253722237961233740}
   turnSmoothTime: 6
+  tiltBackSmoothTime: 1.5
+  tiltBackAfterSeconds: 1
 --- !u!1 &7391485247040839748
 GameObject:
   m_ObjectHideFlags: 0
@@ -7381,15 +7415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 6e05a8fc68fe5fc4e89fa3c7fcf54bd6, type: 2}
   - {fileID: 2100000, guid: bc517c9139eff204595a5e2e18a6c397, type: 2}
@@ -7413,6 +7439,9 @@ MonoBehaviour:
   - Orange
   - Purple
   - Brown
+  gameScene: 0
+  copyScene: 0
+  menuOpen: 0
 --- !u!4 &8497778943648535889
 Transform:
   m_ObjectHideFlags: 0

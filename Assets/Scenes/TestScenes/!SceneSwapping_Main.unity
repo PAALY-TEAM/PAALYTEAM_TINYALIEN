@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.49557304, g: 0.49557304, b: 0.49557304, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -333,6 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465664082}
   - component: {fileID: 1465664081}
+  - component: {fileID: 1465664083}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -417,6 +418,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1465664083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465664080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1746789469
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +956,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 7145115068931741677}
+  _currentPage: 0
 --- !u!4 &5934062135112136393
 Transform:
   m_ObjectHideFlags: 0
@@ -1033,10 +1058,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1897647634077497789, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: TargetFPS
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897647634077497789, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897647634077497789, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: VSyncCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6036841322925645036, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 5302568919011541938, guid: 5e11cc1fa3e9c4646911da4525500ea0, type: 3}
+    - target: {fileID: 6301725606872629721, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
+      propertyPath: m_TagString
+      value: Head
+      objectReference: {fileID: 0}
     - target: {fileID: 7311774017860048469, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
       propertyPath: maxSpeed
       value: 2
@@ -1089,18 +1130,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a1b964bc3129b448bbf679b33f2774c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput: {fileID: 7115260805469129279}
---- !u!114 &7115260805469129279 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5707068859519219917, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
-  m_PrefabInstance: {fileID: 7115260805469129276}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7115260805469129277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7145115068931741677

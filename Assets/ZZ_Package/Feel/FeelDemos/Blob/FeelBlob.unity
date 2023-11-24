@@ -276,6 +276,8 @@ MonoBehaviour:
     AmplitudeMax: {x: 5, y: 5, z: 5}
     RelativeAmplitude: 1
     UniformValues: 0
+    ForceVectorLength: 0
+    ForcedVectorLength: 1
     Curve:
       serializedVersion: 2
       m_Curve:
@@ -377,6 +379,8 @@ MonoBehaviour:
     AmplitudeMax: {x: 10, y: 10, z: 10}
     RelativeAmplitude: 1
     UniformValues: 0
+    ForceVectorLength: 0
+    ForcedVectorLength: 1
     Curve:
       serializedVersion: 2
       m_Curve:
@@ -478,6 +482,8 @@ MonoBehaviour:
     AmplitudeMax: {x: 1, y: 1, z: 1}
     RelativeAmplitude: 1
     UniformValues: 0
+    ForceVectorLength: 0
+    ForcedVectorLength: 1
     Curve:
       serializedVersion: 2
       m_Curve:
@@ -5887,10 +5893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Feedbacks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Feedbacks: []
   InitializationMode: 2
   AutoInitialization: 1
   SafeMode: 3
@@ -11271,27 +11274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Feedbacks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Feedbacks: []
   InitializationMode: 2
   AutoInitialization: 1
   SafeMode: 3
@@ -12625,6 +12608,7 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         PlayMethod: 1
         PoolSize: 10
+        UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 1
         MinVolume: 1
         MaxVolume: 1
@@ -22451,9 +22435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e11aea996651f74b92e3ebc7193458a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CooldownDuration: 4
-  MoveFeedback: {fileID: 1280414620}
-  DeniedFeedback: {fileID: 963894733}
+  cooldownDuration: 4
+  moveFeedback: {fileID: 1280414620}
+  deniedFeedback: {fileID: 963894733}
 --- !u!1 &1510280886
 GameObject:
   m_ObjectHideFlags: 0

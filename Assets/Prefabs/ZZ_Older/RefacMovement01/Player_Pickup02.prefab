@@ -824,7 +824,6 @@ GameObject:
   - component: {fileID: 1339719633393471573}
   - component: {fileID: 4020571245705134056}
   - component: {fileID: 5854691814623408938}
-  - component: {fileID: 8079926210252772295}
   m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
@@ -897,19 +896,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8079926210252772295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5921471277159412931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aba2cae0f5a4dd142a51bbf32e2f01d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 100
 --- !u!1 &6266503433358848656
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +907,6 @@ GameObject:
   - component: {fileID: 9195784979377341718}
   - component: {fileID: 5227786535267104148}
   - component: {fileID: 8379612187041904393}
-  - component: {fileID: 4227037573783498835}
   - component: {fileID: 3140091168591749315}
   m_Layer: 6
   m_Name: Player_Alien
@@ -997,46 +982,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4227037573783498835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6266503433358848656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ee05d52c54ea04c97a1e2283d023cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpFeedback: {fileID: 391936157877454705}
-  LandingFeedback: {fileID: 0}
-  playerInputSpace: {fileID: 0}
-  ball: {fileID: 9195784979377341718}
-  maxSpeed: 6.5
-  maxClimbSpeed: 4
-  maxAcceleration: 22.4
-  maxAirAcceleration: 26
-  maxClimbAcceleration: 40
-  jumpHeight: 2
-  maxAirJumps: 1
-  maxGroundAngle: 40
-  maxStairsAngle: 50
-  maxClimbAngle: 140
-  maxSnapSpeed: 100
-  probeDistance: 1
-  probeMask:
-    serializedVersion: 2
-    m_Bits: 43
-  stairsMask:
-    serializedVersion: 2
-    m_Bits: 0
-  climbMask:
-    serializedVersion: 2
-    m_Bits: 35
-  ballRadius: 0.45
-  ballAlignSpeed: 0.85
-  ballAirRotation: 0.7
 --- !u!114 &3140091168591749315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,14 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  crayon: {fileID: 8799412180936511222, guid: 2edbff6edfb575740a3fab1596f3aa5a, type: 3}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
@@ -1068,12 +1006,15 @@ MonoBehaviour:
   - {fileID: 3522570526441357567}
   - {fileID: 5849407030180843016}
   currentColour: 0
+  hintText: {fileID: 0}
   nameOfTags:
   - Red
   - Yellow
   - Blue
   - Green
   - Brown
+  gameScene: 0
+  copyScene: 0
 --- !u!1 &6717611002657844109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1029,6 @@ GameObject:
   - component: {fileID: 879788029774316958}
   - component: {fileID: 7343165174275986987}
   - component: {fileID: 6502531676738021111}
-  - component: {fileID: 591084332537276210}
   m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
@@ -1255,19 +1195,6 @@ MonoBehaviour:
   MaximumDistance: 0
   AnchorToInitialPosition: 0
   MaxDistanceToAnchor: 1
---- !u!114 &591084332537276210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6717611002657844109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6557942d7d888ae43a40801477c694b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbitCamera: {fileID: 0}
 --- !u!1 &6996314303094746102
 GameObject:
   m_ObjectHideFlags: 0

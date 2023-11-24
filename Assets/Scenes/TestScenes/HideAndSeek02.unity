@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -239,11 +239,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de394a0113a5c404a8073a4e41ce4eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorToSpawnTo: 1
-  _sceneToLoad:
-    _sceneAsset: {fileID: 102900000, guid: c9050dc5736b8ed41a171d1134be7468, type: 3}
-    _sceneName: MiniGameStarter
-  CurrentDoorPosition: 3
+  useSharedMaterialCondition: 0
+  doorToSpawnTo: 0
+  sceneToLoad:
+    sceneAsset: {fileID: 0}
+    sceneName: 
+  currentDoorPosition: 0
 --- !u!114 &105722070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,7 +1208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2863,7 +2864,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:
@@ -3225,8 +3254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c27a8b251fecc49b469af81ab84ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentValue: 0
-  ChangeBarValueBtn: 0
+  currentValue: 0
+  changeBarValueBtn: 0
   progressBar: {fileID: 531610408}
   progressCircle: {fileID: 877556924}
 --- !u!1 &877153630
@@ -3521,7 +3550,35 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  ApplyBumpIntensityMultiplier: 0
+  BumpIntensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   OnBump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumpIntensity:
     m_PersistentCalls:
       m_Calls: []
   OnBarMovementDecreasingStart:
@@ -3646,11 +3703,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de394a0113a5c404a8073a4e41ce4eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorToSpawnTo: 1
-  _sceneToLoad:
-    _sceneAsset: {fileID: 102900000, guid: c9050dc5736b8ed41a171d1134be7468, type: 3}
-    _sceneName: MiniGameStarter
-  CurrentDoorPosition: 2
+  useSharedMaterialCondition: 0
+  doorToSpawnTo: 0
+  sceneToLoad:
+    sceneAsset: {fileID: 0}
+    sceneName: 
+  currentDoorPosition: 0
 --- !u!64 &969345389
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3795,7 +3853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3896,6 +3954,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 995780018}
+  _currentPage: 0
 --- !u!1 &1001408432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,7 +4020,7 @@ MonoBehaviour:
   insertPlayTime: 10
   seekers: {fileID: 0}
   gameOver: 0
-  EndPos: {x: -1, y: 2, z: -1}
+  endPos: {x: -1, y: 2, z: -1}
   crayonPrefab: {fileID: 0}
   crayonInstPlace: []
 --- !u!1 &1091899334
@@ -4460,7 +4519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5376,7 +5435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdd5b44e72bb0544b4b2dd83d1109ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numbCrayonsToActivate: 4
+  numbCrayonsToActivate: 
+  dialogueSummoner: []
 --- !u!114 &1941333628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5521,10 +5581,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b797a7d21d93aa42ac5f00155d95156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeOutImage: {fileID: 1735348359}
-  _fadeOutSpeed: 5
-  _fadeInSpeed: 5
-  _fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
+  fadeOutImage: {fileID: 0}
+  fadeOutSpeed: 5
+  fadeInSpeed: 5
+  fadeOutStartColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1987128607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,6 +5703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!23 &2062394291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5870,7 +5931,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6094,6 +6155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!114 &989895214682436026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7402,6 +7464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!1 &6303416775098155645
 GameObject:
   m_ObjectHideFlags: 0
@@ -7806,6 +7869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!224 &7657877660056054370
 RectTransform:
   m_ObjectHideFlags: 0

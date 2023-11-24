@@ -16,8 +16,6 @@ GameObject:
   - component: {fileID: 8644261111621497006}
   - component: {fileID: 3881468182210139212}
   - component: {fileID: 7819779424077368202}
-  - component: {fileID: 5979148847107323285}
-  - component: {fileID: 6105072183543317960}
   - component: {fileID: 1148202229873876909}
   m_Layer: 6
   m_Name: Player_Alien
@@ -104,15 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  txt: []
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
@@ -138,6 +128,7 @@ MonoBehaviour:
   - Brown
   gameScene: 1
   copyScene: 2
+  menuOpen: 0
 --- !u!114 &6209502849972946558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,10 +179,8 @@ MonoBehaviour:
   landingFeedback: {fileID: 8311682800064372322}
   playerInputSpace: {fileID: 2762980763088785418}
   mainAlienBody: {fileID: 2164767209065132339}
-  playerControls: {fileID: -944628639613478452, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
-  maxSpeed: 1
   maxClimbSpeed: 4
-  maxSprintSpeed: 12
+  maxRollingSpeed: 8
   maxFloatingSpeed: 2
   maxAcceleration: 22.4
   maxAirAcceleration: 26
@@ -215,6 +204,7 @@ MonoBehaviour:
   ballRadius: 0.45
   ballAlignSpeed: 0.85
   ballAirRotation: 0.7
+  body: {fileID: 0}
 --- !u!114 &7819779424077368202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,38 +327,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 7368351955434185988}
---- !u!114 &5979148847107323285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109066018565675346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd5011dc6aa5c8499e7c4a249ace34e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sourceObject: {fileID: 7549050872659041066}
-  renderer: {fileID: 6342791229662173470}
-  slider: 0
---- !u!114 &6105072183543317960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109066018565675346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6796a70550252646a9d5a75cf8f96d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4.11
-  maxX: 1
-  minX: 0
-  _morpher: {fileID: 5979148847107323285}
-  movementAction: {fileID: -1327295603076114996, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
 --- !u!114 &1148202229873876909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,42 +512,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintFeedback: {fileID: 0}
-  target: {fileID: 466631506537689572}
+  mainBodyTarget: {fileID: 0}
   secondTarget: {fileID: 4858045322101110849}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.2
   releaseDuration: 1.39
-  onMaxScaleReached:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3881468182210139212}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToHigh
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onNotAtMaxScale:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3881468182210139212}
-        m_TargetAssemblyTypeName: Movement.PlayerMovementV03, Assembly-CSharp
-        m_MethodName: SetMaxSpeedToLow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &690199551778864870
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1600,38 +1528,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redShades:
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
   yellowShades:
   - {fileID: 2100000, guid: 97279b4d3a879d64ca723192a72b32cf, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: b1767197070c41e4786bad2585dc91d3, type: 2}
   blueShades:
   - {fileID: 2100000, guid: 77bb1d586310beb47a4998c889288682, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 90606556a7b0bf542b0bb814e1df7779, type: 2}
   greenShades:
   - {fileID: 2100000, guid: 0303584f2083bba43aba68f238862b23, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 4f7c9002b8fa496479eeea1688b371f5, type: 2}
   orangeShades:
   - {fileID: 2100000, guid: 3f962cbe759de4d4abfd3b0b659d871b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: a6bbfa40fbdfd2e47805c8a87638160f, type: 2}
   purpleShades:
   - {fileID: 2100000, guid: 25214eeb934bafa4d9b33b5354463fd4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 24d76512879e83a4db001f9f46dca36e, type: 2}
   brownShades:
   - {fileID: 2100000, guid: ca83c08b71faacf4c920d512d1cd98e0, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2100000, guid: d555afe810bc1824587366d13c774c19, type: 2}
   greyShades: []
 --- !u!1 &1887212203120817569
@@ -2141,6 +2055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitCamera: {fileID: 2762980763088785418}
   turnSmoothTime: 6
+  tiltBackSmoothTime: 1.5
+  tiltBackAfterSeconds: 1
 --- !u!1 &3012245325443591676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3793,7 +3709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3868,7 +3784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4493,7 +4409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aab7a2a17dd28b04899e817f7db9a189, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

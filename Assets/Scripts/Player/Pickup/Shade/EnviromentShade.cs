@@ -8,7 +8,7 @@ namespace Pickup.Shade
         [SerializeField] private ColourHolder.Shade shadeType;
         [SerializeField] private Material uniqueMaterial;
 
-        private Material[] shadeList;
+        private Material[] _shadeList;
 
         public void SwapToShade(int colourIndex)
         {
@@ -19,8 +19,8 @@ namespace Pickup.Shade
             }
 
             var shadeHolder = GameObject.Find("ColourHolder").GetComponent<ColourHolder>();
-            shadeList = shadeHolder.EveryColourWithShades[(int)colourToBe];
-            GetComponent<Renderer>().sharedMaterial = shadeList[(int)shadeType];
+            _shadeList = shadeHolder.EveryColourWithShades[(int)colourToBe];
+            GetComponent<Renderer>().sharedMaterial = _shadeList[(int)shadeType];
         }
     }
 }
