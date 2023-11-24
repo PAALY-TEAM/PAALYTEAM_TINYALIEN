@@ -175,7 +175,11 @@
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ShapeBuilder.ActiveShapeIndex",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "value": "{\"m_Value\":7}"
+=======
+                "value": "{\"m_Value\":5}"
+>>>>>>> parent of c498794 (Merge branch 'main' of https://github.com/PAALY-TEAM/PAALYTEAM_TINYALIEN)
 =======
                 "value": "{\"m_Value\":5}"
 >>>>>>> parent of c498794 (Merge branch 'main' of https://github.com/PAALY-TEAM/PAALYTEAM_TINYALIEN)
@@ -199,7 +203,11 @@
                 "type": "UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ShapeBuilder.LastSize",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "value": "{\"m_Value\":{\"x\":-0.8778743743896484,\"y\":4.498701095581055,\"z\":-0.7708263397216797}}"
+=======
+                "value": "{\"m_Value\":{\"x\":0.7329254150390625,\"y\":2.0128040313720705,\"z\":-1.322235107421875}}"
+>>>>>>> parent of c498794 (Merge branch 'main' of https://github.com/PAALY-TEAM/PAALYTEAM_TINYALIEN)
 =======
                 "value": "{\"m_Value\":{\"x\":0.7329254150390625,\"y\":2.0128040313720705,\"z\":-1.322235107421875}}"
 >>>>>>> parent of c498794 (Merge branch 'main' of https://github.com/PAALY-TEAM/PAALYTEAM_TINYALIEN)
