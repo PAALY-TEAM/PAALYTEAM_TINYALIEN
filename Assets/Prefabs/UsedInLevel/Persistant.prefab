@@ -2200,7 +2200,6 @@ GameObject:
   - component: {fileID: 216653754015545725}
   - component: {fileID: 6270839986243881562}
   - component: {fileID: 3550335087061485495}
-  - component: {fileID: 7311774017860048469}
   - component: {fileID: 5707068859519219917}
   - component: {fileID: 5770008387783482471}
   m_Layer: 6
@@ -2288,7 +2287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: []
+  lengthOfTxtArray: 0
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
@@ -2350,48 +2349,6 @@ MonoBehaviour:
   bottomClamp: -30
   cameraAngleOverride: 0
   lockCameraPosition: 0
---- !u!114 &7311774017860048469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309251640173020611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12081b047369f134ca65aef0a8dd6532, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpFeedback: {fileID: 3975590177291243605}
-  landingFeedback: {fileID: 1643580684032033458}
-  playerInputSpace: {fileID: 1210390158835239070}
-  mainAlienBody: {fileID: 8584470746935395516}
-  maxClimbSpeed: 4
-  maxRollingSpeed: 8
-  maxFloatingSpeed: 2
-  maxAcceleration: 22.4
-  maxAirAcceleration: 26
-  maxClimbAcceleration: 40
-  jumpHeight: 2
-  maxAirJumps: 0
-  maxGroundAngle: 40
-  maxStairsAngle: 88.6
-  maxClimbAngle: 90
-  maxSnapSpeed: 100
-  probeDistance: 1
-  probeMask:
-    serializedVersion: 2
-    m_Bits: 43
-  stairsMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  climbMask:
-    serializedVersion: 2
-    m_Bits: 35
-  ballRadius: 0.45
-  ballAlignSpeed: 0.85
-  ballAirRotation: 0.7
-  body: {fileID: 0}
 --- !u!114 &5707068859519219917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4876,7 +4833,6 @@ GameObject:
   - component: {fileID: 8584470746935395516}
   - component: {fileID: 7943726573059800578}
   - component: {fileID: 7070206424232326995}
-  - component: {fileID: 430378368181572363}
   m_Layer: 0
   m_Name: AlienBodyBeforeDeform
   m_TagString: Untagged
@@ -4950,25 +4906,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &430378368181572363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361645323949965852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169684ce54e12384c9e8ee201a14f9fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprintFeedback: {fileID: 0}
-  mainBodyTarget: {fileID: 0}
-  secondTarget: {fileID: 6928844010714325732}
-  initialScale: {x: 0, y: 0, z: 0}
-  targetScale: {x: 1, y: 1, z: 1}
-  pressDuration: 0.2
-  releaseDuration: 1.39
 --- !u!1 &4428266706007899808
 GameObject:
   m_ObjectHideFlags: 0

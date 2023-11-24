@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using Movement.Commands;
+using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -9,6 +11,7 @@ namespace Movement
 { //Refactored script form https://catlikecoding.com/unity/tutorials/movement/
     public class PlayerMovementV03 : MonoBehaviour
     {
+        ShadowController shadowController;
         [Header("Feedbacks")]
         [SerializeField] private MMFeedbacks jumpFeedback;
         [SerializeField] private MMFeedbacks landingFeedback;

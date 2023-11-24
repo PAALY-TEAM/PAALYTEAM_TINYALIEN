@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!23 &537770442
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -496,6 +497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -580,6 +582,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &725674396
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,22 +977,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt:
-  - {fileID: 2102660088}
-  - {fileID: 1425279671}
-  - {fileID: 1634517079}
-  - {fileID: 578934450}
-  otherText:
-  - 'Red Crayon: '
-  - 'Yellow Crayon: '
-  - 'Blue Crayon: '
-  - 'Acorn: '
-  crayon: {fileID: 8799412180936511222, guid: 2edbff6edfb575740a3fab1596f3aa5a, type: 3}
+  lengthOfTxtArray: 0
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 1b61a1c6d89d7df47bc2f94c4ae6c493, type: 2}
   - {fileID: 2100000, guid: b1767197070c41e4786bad2585dc91d3, type: 2}
   - {fileID: 2100000, guid: 90606556a7b0bf542b0bb814e1df7779, type: 2}
+  rend: []
+  currentColour: 0
+  hintText: {fileID: 0}
+  nameOfTags: []
+  gameScene: 0
+  copyScene: 0
+  menuOpen: 0
 --- !u!1 &950981939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!23 &950981942
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2024,6 +2047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!23 &1907727348
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2144,6 +2168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!23 &1942932929
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2398,6 +2423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!23 &2142891864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2477,6 +2503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!114 &138906302121437804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2491,6 +2518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 53a9be4bcb9d89342a0850f530825de5, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!114 &138906302407034627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2505,6 +2533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crayon: {fileID: 11400000, guid: 7ab8b079c0b91e54f830bad6533ef392, type: 2}
   isSpinning: 1
+  wasStolen: 0
 --- !u!4 &7585032096197190563
 Transform:
   m_ObjectHideFlags: 0

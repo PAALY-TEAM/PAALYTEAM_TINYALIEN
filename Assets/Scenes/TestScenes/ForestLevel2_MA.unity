@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -842,7 +842,6 @@ GameObject:
   - component: {fileID: 496270535}
   - component: {fileID: 496270538}
   - component: {fileID: 496270537}
-  - component: {fileID: 496270536}
   m_Layer: 0
   m_Name: AlienBodyBeforeDeform
   m_TagString: Untagged
@@ -866,25 +865,6 @@ Transform:
   - {fileID: 777561538}
   m_Father: {fileID: 1282636724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &496270536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496270534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169684ce54e12384c9e8ee201a14f9fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprintFeedback: {fileID: 0}
-  mainBodyTarget: {fileID: 0}
-  secondTarget: {fileID: 1996521091}
-  initialScale: {x: 0, y: 0, z: 0}
-  targetScale: {x: 1, y: 1, z: 1}
-  pressDuration: 0.2
-  releaseDuration: 1.39
 --- !u!23 &496270537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2617,7 +2597,6 @@ GameObject:
   - component: {fileID: 1282636731}
   - component: {fileID: 1282636730}
   - component: {fileID: 1282636729}
-  - component: {fileID: 1282636728}
   - component: {fileID: 1282636727}
   - component: {fileID: 1282636726}
   - component: {fileID: 1282636725}
@@ -2792,48 +2771,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 669956434}
---- !u!114 &1282636728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282636723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12081b047369f134ca65aef0a8dd6532, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpFeedback: {fileID: 1696286137}
-  landingFeedback: {fileID: 430080807}
-  playerInputSpace: {fileID: 669956440}
-  mainAlienBody: {fileID: 496270535}
-  maxClimbSpeed: 4
-  maxRollingSpeed: 8
-  maxFloatingSpeed: 12
-  maxAcceleration: 22.4
-  maxAirAcceleration: 26
-  maxClimbAcceleration: 40
-  jumpHeight: 2
-  maxAirJumps: 0
-  maxGroundAngle: 40
-  maxStairsAngle: 88.6
-  maxClimbAngle: 90
-  maxSnapSpeed: 100
-  probeDistance: 1
-  probeMask:
-    serializedVersion: 2
-    m_Bits: 43
-  stairsMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  climbMask:
-    serializedVersion: 2
-    m_Bits: 35
-  ballRadius: 0.45
-  ballAlignSpeed: 0.85
-  ballAirRotation: 0.7
-  body: {fileID: 0}
 --- !u!114 &1282636729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2892,7 +2829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e531b43f1ad1db48af94783f1c93b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: []
+  lengthOfTxtArray: 0
   colours:
   - {fileID: 2100000, guid: 74d12ffca9c69f54797ad30a18bb6e3a, type: 2}
   - {fileID: 2100000, guid: 2bc2ee2843f391244a83b2d5cb8b64a2, type: 2}
