@@ -6,20 +6,23 @@ using UnityEngine;
 public class GateRotate : MonoBehaviour
 {
     public GameObject player;
-    public Color gateColor;
+
     public float raycastDistance = 5.0f;
     bool rotateCooldown = false;
     public bool gateCollider = false;
+    Material gateColor;
 
     void Start()
     {
-        GetComponent<Renderer>().material.color = gateColor;
+        
     }
 
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && !rotateCooldown && !gateCollider && player.GetComponent<PlayerColor>().playerColor == gateColor)
+        Debug.Log(gateColor);
+        Debug.Log(player.GetComponent<Renderer>().sharedMaterial);
+        if (collision.gameObject.tag == "Player" && !rotateCooldown && !gateCollider && player.GetComponent<Renderer>().sharedMaterial == GetComponent<Renderer>().sharedMaterial)
         {
             Vector3 rotationAxis = Vector3.up;
             float rotationAngle = 90;
