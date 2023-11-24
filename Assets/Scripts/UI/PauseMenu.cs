@@ -24,7 +24,8 @@ namespace UI
         private int[] _savedShipStorage;
         private int[] _savedPlayerStorage;
         private List<string> _savedCrayonCounter;
-        private bool[] _savedVisitedState;
+        // No longer in use
+        // private bool[] _savedVisitedState;
         private int _savedCurrentColour;
         private Vector3 _savedPos;
 
@@ -54,14 +55,14 @@ namespace UI
             {
                 _savedCrayonCounter.Add(crayon);
             }
-            _savedVisitedState = new bool[ItemManager.NumbStored.Length];
+            //_savedVisitedState = new bool[ItemManager.NumbStored.Length];
             for (int i = 0; i < ItemManager.NumbCarried.Length; i++)
             {
                 _savedPlayerStorage[i] = ItemManager.NumbCarried[i];
                 if (i < ItemManager.NumbStored.Length)
                 {
                     _savedShipStorage[i] = ItemManager.NumbStored[i];
-                    _savedVisitedState[i] = _itemManager._isSceneVisited[_currentScene][i];
+                    //_savedVisitedState[i] = _itemManager._isSceneVisited[_currentScene][i];
                 }
             }
             
@@ -138,7 +139,7 @@ namespace UI
                 {
                     
                     ItemManager.NumbStored[i] = _savedShipStorage[i];
-                    _itemManager._isSceneVisited[_currentScene][i] = _savedVisitedState[i];
+                    //_itemManager._isSceneVisited[_currentScene][i] = _savedVisitedState[i];
                 }
                 
             }
