@@ -11699,11 +11699,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-<<<<<<< Updated upstream
   m_Mesh: {fileID: 386059441}
-=======
-  m_Mesh: {fileID: 1483044853}
->>>>>>> Stashed changes
 --- !u!33 &442697058
 MeshFilter:
   m_ObjectHideFlags: 10

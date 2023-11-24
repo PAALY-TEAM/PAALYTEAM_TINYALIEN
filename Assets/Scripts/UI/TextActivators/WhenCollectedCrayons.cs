@@ -25,9 +25,10 @@ namespace UI.TextActivators
                 {
                     dialogueSummoner[i].GetComponent<NpcTextBox>().DialogueStart();
                     _isUsed[i] = true;
-                    break;
+                    return;
                 }
             }
+            dialogueSummoner[^1].GetComponent<NpcTextBox>().DialogueStart();
         }
     }
 }

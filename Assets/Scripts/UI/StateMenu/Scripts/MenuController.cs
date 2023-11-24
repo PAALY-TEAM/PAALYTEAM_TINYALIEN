@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UI;
 using UnityEngine;
 
@@ -32,6 +33,11 @@ namespace State.Menu
         //This was also suggested in the Game Programming Patterns book
         //If so we don't have to hard-code in each state what happens when we jump back one step
         private Stack<MenuState> stateHistory = new Stack<MenuState>();
+        
+        // To show player how many crayons are left to collect in scene
+        private int _crayonsInScene;
+        private GameObject _crayonHolder;
+        [SerializeField] private TextMeshProUGUI showCrayonsLeft;
         
         void Start()
         {
@@ -85,6 +91,9 @@ namespace State.Menu
             if (stateHistory.Count <= 1)
             {
                 SetActiveState(MenuState.Main);
+                print("If error is CrayonHolder named CrayonHolder");
+                _crayonsInScene = GameObject.Find("CrayonHolder").transform.childCount;
+                showCrayonsLeft.text = "Crayons remaining: " + _crayonsInScene;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 _tempDisableMovement.OnPauseGame(true);

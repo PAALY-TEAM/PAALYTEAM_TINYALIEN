@@ -21,10 +21,6 @@ public class CrayonLost : MonoBehaviour
     private int currentScene;
 
     private static int id;
-    private void Awake()
-    {
-        
-    }
 
     private void Start()
     {
@@ -77,7 +73,7 @@ public class CrayonLost : MonoBehaviour
         //Spawn Crayon on position
         SpawnCrayon(colourIndex, stolenCounter);
         stolenCounter++;
-        if (stolenCounter > spawnLocations[currentScene].Length)
+        if (stolenCounter >= spawnLocations[currentScene].Length)
         {
             stolenCounter = 0;
         }
@@ -99,5 +95,6 @@ public class CrayonLost : MonoBehaviour
         var crayon = Instantiate(stolenCrayon[colourIndex], spawnLocations[currentScene][numbPlace], Quaternion.identity);
         crayon.GetComponent<CrayonDisplay>().wasStolen = true;
         crayon.name = "StolenCrayon" + id;
+        crayon.transform.parent = GameObject.Find("CrayonHolder").transform;
     }
 }
