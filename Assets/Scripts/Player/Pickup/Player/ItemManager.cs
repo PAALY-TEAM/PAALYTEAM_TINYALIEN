@@ -7,6 +7,7 @@ using TMPro;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using ColourHolder = Pickup.Shade.ColourHolder;
 
 
@@ -38,7 +39,7 @@ namespace Pickup.Player
         //To save the trigger (other) GameObject
         private GameObject _otherObject;
         //The player is in range to interact with NPC
-        private bool _canInteract = false;
+        public static bool canInteract;
         //Text to make it easier for player to understand something
         public GameObject hintText;
         //Show the colour the player currently are using, because
@@ -187,7 +188,7 @@ namespace Pickup.Player
         {
             //If player enters an area with triggers "canInteract = true" they can interact with the object and based on
             //the TAG of the object different actions is executed
-            if (_canInteract && Input.GetButtonDown("Interact") && !menuOpen)
+            if (canInteract && Input.GetButtonDown("Interact") && !menuOpen)
             {
                 HandleInteractions();
             }
@@ -221,14 +222,14 @@ namespace Pickup.Player
             else if (_otherObject.transform.GetComponent(nameof(IPlayerInteract)) is IPlayerInteract)
             {
                 hintText.SetActive(true);
-                _canInteract = true; 
+                canInteract = true; 
             }
             
         }
         private void OnTriggerExit(Collider other)
         {
             hintText.SetActive(false);
-            _canInteract = false;
+            canInteract = false;
         }
         public void UpdateValues()
         {

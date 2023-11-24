@@ -112,6 +112,6 @@ public class SceneSwapManager : MonoBehaviour
 
     private void CalculateSpawnPosition()
     {
-        _playerSpawnPosition = _doorColl.transform.position + new Vector3(0f, 1f, 0f);
+        _playerSpawnPosition = _doorColl.transform.position + new Vector3(0f, 1.5f, 0f);
     }
 }

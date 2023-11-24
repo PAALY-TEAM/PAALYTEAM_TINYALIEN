@@ -49,8 +49,7 @@ namespace UI
         public void DialogueStart()
         {
             Cursor.lockState = CursorLockMode.Locked;
-            tempDisableMovement.OnPauseGame(false);
-            
+            ItemManager.canInteract = false;
             // Time player so they doesn't skip first dialogue when first interacting
             Invoke(nameof(WaitAfterPanel), .5f);
             
@@ -150,6 +149,7 @@ namespace UI
             //Set so player is the focus of camera
             _cam.LookAt = _cameraTarget;
             _cam.Follow = _cameraTarget;
+            Invoke(nameof(WaitAfterEnd), .5f);
         }
         private void PrevPanel()
         { 
@@ -187,5 +187,10 @@ namespace UI
         {
             _activeDialogue = true;
         }
+
+         private void WaitAfterEnd()
+         {
+             ItemManager.canInteract = true;
+         }
     }
 }

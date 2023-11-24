@@ -1,7 +1,0 @@
-public class <ScriptName> : Monobehavior, IInteractable
-{
-	public void Interact()
-	{
-	
-	}
-}
