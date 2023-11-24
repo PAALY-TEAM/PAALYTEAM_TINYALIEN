@@ -14,8 +14,9 @@ namespace Pickup.Player
 {
     public class ItemManager : MonoBehaviour
     {
-        [Header("Add gameObject to change the text of")]
-        [SerializeField] private GameObject[] txt;
+        [Header("Add gameObject to change the text of")] 
+        [SerializeField] private int lengthOfTxtArray;
+        private GameObject[] txt;
         //Number of collected objects
         public static int[] NumbCarried;
         //Number of stored objects in SpaceShip
@@ -54,8 +55,9 @@ namespace Pickup.Player
         [Header("Add TAG in Unity!!!")]
         [Header("Add all Tags that are used on objects that should change colour!!")]
         [SerializeField] private string[] nameOfTags;
-        // Boolean to check if scene is loaded
-        public bool[][] _isSceneVisited;
+        // Boolean to check if crayons of specific colours have been picked up in each scene
+        // Later removed because we didn't want that feature anymore and made
+        // public bool[][] _isSceneVisited;
         [Header("Build indexes of first scene the player starts in and copy of that scene")]
         [SerializeField] private int gameScene;
         [SerializeField] private int copyScene;
@@ -87,7 +89,8 @@ namespace Pickup.Player
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
-            
+
+            txt = new GameObject[lengthOfTxtArray];
             if (!_gameStarted)
             {
                 //Set all numbers of objects to 0
@@ -97,11 +100,12 @@ namespace Pickup.Player
                 
                 _gameStarted = true;
             }
+            
             //Defining the length of the 2D array
             var sceneCount = SceneManager.sceneCountInBuildSettings;
             _objectsToChangeColour = new GameObject[NumbStored.Length][];
             _terrainToChangeColour = new GameObject[NumbStored.Length];
-            _isSceneVisited = new bool[sceneCount][];
+            /*_isSceneVisited = new bool[sceneCount][];
             
             for (int i = 0; i<_isSceneVisited.Length; i++)
             {
@@ -110,7 +114,7 @@ namespace Pickup.Player
                 {
                     _isSceneVisited[i][j] = false;
                 }
-            }
+            }*/
 
 
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
@@ -137,7 +141,7 @@ namespace Pickup.Player
             {
                 if (_currentScene == copyScene)
                 {
-                    _isSceneVisited[copyScene] = _isSceneVisited[gameScene];
+                    //_isSceneVisited[copyScene] = _isSceneVisited[gameScene];
                     _crayonCounter.CopyValues(gameScene, copyScene);
                     _copySceneLoaded = true;
                 }
@@ -161,7 +165,7 @@ namespace Pickup.Player
                 _objectsToChangeColour[i] = objectsWithEnum;
                 
                 //Checks bool if colour been picked up in scene previously to colour the surroundings
-                if (_isSceneVisited[_currentScene][i] || NumbStored[i] > 0)
+                if (/*_isSceneVisited[_currentScene][i] ||*/ NumbCarried[i] > 0|| NumbStored[i] > 0)
                 {
                     ChangeColourOfEnvironment(i + 1);
                 }
@@ -211,7 +215,7 @@ namespace Pickup.Player
                 CrayonProgress++;
                 
                 _crayonCounter.AddCrayonToList(_otherObject);
-                _isSceneVisited[_currentScene][numb-1] = true;
+                //_isSceneVisited[_currentScene][numb-1] = true;
                 UpdateValues();
                 Destroy(_otherObject);
             }
