@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
-using Movement.Commands;
 using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,14 +10,16 @@ namespace Movement
 { //Refactored script form https://catlikecoding.com/unity/tutorials/movement/
     public class PlayerMovementV03 : MonoBehaviour
     {
-        ShadowController shadowController;
+        [SerializeField]
+        private ShadowController shadowController;
         [Header("Feedbacks")]
         [SerializeField] private MMFeedbacks jumpFeedback;
         [SerializeField] private MMFeedbacks landingFeedback;
 
-        [SerializeField] Transform playerInputSpace = default;
+        [SerializeField]
+        private Transform playerInputSpace = default;
         [FormerlySerializedAs("ball")] [SerializeField]
-        Transform mainAlienBody = default;
+        private Transform mainAlienBody = default;
 
         private PlayerInputCommandHandler _inputCommandHandler;
         private Vector3 _inputVector;
@@ -115,20 +116,25 @@ namespace Movement
             _minClimbDotProduct = Mathf.Cos(maxClimbAngle * Mathf.Deg2Rad);
         }
 
-        void Awake()
+        private void Awake()
         {
             body = GetComponent<Rigidbody>();
             body.useGravity = false;
             _meshRenderer = mainAlienBody.GetComponent<MeshRenderer>();
             OnValidate();
 
-            _inputCommandHandler = GetComponent<PlayerInputCommandHandler>();
+            _inputCommandHandler = gameObject.MMGetComponentAroundOrAdd<PlayerInputCommandHandler>();
             if (_inputCommandHandler == null)
             {
                 Debug.LogError("PlayerInputCommandHandler component not found on this game object.");
                 return;
             }
-
+            // Retrieve the ShadowController reference
+            shadowController = gameObject.MMGetComponentAroundOrAdd<ShadowController>();
+            if (shadowController == null)
+            {
+                Debug.LogError("ShadowController component not found on this game object.");
+            }
             // Set currentSpeed to maxRollingSpeed initially
             _currentSpeed = maxRollingSpeed;
         }
@@ -351,6 +357,7 @@ namespace Movement
                     UpdateConnectionState();
                 }
             }
+            shadowController.UpdateShadowStatus(OnGround);
         }
 
         private void UpdateConnectionState()

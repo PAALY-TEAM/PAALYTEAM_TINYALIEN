@@ -164,7 +164,7 @@ namespace Pickup.Player
                 _objectsToChangeColour[i] = objectsWithEnum;
                 
                 //Checks bool if colour been picked up in scene previously to colour the surroundings
-                if (/*_isSceneVisited[_currentScene][i] ||*/ NumbCarried[i] > 0|| NumbStored[i] > 0)
+                if (/*_isSceneVisited[_currentScene][i] || */NumbCarried[i] > 0|| NumbStored[i] > 0)
                 {
                     ChangeColourOfEnvironment(i + 1);
                 }
