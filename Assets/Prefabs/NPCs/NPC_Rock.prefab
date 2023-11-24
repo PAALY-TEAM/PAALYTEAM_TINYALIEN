@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 8206460829899256824}
   - component: {fileID: 5254194766110166985}
   - component: {fileID: 3357677228849936702}
+  - component: {fileID: 3588706945984480423}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -155,6 +156,28 @@ MonoBehaviour:
   colourToBe: 6
   shadeType: 4
   uniqueMaterial: {fileID: 2100000, guid: 09e1b71c04b4177458bc389392ad61ef, type: 2}
+--- !u!64 &3588706945984480423
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5971924857655665618}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1242275727679161006, guid: b8800fe2446b8db4ea1eb72933b15304, type: 3}
 --- !u!1 &6463035724306627316
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +190,7 @@ GameObject:
   - component: {fileID: 690818661211270965}
   - component: {fileID: 7855379229823979530}
   - component: {fileID: 158032635013069420}
+  - component: {fileID: 1445919723224910739}
   m_Layer: 0
   m_Name: Bush_leaves
   m_TagString: Untagged
@@ -254,6 +278,28 @@ MonoBehaviour:
   colourToBe: 3
   shadeType: 1
   uniqueMaterial: {fileID: 0}
+--- !u!64 &1445919723224910739
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6463035724306627316}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4785781561804401632, guid: b8800fe2446b8db4ea1eb72933b15304, type: 3}
 --- !u!1 &7106839317299213526
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +312,7 @@ GameObject:
   - component: {fileID: 1181016488619116131}
   - component: {fileID: 8014055608573255861}
   - component: {fileID: 1247683288101553024}
+  - component: {fileID: 5723449658585980098}
   m_Layer: 0
   m_Name: Bush_bark
   m_TagString: Untagged
@@ -353,3 +400,25 @@ MonoBehaviour:
   colourToBe: 6
   shadeType: 3
   uniqueMaterial: {fileID: 0}
+--- !u!64 &5723449658585980098
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7106839317299213526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8016444309754446927, guid: b8800fe2446b8db4ea1eb72933b15304, type: 3}

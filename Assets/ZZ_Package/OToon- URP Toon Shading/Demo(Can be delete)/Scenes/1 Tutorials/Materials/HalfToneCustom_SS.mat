@@ -2,14 +2,22 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HalfToneCustom_SS
-  m_Shader: {fileID: 4800000, guid: 933f24cde1e3f6a41818f56d729421ab, type: 3}
-  m_ShaderKeywords: _HALFTONESHAPE_CUSTOM _SPECULARHIGHLIGHTS_OFF _TOON_SHADING_ON
+  m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _HALFTONESHAPE_CUSTOM
+  - _SPECULAR_COLOR
+  - _TOON_SHADING_ON
+  m_InvalidKeywords:
+  - _SPECULARHIGHLIGHTS_OFF
+  - _STEPVIARAMPTEXTURE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,6 +26,7 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - SRPDEFAULTUNLIT
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -137,6 +146,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _ActiveRenderFeature: 1
     - _AlphaClip: 0
@@ -176,9 +186,11 @@ Material:
     - _FlatSpecularSize: 0.1
     - _Flatness: 1
     - _FlatnessExtra: 1
+    - _FlattenGI: 0
     - _GlitterEnabled: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
+    - _GlossinessSource: 0
     - _GlossyReflections: 1
     - _GradientAngle: 0
     - _GradientCenterX: 0
@@ -228,6 +240,7 @@ Material:
     - _OutlineWidth: 5
     - _Outline_Width: 0
     - _OverrideLightmapDir: 0
+    - _OverrideShadowColor: 0
     - _Parallax: 0.02
     - _QueueOffset: 50
     - _ReceiveShadows: 1
@@ -248,11 +261,14 @@ Material:
     - _SelfShadingSizeExtra: 0.6
     - _ShadowEdgeSize: 0.05
     - _ShadowEdgeSizeExtra: 0.05
+    - _Shininess: 0
     - _SizeFalloff: 1
     - _Smoothness: 0.592
+    - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecClipMaskScale: 1
     - _SpecShadowStrength: 1
+    - _SpecSource: 0
     - _SpecularClipStrength: 0
     - _SpecularEnabled: 0
     - _SpecularFalloff: 0.217
@@ -307,7 +323,7 @@ Material:
     - _OutlineDistancFade: {r: -25, g: 50, b: 0, a: 0}
     - _RimColor: {r: 0.80893326, g: 1, b: 0, a: 1}
     - _ShadowColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
-    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.592}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 1}
     - _UnityShadowColor: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
   m_BuildTextureStacks: []

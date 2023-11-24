@@ -22,7 +22,6 @@ namespace UI
         private int _currentText;
         [SerializeField] private Sprite[] imgOnPanel;
         private int _currentImg;
-        private Button _prev,_next;
 
         private CinemachineVirtualCamera _cam;
             
@@ -38,22 +37,22 @@ namespace UI
         private GameObject _thisPage;
         
        
-        private Transform cameraTarget;
+        private Transform _cameraTarget;
 
-        private bool _activeDialogue = false;
+        private bool _activeDialogue;
 
         private void Start()
         {
-            cameraTarget = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
+            _cameraTarget = GameObject.FindGameObjectWithTag("Player").transform.Find("CameraTarget").transform;
         }
 
         public void DialogueStart()
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            Invoke(nameof(WaitAfterPanel), .5f);
+            Cursor.lockState = CursorLockMode.Locked;
+            tempDisableMovement.OnPauseGame(false);
             
             // Time player so they doesn't skip first dialogue when first interacting
+            Invoke(nameof(WaitAfterPanel), .5f);
             
             //Finds Camera In Scene so that it can swap focus during scenes  
             _cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
@@ -70,7 +69,7 @@ namespace UI
                 _order[i] = int.Parse(panelsToSpawn[i].ToString());
             }
         
-            tempDisableMovement.OnPauseGame(false);
+            
             DialogueContinue();
             
         }
@@ -102,27 +101,22 @@ namespace UI
                     _thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[_currentText];
                     _cam.LookAt = cameraFocus[_currentText].transform;
                     _cam.Follow = cameraFocus[_currentText].transform;
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
+                    
                     return;
                 }
             }
-
             
-            //Find New Buttons
-            _prev = _thisPage.transform.Find("Prev").GetComponent<Button>();
-            _next = _thisPage.transform.Find("Next").GetComponent<Button>();
-            // Add new listeners
-            _prev.onClick.AddListener(PrevPanel);
-            _next.onClick.AddListener(NextPanel);
-        
+            
+            
             if (_currentPage == 0)
             {
-                _prev.interactable = false; 
+                var prev = _thisPage.transform.Find("Prev").GetComponent<Button>();
+                prev.interactable = false; 
             }
-            if (_currentPage + 1 == _sumPages)
+            else if (_currentPage + 1 == _sumPages)
             {
-                _next.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Exit";
+                var next = _thisPage.transform.Find("Next").GetComponent<Button>();
+                next.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Exit";
             }
         }
 
@@ -137,6 +131,12 @@ namespace UI
             {
                 NextPanel();
             }
+
+            if (Input.GetButtonDown("GoBack"))
+            {
+                //Stops the player from going backwards before the first
+                if (_currentPage!=0) PrevPanel();
+            }
         }
 
         private void DialogueEnd()
@@ -148,8 +148,8 @@ namespace UI
             tempDisableMovement.OnResumeGame();
         
             //Set so player is the focus of camera
-            _cam.LookAt = cameraTarget;
-            _cam.Follow = cameraTarget;
+            _cam.LookAt = _cameraTarget;
+            _cam.Follow = _cameraTarget;
         }
         private void PrevPanel()
         { 
@@ -162,7 +162,7 @@ namespace UI
 
         private void SwapPanel(int dir)
         {
-            //Only if image was used
+            //Only if image was used so that images progress throughout dialogue as intended
             if (_currentPage != 0)
             {
                 if ((_order[_currentPage] == 1 && dir == 1)||(_order[_currentPage-1] == 1 && dir == -1))
@@ -171,17 +171,8 @@ namespace UI
                 }
             }
         
-            // Because dialogue panel has no button it will ignore this part 
-            if (_order[_currentPage] != 2)
-            {
-                // Remove previous listeners
-                _prev.onClick.RemoveAllListeners();
-                _next.onClick.RemoveAllListeners();
-            }
             _currentText += dir;
             _currentPage += dir;
-        
-        
         
             if (_currentPage == _sumPages)
             {
@@ -194,8 +185,6 @@ namespace UI
 
          private void WaitAfterPanel()
         {
-            
-            print("bifs");
             _activeDialogue = true;
         }
     }

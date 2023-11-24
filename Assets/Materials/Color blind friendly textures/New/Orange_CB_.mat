@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Orange_CB_
-  m_Shader: {fileID: 4800000, guid: 933f24cde1e3f6a41818f56d729421ab, type: 3}
+  m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -170,9 +170,11 @@ Material:
     - _FaceShadowMapEnabled: 0
     - _FaceShadowMapPow: 0.2
     - _FaceShadowSmoothness: 0.1
+    - _FlattenGI: 0
     - _Framerate: 5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
+    - _GlossinessSource: 0
     - _GlossyReflections: 1
     - _HairSpecExponent: 128
     - _HairSpecNoiseStrength: 1
@@ -203,6 +205,7 @@ Material:
     - _OutlineEnabled: 0
     - _OutlineMode: 0
     - _OutlineWidth: 0.007
+    - _OverrideShadowColor: 0
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _RampOffset: 0.416
@@ -227,9 +230,11 @@ Material:
     - _Shininess: 0.078125
     - _SizeFalloff: 0
     - _Smoothness: 0.5
+    - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecClipMaskScale: 1
     - _SpecShadowStrength: 1
+    - _SpecSource: 0
     - _SpecularClipStrength: 0
     - _SpecularFalloff: 0.74
     - _SpecularForceUnderShadow: 13

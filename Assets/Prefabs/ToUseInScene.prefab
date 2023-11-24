@@ -1394,7 +1394,6 @@ GameObject:
   - component: {fileID: 377313058471869147}
   - component: {fileID: 8196960866006903756}
   - component: {fileID: 1595915123606906468}
-  - component: {fileID: 638296126828459246}
   m_Layer: 6
   m_Name: Player_Alien
   m_TagString: Player
@@ -1541,48 +1540,6 @@ MonoBehaviour:
   bottomClamp: -30
   cameraAngleOverride: 0
   lockCameraPosition: 0
---- !u!114 &638296126828459246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117995951301038509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12081b047369f134ca65aef0a8dd6532, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpFeedback: {fileID: 4055635808133205619}
-  landingFeedback: {fileID: 289952939215048608}
-  playerInputSpace: {fileID: 3950203314303122121}
-  mainAlienBody: {fileID: 3700676162753634784}
-  maxClimbSpeed: 4
-  maxRollingSpeed: 8
-  maxFloatingSpeed: 2
-  maxAcceleration: 22.4
-  maxAirAcceleration: 26
-  maxClimbAcceleration: 40
-  jumpHeight: 2
-  maxAirJumps: 0
-  maxGroundAngle: 40
-  maxStairsAngle: 88.6
-  maxClimbAngle: 90
-  maxSnapSpeed: 100
-  probeDistance: 1
-  probeMask:
-    serializedVersion: 2
-    m_Bits: 43
-  stairsMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  climbMask:
-    serializedVersion: 2
-    m_Bits: 35
-  ballRadius: 0.45
-  ballAlignSpeed: 0.85
-  ballAirRotation: 0.7
-  body: {fileID: 0}
 --- !u!1 &1148820995369336369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2897,7 +2854,6 @@ GameObject:
   - component: {fileID: 3700676162753634784}
   - component: {fileID: 6448753548306084189}
   - component: {fileID: 210469383688662486}
-  - component: {fileID: 4544593036188116463}
   m_Layer: 0
   m_Name: AlienBodyBeforeDeform
   m_TagString: Untagged
@@ -2971,25 +2927,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4544593036188116463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3940731797061418555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169684ce54e12384c9e8ee201a14f9fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprintFeedback: {fileID: 0}
-  mainBodyTarget: {fileID: 0}
-  secondTarget: {fileID: 6236040921284787125}
-  initialScale: {x: 0, y: 0, z: 0}
-  targetScale: {x: 1, y: 1, z: 1}
-  pressDuration: 0.2
-  releaseDuration: 1.39
 --- !u!1 &4138315263599591368
 GameObject:
   m_ObjectHideFlags: 0

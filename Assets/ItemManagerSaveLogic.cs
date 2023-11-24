@@ -30,7 +30,7 @@ public class ItemManagerSaveLogic : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         _itemManager = Player.GetComponent<ItemManager>();
         CrayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
-        _crayonLost = GameObject.Find("CrayonLost").GetComponent<CrayonLost>();
+        _crayonLost = GameObject.Find("CrayonCounter").GetComponent<CrayonLost>();
     }
                      
     //Set new value for current scene, run by ItemManager MySceneLoader();

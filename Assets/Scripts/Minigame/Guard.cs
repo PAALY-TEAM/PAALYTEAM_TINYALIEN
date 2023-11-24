@@ -31,11 +31,8 @@ namespace Minigame
 		private Vector3[] _waypoints;
 		private int _targetWaypointIndex;
 		[SerializeField] private bool isFlying;
-		
-		[SerializeField] private Vector3[] spawnLocation;
-	
-		//Where player is sent when caught
-		[SerializeField] private Vector3 jailLocation;
+
+		private SpawnLocation _spawnLocation;
 		
 		
 		private void Start()
@@ -53,6 +50,9 @@ namespace Minigame
 				_waypoints[i] = pathHolder.GetChild(i).position;
 				_waypoints[i] = new Vector3(_waypoints[i].x, transform.position.y, _waypoints[i].z);
 			}
+
+			_spawnLocation = GameObject.Find("SpawnLocation").GetComponent<SpawnLocation>();
+
 		}
 
 		private void Update() {
@@ -64,6 +64,9 @@ namespace Minigame
 		{
 			if (other.gameObject.CompareTag("Player"))
 			{
+				
+				var spawnLocation = _spawnLocation.crayonLocation;
+				var jailLocation =_spawnLocation.playerLocation.position;
 				other.gameObject.GetComponent<LoseGame>().Lose(spawnLocation, jailLocation);
 			}
 		}

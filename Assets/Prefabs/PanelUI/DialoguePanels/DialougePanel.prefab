@@ -232,10 +232,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5768724520124257943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0385625, y: 0.67750233}
-  m_AnchorMax: {x: 0.26456252, y: 0.855}
-  m_AnchoredPosition: {x: -0.5, y: 0}
-  m_SizeDelta: {x: -5, y: -24}
+  m_AnchorMin: {x: 0.038520835, y: 0.66136646}
+  m_AnchorMax: {x: 0.5717084, y: 0.8347329}
+  m_AnchoredPosition: {x: -0.50024414, y: 8}
+  m_SizeDelta: {x: -2.2999878, y: -22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7083460047143312252
 CanvasRenderer:
@@ -267,15 +267,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"NameOfTalker"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
-  m_sharedMaterial: {fileID: -2017566313007999712, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
+  m_sharedMaterial: {fileID: -8207459849454145544, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283546494
-  m_fontColor: {r: 0.49411768, g: 0.73333335, b: 0.31764707, a: 1}
+    rgba: 4280389200
+  m_fontColor: {r: 0.3137255, g: 0.5568628, b: 0.12941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -366,10 +366,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5768724520124257943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.16156252, y: 0.21750227}
-  m_AnchorMax: {x: 0.84012496, y: 0.60249776}
-  m_AnchoredPosition: {x: -1, y: 2.2249756}
-  m_SizeDelta: {x: -3, y: -4.549988}
+  m_AnchorMin: {x: 0.053000003, y: 0.26700002}
+  m_AnchorMax: {x: 0.9433126, y: 0.66136646}
+  m_AnchoredPosition: {x: 4, y: -0.5}
+  m_SizeDelta: {x: -9, y: -8.549988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2897694979302610010
 CanvasRenderer:
@@ -402,15 +402,15 @@ MonoBehaviour:
   m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut Lorem ipsum dolor sit amet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
-  m_sharedMaterial: {fileID: -2017566313007999712, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
+  m_sharedMaterial: {fileID: -8207459849454145544, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283546494
-  m_fontColor: {r: 0.49411768, g: 0.73333335, b: 0.31764707, a: 1}
+    rgba: 4280389199
+  m_fontColor: {r: 0.31002566, g: 0.5566038, b: 0.12812388, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -427,8 +427,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64
-  m_fontSizeBase: 64
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -538,8 +538,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
-  m_sharedMaterial: {fileID: -2017566313007999712, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
+  m_sharedMaterial: {fileID: -8207459849454145544, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -637,10 +637,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5768724520124257943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.42112505, y: 0.080000006}
-  m_AnchorMax: {x: 0.58056253, y: 0.165}
-  m_AnchoredPosition: {x: -1.5, y: 3.5}
-  m_SizeDelta: {x: -5, y: -3}
+  m_AnchorMin: {x: 0.40879172, y: 0.077455476}
+  m_AnchorMax: {x: 0.58500004, y: 0.165}
+  m_AnchoredPosition: {x: 6, y: 4}
+  m_SizeDelta: {x: -38, y: -4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4496955794035682875
 CanvasRenderer:
@@ -672,15 +672,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press ESC to skip
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
-  m_sharedMaterial: {fileID: -2017566313007999712, guid: de9cbe42d643d794b822f3d14d6d1bc8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
+  m_sharedMaterial: {fileID: -8207459849454145544, guid: a92be4787770a3e4ebd4b4f5418bdd0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290427834
-  m_fontColor: {r: 0.7294118, g: 0.73333335, b: 0.7294118, a: 1}
+    rgba: 4287072135
+  m_fontColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -4.0951366}
+  m_margin: {x: -24.772522, y: 0, z: -10.922485, w: -4.0951366}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

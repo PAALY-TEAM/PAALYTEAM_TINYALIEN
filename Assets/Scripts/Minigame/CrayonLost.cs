@@ -14,8 +14,6 @@ public class CrayonLost : MonoBehaviour
     private static Vector3[][] spawnLocations;
     // The crayon to spawn
     [SerializeField] private GameObject[] stolenCrayon;
-    // To keep track of crayons spawned in scene string[colour] = name of crayon
-    private List<string> tempStorage;
 
     // Counts how many crayons stolen for placement
     private int stolenCounter;
@@ -23,10 +21,6 @@ public class CrayonLost : MonoBehaviour
     private int currentScene;
 
     private static int id;
-    private void Awake()
-    {
-        
-    }
 
     private void Start()
     {
@@ -47,8 +41,7 @@ public class CrayonLost : MonoBehaviour
                 }
             }
         }
-        tempStorage = new List<string>();
-        
+      
         currentScene = SceneManager.GetActiveScene().buildIndex;
         int tempCount = 0;
         // Stops the code if empty
@@ -80,7 +73,7 @@ public class CrayonLost : MonoBehaviour
         //Spawn Crayon on position
         SpawnCrayon(colourIndex, stolenCounter);
         stolenCounter++;
-        if (stolenCounter > spawnLocations[currentScene].Length)
+        if (stolenCounter >= spawnLocations[currentScene].Length)
         {
             stolenCounter = 0;
         }
@@ -101,6 +94,6 @@ public class CrayonLost : MonoBehaviour
     {
         var crayon = Instantiate(stolenCrayon[colourIndex], spawnLocations[currentScene][numbPlace], Quaternion.identity);
         crayon.GetComponent<CrayonDisplay>().wasStolen = true;
-        crayon.name = "StolenCrayon" + id;
+        crayon.transform.parent = GameObject.Find("CrayonHolder").transform;
     }
 }

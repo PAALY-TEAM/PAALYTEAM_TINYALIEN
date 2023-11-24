@@ -2,14 +2,23 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 5ToneCustom
   m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
-  m_ShaderKeywords: _HALFTONESHAPE_DOT _OVERRIDESHADOWCOLOR_ON _SPECULAR_COLOR _TOON_SHADING_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _HALFTONESHAPE_DOT
+  - _SPECULAR_COLOR
+  - _TOON_SHADING_ON
+  m_InvalidKeywords:
+  - _OVERRIDESHADOWCOLOR_ON
+  - _SPECULARHIGHLIGHTS_OFF
+  - _STEPVIARAMPTEXTURE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,6 +27,7 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - SRPDEFAULTUNLIT
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -137,6 +147,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _ActiveRenderFeature: 1
     - _AlphaClip: 0
@@ -176,6 +187,7 @@ Material:
     - _FlatSpecularSize: 0.1
     - _Flatness: 1
     - _FlatnessExtra: 1
+    - _FlattenGI: 0
     - _GlitterEnabled: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -198,7 +210,10 @@ Material:
     - _HalfToneIncludeReceivedShadow: 0
     - _HalfToneShape: 0
     - _HalfToneUvMode: 0
+    - _HalftoneFadeDistance: 10
+    - _HalftoneFadeToColor: 0
     - _HalftoneNoiseClip: 0.8
+    - _HalftoneTilling: 8
     - _HatchDiffuseOffset: 0
     - _HatchDrawStrength: 1
     - _HatchLowerBound: 0.1
