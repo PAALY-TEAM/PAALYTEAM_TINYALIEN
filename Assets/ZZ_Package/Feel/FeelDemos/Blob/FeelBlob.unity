@@ -5765,6 +5765,21 @@ Transform:
   - {fileID: 1551201294}
   m_Father: {fileID: 1590149273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &887127369
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: PostProcessVolume
+  m_Namespace: UnityEngine.Rendering.PostProcessing
+  m_AssemblyName: Unity.Postprocessing.Runtime
 --- !u!1 &936953624
 GameObject:
   m_ObjectHideFlags: 0
@@ -32640,6 +32655,7 @@ GameObject:
   - component: {fileID: 2097948598}
   - component: {fileID: 2097948597}
   - component: {fileID: 2097948599}
+  - component: {fileID: 2097948600}
   m_Layer: 0
   m_Name: PostProcessing
   m_TagString: Untagged
@@ -32803,6 +32819,23 @@ MonoBehaviour:
     m_RotationOrder: 4
   RemapIntensityZero: 0
   RemapIntensityOne: 50
+--- !u!114 &2097948600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097948596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 887127369}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 0}
+  isGlobal: 0
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1275389053828271
 GameObject:
   m_ObjectHideFlags: 0

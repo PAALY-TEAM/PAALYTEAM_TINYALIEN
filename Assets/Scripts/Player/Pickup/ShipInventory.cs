@@ -71,9 +71,7 @@ namespace Pickup
             
             //Checks if playerColor has stored the right amount of crayon in the ship
             if (p >= maxCrayonOnShip)
-            {Win(); return;}
-            
-            GetComponent<WhenCollectedCrayons>().CheckIfEnough();
+            {Win();}
         }
 
         private void Win()

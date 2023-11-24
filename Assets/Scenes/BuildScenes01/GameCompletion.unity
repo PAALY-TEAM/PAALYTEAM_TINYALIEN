@@ -16416,7 +16416,6 @@ GameObject:
   - component: {fileID: 1302747688}
   - component: {fileID: 1302747691}
   - component: {fileID: 1302747690}
-  - component: {fileID: 1302747689}
   m_Layer: 0
   m_Name: AlienBodyBeforeDeform
   m_TagString: Untagged
@@ -16440,25 +16439,6 @@ Transform:
   - {fileID: 226051748}
   m_Father: {fileID: 1774150925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1302747689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302747687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169684ce54e12384c9e8ee201a14f9fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprintFeedback: {fileID: 0}
-  mainBodyTarget: {fileID: 0}
-  secondTarget: {fileID: 1244550250}
-  initialScale: {x: 0, y: 0, z: 0}
-  targetScale: {x: 1, y: 1, z: 1}
-  pressDuration: 0.2
-  releaseDuration: 1.39
 --- !u!23 &1302747690
 MeshRenderer:
   m_ObjectHideFlags: 0
