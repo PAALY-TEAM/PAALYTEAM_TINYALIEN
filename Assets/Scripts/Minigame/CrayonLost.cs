@@ -77,7 +77,7 @@ public class CrayonLost : MonoBehaviour
         //Spawn Crayon on position
         SpawnCrayon(colourIndex, stolenCounter);
         stolenCounter++;
-        if (stolenCounter > spawnLocations[currentScene].Length)
+        if (stolenCounter >= spawnLocations[currentScene].Length)
         {
             stolenCounter = 0;
         }

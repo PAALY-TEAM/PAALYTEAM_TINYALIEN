@@ -22,7 +22,7 @@ public class CanRotate : MonoBehaviour
     {
         if (other.CompareTag("Gate"))
         {
-            
+
             gateBody.GetComponent<GateRotate>().gateCollider = false;
         }
     }

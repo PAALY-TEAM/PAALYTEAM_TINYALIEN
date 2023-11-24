@@ -35,8 +35,9 @@ public class LoseGame : MonoBehaviour
                 playerScript.UpdateValues();
                 // Create Crayon and add to list of stolen
                 _crayonLost.AddLostCrayon(i, crayonSpawnsVectors);
-					
-                GameObject.Find("LoseText").GetComponent<NpcTextBox>().DialogueStart();
+				
+                if (GameObject.Find("LoseText"))
+                    GameObject.Find("LoseText").GetComponent<NpcTextBox>().DialogueStart();
                 break;
             }
         }

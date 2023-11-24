@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8810157045139760397}
   - component: {fileID: 3812541946560697368}
   - component: {fileID: 403615257352322499}
-  - component: {fileID: 6487122156033825399}
+  - component: {fileID: 5685784073337961038}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6487122156033825399
+--- !u!114 &5685784073337961038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +151,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5519309, y: 1, z: 0.010875225}
-  m_LocalScale: {x: 0.4, y: 1, z: 4}
+  m_LocalScale: {x: 0.4, y: 4.79, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8261994666771003008}
@@ -283,6 +283,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  gateColor: {r: 0, g: 0, b: 0, a: 0}
   raycastDistance: 5
   gateCollider: 0
