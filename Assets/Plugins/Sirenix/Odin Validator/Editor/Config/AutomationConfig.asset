@@ -15,7 +15,7 @@ MonoBehaviour:
   OnPlayMode: 1
   OnPlayModeIfWarnings: 0
   OnPlayModeIfErrors: 1
-  OnPlayModeAlwaysCompleteValidationFully: 0
+  OnPlayModeAlwaysCompleteValidationFully: 1
   OnPlayModeFlashScreen: 0
   OnPlayModeSetup:
     Profile: 0

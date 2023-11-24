@@ -560,7 +560,7 @@ namespace Movement
                 else
                 {
                     //make -0.01f to activate wall jump on straight walls
-                    if (upDot > -0.01f)  
+                    if (upDot > 0.01f)  
                     {
                         _steepContactCount += 1;
                         _steepNormal += normal;
