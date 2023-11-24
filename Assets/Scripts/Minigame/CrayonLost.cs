@@ -94,7 +94,6 @@ public class CrayonLost : MonoBehaviour
     {
         var crayon = Instantiate(stolenCrayon[colourIndex], spawnLocations[currentScene][numbPlace], Quaternion.identity);
         crayon.GetComponent<CrayonDisplay>().wasStolen = true;
-        crayon.name = "StolenCrayon" + id;
         crayon.transform.parent = GameObject.Find("CrayonHolder").transform;
     }
 }
