@@ -5,38 +5,31 @@ using UnityEngine;
 
 public class GateRotate : MonoBehaviour
 {
-    public GameObject player;
 
     public float raycastDistance = 5.0f;
     bool rotateCooldown = false;
     public bool gateCollider = false;
     Material gateColor;
-
-    void Start()
-    {
-        
-    }
+    
 
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(gateColor);
-        Debug.Log(player.GetComponent<Renderer>().sharedMaterial);
-        if (collision.gameObject.tag == "Player" && !rotateCooldown && !gateCollider && player.GetComponent<Renderer>().sharedMaterial == GetComponent<Renderer>().sharedMaterial)
+        if (collision.gameObject.CompareTag("Player") && !rotateCooldown && !gateCollider)
         {
-            Vector3 rotationAxis = Vector3.up;
-            float rotationAngle = 90;
+            var material1 = collision.transform.Find("AlienBodyBeforeDeform").GetComponent<Renderer>().sharedMaterial;
+            var material2 = collision.transform.Find("AlienBody_Floating").GetComponent<Renderer>().sharedMaterial;
+            if (material1 == GetComponent<Renderer>().sharedMaterial || material2 == GetComponent<Renderer>().sharedMaterial)
+            {
+                Vector3 rotationAxis = Vector3.up;
+                float rotationAngle = 90;
 
-            transform.RotateAround(transform.position, rotationAxis, rotationAngle);
-            Invoke("cooldownReset", 0.4f);
-            rotateCooldown = true;
-
+                transform.RotateAround(transform.position, rotationAxis, rotationAngle);
+                Invoke("cooldownReset", 0.4f);
+                rotateCooldown = true;
+            }
         }
-
     }
-
-
-
 
     void cooldownReset()
     {

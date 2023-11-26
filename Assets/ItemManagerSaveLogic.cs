@@ -54,15 +54,11 @@ public class ItemManagerSaveLogic : MonoBehaviour
             {
                 savedShipStorage[i] = ItemManager.NumbStored[i];
                 //savedVisitedState[i] = _itemManager._isSceneVisited[CurrentScene][i];
-                
-                savedCrayonLost[i] = CrayonLost.crayonLost[CurrentScene][i];
+                savedCrayonLost[i] = CrayonLost.CrayonLostArray[CurrentScene][i];
             }
         }
-
-        
         savedCurrentColour = _itemManager.currentColour;
         savedPos = Player.transform.position;
-        
     }
     
                      
@@ -77,7 +73,7 @@ public class ItemManagerSaveLogic : MonoBehaviour
                 ItemManager.NumbStored[i] = savedShipStorage[i];
                 //_itemManager._isSceneVisited[CurrentScene][i] = savedVisitedState[i];
                 
-                CrayonLost.crayonLost[CurrentScene][i] = savedCrayonLost[i];
+                CrayonLost.CrayonLostArray[CurrentScene][i] = savedCrayonLost[i];
             }
         }
                      

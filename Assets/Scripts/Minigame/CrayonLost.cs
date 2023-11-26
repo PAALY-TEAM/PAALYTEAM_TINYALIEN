@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class CrayonLost : MonoBehaviour
 {
     //int[Scene][Colour] = Count of lost crayon in scene
-    public static int[][] crayonLost;
+    public static int[][] CrayonLostArray;
     //Vector3[Scene][Positions] = Position to spawn crayon
     private static Vector3[][] spawnLocations;
     // The crayon to spawn
@@ -24,20 +24,20 @@ public class CrayonLost : MonoBehaviour
 
     private void Start()
     {
-        if (crayonLost == null)
+        if (CrayonLostArray == null)
         {
             //Declare Variable
             int sceneCount = SceneManager.sceneCountInBuildSettings;
             print("SceneCount" + sceneCount);
-            crayonLost = new int[sceneCount][];
+            CrayonLostArray = new int[sceneCount][];
             spawnLocations = new Vector3[sceneCount][];
             for (int i = 0; i < sceneCount; i++)
             {
-                crayonLost[i] = new int[ItemManager.NumbStored.Length];
-                for (int j = 0; j < crayonLost[i][j]; j++)
+                CrayonLostArray[i] = new int[ItemManager.NumbStored.Length];
+                for (int j = 0; j < ItemManager.NumbStored.Length; j++)
                 {
                     // Sets all values to 0
-                    crayonLost[i][j] = 0;
+                    CrayonLostArray[i][j] = 0;
                 }
             }
         }
@@ -45,11 +45,11 @@ public class CrayonLost : MonoBehaviour
         currentScene = SceneManager.GetActiveScene().buildIndex;
         int tempCount = 0;
         // Stops the code if empty
-        if (crayonLost[currentScene]==null) return;
-        for ( int i = 0; i < crayonLost[currentScene].Length; i++)
+        if (CrayonLostArray[currentScene]==null) return;
+        for ( int i = 0; i < CrayonLostArray[currentScene].Length; i++)
         {
             //Runs and repeats for multiple of same colour
-            for (int j = 0; j < crayonLost[currentScene][i]; j++)
+            for (int j = 0; j < CrayonLostArray[currentScene][i]; j++)
             {
                 // Instantiate crayon at spawnLocation
                 SpawnCrayon(i, tempCount);
@@ -79,7 +79,7 @@ public class CrayonLost : MonoBehaviour
         }
         
         // Add crayon to list by increasing the value claimed by one
-        crayonLost[currentScene][colourIndex]++;
+        CrayonLostArray[currentScene][colourIndex]++;
         
     }
     
@@ -87,7 +87,7 @@ public class CrayonLost : MonoBehaviour
     public void RemoveLostCrayon(int colourIndex)
     {
         //Removes one crayon of colour
-        crayonLost[currentScene][colourIndex]--;
+        CrayonLostArray[currentScene][colourIndex]--;
     }
 
     private void SpawnCrayon(int colourIndex, int numbPlace)

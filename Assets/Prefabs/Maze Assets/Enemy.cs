@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
 {
     public GameObject laser;
     bool cooldown = false;
-    public GameObject player;
     int range = 20;
     NavMeshAgent agent;
     // Start is called before the first frame update
@@ -47,9 +46,8 @@ public class Enemy : MonoBehaviour
         
         if (other.CompareTag("Player") && cooldown == false)
         {
-            Debug.Log(player.transform.position);
             cooldown = true;
-            agent.SetDestination(player.transform.position);
+            agent.SetDestination(other.transform.position);
             Invoke("cooldownTimer", 0.5f);
             
         }
@@ -57,11 +55,11 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
             var crayPositions = GameObject.Find("SpawnLocation").GetComponent<SpawnLocation>().crayonLocation;
             var playerPosition = GameObject.Find("SpawnLocation").GetComponent<SpawnLocation>().playerLocation;
-            player.GetComponent<LoseGame>().Lose(crayPositions, new Vector3(-22.6f, 0f, 32.6f));
+            collision.gameObject.GetComponent<LoseGame>().Lose(crayPositions, new Vector3(-22.6f, 0f, 32.6f));
         }
     }
 
