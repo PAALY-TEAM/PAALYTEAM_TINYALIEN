@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Interfaces.ColourChange;
+using Movement;
 using Pickup.Crayon;
 using Pickup.Shade;
 using TMPro;
@@ -50,7 +51,7 @@ namespace Pickup.Player
         /// player picks up that colour
         /// The scripts continues in start
         /// </summary>
-        private GameObject[][] _objectsToChangeColour;
+        private EnviromentShade[] _objectsToChangeColour;
         private GameObject[] _terrainToChangeColour;
         [Header("Add TAG in Unity!!!")]
         [Header("Add all Tags that are used on objects that should change colour!!")]
@@ -103,7 +104,6 @@ namespace Pickup.Player
             
             //Defining the length of the 2D array
             var sceneCount = SceneManager.sceneCountInBuildSettings;
-            _objectsToChangeColour = new GameObject[NumbStored.Length][];
             _terrainToChangeColour = new GameObject[NumbStored.Length];
             /*_isSceneVisited = new bool[sceneCount][];
             
@@ -156,20 +156,28 @@ namespace Pickup.Player
             for(int i = 0; i < tempTerrainHolder.Length; i++) 
                 _terrainToChangeColour[i] = tempTerrainHolder[i].gameObject;
             //Goes through all the colours that can be picked up
-            for (int i = 0; i < nameOfTags.Length; i++)
-            {
-                //Find GameObjects that has EnviromentShade Script, compares GameObject colour to the ColourIndex,
-                //Save those objects as a GameObject Array
-                GameObject[] objectsWithEnum = FindObjectsOfType<EnviromentShade>().Where(go => go.colourToBe == (ColourHolder.Colour)i).Select(go => go.gameObject).ToArray();
-                _objectsToChangeColour[i] = objectsWithEnum;
+            
+                //Find GameObjects that has EnviromentShade Script
+                //Save those objects in Array
                 
-                //Checks bool if colour been picked up in scene previously to colour the surroundings
-                if (/*_isSceneVisited[_currentScene][i] || */NumbCarried[i] > 0|| NumbStored[i] > 0)
+                _objectsToChangeColour = FindObjectsByType<EnviromentShade>(FindObjectsSortMode.None);
+                
+                foreach (var go in _objectsToChangeColour)
                 {
-                    ChangeColourOfEnvironment(i + 1);
+                    go.GetComponent<EnviromentShade>().ColourStart();
                 }
-            }
-            _showColour.ChangeIcon(currentColour);
+
+                for (int i = 0; i < nameOfTags.Length; i++)
+                {
+                    //Checks bool if colour been picked up in scene previously to colour the surroundings
+                    if ( /*_isSceneVisited[_currentScene][i] || */NumbCarried[i] > 0 || NumbStored[i] > 0)
+                    {
+                        ChangeColourOfEnvironment(i + 1);
+                    }
+                }
+
+
+                _showColour.ChangeIcon(currentColour);
             _spaceShip = GameObject.Find("SpaceShip");
             _cameraFocus.transform.localPosition = _cameraFocusPos;
             hintText.SetActive(false);
@@ -209,8 +217,7 @@ namespace Pickup.Player
                 currentColour = numb;
                 NumbCarried[numb - 1]++;
                 ChangeAlienColour(numb);
-                if (_objectsToChangeColour[numb - 1].Length > 0)
-                    ChangeColourOfEnvironment(numb);
+                ChangeColourOfEnvironment(numb);
                 CrayonProgress++;
                 
                 _crayonCounter.AddCrayonToList(_otherObject);
@@ -247,7 +254,10 @@ namespace Pickup.Player
         {
             if (_otherObject.transform.GetComponent(nameof(IPlayerInteract)) is IPlayerInteract)
             {
+                hintText.SetActive(false);
+                _canInteract = false; 
                 _otherObject.GetComponent<IPlayerInteract>().PlayerInteract();
+                
             }
             UpdateValues();
         }
@@ -307,7 +317,7 @@ namespace Pickup.Player
             }
             return numberReturn;
         }
-        public void ChangeColourOfEnvironment(int playerColourIndex)
+        private void ChangeColourOfEnvironment(int playerColourIndex)
         {
             //Check if colour is already applied
             //if (objectsToChangeColour[playerColourIndex - 1][0].transform.GetComponent<Renderer>().sharedMaterial
@@ -315,18 +325,22 @@ namespace Pickup.Player
             {
                 
                     //Find length of the row of 2D array
-                foreach (var obj in _objectsToChangeColour[playerColourIndex - 1])
+                foreach (var obj in _objectsToChangeColour)
                 {
-                    //Change colour of each element in 2D array
-                    if (obj.transform.GetComponent(nameof(EnviromentShade)) is EnviromentShade)
+                    if (obj != null)
                     {
-                        obj.transform.GetComponent<EnviromentShade>().SwapToShade(playerColourIndex-1);
-                    }
-                    else
-                        obj.transform.GetComponent<Renderer>().sharedMaterial = colours[playerColourIndex];
+                        //Change colour of each element in 2D array
+                        if (obj.transform.GetComponent(nameof(EnviromentShade)) is EnviromentShade)
+                        {
+                            obj.transform.GetComponent<EnviromentShade>().SwapToShade(playerColourIndex-1);
+                        }
+                        else
+                            obj.transform.GetComponent<Renderer>().sharedMaterial = colours[playerColourIndex];
 
-                    if (obj.GetComponent(nameof(IColourChange)) is IColourChange)
-                        obj.GetComponent<IColourChange>().ColourChange();
+                        if (obj.GetComponent(nameof(IColourChange)) is IColourChange)
+                            obj.GetComponent<IColourChange>().ColourChange(playerColourIndex-1);
+                    }
+                    
                     
                 }
                 
@@ -347,9 +361,15 @@ namespace Pickup.Player
 
         public void MoveAlien(Vector3 spawnPos)
         {
+            var head = transform.parent.gameObject.transform.Find("Head").gameObject;
+            var playerMovement = GetComponent<PlayerMovementV03>();
+            playerMovement.enabled = false;
+            
             transform.position = spawnPos;
-            transform.parent.gameObject.transform.Find("Head").transform.position = spawnPos + new Vector3(0,1,0);
+            head.transform.position = spawnPos + new Vector3(0,1,0);
             Physics.SyncTransforms();
+            playerMovement.enabled = true;
+
         }
         
         //Outdated code, maybe need later though

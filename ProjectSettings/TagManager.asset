@@ -13,6 +13,9 @@ TagManager:
   - Head
   - Blue
   - RespawnPoint
+  - Fire
+  - Gate
+  - ColourHolder
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ namespace Interfaces.ColourChange.Gameplay01
             _childCollider.enabled = false;
         }
 
-        public void ColourChange()
+        public void ColourChange(int colourIndex)
         {
             //Enable Collider
             _collider.enabled = true;

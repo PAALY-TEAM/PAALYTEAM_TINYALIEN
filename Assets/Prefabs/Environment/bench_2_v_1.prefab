@@ -28,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8973916686451672503}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7238665, z: -0, w: 0.68994004}
+  m_LocalRotation: {x: 0, y: 0.72386485, z: 0, w: 0.6899418}
   m_LocalPosition: {x: -82.393, y: 0.0000010728836, z: 48.388}
-  m_LocalScale: {x: 2.644, y: 2.644, z: 2.644}
+  m_LocalScale: {x: 2.6439998, y: 2.644, z: 2.6439998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 0000000001000000
+  colourToBe: 0600000006000000
+  shadeType: 0200000001000000
+  uniqueMaterial: []

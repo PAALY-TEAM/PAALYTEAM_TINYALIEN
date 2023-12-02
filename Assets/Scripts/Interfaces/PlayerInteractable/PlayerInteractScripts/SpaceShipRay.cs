@@ -22,10 +22,6 @@ public class SpaceShipRay : MonoBehaviour, IPlayerInteract
             {
                 ItemManager.NumbStored[i] += ItemManager.NumbCarried[i];
                 ItemManager.NumbCarried[i] = 0;
-                if (ItemManager.NumbStored[i] > 0)
-                {
-                    itemManager.ChangeColourOfEnvironment(i+1);
-                }
             }
         }
         shipScript.Display();

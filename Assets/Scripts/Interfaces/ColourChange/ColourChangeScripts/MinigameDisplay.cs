@@ -43,7 +43,7 @@ namespace Interfaces.ColourChange.Gameplay01
         }
 
         private bool _isColoured;
-        public void ColourChange()
+        public void ColourChange(int colourIndex)
         {
             //Activates the script
             _player = GameObject.FindGameObjectWithTag("Player");

@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930488652061427246}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.69207215, z: -0, w: 0.7218284}
+  m_LocalRotation: {x: 0, y: 0.6920739, z: 0, w: 0.72182673}
   m_LocalPosition: {x: -12.750931, y: -1.9629893, z: 8.949299}
   m_LocalScale: {x: 2.5644999, y: 2.5645, z: 2.5644999}
   m_ConstrainProportionsScale: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 0000000000000000
+  colourToBe: 0300000006000000
+  shadeType: 0300000002000000
+  uniqueMaterial: []

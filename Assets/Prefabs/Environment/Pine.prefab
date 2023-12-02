@@ -96,9 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 00000000
+  colourToBe: 06000000
+  shadeType: 02000000
+  uniqueMaterial: []
 --- !u!1 &6635063813969504906
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,9 +125,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6635063813969504906}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.27387, y: 0.0000005364418, z: 48.387104}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5006520564975967453}
@@ -250,6 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 00000000
+  colourToBe: 03000000
+  shadeType: 02000000
+  uniqueMaterial:
+  - {fileID: 0}

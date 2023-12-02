@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 6008104152053080315}
   - component: {fileID: 4976775696202289665}
   m_Layer: 0
-  m_Name: Cube (1) 1
+  m_Name: Fence
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementToColour: 0
   colourToBe: 0
   shadeType: 0
   uniqueMaterial: {fileID: 0}
@@ -282,6 +283,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf2f68ad9ad7e24181b986a982c06ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  raycastDistance: 5
   gateCollider: 0

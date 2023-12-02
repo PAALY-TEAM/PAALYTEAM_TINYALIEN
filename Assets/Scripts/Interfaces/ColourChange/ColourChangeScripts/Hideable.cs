@@ -13,7 +13,7 @@ namespace Interfaces.ColourChange.Gameplay01
             _collider = GetComponent<Collider>();
             _collider.enabled = false;
         }
-        public void ColourChange()
+        public void ColourChange(int colourIndex)
         {
             gameObject.layer = layerNr;
             _collider.enabled = true;

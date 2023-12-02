@@ -49,7 +49,7 @@ namespace UI
         public void DialogueStart()
         {
             Cursor.lockState = CursorLockMode.Locked;
-            tempDisableMovement.OnPauseGame(false);
+            
             
             // Time player so they doesn't skip first dialogue when first interacting
             Invoke(nameof(WaitAfterPanel), .5f);
@@ -186,6 +186,7 @@ namespace UI
          private void WaitAfterPanel()
         {
             _activeDialogue = true;
+            tempDisableMovement.OnPauseGame(true);
         }
     }
 }

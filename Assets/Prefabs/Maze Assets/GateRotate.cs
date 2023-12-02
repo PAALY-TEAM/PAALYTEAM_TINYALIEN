@@ -1,44 +1,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pickup.Player;
+using UnityEditor;
 using UnityEngine;
 
 public class GateRotate : MonoBehaviour
 {
-    public GameObject player;
-
-    public float raycastDistance = 5.0f;
-    bool rotateCooldown = false;
+    private bool rotateCooldown = false;
     public bool gateCollider = false;
-    Material gateColor;
+    private Material gateColor;
 
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(gateColor);
-        Debug.Log(player.GetComponent<Renderer>().sharedMaterial);
-        if (collision.gameObject.tag == "Player" && !rotateCooldown && !gateCollider && player.GetComponent<Renderer>().sharedMaterial == GetComponent<Renderer>().sharedMaterial)
+        var player = collision.gameObject;
+        var playerScript = player.GetComponent<ItemManager>();
+        // Check if GO is player and if the colour of player is the same as the fence
+        if (player.CompareTag("Player") && !rotateCooldown && !gateCollider && playerScript.colours[playerScript.currentColour] == GetComponent<Renderer>().sharedMaterial)
         {
             Vector3 rotationAxis = Vector3.up;
             float rotationAngle = 90;
 
             transform.RotateAround(transform.position, rotationAxis, rotationAngle);
-            Invoke("cooldownReset", 0.4f);
+            Invoke(nameof(CooldownReset), 0.4f);
             rotateCooldown = true;
-
         }
-
     }
 
+    
 
-
-
-    void cooldownReset()
+    private void CooldownReset()
     {
         rotateCooldown = false;
     }

@@ -14,12 +14,17 @@ public class Lava : MonoBehaviour, IColourChange
     
         
     
-    public void ColourChange()
+    public void ColourChange(int colourIndex)
     {
-        //Lave has been Coloured and is active
-        isColoured = true;
-        //Starts dialogue telling player that the lava is rising and dangerous
-        transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+        // aka if the colour is red
+        if (colourIndex == 0)
+        {
+            //Lave has been Coloured and is active
+            isColoured = true;
+            //Starts dialogue telling player that the lava is rising and dangerous
+            transform.Find("DialogueSummoner").GetComponent<NpcTextBox>().DialogueStart();
+        }
+        
     }
     void Start()
     {
@@ -73,4 +78,5 @@ public class Lava : MonoBehaviour, IColourChange
             transform.localScale -= new Vector3(0, lavaSpeed * Time.deltaTime, 0);
         }
     }
+    
 }

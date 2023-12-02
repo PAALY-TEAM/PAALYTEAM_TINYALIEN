@@ -4,6 +4,15 @@ namespace Pickup.Shade
 {
     public class ColourHolder : MonoBehaviour
     {
+        public enum Element
+        {
+            Element0,
+            Element1,
+            Element2,
+            Element3,
+            Element4
+            //If needed add more
+        }
         public enum Colour
 
         {
@@ -25,9 +34,8 @@ namespace Pickup.Shade
             Unique
         }
 
-        [Header("Shades should be in this order: Normal, Light, Dark, Bland")] [SerializeField]
-        private Material[] redShades;
-
+        [Header("Shades should be in this order: Normal, Light, Dark, Bland")] 
+        [SerializeField] private Material[] redShades;
         [SerializeField] private Material[] yellowShades;
         [SerializeField] private Material[] blueShades;
         [SerializeField] private Material[] greenShades;
@@ -35,17 +43,17 @@ namespace Pickup.Shade
         [SerializeField] private Material[] purpleShades;
         [SerializeField] private Material[] brownShades;
 
-        //Grey for starting colour
-        [HideInInspector] public Material[] greyShades;
+        [Header("Black and White materials for each colour")]
+        [SerializeField] private Material[] BWColour;
 
-        [HideInInspector] public Material[][] EveryColourWithShades;
-
-
+        public static Material[] BWColours;
+        public static Material[][] EveryColourWithShades;
+        
 
         private void Awake()
         {
             //Set length equal to number of colours
-            EveryColourWithShades = new Material[][]
+            EveryColourWithShades = new []
             {
                 redShades,
                 yellowShades,
@@ -55,6 +63,7 @@ namespace Pickup.Shade
                 purpleShades,
                 brownShades
             };
+            BWColours = BWColour;
         }
     }
 }

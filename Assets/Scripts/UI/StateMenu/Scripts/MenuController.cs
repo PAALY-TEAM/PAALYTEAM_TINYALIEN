@@ -91,7 +91,7 @@ namespace State.Menu
             if (stateHistory.Count <= 1)
             {
                 SetActiveState(MenuState.Main);
-                print("If error is CrayonHolder named CrayonHolder");
+                Debug.Log("If error is CrayonHolder named CrayonHolder");
                 _crayonsInScene = GameObject.Find("CrayonHolder").transform.childCount;
                 showCrayonsLeft.text = "Crayons remaining: " + _crayonsInScene;
                 Cursor.visible = true;

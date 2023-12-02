@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes02/GameSceneDuplicate.unity
     guid: 1366fdd809496c747928c0673e184c1c
   - enabled: 1
-    path: Assets/Scenes/BuildScenes02/Forrest level.unity
-    guid: 5b1e5e7ab261fe44597612d528cd22d2
+    path: Assets/Scenes/BuildScenes02/ForestLevel2_MA.unity
+    guid: c06a1ebd06cde3a4285a4977efcf9ecc
   - enabled: 1
     path: Assets/Scenes/BuildScenes02/HideAndSeek_LD.unity
     guid: 6058408dbe1a9984b91125f1a56fefa2

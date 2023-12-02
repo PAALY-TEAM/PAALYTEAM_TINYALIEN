@@ -96,9 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 00000000
+  colourToBe: 05000000
+  shadeType: 02000000
+  uniqueMaterial: []
 --- !u!1 &4993212140231010514
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,9 +233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 00000000
+  colourToBe: 05000000
+  shadeType: 02000000
+  uniqueMaterial: []
 --- !u!64 &6683509489159270327
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -376,9 +378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 00000000
+  colourToBe: 00000000
+  shadeType: 02000000
+  uniqueMaterial: []
 --- !u!1 &7817462358626419081
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,9 +501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 1
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 00000000
+  colourToBe: 04000000
+  shadeType: 02000000
+  uniqueMaterial: []
 --- !u!1 &9006303641201457191
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 2
-  shadeType: 1
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 00000000
+  colourToBe: 05000000
+  shadeType: 03000000
+  uniqueMaterial: []

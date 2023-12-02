@@ -8,26 +8,26 @@ public class Enemy : MonoBehaviour
 {
     public GameObject laser;
     bool cooldown = false;
-    public GameObject player;
+    private GameObject player;
     int range = 20;
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
         // Checking if reached set point and finding new point
-        Debug.Log(agent.remainingDistance);
         if (agent.remainingDistance < 1)
             agent.SetDestination(RandomNavmeshLocation(range));
     }
 
     // Finding random point in a sphere for where to go
-    public Vector3 RandomNavmeshLocation(float radius)
+    private Vector3 RandomNavmeshLocation(float radius)
     {
         Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * radius;
         randomDirection += transform.position;
@@ -47,30 +47,24 @@ public class Enemy : MonoBehaviour
         
         if (other.CompareTag("Player") && cooldown == false)
         {
-            Debug.Log(player.transform.position);
             cooldown = true;
             agent.SetDestination(player.transform.position);
-            Invoke("cooldownTimer", 0.5f);
+            Invoke("CooldownTimer", 0.5f);
             
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
             var crayPositions = GameObject.Find("SpawnLocation").GetComponent<SpawnLocation>().crayonLocation;
             var playerPosition = GameObject.Find("SpawnLocation").GetComponent<SpawnLocation>().playerLocation;
             player.GetComponent<LoseGame>().Lose(crayPositions, new Vector3(-22.6f, 0f, 32.6f));
         }
     }
-
-
-
-
-    public void cooldownTimer()
+    private void CooldownTimer()
     {
         cooldown = false;
     }
-
 }

@@ -3,6 +3,6 @@ namespace Interfaces.ColourChange
     public interface IColourChange
     {
 
-        void ColourChange();
+        void ColourChange(int colourIndex);
     }
 }

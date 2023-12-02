@@ -16,18 +16,18 @@ namespace Interfaces.ColourChange.ColourChangeScripts
         [SerializeField] private string nameOfLevel;
         //HintText variables
         private GameObject _hintText;
-        private bool _isActive;
-        private bool _isColoured;
+        private bool _isActive = false;
+        private bool _isColoured = false;
 
         private static float CD;
 
         private DoorTriggerInteraction _dti;
 
-    
+        [Header("The index of the colour that this turns into")]
+        [SerializeField] private int thisColour;
 
         void Start()
         {
-            _player = GameObject.FindGameObjectWithTag("Player");
             _dti = GetComponent<DoorTriggerInteraction>();
             Vector3 spawnPlace = new Vector3(0,2f, 0) + transform.position;
             _panelMade = Instantiate(panelPreFab, spawnPlace, Quaternion.identity);
@@ -38,12 +38,15 @@ namespace Interfaces.ColourChange.ColourChangeScripts
             _hintText.SetActive(false);
             _panelMade.SetActive(false);
         }
-        public void ColourChange()
+        public void ColourChange(int colourIndex)
         {
-            //Activates the script
-            _player = GameObject.FindGameObjectWithTag("Player");
-            _isActive = false;
-            _isColoured = true;
+            if (colourIndex == thisColour)
+            {
+                //Activates the script
+                _player = GameObject.FindGameObjectWithTag("Player");
+                _isActive = false;
+                _isColoured = true;
+            }
         }
 
         private void Update()

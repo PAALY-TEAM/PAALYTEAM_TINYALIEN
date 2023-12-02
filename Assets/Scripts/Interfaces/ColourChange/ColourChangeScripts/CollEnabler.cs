@@ -12,7 +12,7 @@ namespace Interfaces.ColourChange.Gameplay01
             _collider.enabled = false;
         }
 
-        public void ColourChange()
+        public void ColourChange(int colourIndex)
         {
             //Enable Collider
         
