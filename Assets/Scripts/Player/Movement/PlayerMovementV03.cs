@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using Sirenix.Serialization;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 namespace Movement
-{ //Refactored script form https://catlikecoding.com/unity/tutorials/movement/
+{ //Refactored script from https://catlikecoding.com/unity/tutorials/movement/
     public class PlayerMovementV03 : MonoBehaviour
     {
         [SerializeField]
