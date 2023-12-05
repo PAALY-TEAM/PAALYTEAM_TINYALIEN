@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
         {
             var crayPositions = GameObject.Find("SpawnLocation").GetComponent<SpawnLocation>().crayonLocation;
             var playerPosition = GameObject.Find("SpawnLocation").GetComponent<SpawnLocation>().playerLocation;
-            player.GetComponent<LoseGame>().Lose(crayPositions, new Vector3(-22.6f, 0f, 32.6f));
+            player.GetComponent<LoseGame>().Lose(crayPositions, playerPosition.position);
         }
     }
     private void CooldownTimer()

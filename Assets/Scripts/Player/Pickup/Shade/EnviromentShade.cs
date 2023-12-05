@@ -26,7 +26,7 @@ namespace Pickup.Shade
                 Debug.LogError("Renderer component not found on the GameObject.");
             }
 
-            if (elementToColour.Length == colourToBe.Length && colourToBe.Length == shadeType.Length)
+            if (elementToColour.Length != colourToBe.Length || colourToBe.Length != shadeType.Length)
             {
                 Debug.LogError(gameObject.name+ " does not have arrays with equal length");
             }

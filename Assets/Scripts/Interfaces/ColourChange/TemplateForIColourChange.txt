@@ -1,12 +1,13 @@
 public class <ScriptName> : MonoBehaviour, IColourChange
 {
  
-    private bool isColoured;
-    public void ColourChange()
+    
+    public void ColourChange(int colourIndex)
     {
-        if (!isColoured)
+        // ColourChange activate if the colour the object transforms to is tha same
+        if (colourIndex == (int)GetComponent<EnviromentShade>().colourToBe[0])
         {
-            //Insert Code
+            //Insert Code To activate when colour changes
         }
     }
  

@@ -524,11 +524,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1201252936734928718, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
   m_PrefabInstance: {fileID: 725710007}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &115501150 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-  m_PrefabInstance: {fileID: 1560204160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &134882986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1512,86 +1507,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
---- !u!1 &379634035
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 379634036}
-  - component: {fileID: 379634038}
-  - component: {fileID: 379634037}
-  m_Layer: 3
-  m_Name: DialogueSummoner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &379634036
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379634035}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3440268, y: 2.0098352, z: -37.640717}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1728017767}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &379634037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379634035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9843787686713e7489d0fb7d70da1a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &379634038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379634035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24a1464f5240c5842a1d729ae66807f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelPrefab:
-  - {fileID: 1000574424263627393, guid: ef431b6bfb485b04692434aeecd9cfa2, type: 3}
-  - {fileID: 1000574424263627393, guid: d925371ed5f9a9945a0d9fa0f05c17bd, type: 3}
-  - {fileID: 1000574424263627393, guid: 3f7b044820bb64049b3a627e7d4bd0aa, type: 3}
-  npcImg: {fileID: 21300000, guid: 09a8fd77c0acf3041a4fe5dfa97b4fa3, type: 3}
-  npcName:
-  - Ship AI
-  - Ship AI
-  - Ship AI
-  cameraFocus: []
-  textOnPanel:
-  - Emergency landing initiated. Oh no, the ship ran out of fuel and had to land
-    on this tiny planet. You need to go out and search for fuel.
-  - Move around with WASD. Jump with SPACE to reach places too high to walk up.
-  - When you have collected some fuel you should store them in the ship. Go to the
-    yellow ray and press E to store the crayons.
-  imgOnPanel:
-  - {fileID: 21300000, guid: 19eea2bfe5ff82244ae256cb5efa10ba, type: 3}
-  - {fileID: 21300000, guid: bf2777b6a10255a479e286ecc2d5e2d7, type: 3}
-  - {fileID: 21300000, guid: cc6e166ade95d49459da267e4d07208c, type: 3}
-  panelsToSpawn: 000
-  tempDisableMovement: {fileID: 379634037}
-  _currentPage: 0
 --- !u!4 &380508546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1201252936734928718, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
@@ -4193,7 +4108,6 @@ Transform:
   m_Children:
   - {fileID: 1796020039}
   - {fileID: 407222769}
-  - {fileID: 115501150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1150610559
@@ -5319,71 +5233,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
---- !u!1001 &1560204160
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1146428312}
-    m_Modifications:
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 49.128914
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 11.251493
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.573231
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.5010092
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.3423386
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2916521476037786446, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4612321551521150637, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-      propertyPath: m_Name
-      value: 6PurpleCrayon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
 --- !u!1 &1590156932
 GameObject:
   m_ObjectHideFlags: 0
@@ -6148,51 +5997,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e238a027226285409c72eaccd816d0b, type: 3}
---- !u!1 &1728017765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1728017767}
-  - component: {fileID: 1728017766}
-  m_Layer: 0
-  m_Name: DialougeOnStart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1728017766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728017765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f514e109ec5944986c3b78ddfab56f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1728017767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728017765}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 379634036}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1738494302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1201252936734928718, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
@@ -7572,6 +7376,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_farmer
       objectReference: {fileID: 0}
+    - target: {fileID: 9220795838615327998, guid: c969c23dfd4ad6a4c8414d2c50dad374, type: 3}
+      propertyPath: panelsToSpawn
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220795838615327998, guid: c969c23dfd4ad6a4c8414d2c50dad374, type: 3}
+      propertyPath: textOnPanel.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220795838615327998, guid: c969c23dfd4ad6a4c8414d2c50dad374, type: 3}
+      propertyPath: textOnPanel.Array.data[0]
+      value: ".. oh it\u2019s you, did you find anything?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220795838615327998, guid: c969c23dfd4ad6a4c8414d2c50dad374, type: 3}
+      propertyPath: textOnPanel.Array.data[1]
+      value: ' More? My old friend is a gardener, maybe he can help you?'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7587,5 +7407,4 @@ SceneRoots:
   - {fileID: 264551477}
   - {fileID: 4686583331314675763}
   - {fileID: 1146428312}
-  - {fileID: 1728017767}
   - {fileID: 1942378806}

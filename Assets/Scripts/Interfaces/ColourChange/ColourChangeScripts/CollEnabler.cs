@@ -1,3 +1,4 @@
+using Pickup.Shade;
 using UnityEngine;
 
 namespace Interfaces.ColourChange.Gameplay01
@@ -14,9 +15,9 @@ namespace Interfaces.ColourChange.Gameplay01
 
         public void ColourChange(int colourIndex)
         {
-            //Enable Collider
-        
-            _collider.enabled = true;
+            if (colourIndex == (int)GetComponent<EnviromentShade>().colourToBe[0])
+                //Enable Collider
+                _collider.enabled = true;
         }
 
     }

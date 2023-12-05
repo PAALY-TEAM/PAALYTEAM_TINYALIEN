@@ -25,14 +25,14 @@ namespace UI
 
         private CinemachineVirtualCamera _cam;
             
-        [Header("Order the type of panels appear in, write only numbers (0 or 1)")] 
+        [Header("Order the type of panels appear in, write only numbers (e.g. 00 two text panels)")] 
         [SerializeField] private string panelsToSpawn;
         private int[] _order;
         [Header("Disables movement of playerColor and camera")]
         [SerializeField] private TempDisableMovement  tempDisableMovement;
     
         private int _sumPages;
-        public int _currentPage;
+        private int _currentPage;
         private int _currentName;
         private GameObject _thisPage;
         
@@ -83,7 +83,7 @@ namespace UI
                 if (_order[_currentPage] == 0)
                 {
                     _thisPage.transform.Find("Profile").GetComponent<Image>().sprite = npcImg;
-                    _thisPage.transform.Find("Profile/Name").GetComponent<TextMeshProUGUI>().text = npcName[0];
+                    _thisPage.transform.Find("Profile/Name").GetComponent<TextMeshProUGUI>().text = npcName[_currentText];
                     _thisPage.transform.Find("MainText").GetComponent<TextMeshProUGUI>().text = textOnPanel[_currentText];
                 } 
                 //Panel with text and Image

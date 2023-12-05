@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 5718061252634527001}
   - component: {fileID: 2424416636148112176}
   - component: {fileID: 5507569430523575067}
+  - component: {fileID: 3276512936003733629}
   m_Layer: 0
   m_Name: NPC_farmer
   m_TagString: Untagged
@@ -610,6 +611,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4193a708f453cf4690d0f7c1bed573a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &3276512936003733629
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411368552226400444}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.99
+  m_Center: {x: 0.0030059814, y: 0, z: -0.6879902}
 --- !u!1 &7595740491136815734
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,23 +933,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: panelsToSpawn
-      value: 222
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: npcName.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: imgOnPanel.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: npcName.Array.data[0]
-      value: Farmer
+      value: Becket
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: npcName.Array.data[1]
-      value: Farmer
+      value: Becket
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: npcName.Array.data[2]
-      value: Farmer
+      value: UFO
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: cameraFocus.Array.size
@@ -937,6 +963,10 @@ PrefabInstance:
       propertyPath: textOnPanel.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: imgOnPanel.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 23fa186b3e2a6f446ac5dc7072d9182c, type: 3}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: cameraFocus.Array.data[0]
       value: 
@@ -951,16 +981,16 @@ PrefabInstance:
       objectReference: {fileID: 8836821823469812526}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: textOnPanel.Array.data[0]
-      value: Can I help you? Are you lost? Is that your machine?
+      value: Are you lost, little guy? Is that your machine?
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: textOnPanel.Array.data[1]
-      value: "We don\u2019t have any fuel for those machines around here, but these
-        crayons can do just about anything."
+      value: "No we don\u2019t have fuel here, but those crayons over there can do
+        just about anything"
       objectReference: {fileID: 0}
     - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
       propertyPath: textOnPanel.Array.data[2]
-      value: "Why don\u2019t you give it a try?"
+      value: Hmm.. Maybe we can use them to get back home?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

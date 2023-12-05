@@ -1,3 +1,4 @@
+using Pickup.Shade;
 using TMPro;
 using UnityEngine;
 
@@ -22,10 +23,7 @@ namespace Interfaces.ColourChange.ColourChangeScripts
         private static float CD;
 
         private DoorTriggerInteraction _dti;
-
-        [Header("The index of the colour that this turns into")]
-        [SerializeField] private int thisColour;
-
+        
         void Start()
         {
             _dti = GetComponent<DoorTriggerInteraction>();
@@ -40,7 +38,8 @@ namespace Interfaces.ColourChange.ColourChangeScripts
         }
         public void ColourChange(int colourIndex)
         {
-            if (colourIndex == thisColour)
+            // ColourChange activate if the colour the object transforms to is tha same
+            if (colourIndex == (int)GetComponent<EnviromentShade>().colourToBe[0])
             {
                 //Activates the script
                 _player = GameObject.FindGameObjectWithTag("Player");

@@ -1,4 +1,5 @@
 using Minigame.HideAndSeek;
+using Pickup.Shade;
 using TMPro;
 using UnityEngine;
 
@@ -45,13 +46,18 @@ namespace Interfaces.ColourChange.Gameplay01
         private bool _isColoured;
         public void ColourChange(int colourIndex)
         {
-            //Activates the script
-            _player = GameObject.FindGameObjectWithTag("Player");
-            _playerRend = _player.transform.Find("AlienBody_Floating").GetComponent<Renderer>();
-            _rend = GetComponent<Renderer>();
-            _isActive = false;
-            _isColoured = true;
-       
+            // ColourChange activate if the colour the object transforms to is tha same
+            if (colourIndex == (int)GetComponent<EnviromentShade>().colourToBe[0])
+            {
+                //Activates the script
+                _player = GameObject.FindGameObjectWithTag("Player");
+                _playerRend = _player.transform.Find("AlienBody_Floating").GetComponent<Renderer>();
+                _rend = GetComponent<Renderer>();
+                _isActive = false;
+                _isColoured = true;
+
+            }
+            
         }
 
     

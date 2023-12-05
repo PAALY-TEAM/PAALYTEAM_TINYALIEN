@@ -49,12 +49,14 @@ MonoBehaviour:
   - {fileID: 1000574424263627393, guid: ef431b6bfb485b04692434aeecd9cfa2, type: 3}
   - {fileID: 1000574424263627393, guid: d925371ed5f9a9945a0d9fa0f05c17bd, type: 3}
   - {fileID: 1000574424263627393, guid: 3f7b044820bb64049b3a627e7d4bd0aa, type: 3}
-  npcImg: {fileID: 0}
-  npcName: 
+  npcImg: {fileID: 21300000, guid: 4f274396a9c7ffe4cbe7c4fb0d7d3cfa, type: 3}
+  npcName: []
+  cameraFocus: []
   textOnPanel: []
   imgOnPanel: []
   panelsToSpawn: 
   tempDisableMovement: {fileID: 8051008277774697010}
+  _currentPage: 0
 --- !u!114 &8051008277774697010
 MonoBehaviour:
   m_ObjectHideFlags: 0
