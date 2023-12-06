@@ -189,12 +189,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: ForestLevel2_MA
+      value: 02_FlowerField
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: c06a1ebd06cde3a4285a4977efcf9ecc, type: 3}
+      objectReference: {fileID: 102900000, guid: cd20a5a8c4dfb3a40bf6886b2d3c57c4, type: 3}
     - target: {fileID: 2227085591583373417, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -364,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: City level
+      value: 02_City
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
@@ -2193,7 +2193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: ForestLevel2_MA
+      value: 02_Forest
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
@@ -3849,6 +3849,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e238a027226285409c72eaccd816d0b, type: 3}
+--- !u!4 &1051404120 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+  m_PrefabInstance: {fileID: 1960252439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1058456952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3935,6 +3940,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1201252936734928718, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
   m_PrefabInstance: {fileID: 1804091883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1088033646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 760476836530023901, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
+  m_PrefabInstance: {fileID: 2385270292091098885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1088033648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088033646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96733a8ff0f4f374e93ecfd81964cfdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1088033649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4500612203597521066, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
+  m_PrefabInstance: {fileID: 2385270292091098885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1121389988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,6 +3998,7 @@ MonoBehaviour:
   - {fileID: 1652600290}
   - {fileID: 406858083}
   - {fileID: 793001730}
+  - {fileID: 1542766357}
 --- !u!114 &1121389990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4737,12 +4765,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: ForestLevel2_MA
+      value: 02_HoleInWall
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 102900000, guid: f1391c366b952184e959029c168e9887, type: 3}
     - target: {fileID: 2227085591583373417, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5330,7 +5358,7 @@ MonoBehaviour:
   - SpaceShip AI
   cameraFocus: []
   textOnPanel:
-  - You should go and find more fuel to .
+  - You should go and find more fuel to the Ship.
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 1542766359}
@@ -6720,7 +6748,7 @@ Transform:
   m_GameObject: {fileID: 1942378805}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.999852, z: -0, w: 0.01720562}
-  m_LocalPosition: {x: 54.248962, y: 1.0799999, z: 37.705753}
+  m_LocalPosition: {x: 43.52, y: 1.0799999, z: 65.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6803,6 +6831,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1201252936734928718, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
   m_PrefabInstance: {fileID: 2144867215}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1960252439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1088033649}
+    m_Modifications:
+    - target: {fileID: 2867592003209258652, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_Name
+      value: DialogueSummoner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668873762769821186, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: panelsToSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: npcName.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: npcName.Array.data[0]
+      value: UFO
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: textOnPanel.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5857281710754041629, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
+      propertyPath: textOnPanel.Array.data[0]
+      value: 'My sensors are not detecting any more crayons. Time to leave '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95cc7e7536bf0c642b6b35978729f763, type: 3}
 --- !u!4 &1962185089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3580694526760034311, guid: 7e238a027226285409c72eaccd816d0b, type: 3}
@@ -7583,6 +7688,14 @@ PrefabInstance:
       propertyPath: m_Lens.m_SensorSize.y
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 5895115288877763121, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
+      propertyPath: copyScene
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895115288877763121, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
+      propertyPath: gameScene
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6071811230863225044, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
       propertyPath: copyScene
       value: 4
@@ -7771,8 +7884,14 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4078640604959501156, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
     - {fileID: 331576454313883158, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4500612203597521066, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1051404120}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 760476836530023901, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1088033648}
     - targetCorrespondingSourceObject: {fileID: 37919569104799607, guid: b0d92a0910ea1324aa5f0a1e6f588494, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}

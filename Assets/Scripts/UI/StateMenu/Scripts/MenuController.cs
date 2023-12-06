@@ -33,8 +33,6 @@ namespace UI.StateMenu.Scripts
         private Stack<MenuState> stateHistory = new Stack<MenuState>();
         
         // To show player how many crayons are left to collect in scene
-        private int _crayonsInScene;
-        private GameObject _crayonHolder;
         [SerializeField] private TextMeshProUGUI showCrayonsLeft;
         
         void Start()
@@ -89,9 +87,8 @@ namespace UI.StateMenu.Scripts
             if (stateHistory.Count <= 1)
             {
                 SetActiveState(MenuState.Main);
-                Debug.Log("If error is CrayonHolder named CrayonHolder");
-                _crayonsInScene = GameObject.Find("CrayonHolder").transform.childCount;
-                showCrayonsLeft.text = "Crayons remaining: " + _crayonsInScene;
+                // Display number of crayons left in scene
+                showCrayonsLeft.text = "Crayons remaining: " + CrayonsCollected.NumbOfCrayonsInScene();
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 _tempDisableMovement.OnPauseGame(true);

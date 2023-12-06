@@ -5358,7 +5358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: HideAndSeek_LD
+      value: 02_HideAndSeek
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
@@ -10992,7 +10992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: GameSceneDuplicate
+      value: 02_GameSceneDuplicate
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset

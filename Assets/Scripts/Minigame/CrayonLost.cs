@@ -22,7 +22,7 @@ public class CrayonLost : MonoBehaviour
 
     private static int id;
 
-    private void Start()
+    private void Awake()
     {
         if (crayonLost == null)
         {

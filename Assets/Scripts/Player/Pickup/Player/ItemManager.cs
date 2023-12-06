@@ -219,11 +219,12 @@ namespace Pickup.Player
                 ChangeAlienColour(numb);
                 ChangeColourOfEnvironment(numb);
                 CrayonProgress++;
-                
                 _crayonCounter.AddCrayonToList(_otherObject);
                 //_isSceneVisited[_currentScene][numb-1] = true;
                 UpdateValues();
                 Destroy(_otherObject);
+                // Checks if any crayons left and activate text if so
+                _crayonCounter.gameObject.GetComponent<CrayonsCollected>().CheckIfAnyLeft();
             }
             else if (_otherObject.transform.GetComponent(nameof(IPlayerInteract)) is IPlayerInteract)
             {

@@ -77577,7 +77577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: ForestLevel2_MA
+      value: 02_Forest
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
@@ -78079,7 +78079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: ForestLevel2_MA
+      value: 02_Forest
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
@@ -81185,7 +81185,6 @@ MonoBehaviour:
   - {fileID: 150732317}
   - {fileID: 1632777650}
   playerLocation: {fileID: 1211047536}
-  sdf: 0
 --- !u!1 &1102125814
 GameObject:
   m_ObjectHideFlags: 0
@@ -82178,8 +82177,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.886206, y: 4.662015, z: 4.482052}
-  m_Center: {x: 0.06888199, y: 1.8310075, z: 1.6038074}
+  m_Size: {x: 10.886206, y: 4.662015, z: 9.924238}
+  m_Center: {x: 0.06888199, y: 1.8310075, z: -1.1172857}
 --- !u!4 &1143477480
 Transform:
   m_ObjectHideFlags: 0
@@ -107779,7 +107778,6 @@ MonoBehaviour:
   imgOnPanel: []
   panelsToSpawn: 0
   tempDisableMovement: {fileID: 2031982652}
-  _currentPage: 0
 --- !u!114 &2031982652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111436,7 +111434,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 5698761563452875592}
-  _currentPage: 0
 --- !u!23 &7188750052148362062
 MeshRenderer:
   m_ObjectHideFlags: 0

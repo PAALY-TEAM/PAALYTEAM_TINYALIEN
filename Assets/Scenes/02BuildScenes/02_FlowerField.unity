@@ -35818,7 +35818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneName
-      value: GameSceneDuplicate
+      value: 02_GameSceneDuplicate
       objectReference: {fileID: 0}
     - target: {fileID: 1150944138959051317, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: sceneToLoad.sceneAsset
@@ -35830,7 +35830,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5eb1e621b0009054bbf015437f44f1be, type: 2}
     - target: {fileID: 2261283614660510800, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: m_Name
-      value: LevelDoor
+      value: FieldTP
       objectReference: {fileID: 0}
     - target: {fileID: 4724265396257639519, guid: 49aa1211c4d27c7449a6bf40eae2249c, type: 3}
       propertyPath: colourToBe

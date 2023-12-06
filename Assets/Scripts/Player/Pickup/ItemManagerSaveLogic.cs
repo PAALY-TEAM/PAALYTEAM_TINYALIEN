@@ -56,6 +56,7 @@ public class ItemManagerSaveLogic : MonoBehaviour
                 //savedVisitedState[i] = _itemManager._isSceneVisited[CurrentScene][i];
                 
                 savedCrayonLost[i] = CrayonLost.crayonLost[CurrentScene][i];
+                
             }
         }
 
