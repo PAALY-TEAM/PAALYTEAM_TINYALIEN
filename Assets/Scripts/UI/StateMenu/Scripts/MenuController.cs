@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UI;
+using UI.StateMenu.Scripts.State;
 using UnityEngine;
 
-
-namespace State.Menu
+namespace UI.StateMenu.Scripts
 {
     //The state machine, which keeps track of everything
     public class MenuController : MonoBehaviour

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace State.Menu
+namespace UI.StateMenu.Scripts.State
 {
     //This is the parent class to all states
     public class _MenuState : MonoBehaviour

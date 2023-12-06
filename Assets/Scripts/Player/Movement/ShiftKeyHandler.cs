@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
@@ -12,13 +13,22 @@ namespace Movement
     {
         [Header("Feedbacks")]
         [SerializeField] private MMFeedbacks sprintFeedback;
-        [SerializeField] private GameObject mainBodyTarget;
-        [SerializeField] private GameObject secondTarget;
+        [SerializeField] private GameObject sprintingBody;
+        [SerializeField] private GameObject walkingBody;
         [SerializeField] private Vector3 initialScale = Vector3.one;
         [SerializeField] private Vector3 targetScale;
         [SerializeField] private float pressDuration = 0.26f;
         [SerializeField] private float releaseDuration = 1.51f;
 
+        // Define an enum to represent the state of the player
+        public enum PlayerState
+        {
+            Walking,
+            Sprinting
+        }
+        // Add a field to store the current state
+        [SerializeField] private PlayerState currentState = PlayerState.Walking;
+        [SerializeField] private bool isSprintingBodyActiveFirst = false;
         /*
         [FormerlySerializedAs("OnMaxScaleReached")] public UnityEvent onMaxScaleReached;
         [FormerlySerializedAs("OnNotAtMaxScale")] public UnityEvent onNotAtMaxScale;
@@ -42,7 +52,19 @@ namespace Movement
             _sprintAction.performed += OnPress;
             _sprintAction.canceled += OnRelease;
         }
+        #region InputSystem On-Enable/-Disable
+        private void OnEnable()
+        {
+            _sprintAction.Enable();
+        }
 
+        private void OnDisable()
+        {
+            _sprintAction.performed -= OnPress;
+            _sprintAction.canceled -= OnRelease;
+            _sprintAction.Disable();
+        }
+        #endregion
         void Start()
         {
             transform.localScale = initialScale;
@@ -52,8 +74,27 @@ namespace Movement
         
         private void InitialSetup()
         {
-            OnScale();
-            ScaleDownSecondObject();
+            // Set the initial state based on the currentState variable
+            switch (currentState)
+            {
+                case PlayerState.Walking:
+                    ScaleUpWalkingBody();
+                    if (isSprintingBodyActiveFirst)
+                    {
+                        ScaleDownSprintingBody();
+                    }
+                    break;
+                case PlayerState.Sprinting:
+                    ScaleUpSprintingBody();
+                    if (isSprintingBodyActiveFirst)
+                    {
+                        ScaleDownWalkingBody();
+                    }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
             _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxRollingSpeed());
         }
         
@@ -78,20 +119,22 @@ namespace Movement
         }
         public void OnPress(InputAction.CallbackContext context)
         {
-            EaseBackDown();
-            ScaleUpSecondObject();
+            // Update the state to Sprinting when the sprint key is pressed
+            currentState = PlayerState.Sprinting;
+
+            ScaleUpSprintingBody();
+            ScaleDownWalkingBody();
             _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxRollingSpeed());
         }
 
         public void OnRelease(InputAction.CallbackContext context)
         {
-            // Check if the ShiftKeyHandler object still exists
-            if (this != null)
-            {
-                OnScale();
-                ScaleDownSecondObject();
-                _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxFloatingSpeed());
-            }
+            // Update the state to Walking when the sprint key is released
+            currentState = PlayerState.Walking;
+
+            EaseBackDown();
+            ScaleUpWalkingBody();
+            _playerMovement.SetCurrentSpeed(_playerMovement.GetMaxFloatingSpeed());
         }
 
         private void OnScale()
@@ -102,44 +145,53 @@ namespace Movement
             //.OnComplete(() => onMaxScaleReached.Invoke());
 
         }
-
-        private void ScaleDownSecondObject()
+        private void ScaleUpWalkingBody()
         {
-            secondTarget.transform.DOKill(); // Stop any ongoing tween
-            secondTarget.transform.DOScale(Vector3.zero, pressDuration)
+            if (walkingBody == null)
+                return;
+            walkingBody.transform.DOKill();                // Stop any ongoing tween
+            walkingBody.transform.DOScale(Vector3.one, 1f) // Duration set to 1 second
+                .SetEase(Ease.OutBounce);                  // Bounce effect
+        }
+        
+        private void ScaleDownWalkingBody()
+        {
+            if (walkingBody == null)
+                return;
+            walkingBody.transform.DOKill(); // Stop any ongoing tween
+            walkingBody.transform.DOScale(Vector3.zero, pressDuration)
                 .SetEase(Ease.InOutSine);
         }
 
-        private void ScaleUpSecondObject()
+        private void ScaleUpSprintingBody()
         {
-            secondTarget.transform.DOKill(); // Stop any ongoing tween
-            secondTarget.transform.DOScale(Vector3.one, releaseDuration)
+            if (sprintingBody == null)
+                return;
+            sprintingBody.transform.DOKill(); // Stop any ongoing tween
+            sprintingBody.transform.DOScale(Vector3.one, pressDuration)
                 .SetEase(Ease.OutBounce);
+        }
+        
+        private void ScaleDownSprintingBody()
+        {
+            if (sprintingBody == null)
+                return;
+            sprintingBody.transform.DOKill(); // Stop any ongoing tween
+            sprintingBody.transform.DOScale(Vector3.zero, pressDuration)
+                .SetEase(Ease.InOutSine);
         }
 
         private void EaseBackDown()
         {
-            if (this == null)
+            if (sprintingBody == null)
             {
-                // The ShiftKeyHandler object has been destroyed, so return immediately
+                // The sprintingBody object has been destroyed, so return immediately
                 return;
             }
-            
-            transform.DOKill(); // Stop any ongoing tween
-            transform.DOScale(initialScale, releaseDuration)
+
+            sprintingBody.transform.DOKill(); // Stop any ongoing tween
+            sprintingBody.transform.DOScale(initialScale, releaseDuration)
                 .SetEase(Ease.OutBounce);
-            //.OnComplete(() => onNotAtMaxScale.Invoke());
         }
-
-        private void OnEnable()
-        {
-            _sprintAction.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _sprintAction.Disable();
-        }
-    
     }
 }

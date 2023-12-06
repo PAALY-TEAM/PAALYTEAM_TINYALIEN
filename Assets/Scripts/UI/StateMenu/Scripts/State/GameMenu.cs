@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace State.Menu
+namespace UI.StateMenu.Scripts.State
 {
     public class GameMenu : _MenuState
     {

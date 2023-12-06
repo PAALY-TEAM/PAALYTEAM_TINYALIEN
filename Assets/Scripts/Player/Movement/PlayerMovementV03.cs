@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
-using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Sirenix.Serialization;
+
 
 namespace Movement
 { //Refactored script from https://catlikecoding.com/unity/tutorials/movement/
     public class PlayerMovementV03 : MonoBehaviour
     {
-        [SerializeField]
-        private ShadowController shadowController;
         [Header("Feedbacks")]
         [SerializeField] private MMFeedbacks jumpFeedback;
         [SerializeField] private MMFeedbacks landingFeedback;
@@ -33,7 +32,7 @@ namespace Movement
         private float maxClimbSpeed = 4f;
 
         [SerializeField]
-        private float maxRollingSpeed = 8f, maxFloatingSpeed = 12f;
+        private float maxWalkingSpeed = 8f, maxSprintingSpeed = 12f;
         private float _currentSpeed;
 
         [SerializeField, Range(0f, 100f)] private float
@@ -129,14 +128,8 @@ namespace Movement
                 Debug.LogError("PlayerInputCommandHandler component not found on this game object.");
                 return;
             }
-            // Retrieve the ShadowController reference
-            shadowController = gameObject.MMGetComponentAroundOrAdd<ShadowController>();
-            if (shadowController == null)
-            {
-                Debug.LogError("ShadowController component not found on this game object.");
-            }
-            // Set currentSpeed to maxRollingSpeed initially
-            _currentSpeed = maxRollingSpeed;
+            // Set currentSpeed to maxWalkingSpeed initially
+            _currentSpeed = maxWalkingSpeed;
         }
 
         private void Update()
@@ -155,8 +148,8 @@ namespace Movement
             
             // Check if the shift key is currently pressed
             bool isShiftPressed = _inputCommandHandler.GetSprintInput();
-            // Set currentSpeed to maxRollingSpeed if the shift key is not pressed, and to maxFloatingSpeed if it is
-            _currentSpeed = isShiftPressed ? maxFloatingSpeed : maxRollingSpeed;
+            // Set currentSpeed to maxWalkingSpeed if the shift key is not pressed, and to maxSprintingSpeed if it is
+            _currentSpeed = isShiftPressed ? maxSprintingSpeed : maxWalkingSpeed;
 
             if (playerInputSpace)
             {
@@ -357,7 +350,6 @@ namespace Movement
                     UpdateConnectionState();
                 }
             }
-            shadowController.UpdateShadowStatus(OnGround);
         }
 
         private void UpdateConnectionState()
@@ -614,11 +606,11 @@ namespace Movement
         //
         public float GetMaxRollingSpeed()
         {
-            return maxRollingSpeed;
+            return maxWalkingSpeed;
         }
         public float GetMaxFloatingSpeed()
         {
-            return maxFloatingSpeed;
+            return maxSprintingSpeed;
         }
         public void SetCurrentSpeed(float speed)
         {

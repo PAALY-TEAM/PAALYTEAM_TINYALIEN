@@ -8,9 +8,9 @@ public class ShadowController : MonoBehaviour
     [SerializeField]
     private Vector3 groundedScale = new Vector3(1, 0.09f, 1); // Scale when player is on ground
     [SerializeField]
-    private Vector3 airborneScale = Vector3.zero;    // Scale when player is not on ground
+    private Vector3 airborneScale = Vector3.zero;//Scale when player is not on ground
     [SerializeField]
-    private float scaleUpDuration = 1f;              // Duration for scaling up
+    private float scaleUpDuration = 1f;// Duration for scaling up
     [SerializeField]
     private float scaleDownDuration = 0.5f; // Duration for scaling down
 

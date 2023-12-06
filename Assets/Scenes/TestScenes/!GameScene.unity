@@ -13116,7 +13116,6 @@ GameObject:
   - component: {fileID: 2024828400}
   - component: {fileID: 2024828399}
   - component: {fileID: 2024828398}
-  - component: {fileID: 2024828402}
   - component: {fileID: 2024828403}
   m_Layer: 0
   m_Name: Farmer NPC
@@ -13222,18 +13221,6 @@ Transform:
   - {fileID: 1041995589}
   m_Father: {fileID: 364712802}
   m_LocalEulerAnglesHint: {x: 0, y: -69.958, z: 0}
---- !u!114 &2024828402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024828397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191beda82c119f240bca5158afa0567e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2024828403
 MonoBehaviour:
   m_ObjectHideFlags: 0

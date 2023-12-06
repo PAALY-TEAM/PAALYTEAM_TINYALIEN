@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using MoreMountains.Tools;
 using Movement.Commands;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +10,8 @@ namespace Movement
 {
     public class PlayerInputCommandHandler : MonoBehaviour
     {
+        public static PlayerInputCommandHandler Instance { get; private set; }
+
         private PlayerInput _playerInput;
         private PlayerMovementV03 _playerMovement;
         private ShiftKeyHandler _shiftKeyHandler;
@@ -20,9 +24,28 @@ namespace Movement
         private InputAction _interactAction;
         private InputAction _sprintAction;
         private Vector2 _moveDirection;
-        
+
+        public InputActionReference actionReference;
+        private InputActionRebindingExtensions.RebindingOperation _rebindOperation;
+        private bool _isRebindProcessStarted = false;
+
+
+        public void Initialize(InputActionReference actionReference)
+        {
+            this.actionReference = actionReference;
+            _rebindOperation = actionReference.action.PerformInteractiveRebinding();
+        }
+
         private void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
             _playerInput = GetComponent<PlayerInput>();
             _playerMovement = GetComponent<PlayerMovementV03>();
             _shiftKeyHandler = GetComponent<ShiftKeyHandler>();
@@ -77,42 +100,53 @@ namespace Movement
                 action.Disable();
             }
         }
+        private void OnDestroy()
+        {
+            _rebindOperation?.Dispose();
+        }
         public void SwapCommands(InputAction actionToRebind, string newBinding)
         {
             // Check if the actionToRebind is in the _commandActionMap dictionary
             if (!_commandActionMap.ContainsKey(actionToRebind))
-            {
-                Debug.LogError("The action to be rebound is not in the _commandActionMap dictionary.");
-                return;
-            }
+                throw new KeyNotFoundException("The action to rebind is not found in the command action map.");
 
             // Check if the newBinding is a valid input binding string
             // This is a basic check and may not cover all edge cases
             if (string.IsNullOrEmpty(newBinding) || !newBinding.Contains("/"))
+                throw new ArgumentException("The new binding is not a valid input binding string.");
+
+            // Get the index of the binding in the action's bindings
+            int bindingIndex = actionToRebind.bindings.IndexOf(b => b.action == actionToRebind.name);
+
+            // Perform the rebinding
+            actionToRebind.PerformInteractiveRebinding(bindingIndex)
+                .WithRebindAddingNewBinding(newBinding)
+                .Start();
+        }
+        public void StartRebindProcess(InputActionReference actionReference, RebindInputUI rebindInputUI)
+        {
+            if (!_isRebindProcessStarted)
             {
-                Debug.LogError("The new key binding is not a valid input binding string.");
-                return;
+                _isRebindProcessStarted = true;
+                rebindInputUI.StartRebindProcess();
             }
+        }
 
-            // Create a new InputAction with the new binding
-            InputAction newAction = new InputAction(binding: newBinding);
+        public void OnRebindComplete(InputActionReference actionReference)
+        {
+            // Get the InputAction from the InputActionReference
+            InputAction action = actionReference.action;
 
-            // Get the command that should be executed when the action is performed
-            Command command = _commandActionMap[actionToRebind];
+            // Get the Command from the InputAction
+            Command command = GetCommand(action);
 
-            // Add the command execution to the performed event of the new InputAction
-            newAction.performed += callbackContext => command.Execute();
+            // Remove the old InputAction from the dictionary
+            _commandActionMap.Remove(action);
 
-            newAction.Enable();
-
-            // Replace the old action in the dictionary
-            _commandActionMap[newAction] = command;
-
-            // Remove the old action from the dictionary
-            _commandActionMap.Remove(actionToRebind);
+            // Add the new InputAction to the dictionary
+            _commandActionMap[action] = command;
             
-            // Disable the old action
-            actionToRebind.Disable();
+            _isRebindProcessStarted = false;
         }
         public Command GetCommand(InputAction action)
         {

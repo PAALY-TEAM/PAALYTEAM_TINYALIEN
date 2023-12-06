@@ -6,7 +6,8 @@ using UnityEngine;
 public class CustomHeadMovement : MonoBehaviour
 {
     public Transform target;
-    public float followSpeed = 10f;
+    [Range(0, 1)]
+    public float followSpeed = 1f;
     // The damping applied to the spring motion, affecting how quickly the head will stop bouncing
     public float springDamping = 0.3f;
     public float springDampingY = 0.6f;

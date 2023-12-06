@@ -1,5 +1,4 @@
 using Camera;
-using State.Menu;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
