@@ -101,7 +101,7 @@ MonoBehaviour:
   crayon: {fileID: 11400000, guid: e6400245fa732e840af560e0394428de, type: 2}
   isSpinning: 1
   wasStolen: 0
-  pickupFeedback: {fileID: 0}
+  pickupFeedback: {fileID: 2612309351586358608}
 --- !u!135 &8454715475315387934
 SphereCollider:
   m_ObjectHideFlags: 0
