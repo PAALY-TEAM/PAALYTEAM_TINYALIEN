@@ -25,7 +25,7 @@ namespace Movement
         private InputAction _sprintAction;
         private Vector2 _moveDirection;
 
-        public InputActionReference actionReference;
+        private InputActionReference actionReference;
         private InputActionRebindingExtensions.RebindingOperation _rebindOperation;
         private bool _isRebindProcessStarted = false;
 

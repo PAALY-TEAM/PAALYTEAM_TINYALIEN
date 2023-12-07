@@ -1,40 +1,45 @@
 using System;
-using UI;
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEngine;
-using UnityEngine.InputSystem;
+#endif
 
-[CustomEditor(typeof(CustomRebindActionUI))]
-public class CustomRebindActionUIEditor : Editor
+namespace UI
 {
-    public override void OnInspectorGUI()
+#if UNITY_EDITOR
+    [CustomEditor(typeof(CustomRebindActionUI))]
+    public class CustomRebindActionUIEditor : Editor
     {
-        CustomRebindActionUI myTarget = (CustomRebindActionUI)target;
-
-        // Draw the default inspector
-        DrawDefaultInspector();
-
-        // Get the action from the action reference
-        var action = myTarget.actionReference.action;
-
-        // Create a dropdown for the binding options
-        if (action != null)
+        public override void OnInspectorGUI()
         {
-            var bindings = action.bindings;
-            var options = new string[bindings.Count];
-            for (int i = 0; i < bindings.Count; i++)
-            {
-                options[i] = bindings[i].ToDisplayString();
-            }
+            CustomRebindActionUI myTarget = (CustomRebindActionUI)target;
 
-            int currentSelected = Array.IndexOf(options, myTarget.bindingId);
-            int newSelected = EditorGUILayout.Popup("Binding", currentSelected, options);
+            // Draw the default inspector
+            DrawDefaultInspector();
 
-            // Update the bindingId when a new option is selected
-            if (newSelected != currentSelected)
+            // Get the action from the action reference
+            var action = myTarget.actionReference.action;
+
+            // Create a dropdown for the binding options
+            if (action != null)
             {
-                myTarget.bindingId = options[newSelected];
+                var bindings = action.bindings;
+                var options = new string[bindings.Count];
+                for (int i = 0; i < bindings.Count; i++)
+                {
+                    options[i] = bindings[i].ToDisplayString();
+                }
+
+                int currentSelected = Array.IndexOf(options, myTarget.bindingId);
+                int newSelected = EditorGUILayout.Popup("Binding", currentSelected, options);
+
+                // Update the bindingId when a new option is selected
+                if (newSelected != currentSelected)
+                {
+                    myTarget.bindingId = options[newSelected];
+                }
             }
         }
     }
+#endif
 }
+

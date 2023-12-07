@@ -136,6 +136,7 @@ PlayerSettings:
   bundleVersion: 1
   preloadedAssets:
   - {fileID: 102900000, guid: 24f89fb43fab3184fb80387b9f0e08ee, type: 3}
+  - {fileID: 11400000, guid: fff6b1f38b88d34449ae3cdc378efa0a, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -145,7 +146,7 @@ PlayerSettings:
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
-  enableOpenGLProfilerGPURecorders: 1
+  enableOpenGLProfilerGPURecorders: 0
   useHDRDisplay: 0
   hdrBitDepth: 0
   m_ColorGamuts: 00000000
@@ -177,7 +178,7 @@ PlayerSettings:
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 1
   strictShaderVariantMatching: 0
-  VertexChannelCompressionMask: -1
+  VertexChannelCompressionMask: 0
   iPhoneSdkVersion: 988
   iOSTargetOSVersionString: 12.0
   tvOSSdkVersion: 0
@@ -766,7 +767,8 @@ PlayerSettings:
   additionalCompilerArguments:
     WebGL: []
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Standalone: 1
   il2cppCompilerConfiguration:
     WebGL: 1
   il2cppCodeGeneration: {}
