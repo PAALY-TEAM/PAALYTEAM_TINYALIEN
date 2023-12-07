@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Marie UI/MainMenu2.unity
     guid: 3ed3b1ed44ec4334f92eab1967572a98
   - enabled: 1
-    path: Assets/Scenes/Marie UI/Settings.unity
-    guid: 632c8d193f247e7408aecea1cb91519b
-  - enabled: 1
-    path: Assets/Scenes/Marie UI/HelpScene.unity
-    guid: bb7cb29ea86a5ad4d9f0ed7a11d7000d
-  - enabled: 1
     path: Assets/Scenes/02BuildScenes/LoadingScene.unity
     guid: a709baeb82e6450409df90a36d1e4250
   - enabled: 1
