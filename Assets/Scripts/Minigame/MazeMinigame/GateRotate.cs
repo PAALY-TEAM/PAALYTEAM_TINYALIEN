@@ -15,7 +15,7 @@ public class GateRotate : MonoBehaviour
     {
         var player = collision.gameObject;
         var playerScript = player.GetComponent<ItemManager>();
-        // Check if GO is player and if the colour of player is the same as the fence
+        // Check if tag is player and if the colour of player is the same as the fence
         if (player.CompareTag("Player") && !rotateCooldown && !gateCollider && playerScript.colours[playerScript.currentColour] == GetComponent<Renderer>().sharedMaterial)
         {
             Vector3 rotationAxis = Vector3.up;
