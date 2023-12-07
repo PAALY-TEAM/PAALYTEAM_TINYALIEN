@@ -4,6 +4,7 @@ using UnityEngine.Serialization;
 
 namespace Camera
 {
+    //Camera script from the Unity 3rd Person Controller Sample Asset, modified a bit to fit our project, but mostly the same as original
     public class CameraController : MonoBehaviour
     {
         [FormerlySerializedAs("CinemachineCameraTarget")]
@@ -17,7 +18,8 @@ namespace Camera
         [FormerlySerializedAs("BottomClamp")] [Tooltip("How far in degrees can you move the camera down")]
         public float bottomClamp = -30.0f;
 
-        [FormerlySerializedAs("CameraAngleOverride")] [Tooltip("Additional degrees to override the camera. Useful for fine-tuning camera position when locked")]
+        [FormerlySerializedAs("CameraAngleOverride")]
+        [Tooltip("Additional degrees to override the camera. Useful for fine-tuning camera position when locked")]
         public float cameraAngleOverride = 0.0f;
 
         [FormerlySerializedAs("LockCameraPosition")] [Tooltip("For locking the camera position on all axis")]
@@ -89,7 +91,7 @@ namespace Camera
             if (lfAngle < -360f) lfAngle += 360f;
             if (lfAngle > 360f) lfAngle -= 360f;
             return Mathf.Clamp(lfAngle, lfMin, lfMax);
-            
+
         }
     }
-}         
+}

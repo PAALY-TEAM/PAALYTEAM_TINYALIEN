@@ -41,7 +41,7 @@ public class CrayonLost : MonoBehaviour
                 }
             }
         }
-      
+        
         currentScene = SceneManager.GetActiveScene().buildIndex;
         int tempCount = 0;
         // Stops the code if empty

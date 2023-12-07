@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
+    //Code from youtube tutorial, don't know the video link, but it has been modified to fit our project
     public class MouseLook : MonoBehaviour
     {
         public Slider slider;

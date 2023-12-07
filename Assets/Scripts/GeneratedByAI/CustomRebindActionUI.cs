@@ -1,26 +1,38 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 namespace UI
 {
+    /// <summary>
+    ///     This script and RebindInputUI.cs are based on the RebindActionUI.cs script from the Input System Samples.
+    ///     These scripts were mostly written by the JetBrains AI Assistant, for testing purposes.
+    /// 
+    ///     The main reason was that the sample didn’t work straight out of the box in our project, which was probably due to
+    ///     poor understanding of the input system and our somehow incorrect project input handling set-up in Unity.
+    ///     In hindsight, it would have been easier to make a custom solution from scratch with an rebind interface (and then set up the
+    ///     according logic in the PlayerInputCommandHandler.cs) for the already implemented command pattern.
+    /// 
+    ///     This situation was actually a reason for choosing the command pattern (because I read it was an easy solution for making
+    ///     button rebinding possible), so I need to take another look at it.
+    /// </summary>
     public class CustomRebindActionUI : MonoBehaviour
     {
         public InputActionReference actionReference;
         [SerializeField]
         internal string bindingId;
-        
-        
+
+
 
         public Text actionLabel;
-private Text m_ActionLabel
+        private Text m_ActionLabel
         {
             get => actionLabel;
             set => actionLabel = value;
         }
-        
+
         public Text rebindPrompt;
         private Text m_RebindText
         {
@@ -41,7 +53,7 @@ private Text m_ActionLabel
             get => bindingText;
             set => bindingText = value;
         }
-        
+
         public GameObject rebindOverlay;
         private GameObject m_RebindOverlay
         {
@@ -55,14 +67,14 @@ private Text m_ActionLabel
             set => stopRebindEvent = value;
         }
 
-        
-        
+
+
         public UpdateBindingUIEvent updateBindingUIEvent;
-        
+
         private InputActionRebindingExtensions.RebindingOperation m_RebindOperation;
         private int bindingIndex;
-        
-        
+
+
         private void Start()
         {
             StartRebindProcess();
@@ -70,21 +82,21 @@ private Text m_ActionLabel
 
         public void StartRebindProcess()
         {
-            if (!ResolveActionAndBinding(out var action, out var bindingIndex))
+            if (!ResolveActionAndBinding(out InputAction action, out int bindingIndex))
                 return;
 
             // If the binding is a composite, we need to rebind each part in turn.
             if (action.bindings[bindingIndex].isComposite)
             {
-                var firstPartIndex = bindingIndex + 1;
+                int firstPartIndex = bindingIndex + 1;
                 if (firstPartIndex < action.bindings.Count && action.bindings[firstPartIndex].isPartOfComposite)
-                    PerformInteractiveRebind(action, firstPartIndex, allCompositeParts: true);
+                    PerformInteractiveRebind(action, firstPartIndex, true);
             }
             else
             {
                 PerformInteractiveRebind(action, bindingIndex);
             }
-            
+
             m_RebindOperation?.Dispose();
 
             // Check if actionReference or actionReference.action is null
@@ -100,14 +112,14 @@ private Text m_ActionLabel
             // Convert bindingId from string to integer
             // Remove the 'int' keyword to use the class-level 'bindingIndex' variable
             bindingIndex = actionReference.action.bindings.IndexOf(x => x.id.ToString() == bindingId);
-            
+
             // Check if bindingIndex is -1
             if (bindingIndex == -1)
             {
                 Debug.LogError("No binding found with the specified ID");
                 return;
             }
-            
+
             m_RebindOperation = actionReference.action.PerformInteractiveRebinding(bindingIndex)
                 // Wait for the user to press a button before completing the rebind process
                 .OnMatchWaitForAnother(0.1f)
@@ -209,14 +221,14 @@ private Text m_ActionLabel
                         // for the next part.
                         if (allCompositeParts)
                         {
-                            var nextBindingIndex = bindingIndex + 1;
+                            int nextBindingIndex = bindingIndex + 1;
                             if (nextBindingIndex < action.bindings.Count && action.bindings[nextBindingIndex].isPartOfComposite)
                                 PerformInteractiveRebind(action, nextBindingIndex, true);
                         }
                     });
 
             // If it's a part binding, show the name of the part in the UI.
-            var partName = default(string);
+            string partName = default;
             if (action.bindings[bindingIndex].isPartOfComposite)
                 partName = $"Binding '{action.bindings[bindingIndex].name}'. ";
 
@@ -224,7 +236,7 @@ private Text m_ActionLabel
             m_RebindOverlay?.SetActive(true);
             if (m_RebindText != null)
             {
-                var text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
+                string text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
                     ? $"{partName}Waiting for {m_RebindOperation.expectedControlType} input..."
                     : $"{partName}Waiting for input...";
                 m_RebindText.text = text;
@@ -243,17 +255,17 @@ private Text m_ActionLabel
 
         public void UpdateBindingDisplay()
         {
-            var displayString = string.Empty;
-            var deviceLayoutName = default(string);
-            var controlPath = default(string);
+            string displayString = string.Empty;
+            string deviceLayoutName = default;
+            string controlPath = default;
 
             // Get display string from action.
-            var action = actionReference?.action;
+            InputAction action = actionReference?.action;
             if (action != null)
             {
-                var bindingIndex = action.bindings.IndexOf(x => x.id.ToString() == bindingId);
+                int bindingIndex = action.bindings.IndexOf(x => x.id.ToString() == bindingId);
                 if (bindingIndex != -1)
-                    displayString = action.GetBindingDisplayString(bindingIndex, out deviceLayoutName, out controlPath, new InputBinding.DisplayStringOptions());
+                    displayString = action.GetBindingDisplayString(bindingIndex, out deviceLayoutName, out controlPath);
             }
 
             // Set on label (if any).
@@ -263,11 +275,15 @@ private Text m_ActionLabel
             // Give listeners a chance to configure UI in response.
             updateBindingUIEvent?.Invoke(this, displayString, deviceLayoutName, controlPath);
         }
-        
-        [Serializable]
-        public class UpdateBindingUIEvent : UnityEvent<CustomRebindActionUI, string, string, string> { }
 
         [Serializable]
-        public class InteractiveRebindEvent : UnityEvent<CustomRebindActionUI, InputActionRebindingExtensions.RebindingOperation> { }
+        public class UpdateBindingUIEvent : UnityEvent<CustomRebindActionUI, string, string, string>
+        {
+        }
+
+        [Serializable]
+        public class InteractiveRebindEvent : UnityEvent<CustomRebindActionUI, InputActionRebindingExtensions.RebindingOperation>
+        {
+        }
     }
 }

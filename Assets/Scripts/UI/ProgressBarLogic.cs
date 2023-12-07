@@ -6,13 +6,14 @@ using UnityEngine.Serialization;
 
 namespace UI
 {
+    //Based on the MMFeedbackProgressBar from MoreMountains FEEL Asset, but modified to fit our needs with a bit of JetBrains AI Assistant code (that we have modified)
     public class ProgressBarLogic : MonoBehaviour
     {
         private static ItemManager  _itemManager;
         private static bool _isSaved;
 
         [FormerlySerializedAs("_currentValue")] [SerializeField]
-        private float currentValue;  // Field to actually hold the value
+        private float currentValue;
         private static float _maxValue;
         
         // a test button to display in our inspector and let us call the ChangeBarValue method

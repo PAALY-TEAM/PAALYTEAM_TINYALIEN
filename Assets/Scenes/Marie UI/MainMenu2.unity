@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34992278, g: 0.42063016, b: 0.55479693, a: 1}
+  m_IndirectSpecularColor: {r: 0.34992298, g: 0.42063066, b: 0.55479765, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 955615363}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Help
         m_Mode: 1
@@ -483,9 +483,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 955615361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f23a1e3f7388547825e39fde57ff74, type: 3}
+  m_Script: {fileID: 11500000, guid: 84ceae9241bb0eb4e84e45d0fbf4735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 1912061793}
+  settingsButton: {fileID: 1592874045}
+  helpButton: {fileID: 319769539}
+  quitButton: {fileID: 2070317122}
 --- !u!1 &1221541303
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +739,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 955615363}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Settings
         m_Mode: 1
@@ -1010,7 +1014,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 955615363}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
@@ -1260,7 +1264,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 955615363}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
