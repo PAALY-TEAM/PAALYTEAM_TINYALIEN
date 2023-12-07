@@ -515,7 +515,6 @@ Transform:
   - {fileID: 1823613600}
   - {fileID: 1652600291}
   - {fileID: 406858084}
-  - {fileID: 793001733}
   - {fileID: 1542766358}
   m_Father: {fileID: 1121389991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1694,9 +1693,9 @@ MonoBehaviour:
   - {fileID: 1000574424263627393, guid: 3f7b044820bb64049b3a627e7d4bd0aa, type: 3}
   npcImg: {fileID: 21300000, guid: 09a8fd77c0acf3041a4fe5dfa97b4fa3, type: 3}
   npcName:
-  - SpaceShip AI
-  - SpaceShip AI
-  - SpaceShip AI
+  - UFO
+  - UFO
+  - UFO
   cameraFocus: []
   textOnPanel:
   - Good Job!! You have collected so many crayons we are getting close now.
@@ -2968,79 +2967,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1201252936734928718, guid: f0b9321ee71793d48953315c8f47d667, type: 3}
   m_PrefabInstance: {fileID: 367097876}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &793001730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 793001733}
-  - component: {fileID: 793001732}
-  - component: {fileID: 793001731}
-  m_Layer: 3
-  m_Name: Dialogue_3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &793001731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793001730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9843787686713e7489d0fb7d70da1a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &793001732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793001730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24a1464f5240c5842a1d729ae66807f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelPrefab:
-  - {fileID: 1000574424263627393, guid: ef431b6bfb485b04692434aeecd9cfa2, type: 3}
-  - {fileID: 1000574424263627393, guid: d925371ed5f9a9945a0d9fa0f05c17bd, type: 3}
-  - {fileID: 1000574424263627393, guid: 3f7b044820bb64049b3a627e7d4bd0aa, type: 3}
-  npcImg: {fileID: 21300000, guid: 09a8fd77c0acf3041a4fe5dfa97b4fa3, type: 3}
-  npcName:
-  - SpaceShip AI
-  - SpaceShip AI
-  - SpaceShip AI
-  cameraFocus: []
-  textOnPanel:
-  - Congratulations!! You have finshed the game prototype, Thank you for playing
-    through the game and hope that you enjoyed it :D
-  imgOnPanel: []
-  panelsToSpawn: 0
-  tempDisableMovement: {fileID: 793001731}
---- !u!4 &793001733
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793001730}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 87416635}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &810787689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3580694526760034311, guid: 7e238a027226285409c72eaccd816d0b, type: 3}
@@ -4086,12 +4012,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdd5b44e72bb0544b4b2dd83d1109ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numbCrayonsToActivate: 0100000004000000060000000a000000
+  numbCrayonsToActivate: 010000000400000006000000
   dialogueSummoner:
   - {fileID: 1823613599}
   - {fileID: 1652600290}
   - {fileID: 406858083}
-  - {fileID: 793001730}
+  - {fileID: 1542766357}
 --- !u!114 &1121389990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,7 +4039,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 636b70686a734c640a3bda84b43bfe00, type: 2}
   - {fileID: 11400000, guid: a7bdf2fd858938142a2c1bf935419f2d, type: 2}
   - {fileID: 11400000, guid: 3795f0fe2d005e349b5d3ad49c2da4ed, type: 2}
-  maxCrayonOnShip: 12
+  maxCrayonOnShip: 17
   p: 0
 --- !u!4 &1121389991
 Transform:
@@ -4235,7 +4161,7 @@ GameObject:
   - component: {fileID: 1150610563}
   - component: {fileID: 1150610562}
   - component: {fileID: 1150610561}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4288,7 +4214,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -5227,9 +5153,9 @@ MonoBehaviour:
   - {fileID: 1000574424263627393, guid: 3f7b044820bb64049b3a627e7d4bd0aa, type: 3}
   npcImg: {fileID: 21300000, guid: 09a8fd77c0acf3041a4fe5dfa97b4fa3, type: 3}
   npcName:
-  - SpaceShip AI
-  - SpaceShip AI
-  - SpaceShip AI
+  - UFO
+  - UFO
+  - UFO
   cameraFocus: []
   textOnPanel:
   - You should go and find more fuel to .
@@ -5963,7 +5889,8 @@ MonoBehaviour:
   - {fileID: 1000574424263627393, guid: 3f7b044820bb64049b3a627e7d4bd0aa, type: 3}
   npcImg: {fileID: 21300000, guid: 09a8fd77c0acf3041a4fe5dfa97b4fa3, type: 3}
   npcName:
-  - SpaceShip AI
+  - UFO
+  - UFO
   cameraFocus: []
   textOnPanel:
   - Good Job!! You have collected so many crayons.
@@ -6293,9 +6220,9 @@ MonoBehaviour:
   - {fileID: 1000574424263627393, guid: 3f7b044820bb64049b3a627e7d4bd0aa, type: 3}
   npcImg: {fileID: 21300000, guid: 09a8fd77c0acf3041a4fe5dfa97b4fa3, type: 3}
   npcName:
-  - SpaceShip AI
-  - SpaceShip AI
-  - SpaceShip AI
+  - UFO
+  - UFO
+  - UFO
   cameraFocus:
   - {fileID: 2069407161}
   - {fileID: 2069407161}

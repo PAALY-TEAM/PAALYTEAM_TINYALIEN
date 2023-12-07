@@ -54,8 +54,13 @@ public class ItemManagerSaveLogic : MonoBehaviour
             {
                 savedShipStorage[i] = ItemManager.NumbStored[i];
                 //savedVisitedState[i] = _itemManager._isSceneVisited[CurrentScene][i];
+                // Has problems because array is created after this the first time, but the values doesn't matter at this point
+                if (CrayonLost.crayonLost != null)
+                    savedCrayonLost[i] = CrayonLost.crayonLost[CurrentScene][i];
+                else
+                    savedCrayonLost[i] = 0;
                 
-                savedCrayonLost[i] = CrayonLost.crayonLost[CurrentScene][i];
+                
                 
             }
         }
@@ -90,6 +95,13 @@ public class ItemManagerSaveLogic : MonoBehaviour
         _itemManager.MoveAlien(savedPos);
         _itemManager.currentColour = savedCurrentColour;
         _itemManager.ChangeAlienColour(savedCurrentColour);
+        if (SceneManager.GetActiveScene().buildIndex == _itemManager.gameScene)
+        {
+            SceneManager.LoadScene(_itemManager.copyScene);
+            return;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+       
     }
 }

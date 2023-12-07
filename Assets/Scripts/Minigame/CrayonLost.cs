@@ -22,7 +22,7 @@ public class CrayonLost : MonoBehaviour
 
     private static int id;
 
-    private void Awake()
+    private void Start()
     {
         if (crayonLost == null)
         {
@@ -39,6 +39,7 @@ public class CrayonLost : MonoBehaviour
                     // Sets all values to 0
                     crayonLost[i][j] = 0;
                 }
+                
             }
         }
         
@@ -82,14 +83,12 @@ public class CrayonLost : MonoBehaviour
         crayonLost[currentScene][colourIndex]++;
         
     }
-    
     //Is called by crayon when picked up
     public void RemoveLostCrayon(int colourIndex)
     {
         //Removes one crayon of colour
         crayonLost[currentScene][colourIndex]--;
     }
-
     private void SpawnCrayon(int colourIndex, int numbPlace)
     {
         var crayon = Instantiate(stolenCrayon[colourIndex], spawnLocations[currentScene][numbPlace], Quaternion.identity);

@@ -13,7 +13,8 @@ namespace Pickup.Shade
         [SerializeField] private ColourHolder.Shade[] shadeType;
         [Header("If the object needs an unique material put that here")]
         [SerializeField] private Material[] uniqueMaterial;
-
+        
+        
         private Material[] changeTo;
         private Renderer rend;
 

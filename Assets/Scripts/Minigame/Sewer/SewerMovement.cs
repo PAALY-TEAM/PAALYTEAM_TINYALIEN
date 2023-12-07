@@ -5,8 +5,8 @@ using UnityEngine.Serialization;
 
 public class SewerMovement : MonoBehaviour
 {
-    float _lowestPoint = 1f;
-    float _lavaHeight;
+    float _lowestPoint;
+    float _sewerHeight;
     bool _raiseLowerToggle = true;
     [SerializeField] float sewerSpeed = 0.2f;
     [SerializeField] GameObject sewerHeightObject;
@@ -15,21 +15,22 @@ public class SewerMovement : MonoBehaviour
 
     void Start()
     {
-        //Finds Y difference between Lava and lavaHeightObject to find nummber to scale lava to
-        _lavaHeight = (sewerHeightObject.transform.position.y - transform.position.y);
-        Debug.Log(_lavaHeight);
+        //Finds Y difference between sewer and sewerHeightObject to find nummber to scale sewer to
+        _sewerHeight = (sewerHeightObject.transform.position.y - transform.position.y);
+        _lowestPoint = transform.localScale.y;
+        Debug.Log(_sewerHeight);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // If lava is at top point lower
-        if (transform.localScale.y >= _lavaHeight)
+        // If sewer is at top point lower
+        if (transform.localScale.y >= _sewerHeight)
         {
             _raiseLowerToggle = false;
         }
-        //If lava is at bot raise
+        //If sewer is at bot raise
         if (transform.localScale.y <= _lowestPoint)
         {
             _raiseLowerToggle = true;
@@ -40,26 +41,29 @@ public class SewerMovement : MonoBehaviour
 
     }
 
+    [SerializeField] private Transform[] crayonSpawns;
 
-    // Die on hit with lava
+    [SerializeField] private Transform playerSpawn;
+    
+    // Lose on hit with sewer
     private void OnTriggerEnter(Collider other)
 
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Dead");
+            other.GetComponent<LoseGame>().Lose(crayonSpawns, playerSpawn.position);
         }
 
     }
 
     void RaiseLower()
     {
-        //Raises the lava
-        if (transform.localScale.y < _lavaHeight && _raiseLowerToggle)
+        //Raises the sewer
+        if (transform.localScale.y < _sewerHeight && _raiseLowerToggle)
         {
             transform.localScale += new Vector3(0, sewerSpeed * Time.deltaTime, 0);
         }
-        //Lowers the lava
+        //Lowers the sewer
         if (!_raiseLowerToggle)
         {
             transform.localScale -= new Vector3(0, sewerSpeed * Time.deltaTime, 0);

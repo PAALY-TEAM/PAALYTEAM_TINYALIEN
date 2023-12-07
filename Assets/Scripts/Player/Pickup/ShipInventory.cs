@@ -76,15 +76,11 @@ namespace Pickup
 
         private void Win()
         {
-            Cursor.visible = true;
-            for (int i = 0; i < ItemManager.NumbStored.Length; i++)
-            {
-                ItemManager.NumbStored[i] = 0;
-            }
-
+            
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("GameCompletion");
+            Destroy(GameObject.FindWithTag("Persist"));
+            SceneManager.LoadScene("02_GameCompletion");
         }
     }
 }

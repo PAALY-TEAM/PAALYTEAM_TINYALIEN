@@ -36,14 +36,14 @@ EditorBuildSettings:
     path: Assets/Scenes/02BuildScenes/02_City.unity
     guid: d0340c2bded3959429223b14d0bd58a8
   - enabled: 1
-    path: Assets/Scenes/02BuildScenes/02_GameCompletion.unity
-    guid: edede299592e68747afa5b27856af3e9
-  - enabled: 1
-    path: Assets/Scenes/Minigames/02_HoleInWall.unity
+    path: Assets/Scenes/02BuildScenes/02_HoleInWall.unity
     guid: f1391c366b952184e959029c168e9887
   - enabled: 1
-    path: Assets/Scenes/Minigames/02_Sewer.unity
+    path: Assets/Scenes/02BuildScenes/02_Sewer.unity
     guid: 553b364003ddce14984ca01bc8fa043a
+  - enabled: 1
+    path: Assets/Scenes/02BuildScenes/02_GameCompletion.unity
+    guid: edede299592e68747afa5b27856af3e9
   m_configObjects:
     addressableimportsettingslist: {fileID: 11400000, guid: 6746745c40024b0469c4d91aa310d121, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 98f6ab9ca0309ba46a5b2b2b47c57a3f, type: 2}

@@ -34,8 +34,6 @@ namespace Pickup.Player
         //The ID of the alien current colour
         [HideInInspector]
         public int currentColour = 0;
-        //Objects that player needs information from (pos, scripts etc.)
-        private GameObject _spaceShip;
         //To save the trigger (other) GameObject
         private GameObject _otherObject;
         //The player is in range to interact with NPC
@@ -60,11 +58,10 @@ namespace Pickup.Player
         // Later removed because we didn't want that feature anymore and made
         // public bool[][] _isSceneVisited;
         [Header("Build indexes of first scene the player starts in and copy of that scene")]
-        [SerializeField] private int gameScene;
-        [SerializeField] private int copyScene;
+        public int gameScene;
+        public int copyScene;
         private static bool _copySceneLoaded = false;
         
-        private static bool _gameStarted = false;
         private IColourChange _colourChange01Implementation;
         private CrayonCounter _crayonCounter;
         private RespawnTrigger _respawnTrigger;
@@ -83,7 +80,6 @@ namespace Pickup.Player
         private void OnDestroy()
         {
             _copySceneLoaded = false;
-            _gameStarted = false;
         }
 
         private void Awake()
@@ -92,15 +88,11 @@ namespace Pickup.Player
             Cursor.lockState = CursorLockMode.Confined;
 
             txt = new GameObject[lengthOfTxtArray];
-            if (!_gameStarted)
-            {
+            
                 //Set all numbers of objects to 0
-                //Later not make all values 0 so that the player are able to bring between world if needed
                 NumbCarried = new int[txt.Length];
                 NumbStored = new int[NumbCarried.Length - 1];
-                
-                _gameStarted = true;
-            }
+            
             
             //Defining the length of the 2D array
             var sceneCount = SceneManager.sceneCountInBuildSettings;
@@ -155,30 +147,28 @@ namespace Pickup.Player
             _terrainToChangeColour = new GameObject[tempTerrainHolder.Length];
             for(int i = 0; i < tempTerrainHolder.Length; i++) 
                 _terrainToChangeColour[i] = tempTerrainHolder[i].gameObject;
-            //Goes through all the colours that can be picked up
             
-                //Find GameObjects that has EnviromentShade Script
-                //Save those objects in Array
-                
-                _objectsToChangeColour = FindObjectsByType<EnviromentShade>(FindObjectsSortMode.None);
-                
-                foreach (var go in _objectsToChangeColour)
+            //Find GameObjects that has EnviromentShade Script
+            //Save those objects in Array
+            
+            _objectsToChangeColour = FindObjectsByType<EnviromentShade>(FindObjectsSortMode.None);
+            
+            foreach (var go in _objectsToChangeColour)
+            {
+                go.GetComponent<EnviromentShade>().ColourStart();
+            }
+
+            for (int i = 0; i < nameOfTags.Length; i++)
+            {
+                //Checks bool if colour been picked up in scene previously to colour the surroundings
+                if ( /*_isSceneVisited[_currentScene][i] || */NumbCarried[i] > 0 || NumbStored[i] > 0)
                 {
-                    go.GetComponent<EnviromentShade>().ColourStart();
+                    ChangeColourOfEnvironment(i + 1);
                 }
-
-                for (int i = 0; i < nameOfTags.Length; i++)
-                {
-                    //Checks bool if colour been picked up in scene previously to colour the surroundings
-                    if ( /*_isSceneVisited[_currentScene][i] || */NumbCarried[i] > 0 || NumbStored[i] > 0)
-                    {
-                        ChangeColourOfEnvironment(i + 1);
-                    }
-                }
+            }
 
 
-                _showColour.ChangeIcon(currentColour);
-            _spaceShip = GameObject.Find("SpaceShip");
+            _showColour.ChangeIcon(currentColour);
             _cameraFocus.transform.localPosition = _cameraFocusPos;
             hintText.SetActive(false);
             UpdateValues();
@@ -208,6 +198,7 @@ namespace Pickup.Player
         }
         private void OnTriggerEnter(Collider other)
         {
+            print("Triggered");
             _otherObject = other.gameObject;
             //When crayon is picked up
             if (_otherObject.CompareTag(nameof(Crayon)))
