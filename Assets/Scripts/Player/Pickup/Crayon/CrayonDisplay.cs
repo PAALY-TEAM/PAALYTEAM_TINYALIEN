@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using UnityEngine;
 
@@ -14,9 +15,10 @@ namespace Pickup.Crayon
 
         private CrayonLost _crayonLost;
 
+        [SerializeField] private MMFeedbacks pickupFeedback;
+
         private void Start()
         {
-            
             _rend = GetComponent<Renderer>();
             _rend.enabled = true;
 
@@ -25,8 +27,8 @@ namespace Pickup.Crayon
 
             if (GameObject.Find("CrayonLost"))
                 _crayonLost = GameObject.Find("CrayonLost").GetComponent<CrayonLost>();
-            
         }
+
         void Update()
         {
             if (isSpinning)
@@ -35,6 +37,8 @@ namespace Pickup.Crayon
 
         public void PickedUp()
         {
+            pickupFeedback?.PlayFeedbacks();
+
             if (!GameObject.Find("CrayonLost")) return;
             if (wasStolen)
             {
