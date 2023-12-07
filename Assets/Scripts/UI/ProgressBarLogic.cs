@@ -21,7 +21,6 @@ namespace UI
         //
         [Header("Assign MMFeedback progress bar")] 
         [SerializeField] private MMProgressBar progressBar;
-        [SerializeField] private MMProgressBar progressCircle;
         //
         private GameObject _spaceShip;
         private ShipInventory _shipInventory;
@@ -30,7 +29,6 @@ namespace UI
         void ChangeBarValue()
         {
             progressBar.UpdateBar(CurrentValue, 0f, MaxValue);
-            //progressCircle.UpdateBar(CurrentValue, 0f, MaxValue);
         }
     
         private void Awake()
@@ -60,9 +58,7 @@ namespace UI
 
         private void OnCrayonPickedUp()
         {
-            CurrentValue = _itemManager.CrayonProgress;
-            // Ensures that the UI gets updated as soon as a crayon gets picked up
-            ChangeBarValue(); 
+            progressBar.UpdateBar(_itemManager.CrayonProgress, 0f, MaxValue);
         }
 
         #region Logic for seting the max value as the same as number of crayons allowed on the ship
