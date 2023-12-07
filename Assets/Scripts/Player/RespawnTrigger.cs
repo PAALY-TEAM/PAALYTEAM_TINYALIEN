@@ -10,6 +10,7 @@ public class RespawnTrigger : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
 
     private RotateHeadToMovement2 _rotateHeadToMovement2;
+    private ShiftKeyHandler _shiftKeyHandler;
 
     private GameObject _player;
     private GameObject _hint;
@@ -44,6 +45,17 @@ public class RespawnTrigger : MonoBehaviour
 
         _hint.SetActive(false);
         _player.SetActive(true);
+
+        GameObject body = GameObject.FindGameObjectWithTag("SprintBody");
+        if (body != null)
+        {
+            ShiftKeyHandler shiftKeyHandler = body.GetComponent<ShiftKeyHandler>();
+            if (shiftKeyHandler != null)
+            {
+                shiftKeyHandler.AssignBodies();
+                shiftKeyHandler.ResetHandler();
+            }
+        }
         IsRespawning = false;
     }
 }

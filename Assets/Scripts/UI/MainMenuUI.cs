@@ -3,32 +3,48 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    //very first based on CodeMonkey kitchen chaos tutorial
-    //then rewritten to suit logic from the MarieUI script
     public sealed class MainMenuUI : MonoBehaviour {
-        
+
         [SerializeField] private Button playButton;
         [SerializeField] private Button settingsButton;
         [SerializeField] private Button helpButton;
         [SerializeField] private Button quitButton;
         
+        [SerializeField] private GameObject settingsPanel;
+        [SerializeField] private GameObject helpPanel;
+
         private void Awake() {
             playButton.onClick.AddListener(() => {
                 Loader.Load(Loader.Scene.GameScene);
             });
-            settingsButton.onClick.AddListener(() => {
-                Loader.Load(Loader.Scene.Settings);
-            });
-            helpButton.onClick.AddListener(() => {
-                Loader.Load(Loader.Scene.HelpScene);
-            });
+            settingsButton.onClick.AddListener(OpenSettings);
+            helpButton.onClick.AddListener(OpenHelp);
             quitButton.onClick.AddListener(Quit);
 
-            //ensure that the game returns to normal speed when the main menu is loaded
             Time.timeScale = 1f;
         }
-        //copy-pasted from Feel MMApplicationQuit.cs
-        private void Quit()
+
+        private void OpenSettings()
+        {
+            settingsPanel.SetActive(true);
+        }
+
+        private void OpenHelp()
+        {
+            helpPanel.SetActive(true);
+        }
+
+        public void CloseSettings()
+        {
+            settingsPanel.SetActive(false);
+        }
+
+        public void CloseHelp() 
+        {
+            helpPanel.SetActive(false);
+        }
+
+        private static void Quit()
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

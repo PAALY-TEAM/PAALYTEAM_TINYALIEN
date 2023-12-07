@@ -17,6 +17,10 @@ TagManager:
   - ColourHolder
   - Blue
   - Persist
+  - Red
+  - Body
+  - SprintBody
+  - WalkBody
   layers:
   - Default
   - TransparentFX
