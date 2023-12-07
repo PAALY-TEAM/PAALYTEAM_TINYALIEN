@@ -64,17 +64,14 @@ namespace UI
         #region Logic for seting the max value as the same as number of crayons allowed on the ship
         public float MaxValue
         {
-            get { return _maxValue; }
+            get => _maxValue;
             set { _maxValue = value; currentValue = Mathf.Clamp(currentValue, 0, _maxValue); }
         }
         //making sure that the number of picked up crayons dont exceed the max
         public float CurrentValue 
         {
-            get { return currentValue; }
-            set
-            {
-                currentValue = Mathf.Clamp(value, 0, _maxValue);
-            }
+            get => currentValue;
+            set => currentValue = Mathf.Clamp(value, 0, _maxValue);
         }
         #endregion
 
