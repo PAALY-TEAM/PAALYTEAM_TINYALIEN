@@ -11,7 +11,7 @@ public class SpaceShipRay : MonoBehaviour, IPlayerInteract
     {
         //For future coding if we want visible display of crayons to have a origin position to the crayons
         var shipScript = GameObject.FindGameObjectWithTag("SpaceShip").GetComponent<ShipInventory>();
-        var textScript = GameObject.FindGameObjectWithTag("SpaceShip").GetComponent<WhenCollectedCrayons>();
+        
         var ims = GameObject.Find("MenuController").GetComponent<ItemManagerSaveLogic>();
         var itemManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ItemManager>();
         //Adding the crayons to ship
@@ -25,7 +25,7 @@ public class SpaceShipRay : MonoBehaviour, IPlayerInteract
             }
         }
         shipScript.Display();
-        textScript.CheckIfEnough();
+        
         itemManager.ChangeAlienColour(0);
         itemManager.currentColour = 0;
         

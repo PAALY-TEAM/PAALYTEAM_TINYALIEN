@@ -36,7 +36,6 @@ namespace Pickup
         
             //Get radius of rotation so that it is easier when placing crayons in ship aka. automatic rather than manual
             //Using the Max number of crayon in level to calculate space
-        
             float radiusToRotate = 360 / (maxCrayonOnShip);
             float radianToRotate = radiusToRotate * Mathf.Deg2Rad;
 
@@ -71,7 +70,10 @@ namespace Pickup
             
             //Checks if playerColor has stored the right amount of crayon in the ship
             if (p >= maxCrayonOnShip)
-            {Win();}
+            {Win(); return;}
+            // If not enough to win will check if dialogue are available
+            var textScript = GameObject.FindGameObjectWithTag("SpaceShip").GetComponent<WhenCollectedCrayons>();
+            textScript.CheckIfEnough();
         }
 
         private void Win()
