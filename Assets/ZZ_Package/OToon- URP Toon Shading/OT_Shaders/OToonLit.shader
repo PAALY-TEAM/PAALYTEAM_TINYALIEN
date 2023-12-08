@@ -322,7 +322,6 @@ Shader "URP/OToonLit"
             #pragma target 2.0
 
             #pragma vertex UniversalVertexMeta
-            #pragma fragment UniversalFragmentMeta
 
             #pragma shader_feature_local_fragment _SPECULAR_SETUP
             #pragma shader_feature_local_fragment _EMISSION
@@ -334,8 +333,11 @@ Shader "URP/OToonLit"
             #pragma shader_feature_local_fragment _SPECGLOSSMAP
 
             #include "Library/OToonLitInput.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/LitMetaPass.hlsl"
 
+            
             ENDHLSL
 
         }

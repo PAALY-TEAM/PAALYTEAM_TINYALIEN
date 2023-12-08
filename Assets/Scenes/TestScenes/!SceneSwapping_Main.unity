@@ -204,9 +204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &898971561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6301725606872629721, guid: 51d1eb6b4f266734f840e462314d571a, type: 3}
@@ -956,7 +957,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 7145115068931741677}
-  _currentPage: 0
 --- !u!4 &5934062135112136393
 Transform:
   m_ObjectHideFlags: 0

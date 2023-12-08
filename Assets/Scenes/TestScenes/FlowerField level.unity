@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18682,8 +18682,8 @@ MonoBehaviour:
   playerInputSpace: {fileID: 1056662834}
   mainAlienBody: {fileID: 1561274978}
   maxClimbSpeed: 4
-  maxRollingSpeed: 8
-  maxFloatingSpeed: 12
+  maxWalkingSpeed: 8
+  maxSprintingSpeed: 12
   maxAcceleration: 22.4
   maxAirAcceleration: 26
   maxClimbAcceleration: 40
@@ -35000,8 +35000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprintFeedback: {fileID: 0}
-  mainBodyTarget: {fileID: 0}
-  secondTarget: {fileID: 1062623021}
+  walkBody: {fileID: 0}
+  sprintBody: {fileID: 0}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 1, y: 1, z: 1}
   pressDuration: 0.26
@@ -49105,7 +49105,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4ab1191210ec0c048b049502f8abb547, type: 3}
   panelsToSpawn: 01011
   tempDisableMovement: {fileID: 1419400583974504659}
-  _currentPage: 0
 --- !u!33 &8052609335340526032
 MeshFilter:
   m_ObjectHideFlags: 0

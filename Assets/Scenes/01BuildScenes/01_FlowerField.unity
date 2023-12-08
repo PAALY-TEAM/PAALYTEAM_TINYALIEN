@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -241,9 +241,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &52786118
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,9 +363,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!43 &58997829
 Mesh:
   m_ObjectHideFlags: 0
@@ -648,9 +650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &134370044
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,9 +750,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 2
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &219644670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -942,9 +946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &234446405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,9 +1068,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &294503420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1258,9 +1264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &385666757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,9 +1386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &398298641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,9 +1508,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &405786945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,9 +1630,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &421114616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,9 +1752,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &488488744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,9 +2131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &620050773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,9 +2371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &683770997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,9 +2493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &694000117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,9 +2615,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &705287912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2880,9 +2895,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 5
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &767535938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3083,9 +3099,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &805887569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,9 +3280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &824668780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,9 +3402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &842666563
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,9 +3524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &881556390
 GameObject:
   m_ObjectHideFlags: 0
@@ -3613,9 +3633,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94c564968cee994a849bcec592fc1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectingColour: 030000000600000000000000
+  affectingColourGround: 
   startIndex: 000000000100000002000000
   endIndex: 030000000400000005000000
+  affectingColourGrass: 
 --- !u!1 &889731832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,9 +3980,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &934847942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4263,9 +4285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &998925949
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,9 +4407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1001256866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4748,9 +4772,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1093126447
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,9 +4894,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1123721178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5187,9 +5213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1206998332
 GameObject:
   m_ObjectHideFlags: 0
@@ -5286,9 +5313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 2
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1228184442
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,9 +5435,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1230340031
 GameObject:
   m_ObjectHideFlags: 0
@@ -5672,9 +5701,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1268200142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5793,9 +5823,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1274864208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6011,9 +6042,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1356990832
 GameObject:
   m_ObjectHideFlags: 0
@@ -6132,9 +6164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1359913684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6284,9 +6317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1409842465
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,9 +6684,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1428953407
 GameObject:
   m_ObjectHideFlags: 0
@@ -6807,9 +6842,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1495963468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7253,9 +7289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 5
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1732704102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7374,9 +7411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1767952450
 GameObject:
   m_ObjectHideFlags: 0
@@ -7706,9 +7744,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 4
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1800658994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7945,9 +7984,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1986800470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8140,9 +8180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &2067960465
 GameObject:
   m_ObjectHideFlags: 0
@@ -8239,9 +8280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &2077679365
 GameObject:
   m_ObjectHideFlags: 0
@@ -8360,9 +8402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &2086477939
 GameObject:
   m_ObjectHideFlags: 0
@@ -8481,9 +8524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &2102912222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8643,9 +8687,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &2130464654
 GameObject:
   m_ObjectHideFlags: 0
@@ -8764,9 +8809,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &458265518105664509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9302,9 +9348,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &1843277648500314167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9317,9 +9364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400553010335719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9332,9 +9380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400553265292227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9347,9 +9396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400553385780107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9362,9 +9412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400553452314266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9377,9 +9428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400553811943673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9392,9 +9444,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400554102227613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9407,9 +9460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400554124190007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9422,9 +9476,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400554339116379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9437,9 +9492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400554469438947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9452,9 +9508,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &2043400554902622803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9467,9 +9524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &2072228811590509958
 GameObject:
   m_ObjectHideFlags: 0
@@ -10226,9 +10284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750238788771060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10241,9 +10300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750238962306441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10256,9 +10316,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 1
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750238975795629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10271,9 +10332,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750239519662743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10286,9 +10348,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750239667484557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10301,9 +10364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 0
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750239995945817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10316,9 +10380,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 1
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750240017891571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10331,9 +10396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 1
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750240049456949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10346,9 +10412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &3550750240308023357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10361,9 +10428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!23 &3570209906791415039
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10946,9 +11014,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!114 &4084558937576945520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10961,9 +11030,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!33 &4103612979177020910
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11370,9 +11440,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 0
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!4 &5251157309003518013
 Transform:
   m_ObjectHideFlags: 0

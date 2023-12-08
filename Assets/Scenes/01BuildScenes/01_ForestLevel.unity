@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1577,9 +1577,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &64144970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3471,9 +3472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &131742390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3896,9 +3898,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!4 &144681302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5596088912413895478, guid: 651e32afd03f0244f8148e45e6853d6f, type: 3}
@@ -4653,9 +4656,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &173098644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14800,9 +14804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &675610263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19453,9 +19458,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!4 &853114564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2728322125221783516, guid: 5212142792dbb254cac0ee5d63fba862, type: 3}
@@ -21841,9 +21847,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!4 &964800936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5596088912413895478, guid: 651e32afd03f0244f8148e45e6853d6f, type: 3}
@@ -22146,9 +22153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &970858552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27462,9 +27470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!4 &1240916108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5596088912413895478, guid: 651e32afd03f0244f8148e45e6853d6f, type: 3}
@@ -29300,9 +29309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1 &1339678137
 GameObject:
   m_ObjectHideFlags: 0
@@ -31109,9 +31119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1428627162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35997,9 +36008,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!4 &1613531048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5596088912413895478, guid: 651e32afd03f0244f8148e45e6853d6f, type: 3}
@@ -36383,9 +36395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1628417567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37275,9 +37288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1683192675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40793,9 +40807,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 3
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &1842344706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45632,9 +45647,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c217fe16eab5544ebfb11333654e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colourToBe: 6
-  shadeType: 3
-  uniqueMaterial: {fileID: 0}
+  elementToColour: 
+  colourToBe: 
+  shadeType: 
+  uniqueMaterial: []
 --- !u!1001 &2064303644
 PrefabInstance:
   m_ObjectHideFlags: 0
