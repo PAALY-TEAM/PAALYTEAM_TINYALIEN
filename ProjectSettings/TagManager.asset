@@ -17,7 +17,6 @@ TagManager:
   - ColourHolder
   - Blue
   - Persist
-  - Red
   - Body
   - SprintBody
   - WalkBody

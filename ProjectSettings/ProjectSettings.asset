@@ -136,7 +136,6 @@ PlayerSettings:
   bundleVersion: 1
   preloadedAssets:
   - {fileID: 102900000, guid: 12eb67d9f66494d40af4cdcb2518a4a7, type: 3}
-  - {fileID: 11400000, guid: fff6b1f38b88d34449ae3cdc378efa0a, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -761,7 +760,7 @@ PlayerSettings:
     Stadia: UNITY_POST_PROCESSING_STACK_V2
     Standalone: UNITY_POST_PROCESSING_STACK_V2;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_VALIDATOR;ODIN_VALIDATOR_3_1
     VisionOS: UNITY_POST_PROCESSING_STACK_V2
-    WebGL: UNITY_POST_PROCESSING_STACK_V2
+    WebGL: UNITY_POST_PROCESSING_STACK_V2;ODIN_VALIDATOR;ODIN_VALIDATOR_3_1;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1
     XboxOne: UNITY_POST_PROCESSING_STACK_V2
     tvOS: UNITY_POST_PROCESSING_STACK_V2
   additionalCompilerArguments:

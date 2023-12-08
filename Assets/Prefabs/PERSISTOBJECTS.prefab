@@ -8538,7 +8538,7 @@ GameObject:
   - component: {fileID: 3295425044115928369}
   m_Layer: 0
   m_Name: PERSISTOBJECTS
-  m_TagString: Untagged
+  m_TagString: Persist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
