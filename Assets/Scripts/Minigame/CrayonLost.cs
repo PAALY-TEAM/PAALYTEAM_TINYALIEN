@@ -18,7 +18,6 @@ public class CrayonLost : MonoBehaviour
     // Counts how many crayons stolen for placement
     private int stolenCounter;
     
-    private int currentScene;
 
     private static int id;
 
@@ -39,11 +38,13 @@ public class CrayonLost : MonoBehaviour
                     // Sets all values to 0
                     crayonLost[i][j] = 0;
                 }
-                
             }
         }
-        
-        currentScene = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public void SpawnLostCrayon()
+    { 
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
         int tempCount = 0;
         // Stops the code if empty
         if (crayonLost[currentScene]==null) return;
@@ -68,6 +69,7 @@ public class CrayonLost : MonoBehaviour
     //When player loses crayon to guards e.g.
     public void AddLostCrayon(int colourIndex, Vector3[] positions)
     {
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
         // Checks if the value is null and Add the Positions the crayons can spawn if so
         if (spawnLocations[currentScene] == null) spawnLocations[currentScene] = positions;
 
@@ -86,11 +88,13 @@ public class CrayonLost : MonoBehaviour
     //Is called by crayon when picked up
     public void RemoveLostCrayon(int colourIndex)
     {
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
         //Removes one crayon of colour
         crayonLost[currentScene][colourIndex]--;
     }
     private void SpawnCrayon(int colourIndex, int numbPlace)
     {
+        var currentScene = SceneManager.GetActiveScene().buildIndex;
         var crayon = Instantiate(stolenCrayon[colourIndex], spawnLocations[currentScene][numbPlace], Quaternion.identity);
         crayon.GetComponent<CrayonDisplay>().wasStolen = true;
         crayon.transform.parent = GameObject.Find("CrayonHolder").transform;

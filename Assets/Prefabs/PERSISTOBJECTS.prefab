@@ -4151,8 +4151,8 @@ MonoBehaviour:
   - Orange
   - Purple
   - Brown
-  gameScene: 4
-  copyScene: 5
+  gameScene: 2
+  copyScene: 3
   menuOpen: 0
 --- !u!114 &6294630557187288233
 MonoBehaviour:
@@ -12362,7 +12362,6 @@ GameObject:
   - component: {fileID: 1791119569796547065}
   - component: {fileID: 7510543925227478259}
   - component: {fileID: 1085901669078047554}
-  - component: {fileID: 3503027455896568653}
   - component: {fileID: 5447262750900141606}
   - component: {fileID: 3161002423562445161}
   m_Layer: 5
@@ -12432,33 +12431,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3503027455896568653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7104480128461242171}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee119044c56f7544a8af3b31795138a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionReference: {fileID: -1327295603076114996, guid: e1d154026bfef1245a42c65bab3c62d6, type: 3}
-  bindingId: Up Arrow
-  actionLabel: {fileID: 6601797758584276556}
-  rebindPrompt: {fileID: 4353637655990709708}
-  startRebindEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  bindingText: {fileID: 741595441429810049}
-  rebindOverlay: {fileID: 3665421708616655935}
-  stopRebindEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  updateBindingUIEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &5447262750900141606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12957,7 +12929,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3503027455896568653}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UI.CustomRebindActionUI, Assembly-CSharp
         m_MethodName: StartRebindProcess
         m_Mode: 1
@@ -13367,7 +13339,6 @@ MonoBehaviour:
   currentValue: 0
   changeBarValueBtn: 0
   progressBar: {fileID: 1183222607407985359}
-  progressCircle: {fileID: 0}
 --- !u!1 &7638065075740919360
 GameObject:
   m_ObjectHideFlags: 0

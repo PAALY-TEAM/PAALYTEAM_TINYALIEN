@@ -64,6 +64,7 @@ namespace Pickup.Player
         
         private IColourChange _colourChange01Implementation;
         private CrayonCounter _crayonCounter;
+        private CrayonLost _crayonLost;
         private RespawnTrigger _respawnTrigger;
         //Both are pauseMenus
         private PauseMenu _pauseMenu;
@@ -110,6 +111,7 @@ namespace Pickup.Player
 
 
             _crayonCounter = GameObject.Find("CrayonCounter").GetComponent<CrayonCounter>();
+            _crayonLost = GameObject.Find("CrayonCounter").GetComponent<CrayonLost>();
             _showColour = GameObject.Find("ShowColour").GetComponent<ShowColour>();
             _respawnTrigger = GameObject.Find("RespawnTrigger").GetComponent<RespawnTrigger>();
             _IMSLogic = GameObject.Find("MenuController").GetComponent<ItemManagerSaveLogic>();
@@ -175,7 +177,8 @@ namespace Pickup.Player
 
             var point = GameObject.FindWithTag("RespawnPoint");
             _respawnTrigger.FindNewPoint(point);
-            
+
+            _crayonLost.SpawnLostCrayon();
             _crayonCounter.CrayonCheckup();
             
         }
@@ -198,7 +201,6 @@ namespace Pickup.Player
         }
         private void OnTriggerEnter(Collider other)
         {
-            print("Triggered");
             _otherObject = other.gameObject;
             //When crayon is picked up
             if (_otherObject.CompareTag(nameof(Crayon)))

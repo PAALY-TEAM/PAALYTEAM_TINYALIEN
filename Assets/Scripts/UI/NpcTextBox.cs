@@ -52,7 +52,7 @@ namespace UI
             
             
             // Time player so they doesn't skip first dialogue when first interacting
-            Invoke(nameof(WaitAfterPanel), .5f);
+            Invoke(nameof(WaitAfterPanel), .2f);
             
             //Finds Camera In Scene so that it can swap focus during scenes  
             _cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();

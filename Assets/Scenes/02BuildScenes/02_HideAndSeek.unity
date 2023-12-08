@@ -12993,58 +12993,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 652313743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &512345068
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 512345069}
-  - component: {fileID: 512345070}
-  m_Layer: 0
-  m_Name: CrayonLost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &512345069
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512345068}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1587437509}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &512345070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512345068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66294d1a56e39004496db77627e80de2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stolenCrayon:
-  - {fileID: 4612321551521150637, guid: 70f479c84a20aa943a053cf8876cf35d, type: 3}
-  - {fileID: 4612321551521150637, guid: 880f4b22157e9b14a9c075bfe64d9b4e, type: 3}
-  - {fileID: 4612321551521150637, guid: d1986294384d31a47a6c96a1b23b1c28, type: 3}
-  - {fileID: 4612321551521150637, guid: 715a19c712e4560499bac5aa822964a4, type: 3}
-  - {fileID: 4612321551521150637, guid: 2b706f065153062408d3e1d1db01590d, type: 3}
-  - {fileID: 4612321551521150637, guid: abb0fc53ad938f94ab24341d24fd41ee, type: 3}
-  - {fileID: 4612321551521150637, guid: c37a95ceea1c1194093f34e9ca2945f7, type: 3}
 --- !u!1 &519827037
 GameObject:
   m_ObjectHideFlags: 0
@@ -93181,7 +93129,6 @@ Transform:
   - {fileID: 1024518456}
   - {fileID: 519828488}
   - {fileID: 960997518}
-  - {fileID: 512345069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1601943414
